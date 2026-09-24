@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { REAL, utilityModels } from "@/content/site";
 import { href, type Lang } from "@/lib/i18n";
+import ResearchResults, { IBEX_DATASET_URL } from "@/components/ResearchResults";
 import { seo } from "@/lib/seo";
 import { Button, Check, CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
 
@@ -112,6 +113,13 @@ export default async function KnowHowPage({ params }: P) {
             </a>
           </Reveal>
         </div>
+        <div className="mt-14">
+          <Reveal>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Измерен ефект" : "Measured effect"}</p>
+            <h3 className="text-2xl font-extrabold sm:text-3xl">{bg ? "Собствените ни алгоритми + батерия Suntech" : "Our own algorithms + a Suntech battery"}</h3>
+          </Reveal>
+          <div className="mt-6"><ResearchResults lang={lang} dark /></div>
+        </div>
       </Section>
 
       {/* Science & utility models */}
@@ -136,12 +144,19 @@ export default async function KnowHowPage({ params }: P) {
               {[
                 { n: "4", t: bg ? "регистрирани полезни модела" : "registered utility models" },
                 { n: "IEEE", t: bg ? "научни публикации в IEEE Xplore" : "publications in IEEE Xplore" },
+                { n: "GitHub", t: bg ? "отворени данни и код от изследванията" : "open data and code from the research", href: IBEX_DATASET_URL },
                 { n: bg ? "ТУ-София" : "TU Sofia", t: bg ? "дисциплина „Интелигентни мрежи и системи за ВЕИ“" : "course: Smart Grids and Systems for Renewables" },
                 { n: "30+", t: bg ? "години в технологиите и енергетиката" : "years in technology and energy" },
               ].map((k) => (
                 <div key={k.t} className="rounded-2xl border border-line p-6">
                   <p className="text-3xl font-extrabold text-brand">{k.n}</p>
-                  <p className="mt-1 text-muted">{k.t}</p>
+                  <p className="mt-1 text-muted">
+                    {"href" in k && k.href ? (
+                      <a href={k.href} target="_blank" rel="noopener" className="font-bold text-brand hover:underline">{k.t} ↗</a>
+                    ) : (
+                      k.t
+                    )}
+                  </p>
                 </div>
               ))}
             </div>

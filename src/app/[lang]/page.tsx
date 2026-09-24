@@ -3,6 +3,7 @@ import Link from "next/link";
 import { news, products, projects, REAL, services, solutions, ui } from "@/content/site";
 import ProjectCard from "@/components/ProjectCard";
 import StrelaModel from "@/components/StrelaModel";
+import ResearchResults from "@/components/ResearchResults";
 import { href, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { Button, CTA, Eyebrow, H2, MonitoringPromo, Photo, Reveal, Section } from "@/components/ui";
@@ -113,6 +114,18 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 ? "Тракерът „Стрела“ е собствена разработка на Novacom: двуосов, на един стълб, следи слънцето през деня и сменя наклона по сезон. Зад него стоят собствен EMS за индустриални системи, четири регистрирани полезни модела и научни публикации."
                 : "The Strela tracker is Novacom's own development: two-axis, single mast, tracking the sun through the day and changing tilt by season. Behind it stand an in-house industrial EMS, four registered utility models and scientific publications."}
             </p>
+            <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-white/15 pt-6">
+              {[
+                ["+45%", bg ? "повече добив от „Стрела“ спрямо фиксирана конструкция" : "more yield from Strela than a fixed structure"],
+                ["+122%", bg ? "приход на ФЕЦ с батерия Suntech 261 kWh и нашия EMS" : "plant revenue with a Suntech 261 kWh battery and our EMS"],
+                ["−45%", bg ? "пиково потребление с оптимизацията в EMS" : "grid peak with the EMS optimisation"],
+              ].map(([n, l]) => (
+                <div key={n}>
+                  <dt className="text-2xl font-extrabold text-[#b5d86a] sm:text-3xl">{n}</dt>
+                  <dd className="mt-1 text-xs text-white/70 sm:text-sm">{l}</dd>
+                </div>
+              ))}
+            </dl>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button to={href(lang, "know-how/strela")} variant="light">{bg ? "Моделът „Стрела“" : "The Strela model"}</Button>
               <Link href={href(lang, "know-how")} className="inline-flex items-center gap-2 rounded-xl border-2 border-white/40 px-6 py-3.5 font-bold text-white transition hover:bg-white/10">
@@ -120,6 +133,20 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               </Link>
             </div>
           </Reveal>
+        </div>
+      </Section>
+
+      {/* Research-backed battery + EMS results */}
+      <Section className="bg-mist" id="research">
+        <Reveal>
+          <Eyebrow>{bg ? "Батерия + EMS, доказано с числа" : "Battery + EMS, proven with numbers"}</Eyebrow>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <H2 className="max-w-3xl">{bg ? "Нашият EMS със собствени алгоритми за оптимизация и батерия Suntech удвояват прихода" : "Our EMS with in-house optimisation algorithms and a Suntech battery double the revenue"}</H2>
+            <Button to={href(lang, "products/storage")} variant="outline">{bg ? "Батерийни системи" : "Battery systems"}</Button>
+          </div>
+        </Reveal>
+        <div className="mt-10">
+          <ResearchResults lang={lang} />
         </div>
       </Section>
 

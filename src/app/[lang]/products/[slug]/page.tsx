@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { products } from "@/content/site";
 import { locales, type Lang } from "@/lib/i18n";
 import { Check, CTA, Eyebrow, H2, MonitoringPromo, PageHero, Reveal, Section } from "@/components/ui";
+import ResearchResults from "@/components/ResearchResults";
 
 type P = { params: Promise<{ lang: string; slug: string }> };
 
@@ -113,6 +114,20 @@ export default async function ProductPage({ params }: P) {
           </Reveal>
         </div>
       </Section>
+      {p.slug === "storage" && (
+        <Section className="bg-mist">
+          <Reveal>
+            <Eyebrow>{bg ? "Изследване" : "Research"}</Eyebrow>
+            <H2>{bg ? "Какво печели обектът с батерия Suntech и нашия EMS" : "What a site gains with a Suntech battery and our EMS"}</H2>
+            <p className="mt-4 max-w-3xl text-lg text-muted">
+              {bg
+                ? "Нашият EMS оптимизира зареждането и разреждането по цените за ден напред, изрязва пиковете и решава кога да ограничи производството при отрицателни цени. Ефектът е измерен в научно изследване с реални цени от БНЕБ."
+                : "Our EMS optimises charging and discharging against day-ahead prices, shaves peaks and decides when to curtail at negative prices. The effect was measured in a study with real IBEX prices."}
+            </p>
+          </Reveal>
+          <div className="mt-8"><ResearchResults lang={lang} /></div>
+        </Section>
+      )}
       {p.slug === "monitoring" && <MonitoringPromo lang={lang} />}
       <CTA lang={lang} />
     </>
