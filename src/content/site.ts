@@ -161,12 +161,13 @@ export const solutions: Solution[] = [
       en: "Shared solar energy for municipalities, neighbourhoods and business groups.",
     },
     intro: {
-      bg: "Енергийните общности позволяват на няколко потребители да споделят производството на обща централа. Съдействаме от модела и документите до изграждането.",
-      en: "Energy communities let several consumers share the output of a common plant. We support you from the model and paperwork through to construction.",
+      bg: "Енергийните общности позволяват на няколко потребители да споделят производството на обща централа. Още през 2020 г. нашият основател разработи концепцията „Обединен енергиен клъстер“ (ОЕК): модел за частна инвестиция в децентрализирана енергийна структура, при който потребителите придобиват дял в своя доставчик на енергия и стават просуматори. Съдействаме от модела и документите до изграждането.",
+      en: "Energy communities let several consumers share the output of a common plant. Back in 2020 our founder developed the United Energy Cluster (OEK) concept: a model for private investment in decentralised energy where consumers take a share in their energy supplier and become prosumers. We support you from the model and paperwork through to construction.",
     },
     img: REAL.roofDense,
     points: [
-      { bg: "Консултация за модела на общността", en: "Advice on the community model" },
+      { bg: "Готов модел „Обединен енергиен клъстер“ (ОЕК) с дялово участие", en: "Ready-made United Energy Cluster (OEK) model with member shares" },
+      { bg: "Консултация за правната форма и модела на общността", en: "Advice on the legal form and the community model" },
       { bg: "Обща ФЕЦ и съхранение", en: "Shared PV plant and storage" },
       { bg: "Мониторинг и разпределение на енергията", en: "Monitoring and energy allocation" },
     ],
@@ -690,7 +691,8 @@ export const utilityModels: { title: L; year: string; ref?: string; note: L }[] 
   {
     title: { bg: "Модулна система за хибридно двупосочно зареждане, съхранение и отдаване на енергия", en: "Modular system for hybrid bidirectional charging, storage and discharge of energy" },
     year: "2025",
-    note: { bg: "V2G зарядна станция с батериен стек от нови и рециклирани клетки, EMS с енергиен баланс и мониторинг", en: "V2G charger with a battery stack of new and recycled cells, EMS with energy balancing and monitoring" },
+    ref: "BG 5058 U1",
+    note: { bg: "Регистриран полезен модел: V2G зарядна станция с батериен стек от нови и рециклирани клетки, EMS с енергиен баланс и мониторинг", en: "Registered utility model: V2G charger with a battery stack of new and recycled cells, EMS with energy balancing and monitoring" },
   },
   {
     title: { bg: "Тестер за фотоволтаични модули", en: "Tester for photovoltaic modules" },
@@ -701,7 +703,8 @@ export const utilityModels: { title: L; year: string; ref?: string; note: L }[] 
   {
     title: { bg: "Система за производство и разпределение на електроенергия", en: "System for generation and distribution of electricity" },
     year: "2024",
-    note: { bg: "Агентна архитектура: източници, батерии и консуматори, координирани от концентратор и контролен модул", en: "Agent architecture: sources, batteries and loads coordinated by a concentrator and a control module" },
+    ref: "BG 4825",
+    note: { bg: "Регистриран полезен модел: източници, батерии и консуматори като агенти, координирани от концентратор и контролен модул", en: "Registered utility model: sources, batteries and loads as agents, coordinated by a concentrator and a control module" },
   },
   {
     title: { bg: "Система за пренос на данни между два или повече сървъра", en: "System for data transfer between two or more servers" },

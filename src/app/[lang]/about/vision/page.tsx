@@ -49,8 +49,8 @@ export default async function VisionPage({ params }: P) {
             <p className="mt-1 font-bold text-brand">{bg ? "Основател и собственик" : "Founder & owner"}</p>
             <p className="mt-4 text-lg text-muted">
               {bg
-                ? "Научен кадър, доктор и преподавател в Технически университет – София, където води собствена специалност по възобновяеми енергийни източници. Търговски представител на Suntech за Балканите и Европа."
-                : "A scientist, PhD and lecturer at the Technical University of Sofia, where he runs his own renewable energy programme. Suntech sales representative for the Balkans and Europe."}
+                ? "Предприемач и иноватор с над 20 години в ИТ, телекомуникациите и възобновяемата енергия. Доктор и преподавател в Технически университет – София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“. Автор на публикации в IEEE Xplore и на четири регистрирани полезни модела, сред които тракера „Стрела“ и V2G система за съхранение. През 2020 г. създава концепцията „Обединен енергиен клъстер“ за енергийни общности. Търговски представител на Suntech за Балканите и Европа."
+                : "An entrepreneur and innovator with 20+ years in IT, telecommunications and renewable energy. PhD and lecturer at the Technical University of Sofia, where he teaches Smart Grids and Systems for Renewables. Author of IEEE Xplore publications and four registered utility models, including the Strela tracker and a V2G storage system. In 2020 he created the United Energy Cluster concept for energy communities. Suntech sales representative for the Balkans and Europe."}
             </p>
           </div>
         </Reveal>

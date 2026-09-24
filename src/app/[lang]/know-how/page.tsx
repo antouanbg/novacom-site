@@ -57,6 +57,8 @@ export default async function KnowHowPage({ params }: P) {
             </p>
             <ul className="mt-7 space-y-3 text-lg">
               <Check>{bg ? "Собствен дизайн и разработка в България" : "Designed and developed in Bulgaria"}</Check>
+              <Check>{bg ? "Двуосово следене на слънцето, стринг 3,5 kWp" : "Two-axis sun tracking, 3.5 kWp string"}</Check>
+              <Check>{bg ? "До 45% по-висок добив спрямо фиксирани системи" : "Up to 45% higher yield than fixed systems"}</Check>
               <Check>{bg ? "Двулицеви модули за допълнителен добив от отразената светлина" : "Bifacial modules for extra yield from reflected light"}</Check>
               <Check>{bg ? "Мобилно изпълнение на ремарке с инверторно табло на борда" : "Mobile trailer version with an on-board inverter cabinet"}</Check>
               <Check>{bg ? "Подходящ за земеделие, отдалечени обекти и временни площадки" : "Suited to agriculture, remote sites and temporary locations"}</Check>
@@ -119,8 +121,8 @@ export default async function KnowHowPage({ params }: P) {
             <H2>{bg ? "Научни трудове и регистрирани полезни модели" : "Scientific publications and registered utility models"}</H2>
             <p className="mt-5 text-lg text-muted">
               {bg
-                ? "Зад разработките на Novacom стои д-р инж. Антуан Ангелов, собственик на компанията, научен кадър и преподавател в Технически университет – София, където води собствена специалност по възобновяеми енергийни източници. Автор е на научни трудове и на над четири регистрирани полезни модела в областта на енергетиката."
-                : "Behind Novacom's developments is Dr. Eng. Antouan Anguelov, the company's owner, a scientist and lecturer at the Technical University of Sofia, where he runs his own renewable energy programme. He is the author of scientific publications and more than four registered utility models in the energy field."}
+                ? "Зад разработките на Novacom стои д-р инж. Антуан Ангелов, собственик на компанията, научен кадър и преподавател в Технически университет – София (Факултет по компютърни системи и технологии), където води собствената си дисциплина „Интелигентни мрежи и системи за ВЕИ“. Автор е на научни публикации в IEEE Xplore в областта на роевата интелигентност, автономните системи и комуникациите, и на четири регистрирани полезни модела."
+                : "Behind Novacom's developments is Dr. Eng. Antouan Anguelov, the company's owner, a scientist and lecturer at the Technical University of Sofia (Faculty of Computer Systems and Technologies), where he teaches his own course, Smart Grids and Systems for Renewables. He has authored IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and four registered utility models."}
             </p>
             <p className="mt-4 text-lg text-muted">
               {bg
@@ -131,8 +133,9 @@ export default async function KnowHowPage({ params }: P) {
           <Reveal delay={0.1}>
             <div className="grid gap-4">
               {[
-                { n: "4+", t: bg ? "полезни модела и изобретения" : "utility models and inventions" },
-                { n: bg ? "ТУ-София" : "TU Sofia", t: bg ? "собствена специалност по ВЕИ" : "own renewable energy programme" },
+                { n: "4", t: bg ? "регистрирани полезни модела" : "registered utility models" },
+                { n: "IEEE", t: bg ? "научни публикации в IEEE Xplore" : "publications in IEEE Xplore" },
+                { n: bg ? "ТУ-София" : "TU Sofia", t: bg ? "дисциплина „Интелигентни мрежи и системи за ВЕИ“" : "course: Smart Grids and Systems for Renewables" },
                 { n: "30+", t: bg ? "години в технологиите и енергетиката" : "years in technology and energy" },
               ].map((k) => (
                 <div key={k.t} className="rounded-2xl border border-line p-6">
@@ -167,6 +170,34 @@ export default async function KnowHowPage({ params }: P) {
             </Reveal>
           ))}
         </ol>
+      </Section>
+
+      <Section id="projects">
+        <Reveal>
+          <Eyebrow>{bg ? "Иновационни проекти" : "Innovation projects"}</Eyebrow>
+          <H2>{bg ? "Концепции и финансирани разработки" : "Concepts and funded developments"}</H2>
+        </Reveal>
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            { t: bg ? "Обединен енергиен клъстер (ОЕК)" : "United Energy Cluster (OEK)", y: "2020", d: bg ? "Модел за частна инвестиция в децентрализирана енергия: енергийни клъстери и общности с дялово участие на потребителите." : "A model for private investment in decentralised energy: energy clusters and communities with member shares.", to: "solutions/communities" },
+            { t: "GridMobility", y: "", d: bg ? "Енергийна платформа за обмен на данни между участниците на енергийния пазар, с национално финансиране." : "An energy platform for data exchange between energy-market participants, nationally funded.", to: "" },
+            { t: "GrideX", y: "", d: bg ? "Производствена линия за рециклиране и повторно използване на батерийни системи. Платформата за мониторинг gridex.tech." : "A production line for recycling and reusing battery systems, plus the gridex.tech monitoring platform.", to: "" },
+            { t: "eHUB", y: "", d: bg ? "Платформа за масова интеграция между различни системи, отличена с H2020 „Seal of Excellence“ и национално финансирана." : "A mass-integration platform between systems, awarded the H2020 Seal of Excellence and nationally funded.", to: "" },
+          ].map((k, i) => (
+            <Reveal key={k.t} delay={i * 0.06}>
+              <div className="flex h-full flex-col rounded-2xl border border-line p-6">
+                <p className="text-sm font-bold text-brand">{k.y || (bg ? "Иновация" : "Innovation")}</p>
+                <h3 className="mt-1 text-lg font-extrabold">{k.t}</h3>
+                <p className="mt-2 flex-1 text-muted">{k.d}</p>
+                {k.to && (
+                  <Button to={href(lang, k.to)} variant="outline">
+                    {bg ? "Енергийни общности" : "Energy communities"}
+                  </Button>
+                )}
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <CTA lang={lang} />
