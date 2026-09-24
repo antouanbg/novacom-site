@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { photo, PH } from "@/content/site";
+import { REAL } from "@/content/site";
 import { href, type Lang } from "./i18n";
 
 export const SITE = "https://novacom.bg";
@@ -22,7 +22,7 @@ export function seo(lang: Lang, path: string, title: string, description: string
       url,
       title,
       description,
-      images: [{ url: photo(PH.heroRoof, 1200), width: 1200, height: 630 }],
+      images: [{ url: `${SITE}${REAL.heroSofia}`, width: 1600, height: 1080 }],
     },
     twitter: { card: "summary_large_image", title, description },
   };

@@ -16,11 +16,9 @@ export default function ProjectCard({ p, lang, featured = false }: { p: Project;
             {projectStatus[p.status][lang]}
           </span>
         </div>
-        {!p.photoReal && (
-          <span className="absolute bottom-2 right-3 rounded bg-ink/50 px-1.5 py-0.5 text-[10px] text-white/80">
-            {bg ? "илюстративна снимка" : "illustrative photo"}
-          </span>
-        )}
+        <span className="absolute bottom-2 right-3 rounded bg-ink/50 px-1.5 py-0.5 text-[10px] text-white/80">
+          {p.photoReal ? (bg ? "обект на Novacom" : "a Novacom site") : bg ? "илюстративна снимка" : "illustrative photo"}
+        </span>
       </div>
       <div className="flex flex-1 flex-col p-5">
         <dl className="flex flex-wrap gap-x-6 gap-y-2">

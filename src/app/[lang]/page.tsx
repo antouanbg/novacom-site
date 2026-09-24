@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PH, products, projects, services, solutions, ui } from "@/content/site";
+import { products, projects, REAL, services, solutions, ui } from "@/content/site";
 import ProjectCard from "@/components/ProjectCard";
 import { href, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
@@ -86,7 +86,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </Reveal>
           <Reveal delay={0.1} className="relative">
             <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl lg:aspect-[5/6]">
-              <Photo id={PH.heroRoof} alt={bg ? "Фотоволтаична централа на индустриален покрив" : "Solar plant on an industrial roof"} priority />
+              <Photo id={REAL.heroSofia} alt={bg ? "Покривна ФЕЦ в София, обект на Novacom" : "Rooftop PV in Sofia, a Novacom site"} priority />
             </div>
             <div className="absolute -bottom-5 left-4 right-4 rounded-2xl bg-white p-4 shadow-xl sm:left-auto sm:right-6 sm:w-72">
               <p className="text-sm font-bold">{bg ? "Супер ниски цени за проектиране" : "Very low design prices"}</p>
@@ -150,7 +150,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 : "One partner for the plant's entire life cycle, from the first conversation to maintenance."}
             </p>
             <div className="mt-8 hidden aspect-[4/3] overflow-hidden rounded-3xl lg:block">
-              <Photo id={PH.handsInstall} alt={bg ? "Монтаж на соларен панел" : "Installing a solar panel"} />
+              <Photo id={REAL.breakers} alt={bg ? "Електрическо табло на ФЕЦ, обект на Novacom" : "PV switchboard, a Novacom site"} />
             </div>
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -216,7 +216,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal className="order-2 lg:order-1">
             <div className="aspect-[4/3] overflow-hidden rounded-3xl">
-              <Photo id={PH.evCharging} alt={bg ? "Зарядна станция за електромобил" : "EV charging station"} />
+              <Photo id={REAL.evOpen} alt={bg ? "Монтаж на DC и AC зарядни станции, обект на Novacom" : "DC and AC charger installation, a Novacom site"} />
             </div>
           </Reveal>
           <Reveal className="order-1 lg:order-2">

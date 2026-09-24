@@ -4,6 +4,32 @@ import type { L } from "@/lib/i18n";
 export const photo = (id: string, w = 1600) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=75`;
 
+// Real Novacom photos (client-supplied 2026-09-24, EXIF stripped, plates blurred). Paths under /public.
+export const REAL = {
+  heroSofia: "/images/hero-sofia.webp",
+  roofVitosha: "/images/projects/roof-sofia-vitosha.webp",
+  roofCommercial: "/images/projects/roof-commercial-ballast.webp",
+  roofDense: "/images/projects/roof-building-dense.webp",
+  carport: "/images/projects/carport-home.webp",
+  ground1: "/images/projects/ground-mount-1.webp",
+  ground2: "/images/projects/ground-mount-2.webp",
+  pergola: "/images/projects/pergola-bifacial.webp",
+  pergolaUnder: "/images/projects/pergola-underside.webp",
+  evOpen: "/images/ev/evpoint-open.webp",
+  evDcAc: "/images/ev/evpoint-dc-ac.webp",
+  smaMeter: "/images/monitoring/sma-energy-meter.webp",
+  switchboard: "/images/install/switchboard-full.webp",
+  breakers: "/images/install/switchboard-breakers.webp",
+  trackerField: "/images/projects/tracker-field.webp",
+  trackerDetail: "/images/mounting/tracker-detail.webp",
+  trackerUnder: "/images/projects/tracker-underside.webp",
+  trackerTrailers: "/images/projects/tracker-trailers.webp",
+  trackerCabinet: "/images/projects/tracker-trailer-cabinet.webp",
+  bessOpen: "/images/storage/bess-cabinet-open.webp",
+  bessRender: "/images/storage/bess-cabinet-render.webp",
+  bessFactory: "/images/storage/bess-cabinet-factory.webp",
+};
+
 export const PH = {
   heroRoof: "1613665813446-82a78c468a1d",
   cityRoof: "1611365892117-00ac5ef43c90",
@@ -85,7 +111,7 @@ export const solutions: Solution[] = [
       bg: "Големите покриви на складове и търговски сгради са идеални за соларна енергия. Консумацията през деня съвпада с производството, а възвръщаемостта е бърза.",
       en: "Large warehouse and retail roofs are ideal for solar. Daytime consumption matches generation, so payback is fast.",
     },
-    img: PH.cityRoof,
+    img: REAL.roofCommercial,
     points: [
       { bg: "Максимално собствено потребление", en: "Maximum self-consumption" },
       { bg: "Хладилни и климатични системи на соларна енергия", en: "Cooling and HVAC powered by solar" },
@@ -103,11 +129,11 @@ export const solutions: Solution[] = [
       bg: "Напояването, охлаждането и обработката на продукция изискват сигурна и евтина енергия, често на отдалечени места. Хибридните и автономните системи дават независимост от мрежата.",
       en: "Irrigation, cooling and processing need reliable, affordable energy, often at remote sites. Hybrid and off-grid systems provide independence from the grid.",
     },
-    img: PH.fieldAerial,
+    img: REAL.trackerTrailers,
     points: [
       { bg: "Автономни (off-grid) и хибридни системи", en: "Off-grid and hybrid systems" },
       { bg: "Соларни помпи за напояване", en: "Solar-powered irrigation pumps" },
-      { bg: "Наземни конструкции и тракери", en: "Ground-mount structures and trackers" },
+      { bg: "Наземни конструкции и мобилни тракери на ремарке", en: "Ground mounts and mobile trailer-mounted trackers" },
     ],
   },
   {
@@ -121,7 +147,7 @@ export const solutions: Solution[] = [
       bg: "Енергийните общности позволяват на няколко потребители да споделят производството на обща централа. Съдействаме от модела и документите до изграждането.",
       en: "Energy communities let several consumers share the output of a common plant. We support you from the model and paperwork through to construction.",
     },
-    img: PH.panelsForest,
+    img: REAL.roofDense,
     points: [
       { bg: "Консултация за модела на общността", en: "Advice on the community model" },
       { bg: "Обща ФЕЦ и съхранение", en: "Shared PV plant and storage" },
@@ -139,7 +165,7 @@ export const solutions: Solution[] = [
       bg: "Соларна система с батерия намалява сметката за ток и осигурява резерв при прекъсване на захранването.",
       en: "A solar system with a battery lowers your bill and keeps the lights on during outages.",
     },
-    img: PH.roofInstall,
+    img: REAL.pergola,
     points: [
       { bg: "Мрежови и хибридни системи", en: "Grid-tied and hybrid systems" },
       { bg: "Домашни батерии", en: "Home batteries" },
@@ -219,7 +245,7 @@ export const products: Product[] = [
       bg: "За бизнеса доставяме Suntech SunStorage Pro: интегрирана система „всичко в едно“ с 261 kWh капацитет и 125 kW мощност, течно охлаждане и вградени PCS, BMS и EMS. Шкафовете се свързват паралелно до MWh мащаб. За домовете предлагаме LV и HV батерийни модули с 6000 цикъла.",
       en: "For business we supply Suntech SunStorage Pro, an all-in-one system with 261 kWh capacity and 125 kW power, liquid cooling and built-in PCS, BMS and EMS. Cabinets connect in parallel up to MWh scale. For homes we offer LV and HV battery modules rated for 6,000 cycles.",
     },
-    img: PH.grid,
+    img: REAL.bessOpen,
     features: [
       { bg: "261 kWh / 125 kW в един шкаф, IP65", en: "261 kWh / 125 kW in one cabinet, IP65" },
       { bg: "Течно охлаждане, вградени PCS, BMS, EMS и защити", en: "Liquid cooling, built-in PCS, BMS, EMS and safety systems" },
@@ -244,10 +270,10 @@ export const products: Product[] = [
       bg: "Използваме нискокорозионни материали и крепежи, които не ускоряват корозията на основната конструкция.",
       en: "We use low-corrosion materials and fasteners that do not accelerate corrosion of the supporting structure.",
     },
-    img: PH.fieldSky,
+    img: REAL.trackerDetail,
     features: [
       { bg: "Скатни и плоски покриви", en: "Pitched and flat roofs" },
-      { bg: "Наземни конструкции и навеси", en: "Ground mounts and canopies" },
+      { bg: "Наземни конструкции, навеси и мобилни тракери", en: "Ground mounts, canopies and mobile trackers" },
       { bg: "Продуктова гаранция 10 години", en: "10-year product warranty" },
     ],
     items: [],
@@ -263,7 +289,7 @@ export const products: Product[] = [
       bg: "Софтуерът управлява зареждането на батерията, външни консуматори (зарядна станция, бойлер) и графици, показва прогнози и спестената енергия. Локалният EMS се интегрира и със съществуващи централи, например с инвертори Huawei и SmartLogger.",
       en: "Our software manages battery charging, external loads (EV charger, water heater) and schedules, and shows forecasts and energy saved. The local EMS also integrates with existing plants, e.g. Huawei inverters with SmartLogger.",
     },
-    img: PH.engineerCode,
+    img: REAL.smaMeter,
     features: [
       { bg: "Зареждане при ниски цени на електроенергията", en: "Charging when power prices are low" },
       { bg: "Управление на зарядни станции и консуматори", en: "Control of EV chargers and other loads" },
@@ -282,7 +308,7 @@ export const products: Product[] = [
       bg: "Доставяме и монтираме зарядни станции за електромобили: от домашни AC зарядни (wallbox) до DC станции за фирмени паркинги и обществени обекти. Свързваме зареждането с фотоволтаичната централа и батерията, така че колата да се зарежда със собствена слънчева енергия или при ниски цени на тока.",
       en: "We supply and install EV charging stations, from home AC wallboxes to DC stations for company car parks and public sites. Charging is linked to your PV plant and battery, so cars charge on your own solar energy or when power prices are low.",
     },
-    img: PH.evCharging,
+    img: REAL.evDcAc,
     features: [
       { bg: "AC зарядни 7,4 / 11 / 22 kW за дома и офиса", en: "7.4 / 11 / 22 kW AC chargers for home and office" },
       { bg: "DC бързи зарядни за фирмени и обществени паркинги", en: "DC fast chargers for company and public car parks" },
@@ -327,6 +353,18 @@ export const projectStatus: Record<ProjectStatus, L> = {
 // No client names; region only. Photos are illustrative until the client's own arrive.
 export const projects: Project[] = [
   {
+    title: { bg: "ФЕЦ 1 MW с батериен парк 2 MW", en: "1 MW PV plant with a 2 MW battery park" },
+    region: { bg: "Перник", en: "Pernik" },
+    pv: "1 MW",
+    bess: "2 MW",
+    segment: "ci",
+    equipment: { bg: "Фотоволтаични панели и батерийни системи за индустриален обект", en: "PV modules and battery systems for an industrial site" },
+    year: "2026",
+    status: "progress",
+    img: PH.fieldSky,
+    featured: true,
+  },
+  {
     title: { bg: "Наземна ФЕЦ с батерийна система Suntech", en: "Ground-mounted PV plant with Suntech battery storage" },
     region: { bg: "обл. Стара Загора", en: "Stara Zagora region" },
     pv: "98,56 kWp",
@@ -338,8 +376,8 @@ export const projects: Project[] = [
     },
     year: "2023 · 2026",
     status: "progress",
-    img: PH.fieldClouds,
-    featured: true,
+    img: REAL.ground1,
+    photoReal: true,
   },
   {
     title: { bg: "Доставка на две батерийни системи Suntech за индустриален обект", en: "Two Suntech battery systems supplied to an industrial site" },
@@ -359,7 +397,7 @@ export const projects: Project[] = [
     equipment: { bg: "Suntech STE-261L-125P × 8, локален EMS, интеграция с Huawei SmartLogger", en: "Suntech STE-261L-125P × 8, local EMS, Huawei SmartLogger integration" },
     year: "2026",
     status: "progress",
-    img: PH.fieldSky,
+    img: PH.fieldClouds,
   },
   {
     title: { bg: "Покривна ФЕЦ с батерия за месопреработвателен обект", en: "Rooftop PV with battery for a meat-processing site" },
@@ -370,7 +408,8 @@ export const projects: Project[] = [
     equipment: { bg: "HY Solar 450 W × 34, Deye 12 kW, V-TAC 14,33 kWh", en: "HY Solar 450 W × 34, Deye 12 kW, V-TAC 14.33 kWh" },
     year: "2025",
     status: "design",
-    img: PH.cityRoof,
+    img: REAL.roofCommercial,
+    photoReal: true,
   },
   {
     title: { bg: "ФЕЦ с батерия за сграда с трифазна партида", en: "PV with battery for a three-phase building" },
@@ -381,7 +420,8 @@ export const projects: Project[] = [
     equipment: { bg: "Suntech 455 Wp × 50, хибриден инвертор 20 kW HV, 2 × 25 kWh HV", en: "Suntech 455 Wp × 50, 20 kW HV hybrid inverter, 2 × 25 kWh HV" },
     year: "2026",
     status: "progress",
-    img: PH.roofInstall,
+    img: REAL.roofVitosha,
+    photoReal: true,
   },
   {
     title: { bg: "Хибридна ФЕЦ за жилищна сграда", en: "Hybrid PV for a residential building" },
@@ -392,7 +432,8 @@ export const projects: Project[] = [
     equipment: { bg: "Suntech 455 Wp × 12, Deye 15 kW, Deye SE-F16-C", en: "Suntech 455 Wp × 12, Deye 15 kW, Deye SE-F16-C" },
     year: "2026",
     status: "progress",
-    img: PH.panelsForest,
+    img: REAL.pergola,
+    photoReal: true,
   },
   {
     title: { bg: "Покривна ФЕЦ с батерия за жилищна сграда", en: "Rooftop PV with battery for a house" },
@@ -403,7 +444,8 @@ export const projects: Project[] = [
     equipment: { bg: "HY Solar 455 W × 20, Deye 15 kW, V-TAC VT-10240 × 2", en: "HY Solar 455 W × 20, Deye 15 kW, V-TAC VT-10240 × 2" },
     year: "2026",
     status: "design",
-    img: PH.panelsClose,
+    img: REAL.carport,
+    photoReal: true,
   },
 ];
 
@@ -457,7 +499,7 @@ export const services: Service[] = [
       bg: "Доставяме оборудването и монтираме централата. Предаваме пълна документация и обучаваме екипа ви.",
       en: "We deliver the equipment and install the plant, then hand over full documentation and train your team.",
     },
-    img: PH.handsInstall,
+    img: REAL.switchboard,
     steps: [
       { bg: "Доставка на оборудването", en: "Equipment delivery" },
       { bg: "Професионален монтаж", en: "Professional installation" },
@@ -591,4 +633,25 @@ export const projectTypes = [
     img: PH.roofInstall,
     path: "solutions/homes",
   },
+];
+
+// Real installation photos for the projects gallery (© Novacom).
+export const gallery: { src: string; alt: L; tall?: boolean }[] = [
+  { src: REAL.heroSofia, alt: { bg: "Покривна ФЕЦ в София с изглед към Витоша", en: "Rooftop PV in Sofia with a view of Vitosha" } },
+  { src: REAL.roofCommercial, alt: { bg: "Покривна ФЕЦ на търговски обект с баластна конструкция", en: "Rooftop PV on a commercial building with ballast mounting" } },
+  { src: REAL.roofDense, alt: { bg: "Покривна ФЕЦ на жилищна сграда", en: "Rooftop PV on an apartment building" } },
+  { src: REAL.ground1, alt: { bg: "Наземна ФЕЦ на стоманена конструкция", en: "Ground-mounted PV on a steel structure" }, tall: true },
+  { src: REAL.pergola, alt: { bg: "Соларна пергола с двулицеви панели", en: "Solar pergola with bifacial modules" }, tall: true },
+  { src: REAL.carport, alt: { bg: "Соларен навес за автомобили", en: "Solar carport" } },
+  { src: REAL.evDcAc, alt: { bg: "DC и AC зарядни станции за електромобили", en: "DC and AC EV charging stations" } },
+  { src: REAL.switchboard, alt: { bg: "Табло с енергиен мениджмънт и мониторинг", en: "Switchboard with energy management and monitoring" }, tall: true },
+  { src: REAL.roofVitosha, alt: { bg: "Покривна ФЕЦ на сграда в София", en: "Rooftop PV on a building in Sofia" } },
+  { src: REAL.ground2, alt: { bg: "Наземна ФЕЦ, монтаж на модулите", en: "Ground-mounted PV, module installation" }, tall: true },
+  { src: REAL.evOpen, alt: { bg: "Монтаж на DC зарядна станция", en: "DC charger installation" } },
+  { src: REAL.pergolaUnder, alt: { bg: "Двулицеви панели отдолу", en: "Bifacial modules from below" }, tall: true },
+  { src: REAL.trackerField, alt: { bg: "Мобилни соларни тракери на ремарке", en: "Mobile trailer-mounted solar trackers" } },
+  { src: REAL.bessOpen, alt: { bg: "Батериен шкаф с LFP модули", en: "Battery cabinet with LFP modules" }, tall: true },
+  { src: REAL.trackerTrailers, alt: { bg: "Мобилни соларни системи с инвертори на място", en: "Mobile solar units with on-board inverters" } },
+  { src: REAL.bessFactory, alt: { bg: "Батериен шкаф с вграден PCS", en: "Battery cabinet with integrated PCS" }, tall: true },
+  { src: REAL.trackerUnder, alt: { bg: "Двулицеви панели на тракер", en: "Bifacial modules on a tracker" } },
 ];

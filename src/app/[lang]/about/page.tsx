@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { seo } from "@/lib/seo";
-import { PH } from "@/content/site";
+import { PH, REAL } from "@/content/site";
 import type { Lang } from "@/lib/i18n";
 import { Check, CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
 
@@ -17,11 +17,11 @@ export default async function AboutPage({ params }: P) {
   const bg = lang === "bg";
 
   const gallery = [
-    { id: PH.roofInstall, alt: bg ? "Монтаж на соларни панели на покрив" : "Installing solar panels on a roof", cls: "sm:col-span-2 sm:row-span-2" },
+    { id: REAL.roofVitosha, alt: bg ? "Покривна ФЕЦ в София, обект на Novacom" : "Rooftop PV in Sofia, a Novacom site", cls: "sm:col-span-2 sm:row-span-2" },
     { id: PH.engineerLab, alt: bg ? "Млада инженерка тества оборудване" : "Young engineer testing equipment", cls: "" },
     { id: PH.teamLaptops, alt: bg ? "Млад екип работи по проект" : "Young team working on a project", cls: "" },
     { id: PH.engineerDraw, alt: bg ? "Инженер работи по технически чертеж" : "Engineer working on a technical drawing", cls: "" },
-    { id: PH.handsInstall, alt: bg ? "Свързване на соларен панел" : "Wiring a solar panel", cls: "" },
+    { id: REAL.breakers, alt: bg ? "Табло на ФЕЦ, обект на Novacom" : "PV switchboard, a Novacom site", cls: "" },
   ];
 
   return (

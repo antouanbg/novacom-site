@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PH, projects, projectTypes, services } from "@/content/site";
+import { gallery, projects, projectTypes, REAL, services } from "@/content/site";
 import ProjectCard from "@/components/ProjectCard";
 import { href, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
@@ -35,7 +35,7 @@ export default async function ProjectsPage({ params }: P) {
             ? "От домашни хибридни системи до индустриални централи и батерийни системи Suntech за бизнеса."
             : "From hybrid home systems to industrial plants and Suntech battery storage for business."
         }
-        img={PH.fieldClouds}
+        img={REAL.roofCommercial}
       />
       <Section>
         <Reveal>
@@ -55,7 +55,22 @@ export default async function ProjectsPage({ params }: P) {
           ))}
         </div>
       </Section>
-      <Section className="pt-0 sm:pt-0 lg:pt-0">
+      <Section className="bg-mist">
+        <Reveal>
+          <Eyebrow>{bg ? "Галерия" : "Gallery"}</Eyebrow>
+          <H2>{bg ? "Снимки от наши обекти" : "Photos from our sites"}</H2>
+        </Reveal>
+        <div className="mt-10 grid auto-rows-[180px] grid-cols-2 gap-3 sm:auto-rows-[220px] md:grid-cols-3 lg:grid-cols-4">
+          {gallery.map((g, i) => (
+            <Reveal key={g.src} delay={(i % 4) * 0.05} className={g.tall ? "row-span-2" : ""}>
+              <div className="h-full overflow-hidden rounded-2xl">
+                <Photo id={g.src} alt={g.alt[lang]} className="transition duration-700 hover:scale-105" />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+      <Section>
         <Reveal>
           <H2 className="mb-10">{bg ? "Какво изграждаме" : "What we build"}</H2>
         </Reveal>
