@@ -34,6 +34,7 @@ export default async function NewsPage({ params }: P) {
               <time className="text-sm font-bold text-brand" dateTime={first.date}>{fmtDate(first.date, lang)}</time>
               <h2 className="mt-2 break-words text-2xl font-extrabold [overflow-wrap:anywhere] sm:text-3xl">{first.title[lang]}</h2>
               <p className="mt-4 text-lg text-muted">{first.text[lang]}</p>
+              {first.more && <p className="mt-3 text-lg text-muted">{first.more[lang]}</p>}
               {first.to && (
                 <Link href={href(lang, first.to)} className="mt-6 font-bold text-brand hover:underline">
                   {bg ? "Виж повече →" : "Read more →"}

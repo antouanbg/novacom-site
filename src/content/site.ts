@@ -543,8 +543,8 @@ export const services: Service[] = [
       en: "Free consultation and site survey, energy and financial analysis, help with EU funding.",
     },
     intro: {
-      bg: "Преди всяка оферта правим посещение и оглед на обекта: покрив, табло, консумация, място за батерия. Анализираме потреблението и предлагаме най-подходящата система с ясна сметка за възвръщаемостта. Помагаме на все повече предприятия да използват европейските програми за финансиране на проекти за възобновяема енергия и енергийна ефективност, за да намалят зависимостта си от нарастващите цени на електроенергията на свободния пазар.",
-      en: "Before every offer we visit and survey the site: roof, switchboard, consumption, space for a battery. We analyse your load and propose the best-fit system with a clear payback calculation. We help more and more businesses use the European funding programmes for renewable energy and energy efficiency projects, reducing their exposure to rising electricity prices on the free market.",
+      bg: "Преди всяка оферта правим посещение и оглед на обекта: покрив, табло, консумация, място за батерия. Анализираме потреблението и предлагаме най-подходящата система с ясна сметка за възвръщаемостта. Помагаме на все повече предприятия да използват европейските програми за финансиране на проекти за възобновяема енергия и енергийна ефективност, за да намалят зависимостта си от нарастващите цени на електроенергията на свободния пазар. Ако вече имате соларна централа или обмисляте изграждането на такава, следете нашата LinkedIn страница и новините на сайта ни за актуални новини и възможности за европейско финансиране в подкрепа на бизнеса. Свържете се с нас, за да разберете как можем да изградим решение, което да работи най-ефективно за вашия бизнес.",
+      en: "Before every offer we visit and survey the site: roof, switchboard, consumption, space for a battery. We analyse your load and propose the best-fit system with a clear payback calculation. We help more and more businesses use the European funding programmes for renewable energy and energy efficiency projects, reducing their exposure to rising electricity prices on the free market. If you already have a solar plant or are considering one, follow our LinkedIn page and the news on this site for updates and European funding opportunities for businesses. Get in touch to find out how we can build the solution that works best for your business.",
     },
     img: PH.teamLaptops,
     steps: [
@@ -792,7 +792,7 @@ export const utilityModels: { title: L; year: string; ref?: string; note: L }[] 
   },
 ];
 
-export type NewsItem = { slug: string; date: string; title: L; text: L; img: string; to?: string };
+export type NewsItem = { slug: string; date: string; title: L; text: L; more?: L; img: string; to?: string };
 
 // Newest first. Dates are ISO; the page formats them per language.
 export const news: NewsItem[] = [
@@ -803,6 +803,10 @@ export const news: NewsItem[] = [
     text: {
       bg: "Преди всяка оферта правим посещение и оглед на обекта: покрив, табло, консумация, място за батерия. Помагаме на все повече предприятия да използват европейските програми за финансиране на проекти за възобновяема енергия и енергийна ефективност, за да намалят зависимостта си от нарастващите цени на електроенергията на свободния пазар.",
       en: "Before every offer we visit and survey the site: roof, switchboard, consumption, space for a battery. We help more and more businesses use the European funding programmes for renewable energy and energy efficiency projects, reducing their exposure to rising electricity prices on the free market.",
+    },
+    more: {
+      bg: "Ако вече имате соларна централа или обмисляте изграждането на такава, следете нашата LinkedIn страница и новините на сайта ни за актуални новини и възможности за европейско финансиране в подкрепа на бизнеса. Свържете се с нас, за да разберете как можем да изградим решение, което да работи най-ефективно за вашия бизнес.",
+      en: "If you already have a solar plant or are considering one, follow our LinkedIn page and the news on this site for updates and European funding opportunities for businesses. Get in touch to find out how we can build the solution that works best for your business.",
     },
     img: REAL.roofCommercial,
     to: "contact",
