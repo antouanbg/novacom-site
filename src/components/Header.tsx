@@ -37,19 +37,12 @@ export default function Header({ lang }: { lang: Lang }) {
   const [open, setOpen] = useState(false);
   const [sub, setSub] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
-
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 8);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
-
-  useEffect(() => {
-    setOpen(false);
-    setSub(null);
-  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -122,6 +115,12 @@ export default function Header({ lang }: { lang: Lang }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.25 }}
+            onClick={(e) => {
+              if ((e.target as HTMLElement).closest("a")) {
+                setOpen(false);
+                setSub(null);
+              }
+            }}
           >
             <div className="flex h-18 items-center justify-between border-b border-line px-4 sm:px-6">
               <Logo />

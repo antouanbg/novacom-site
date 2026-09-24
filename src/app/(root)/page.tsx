@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 import { detectLang } from "@/lib/i18n";
 
@@ -11,7 +12,7 @@ export default function RootRedirect() {
   }, []);
   return (
     <p style={{ padding: 24 }}>
-      <a href="/bg/">Български</a> · <a href="/en/">English</a>
+      <Link href="/bg/">Български</Link> · <Link href="/en/">English</Link>
     </p>
   );
 }
