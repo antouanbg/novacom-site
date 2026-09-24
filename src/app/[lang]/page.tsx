@@ -76,12 +76,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-line pt-6">
               {[
                 ["30+", bg ? "години опит" : "years of experience"],
-                ["50+", bg ? "интеграционни проекта" : "integration projects"],
+                ["50+", bg ? "завършени проекта" : "completed projects"],
                 ["261 kWh", bg ? "шкафови системи BESS" : "BESS cabinet systems"],
               ].map(([n, l]) => (
                 <div key={l}>
                   <dt className="text-2xl font-extrabold sm:text-3xl">{n}</dt>
-                  <dd className="mt-1 text-sm text-muted">{l}</dd>
+                  <dd className="mt-1 break-words text-sm text-muted [overflow-wrap:anywhere]">{l}</dd>
                 </div>
               ))}
             </dl>
@@ -122,7 +122,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               ].map(([n, l]) => (
                 <div key={n}>
                   <dt className="text-2xl font-extrabold text-[#b5d86a] sm:text-3xl">{n}</dt>
-                  <dd className="mt-1 text-xs text-white/70 sm:text-sm">{l}</dd>
+                  <dd className="mt-1 break-words text-xs text-white/70 [overflow-wrap:anywhere] sm:text-sm">{l}</dd>
                 </div>
               ))}
             </dl>
