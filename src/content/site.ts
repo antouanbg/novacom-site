@@ -796,6 +796,17 @@ export type NewsItem = { slug: string; date: string; title: L; text: L; img: str
 // Newest first. Dates are ISO; the page formats them per language.
 export const news: NewsItem[] = [
   {
+    slug: "site-visit-eu-funding",
+    date: "2026-09-24",
+    title: { bg: "Безплатен оглед на всеки обект и помощ за европейско финансиране", en: "Free site survey for every project and help with EU funding" },
+    text: {
+      bg: "Преди всяка оферта правим посещение и оглед на обекта: покрив, табло, консумация, място за батерия. Помагаме на все повече предприятия да използват европейските програми за финансиране на проекти за възобновяема енергия и енергийна ефективност, за да намалят зависимостта си от нарастващите цени на електроенергията на свободния пазар.",
+      en: "Before every offer we visit and survey the site: roof, switchboard, consumption, space for a battery. We help more and more businesses use the European funding programmes for renewable energy and energy efficiency projects, reducing their exposure to rising electricity prices on the free market.",
+    },
+    img: REAL.roofCommercial,
+    to: "contact",
+  },
+  {
     slug: "gridex-ems-open-source",
     date: "2026-09-24",
     title: { bg: "GrideX Energy OS: нашата EMS е с отворен код и безплатна с батерия Suntech 261 kWh", en: "GrideX Energy OS: our EMS is open source and free with a Suntech 261 kWh battery" },
