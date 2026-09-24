@@ -65,6 +65,8 @@ export const PH = {
   engineerDraw: "1581092160562-40aa08e78837",
   engineerCode: "1581094794329-c8112a89af12",
   evCharging: "1593941707882-a5bba14938c7",
+  windHills: "1532601224476-15c79f2f7a51",
+  windAerial: "1548613053-22087dd8edb8",
 };
 
 export const contact = {
@@ -188,12 +190,13 @@ export const solutions: Solution[] = [
     points: [
       { bg: "Мрежови и хибридни системи", en: "Grid-tied and hybrid systems" },
       { bg: "Домашни батерии", en: "Home batteries" },
+      { bg: "Малък ветрогенератор до 3 kW за нощта и зимата", en: "A small wind turbine up to 3 kW for nights and winter" },
       { bg: "Мониторинг от телефона", en: "Monitoring from your phone" },
     ],
   },
 ];
 
-export type ProductItem = { brand: string; model: string; specs: L; featured?: boolean };
+export type ProductItem = { brand: string; model: string | L; specs: L; featured?: boolean };
 
 export type Product = {
   slug: string;
@@ -340,6 +343,33 @@ export const products: Product[] = [
     ],
     items: [],
   },
+  {
+    slug: "wind",
+    title: { bg: "Вятърни генератори", en: "Wind turbines" },
+    short: {
+      bg: "Малки ветрогенератори до 3 kW за дома и бизнеса: за собствена консумация или продажба към мрежата.",
+      en: "Small wind turbines up to 3 kW for homes and businesses: for self-consumption or selling to the grid.",
+    },
+    intro: {
+      bg: "Доставяме и монтираме малки ветрогенератори до 3 kW като допълнение към фотоволтаичната система или самостоятелно: вятърът работи и нощем, и през зимата, когато слънцето е слабо. Предлагаме две системи: за продажба към мрежата (on-grid, 230 V) и за собствена консумация с батерия (хибридна / off-grid). Мачтите са поцинковани, с шарнирна основа, 4–10 m, и се монтират от един човек.",
+      en: "We supply and install small wind turbines up to 3 kW, alongside a PV system or on their own: wind works at night and in winter, when the sun is weak. Two systems are available: grid feed-in (on-grid, 230 V) and self-consumption with a battery (hybrid / off-grid). Masts are galvanised, hinged, 4–10 m, and can be raised by one person.",
+    },
+    img: PH.windHills,
+    features: [
+      { bg: "Турбини 500 W – 3 kW, трифазни генератори с постоянни магнити", en: "500 W – 3 kW turbines, three-phase permanent-magnet generators" },
+      { bg: "Система за продажба: on-grid инвертор 230 V, енергията отива в мрежата", en: "Feed-in system: 230 V on-grid inverter, energy goes to the grid" },
+      { bg: "Система за собствена консумация: контролер за зареждане + батерия, работи и при спиране на тока", en: "Self-consumption system: charge controller + battery, works during outages too" },
+      { bg: "Хибрид вятър + слънце: по-равномерно производство през цялата година", en: "Wind + solar hybrid: steadier output all year round" },
+      { bg: "Шарнирни поцинковани мачти 4–10 m с обтяжки, монтаж от един човек", en: "Hinged galvanised 4–10 m guyed masts, one-person installation" },
+      { bg: "Включен безплатен мониторинг 24/365 през gridex.tech", en: "Free 24/365 monitoring via gridex.tech included" },
+    ],
+    items: [
+      { brand: "iSTA-BREEZE", model: "i-500 / i-700 / i-1000 / i-2000", specs: { bg: "Компактни турбини 500 W – 2 kW за дома, 12/24/48 V или on-grid", en: "Compact 500 W – 2 kW turbines for homes, 12/24/48 V or on-grid" }, featured: true },
+      { brand: "iSTA-BREEZE", model: "Windsafe 1,5–2 kW", specs: { bg: "С накланяне при силен вятър за защита на турбината", en: "Tilts down in strong wind to protect the turbine" } },
+      { brand: "iSTA-BREEZE", model: "Heli 2–3 kW (Low Speed)", specs: { bg: "Нискооборотни турбини за бизнес обекти, до 3 kW", en: "Low-speed turbines for business sites, up to 3 kW" } },
+      { brand: "iSTA-BREEZE", model: { bg: "Мачта 4 m (до 10 m)", en: "4 m mast (up to 10 m)" }, specs: { bg: "Поцинкована Ø60 mm, шарнирна основа, 3 обтяжки, товар до 40 kg", en: "Galvanised Ø60 mm, hinged base, 3 guy wires, up to 40 kg load" } },
+    ],
+  },
 ];
 
 export const partners = [
@@ -347,6 +377,7 @@ export const partners = [
   { name: "HY Solar", what: { bg: "Фотоволтаични панели", en: "PV modules" } },
   { name: "Deye", what: { bg: "Хибридни инвертори и батерии", en: "Hybrid inverters and batteries" } },
   { name: "V-TAC", what: { bg: "Батерийни модули", en: "Battery modules" } },
+  { name: "iSTA-BREEZE", what: { bg: "Малки ветрогенератори и мачти", en: "Small wind turbines and masts" } },
 ];
 
 export type ProjectStatus = "done" | "progress" | "design";

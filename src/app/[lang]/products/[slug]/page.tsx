@@ -45,12 +45,12 @@ export default async function ProductPage({ params }: P) {
                 <h3 className="text-xl font-extrabold">{bg ? "Модели, които доставяме" : "Models we supply"}</h3>
                 <div className="mt-4 grid gap-3">
                   {p.items.map((it) => (
-                    <div key={it.model} className={`rounded-2xl border p-5 ${it.featured ? "border-brand bg-sky" : "border-line"}`}>
+                    <div key={typeof it.model === "string" ? it.model : it.model.en} className={`rounded-2xl border p-5 ${it.featured ? "border-brand bg-sky" : "border-line"}`}>
                       <p className="text-sm font-bold uppercase tracking-widest text-muted">
                         {it.brand}
                         {it.featured && <span className="ml-2 rounded-full bg-brand px-2 py-0.5 text-[11px] text-white">{bg ? "Препоръчан" : "Recommended"}</span>}
                       </p>
-                      <p className="mt-1 text-lg font-extrabold">{it.model}</p>
+                      <p className="mt-1 text-lg font-extrabold">{typeof it.model === "string" ? it.model : it.model[lang]}</p>
                       <p className="mt-1 text-muted">{it.specs[lang]}</p>
                     </div>
                   ))}
@@ -89,6 +89,27 @@ export default async function ProductPage({ params }: P) {
                     : "We combine the charger with PV and storage and include it in free 24/365 monitoring. For businesses: reporting per employee and customer."}
                 </p>
                 <p className="mt-3 text-white/80">{bg ? "Марки и модели: според обекта и мощността, в офертата." : "Brands and models: chosen per site and power, in the quote."}</p>
+              </div>
+            ) : p.slug === "wind" ? (
+              <div className="grid gap-4">
+                <div className="rounded-3xl bg-ink p-7 text-white">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Система 1" : "System 1"}</p>
+                  <h3 className="mt-2 text-2xl font-extrabold">{bg ? "За продажба към мрежата" : "For selling to the grid"}</h3>
+                  <p className="mt-3 text-white/80">
+                    {bg
+                      ? "Турбина + on-grid инвертор 230 V. Произведената енергия се отчита и се продава по договор с търговец или се приспада от вашата консумация (нетно отчитане, където е приложимо)."
+                      : "Turbine + 230 V on-grid inverter. The energy is metered and sold under an offtake contract or offset against your consumption where net metering applies."}
+                  </p>
+                </div>
+                <div className="rounded-3xl bg-sky p-7">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand">{bg ? "Система 2" : "System 2"}</p>
+                  <h3 className="mt-2 text-2xl font-extrabold">{bg ? "За собствена консумация" : "For self-consumption"}</h3>
+                  <p className="mt-3 text-muted">
+                    {bg
+                      ? "Турбина + контролер за зареждане + батерия (LV/HV). Енергията се съхранява и се ползва вечер и при спиране на тока. Комбинира се с фотоволтаици в една хибридна система."
+                      : "Turbine + charge controller + battery (LV/HV). Energy is stored and used in the evening and during outages. Combines with PV in one hybrid system."}
+                  </p>
+                </div>
               </div>
             ) : p.slug === "monitoring" ? (
               <div className="rounded-3xl bg-ink p-7 text-white">
