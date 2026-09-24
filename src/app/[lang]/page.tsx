@@ -1,0 +1,207 @@
+import Link from "next/link";
+import { PH, products, services, solutions, ui } from "@/content/site";
+import { href, type Lang } from "@/lib/i18n";
+import { Button, CTA, Eyebrow, Fill, H2, Photo, Reveal, Section } from "@/components/ui";
+
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const lang = (await params).lang as Lang;
+  const bg = lang === "bg";
+
+  const pillars = [
+    {
+      t: bg ? "Вашите нужди на първо място" : "Your needs come first",
+      d: bg
+        ? "Анализираме консумацията и обекта и предлагаме решение с безплатен първоначален енергиен и финансов анализ."
+        : "We analyse your consumption and site and propose a solution, with a free initial energy and financial analysis.",
+    },
+    {
+      t: bg ? "Цялостно решение „до ключ“" : "Complete turnkey solution",
+      d: bg
+        ? "Поемаме всичко: от проекта и документите до доставката, монтажа и присъединяването."
+        : "We handle everything, from design and permits to supply, installation and grid connection.",
+    },
+    {
+      t: bg ? "Технологии и опит" : "Technology and experience",
+      d: bg
+        ? "Над 30 години в ИТ и комуникациите. Затова нашите централи са наблюдавани, интегрирани и управляеми."
+        : "30+ years in IT and communications, so our plants are monitored, integrated and manageable.",
+    },
+  ];
+
+  const entry = [solutions[0], solutions[1], solutions[3]];
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="bg-mist">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:py-20">
+          <Reveal>
+            <Eyebrow>{bg ? "ФЕЦ · BESS · C&I" : "Solar · BESS · C&I"}</Eyebrow>
+            <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+              {bg ? (
+                <>Соларна енергия и <span className="text-brand">съхранение</span> за вашия бизнес</>
+              ) : (
+                <>Solar power and <span className="text-brand">energy storage</span> for your business</>
+              )}
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-muted">
+              {bg
+                ? "Оферта, доставка и монтаж на фотоволтаични централи и батерийни системи за индустрия, търговия и земеделие, включително шкафови системи от 261 kWh и по-големи."
+                : "Quotes, supply and installation of PV plants and battery systems for industry, commerce and agriculture, including 261 kWh cabinets and larger."}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button to={href(lang, "contact") + "#quote"}>{ui.quote[lang]}</Button>
+              <Button to={href(lang, "solutions/industry")} variant="outline">
+                {bg ? "Решения за бизнеса" : "Business solutions"}
+              </Button>
+            </div>
+            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-line pt-6">
+              {[
+                ["30+", bg ? "години опит" : "years of experience"],
+                ["50+", bg ? "интеграционни проекта" : "integration projects"],
+                ["261 kWh", bg ? "шкафови системи BESS" : "BESS cabinet systems"],
+              ].map(([n, l]) => (
+                <div key={l}>
+                  <dt className="text-2xl font-extrabold sm:text-3xl">{n}</dt>
+                  <dd className="mt-1 text-sm text-muted">{l}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+          <Reveal delay={0.1} className="relative">
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl lg:aspect-[5/6]">
+              <Photo id={PH.heroRoof} alt={bg ? "Фотоволтаична централа на индустриален покрив" : "Solar plant on an industrial roof"} priority />
+            </div>
+            <div className="absolute -bottom-5 left-4 right-4 rounded-2xl bg-white p-4 shadow-xl sm:left-auto sm:right-6 sm:w-72">
+              <p className="text-sm font-bold">{bg ? "Безплатен оглед и анализ" : "Free survey and analysis"}</p>
+              <p className="mt-1 text-sm text-muted">{bg ? "Оферта, изготвена по вашия профил на потребление" : "A quote built on your actual load profile"}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Pillars */}
+      <Section>
+        <div className="grid gap-6 md:grid-cols-3">
+          {pillars.map((p, i) => (
+            <Reveal key={p.t} delay={i * 0.08}>
+              <div className="h-full rounded-2xl border border-line p-7">
+                <span className="text-sm font-extrabold text-brand">0{i + 1}</span>
+                <h3 className="mt-3 text-xl font-extrabold">{p.t}</h3>
+                <p className="mt-3 text-muted">{p.d}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* Entry tiles */}
+      <Section className="bg-mist">
+        <Reveal>
+          <Eyebrow>{bg ? "Решения" : "Solutions"}</Eyebrow>
+          <H2>{bg ? "За кого работим" : "Who we work for"}</H2>
+        </Reveal>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {entry.map((s, i) => (
+            <Reveal key={s.slug} delay={i * 0.08}>
+              <Link href={href(lang, `solutions/${s.slug}`)} className="group relative block aspect-[4/5] overflow-hidden rounded-3xl sm:aspect-[4/3] md:aspect-[4/5]">
+                <Photo id={s.img} alt={s.title[lang]} className="transition duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                  <h3 className="text-2xl font-extrabold">{s.title[lang]}</h3>
+                  <p className="mt-2 text-white/80">{s.short[lang]}</p>
+                  <span className="mt-4 inline-block font-bold underline-offset-4 group-hover:underline">{ui.learnMore[lang]} →</span>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* Services */}
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+          <Reveal>
+            <Eyebrow>{bg ? "Услуги" : "Services"}</Eyebrow>
+            <H2>{bg ? "Нашите услуги. Вашите решения." : "Our services. Your solutions."}</H2>
+            <p className="mt-5 text-lg text-muted">
+              {bg
+                ? "Един партньор за целия жизнен цикъл на централата: от първия разговор до поддръжката."
+                : "One partner for the plant's entire life cycle, from the first conversation to maintenance."}
+            </p>
+            <div className="mt-8 hidden aspect-[4/3] overflow-hidden rounded-3xl lg:block">
+              <Photo id={PH.handsInstall} alt={bg ? "Монтаж на соларен панел" : "Installing a solar panel"} />
+            </div>
+          </Reveal>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {services.map((s, i) => (
+              <Reveal key={s.slug} delay={i * 0.06}>
+                <Link href={href(lang, `services/${s.slug}`)} className="group flex h-full flex-col rounded-2xl bg-mist p-7 transition hover:bg-sky">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-white text-lg font-extrabold text-brand">{i + 1}</span>
+                  <h3 className="mt-5 text-xl font-extrabold">{s.title[lang]}</h3>
+                  <p className="mt-2 flex-1 text-muted">{s.short[lang]}</p>
+                  <span className="mt-4 font-bold text-brand">{ui.learnMore[lang]} →</span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Products */}
+      <Section className="bg-ink text-white">
+        <Reveal>
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Продукти" : "Products"}</p>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <H2 className="max-w-2xl">{bg ? "Оборудване от утвърдени производители" : "Equipment from established manufacturers"}</H2>
+            <Button to={href(lang, "products")} variant="light">{ui.allProducts[lang]}</Button>
+          </div>
+        </Reveal>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+          {products.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 0.06}>
+              <Link href={href(lang, `products/${p.slug}`)} className="group block h-full overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <Photo id={p.img} alt={p.title[lang]} className="transition duration-700 group-hover:scale-105" />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-extrabold">{p.title[lang]}</h3>
+                  <p className="mt-2 text-sm text-white/70">{p.short[lang]}</p>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* Projects teaser */}
+      <Section>
+        <Reveal>
+          <Eyebrow>{bg ? "Проекти" : "Projects"}</Eyebrow>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <H2>{bg ? "Убедете се сами в качеството" : "See the quality for yourself"}</H2>
+            <Button to={href(lang, "projects")} variant="outline">{ui.allProjects[lang]}</Button>
+          </div>
+        </Reveal>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {[1, 2, 3].map((n) => (
+            <Reveal key={n} delay={n * 0.06}>
+              <div className="overflow-hidden rounded-2xl border border-line">
+                <div className="grid aspect-[4/3] place-items-center bg-mist p-4 text-center">
+                  <Fill lang={lang}>{bg ? `снимка на реален обект ${n}` : `photo of real project ${n}`}</Fill>
+                </div>
+                <div className="p-5">
+                  <h3 className="font-extrabold">
+                    {bg ? "Система за бизнес клиент" : "System for a business client"} <Fill lang={lang}>kWp / kWh</Fill>
+                  </h3>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <CTA lang={lang} />
+    </>
+  );
+}
