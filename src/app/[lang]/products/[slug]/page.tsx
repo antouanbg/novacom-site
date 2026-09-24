@@ -78,6 +78,17 @@ export default async function ProductPage({ params }: P) {
                   suntech-power.com ↗
                 </a>
               </div>
+            ) : p.slug === "ev-charging" ? (
+              <div className="rounded-3xl bg-ink p-7 text-white">
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "За дома и бизнеса" : "For home and business"}</p>
+                <h3 className="mt-2 text-2xl font-extrabold">{bg ? "Зареждане със собствена енергия" : "Charge on your own energy"}</h3>
+                <p className="mt-3 text-white/80">
+                  {bg
+                    ? "Комбинираме зарядната станция с ФЕЦ и батерия и я включваме в безплатния мониторинг 24/365. За фирми: отчитане по служители и клиенти."
+                    : "We combine the charger with PV and storage and include it in free 24/365 monitoring. For businesses: reporting per employee and customer."}
+                </p>
+                <p className="mt-3 text-white/80">{bg ? "Марки и модели: според обекта и мощността, в офертата." : "Brands and models: chosen per site and power, in the quote."}</p>
+              </div>
             ) : p.slug === "monitoring" ? (
               <div className="rounded-3xl bg-ink p-7 text-white">
                 <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Платформа" : "Platform"}</p>

@@ -62,8 +62,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted">
               {bg
-                ? "Оферта, доставка и монтаж на фотоволтаични централи и батерийни системи за индустрия, търговия и земеделие, включително шкафови системи от 261 kWh и по-големи."
-                : "Quotes, supply and installation of PV plants and battery systems for industry, commerce and agriculture, including 261 kWh cabinets and larger."}
+                ? "Оферта, доставка и монтаж на фотоволтаични централи, батерийни системи и зарядни станции за електромобили за индустрия, търговия и земеделие, включително шкафови системи от 261 kWh и по-големи."
+                : "Quotes, supply and installation of PV plants, battery systems and EV charging stations for industry, commerce and agriculture, including 261 kWh cabinets and larger."}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button to={href(lang, "contact") + "#quote"}>{ui.quote[lang]}</Button>
@@ -190,7 +190,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </a>
           </div>
         </Reveal>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p, i) => (
             <Reveal key={p.slug} delay={i * 0.06}>
               <Link href={href(lang, `products/${p.slug}`)} className="group block h-full overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 transition hover:bg-white/10">
@@ -204,6 +204,40 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               </Link>
             </Reveal>
           ))}
+        </div>
+      </Section>
+
+      {/* EV charging */}
+      <Section>
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <Reveal className="order-2 lg:order-1">
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl">
+              <Photo id={PH.evCharging} alt={bg ? "Зарядна станция за електромобил" : "EV charging station"} />
+            </div>
+          </Reveal>
+          <Reveal className="order-1 lg:order-2">
+            <Eyebrow>{bg ? "Зарядни системи" : "EV charging"}</Eyebrow>
+            <H2>{bg ? "Зарядни станции за електромобили, захранени от вашата ФЕЦ" : "EV charging powered by your own PV plant"}</H2>
+            <p className="mt-5 text-lg text-muted">
+              {bg
+                ? "AC и DC зарядни за дома, офиса и фирмения паркинг. Управляваме зареждането заедно с централата и батерията: колата се зарежда със слънчева енергия или при ниски цени на тока, без да се надвишава партидата."
+                : "AC and DC chargers for homes, offices and company car parks. We manage charging together with your plant and battery: cars charge on solar energy or when prices are low, without exceeding your grid connection."}
+            </p>
+            <ul className="mt-6 space-y-3 text-lg">
+              {(bg
+                ? ["AC 7,4 / 11 / 22 kW и DC бързи зарядни", "Динамично управление на товара", "Отчитане по потребител, RFID и приложение"]
+                : ["7.4 / 11 / 22 kW AC and DC fast chargers", "Dynamic load management", "Per-user reporting, RFID and app"]
+              ).map((t) => (
+                <li key={t} className="flex gap-3">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-leaf-light text-sm font-extrabold text-leaf" aria-hidden>✓</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <Button to={href(lang, "products/ev-charging")}>{bg ? "Зарядни станции" : "EV charging"}</Button>
+            </div>
+          </Reveal>
         </div>
       </Section>
 

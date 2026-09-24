@@ -20,6 +20,7 @@ export const PH = {
   engineerLab: "1581091226825-a6a2a5aee158",
   engineerDraw: "1581092160562-40aa08e78837",
   engineerCode: "1581094794329-c8112a89af12",
+  evCharging: "1593941707882-a5bba14938c7",
 };
 
 export const contact = {
@@ -267,6 +268,28 @@ export const products: Product[] = [
       { bg: "Зареждане при ниски цени на електроенергията", en: "Charging when power prices are low" },
       { bg: "Управление на зарядни станции и консуматори", en: "Control of EV chargers and other loads" },
       { bg: "Локален EMS за C&I и интеграция със съществуваща ФЕЦ", en: "Local EMS for C&I and integration with existing PV" },
+    ],
+    items: [],
+  },
+  {
+    slug: "ev-charging",
+    title: { bg: "Зарядни станции", en: "EV charging" },
+    short: {
+      bg: "AC и DC зарядни за електромобили за дома, офиса и бизнеса, с управление от ФЕЦ и батерия.",
+      en: "AC and DC EV chargers for homes, offices and businesses, managed together with PV and storage.",
+    },
+    intro: {
+      bg: "Доставяме и монтираме зарядни станции за електромобили: от домашни AC зарядни (wallbox) до DC станции за фирмени паркинги и обществени обекти. Свързваме зареждането с фотоволтаичната централа и батерията, така че колата да се зарежда със собствена слънчева енергия или при ниски цени на тока.",
+      en: "We supply and install EV charging stations, from home AC wallboxes to DC stations for company car parks and public sites. Charging is linked to your PV plant and battery, so cars charge on your own solar energy or when power prices are low.",
+    },
+    img: PH.evCharging,
+    features: [
+      { bg: "AC зарядни 7,4 / 11 / 22 kW за дома и офиса", en: "7.4 / 11 / 22 kW AC chargers for home and office" },
+      { bg: "DC бързи зарядни за фирмени и обществени паркинги", en: "DC fast chargers for company and public car parks" },
+      { bg: "Динамично управление на товара: без надвишаване на партидата", en: "Dynamic load management: never exceeds your grid connection" },
+      { bg: "Зареждане от ФЕЦ и батерия, приоритет на слънчевата енергия", en: "Charging from PV and battery, solar first" },
+      { bg: "Достъп с RFID/приложение и отчитане на консумацията по потребител", en: "RFID/app access and per-user consumption reporting" },
+      { bg: "Включен безплатен мониторинг 24/365", en: "Free 24/365 monitoring included" },
     ],
     items: [],
   },

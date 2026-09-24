@@ -24,8 +24,8 @@ export default async function ProductsPage({ params }: P) {
         title={bg ? "Оборудване за соларна енергия и съхранение" : "Solar and storage equipment"}
         text={
           bg
-            ? "Работим с утвърдени производители на панели, инвертори, батерии и конструкции. Доставяме самостоятелно или като част от цялостен проект."
-            : "We work with established manufacturers of panels, inverters, batteries and mounting systems, supplied on their own or as part of a turnkey project."
+            ? "Панели и батерии Suntech, хибридни инвертори, зарядни станции за електромобили, конструкции и мониторинг. Доставяме самостоятелно или като част от цялостен проект."
+            : "Suntech panels and batteries, hybrid inverters, EV charging stations, mounting systems and monitoring, supplied on their own or as part of a turnkey project."
         }
         img={PH.panelsClose}
       />
