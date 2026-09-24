@@ -90,8 +90,8 @@ export default async function StrelaPage({ params }: P) {
             <H2>{bg ? "Технически данни" : "Technical data"}</H2>
             <dl className="mt-6 divide-y divide-line rounded-2xl border border-line bg-white">
               {specs.map(([k, v]) => (
-                <div key={k} className="grid gap-1 px-5 py-4 sm:grid-cols-[150px_1fr]">
-                  <dt className="text-sm font-bold uppercase tracking-widest text-muted">{k}</dt>
+                <div key={k} className="grid gap-1 px-5 py-4 sm:grid-cols-[170px_1fr]">
+                  <dt className="break-words text-sm font-bold uppercase tracking-wide text-muted [overflow-wrap:anywhere]">{k}</dt>
                   <dd className="font-semibold">{v}</dd>
                 </div>
               ))}
