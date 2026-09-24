@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
-import { GRIDEX_REPOS, products } from "@/content/site";
+import { GRIDEX_REPOS, products, REAL } from "@/content/site";
+import { Photo } from "@/components/ui";
 import { locales, type Lang } from "@/lib/i18n";
 import { Check, CTA, Eyebrow, H2, MonitoringPromo, PageHero, Reveal, Section } from "@/components/ui";
 import ResearchResults from "@/components/ResearchResults";
@@ -89,6 +90,25 @@ export default async function ProductPage({ params }: P) {
                     : "We combine the charger with PV and storage and include it in free 24/365 monitoring. For businesses: reporting per employee and customer."}
                 </p>
                 <p className="mt-3 text-white/80">{bg ? "Марки и модели: според обекта и мощността, в офертата." : "Brands and models: chosen per site and power, in the quote."}</p>
+              </div>
+            ) : p.slug === "carports" ? (
+              <div className="grid gap-3">
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted">{bg ? "Конструктивни варианти" : "Structure options"}</p>
+                {[
+                  [REAL.carportRender, bg ? "Двоен навес за две коли с наклонен покрив от модули" : "Double carport for two cars with a tilted module roof"],
+                  [REAL.carportRenderSingle, bg ? "Едноколонна конзолна конструкция: свободно пространство под навеса" : "Single-column cantilever: free space under the canopy"],
+                  [REAL.carportRenderRow, bg ? "Редова конструкция за фирмени паркинги, неограничена дължина" : "Row structure for company car parks, unlimited length"],
+                  [REAL.carportRenderSteps, bg ? "Сглобяване: колони, греди, редове и модули" : "Assembly: columns, beams, purlins and modules"],
+                ].map(([src, cap]) => (
+                  <figure key={src} className="overflow-hidden rounded-2xl border border-line bg-white">
+                    <div className="aspect-[16/8] bg-white"><Photo id={src} alt={cap} className="object-contain" /></div>
+                    <figcaption className="px-4 py-2 text-xs text-muted">{cap}</figcaption>
+                  </figure>
+                ))}
+                <div className="rounded-3xl bg-sky p-6">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand">{bg ? "Комбинирайте" : "Combine"}</p>
+                  <p className="mt-2 font-semibold">{bg ? "Навес + зарядна станция + батерия = паркинг, който зарежда колата ви от слънцето." : "Canopy + EV charger + battery = a car park that charges your car from the sun."}</p>
+                </div>
               </div>
             ) : p.slug === "wind" ? (
               <div className="grid gap-4">

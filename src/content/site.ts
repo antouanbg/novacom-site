@@ -46,6 +46,10 @@ export const REAL = {
   pernikDelivery: "/images/projects/pernik-hysolar-delivery.webp",
   pernikContainer: "/images/storage/pernik-bess-container.webp",
   carportBuild: "/images/projects/carport-bifacial-build.webp",
+  carportRender: "/images/carports/render-carport-cars.webp",
+  carportRenderSteps: "/images/carports/render-structure-steps.webp",
+  carportRenderSingle: "/images/carports/render-single-column.webp",
+  carportRenderRow: "/images/carports/render-column-row.webp",
 };
 
 export const PH = {
@@ -373,6 +377,28 @@ export const products: Product[] = [
       { brand: "iSTA-BREEZE", model: { bg: "Мачта 4 m (до 10 m)", en: "4 m mast (up to 10 m)" }, specs: { bg: "Поцинкована Ø60 mm, шарнирна основа, 3 обтяжки, товар до 40 kg", en: "Galvanised Ø60 mm, hinged base, 3 guy wires, up to 40 kg load" } },
     ],
   },
+  {
+    slug: "carports",
+    title: { bg: "Соларни навеси (carports)", en: "Solar carports" },
+    short: {
+      bg: "Навес за автомобили или пергола с двулицеви модули: сянка, паркинг и електроцентрала в едно.",
+      en: "A car canopy or pergola with bifacial modules: shade, parking and a power plant in one.",
+    },
+    intro: {
+      bg: "Соларният навес превръща паркинга или двора в електроцентрала, без да заема покрив или земя. Стоманена конструкция със собствен дизайн, прахово боядисана, с двулицеви стъкло-стъкло модули, които пропускат светлина и произвеждат и от отразената отдолу. Подходящ за домове, офиси, хотели, магазини и фирмени паркинги; естествено се комбинира със зарядна станция за електромобил и батерия.",
+      en: "A solar carport turns a car park or yard into a power plant without using roof or land. Steel structure of our own design, powder-coated, with bifacial glass-glass modules that let light through and also generate from reflection underneath. Suited to homes, offices, hotels, shops and company car parks; naturally combined with an EV charger and a battery.",
+    },
+    img: REAL.carport,
+    features: [
+      { bg: "Двулицеви стъкло-стъкло модули: светлина отдолу и до 10–15% повече добив", en: "Bifacial glass-glass modules: light underneath and up to 10–15% more yield" },
+      { bg: "Стоманена конструкция, прахово боядисана, оразмерена за сняг и вятър", en: "Powder-coated steel structure sized for snow and wind" },
+      { bg: "Едно, две или повече паркоместа; перголи за дворове и тераси", en: "One, two or more parking spaces; pergolas for yards and terraces" },
+      { bg: "Зарядна станция за електромобил на колоната, захранена от навеса", en: "EV charger on the column, powered by the canopy" },
+      { bg: "Хибриден инвертор и батерия за собствена консумация и резерв", en: "Hybrid inverter and battery for self-consumption and backup" },
+      { bg: "Отводняване и осветление по желание", en: "Drainage and lighting on request" },
+    ],
+    items: [],
+  },
 ];
 
 export const partners = [
@@ -656,6 +682,15 @@ export const projectTypes = [
     path: "solutions/industry",
   },
   {
+    title: { bg: "Соларни навеси и перголи", en: "Solar carports and pergolas" },
+    text: {
+      bg: "Паркинг или двор, който произвежда енергия, със зарядна станция за електромобил.",
+      en: "A car park or yard that generates energy, with an EV charger.",
+    },
+    img: REAL.carport,
+    path: "products/carports",
+  },
+  {
     title: { bg: "Търговски сгради", en: "Commercial buildings" },
     text: {
       bg: "Магазини, офиси и хотели с дневна консумация и бърза възвръщаемост.",
@@ -712,6 +747,7 @@ export const gallery: { src: string; alt: L; tall?: boolean }[] = [
   { src: REAL.pergola, alt: { bg: "Соларна пергола с двулицеви панели", en: "Solar pergola with bifacial modules" }, tall: true },
   { src: REAL.carport, alt: { bg: "Соларен навес за автомобили", en: "Solar carport" } },
   { src: REAL.carportBuild, alt: { bg: "Монтаж на соларен навес с двулицеви модули", en: "Building a solar carport with bifacial modules" } },
+
   { src: REAL.evDcAc, alt: { bg: "DC и AC зарядни станции за електромобили", en: "DC and AC EV charging stations" } },
   { src: REAL.switchboard, alt: { bg: "Табло с енергиен мениджмънт и мониторинг", en: "Switchboard with energy management and monitoring" }, tall: true },
   { src: REAL.roofVitosha, alt: { bg: "Покривна ФЕЦ на сграда в София", en: "Rooftop PV on a building in Sofia" } },
