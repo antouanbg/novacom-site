@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { products, projects, REAL, services, solutions, ui } from "@/content/site";
+import { news, products, projects, REAL, services, solutions, ui } from "@/content/site";
 import ProjectCard from "@/components/ProjectCard";
 import { href, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
@@ -258,6 +258,32 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           {projects.slice(0, 4).map((p, i) => (
             <Reveal key={p.title.en} delay={i * 0.06}>
               <ProjectCard p={p} lang={lang} />
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* News */}
+      <Section>
+        <Reveal>
+          <Eyebrow>{bg ? "Новини" : "News"}</Eyebrow>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <H2>{bg ? "Какво ново" : "What's new"}</H2>
+            <Button to={href(lang, "news")} variant="outline">{bg ? "Всички новини" : "All news"}</Button>
+          </div>
+        </Reveal>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {news.slice(0, 3).map((n, i) => (
+            <Reveal key={n.slug} delay={i * 0.06}>
+              <Link href={href(lang, n.to || "news")} className="group block h-full overflow-hidden rounded-2xl border border-line bg-white transition hover:shadow-xl">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <Photo id={n.img} alt={n.title[lang]} className="transition duration-700 group-hover:scale-105" />
+                </div>
+                <div className="p-5">
+                  <p className="text-sm font-bold text-brand">{new Date(n.date + "T00:00:00").toLocaleDateString(bg ? "bg-BG" : "en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
+                  <h3 className="mt-1 text-lg font-extrabold">{n.title[lang]}</h3>
+                </div>
+              </Link>
             </Reveal>
           ))}
         </div>

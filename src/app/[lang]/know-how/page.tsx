@@ -52,19 +52,19 @@ export default async function KnowHowPage({ params }: P) {
             <H2>{bg ? "Тракер „Стрела“ (3P): единствен в България" : "The Strela (3P) tracker: unique in Bulgaria"}</H2>
             <p className="mt-5 text-lg text-muted">
               {bg
-                ? "„Стрела“ е соларен тракер със собствен дизайн и собствена разработка на Novacom. Следи слънцето през деня, за да извлече повече енергия от същите панели, и се предлага и като мобилна платформа на ремарке, готова за работа където е нужна."
-                : "Strela is a solar tracker designed and developed in-house by Novacom. It follows the sun through the day to harvest more energy from the same modules, and is also available as a mobile trailer platform, ready to work wherever it is needed."}
+                ? "„Стрела“ е двуосов соларен тракер на един носещ стълб, собствен дизайн и разработка на Novacom. Върти се след слънцето от изток на запад през деня, а сезонно рамо сменя наклона за зима и лято. Предлага се и като мобилна платформа на ремарке, готова за работа където е нужна."
+                : "Strela is a two-axis solar tracker on a single mast, designed and developed in-house by Novacom. It turns to follow the sun from east to west through the day, and a seasonal arm changes the tilt for winter and summer. It is also available as a mobile trailer platform, ready to work wherever it is needed."}
             </p>
             <ul className="mt-7 space-y-3 text-lg">
               <Check>{bg ? "Собствен дизайн и разработка в България" : "Designed and developed in Bulgaria"}</Check>
-              <Check>{bg ? "Двуосово следене на слънцето, стринг 3,5 kWp" : "Two-axis sun tracking, 3.5 kWp string"}</Check>
+              <Check>{bg ? "Две оси: дневно въртене + сезонен наклон, един стълб, стринг 3,5 kWp" : "Two axes: daily rotation + seasonal tilt, single mast, 3.5 kWp string"}</Check>
               <Check>{bg ? "До 45% по-висок добив спрямо фиксирани системи" : "Up to 45% higher yield than fixed systems"}</Check>
               <Check>{bg ? "Двулицеви модули за допълнителен добив от отразената светлина" : "Bifacial modules for extra yield from reflected light"}</Check>
               <Check>{bg ? "Мобилно изпълнение на ремарке с инверторно табло на борда" : "Mobile trailer version with an on-board inverter cabinet"}</Check>
               <Check>{bg ? "Подходящ за земеделие, отдалечени обекти и временни площадки" : "Suited to agriculture, remote sites and temporary locations"}</Check>
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button to={href(lang, "know-how/strela")}>{bg ? "Виж модела и чертежите" : "See the model and drawings"}</Button>
+              <Button to={href(lang, "know-how/strela")}>{bg ? "Виж модела в движение" : "See the model in motion"}</Button>
               <Button to={href(lang, "contact") + "#quote"} variant="outline">{bg ? "Запитване за „Стрела“" : "Ask about Strela"}</Button>
             </div>
           </Reveal>

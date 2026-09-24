@@ -374,10 +374,10 @@ export const projectStatus: Record<ProjectStatus, L> = {
 // No client names; region only. Photos are illustrative until the client's own arrive.
 export const projects: Project[] = [
   {
-    title: { bg: "Фотоволтаичен парк 2 MW с батерия 2,5 MW", en: "2 MW solar park with 2.5 MW battery storage" },
+    title: { bg: "Фотоволтаичен парк 2 MW с батерия 2,5 MWh", en: "2 MW solar park with 2.5 MWh battery storage" },
     region: { bg: "Перник", en: "Pernik" },
     pv: "2 MW",
-    bess: "2,5 MW",
+    bess: "2,5 MWh",
     segment: "ci",
     equipment: { bg: "Наземна ФЕЦ с панели HY Solar и контейнерни батерийни системи с LFP модули и модулен PCS", en: "Ground-mounted PV with HY Solar modules and containerised battery systems with LFP modules and modular PCS" },
     year: "2026",
@@ -572,6 +572,7 @@ export const nav: NavItem[] = [
   },
   { label: { bg: "Проекти", en: "Projects" }, path: "projects" },
   { label: { bg: "Ноу-хау", en: "Know-how" }, path: "know-how" },
+  { label: { bg: "Новини", en: "News" }, path: "news" },
   { label: { bg: "За нас", en: "About" }, path: "about", children: about },
   { label: { bg: "Контакт", en: "Contact" }, path: "contact" },
 ];
@@ -715,5 +716,77 @@ export const utilityModels: { title: L; year: string; ref?: string; note: L }[] 
     year: "2017",
     ref: "BG 2789 U1",
     note: { bg: "Регистриран полезен модел: централен координиращ сървър с криптирани комуникационни модули", en: "Registered utility model: a central coordinating server with encrypted communication modules" },
+  },
+];
+
+export type NewsItem = { slug: string; date: string; title: L; text: L; img: string; to?: string };
+
+// Newest first. Dates are ISO; the page formats them per language.
+export const news: NewsItem[] = [
+  {
+    slug: "pernik-2mw-2-5mwh",
+    date: "2026-09-24",
+    title: { bg: "Перник: фотоволтаичен парк 2 MW с батерия 2,5 MWh", en: "Pernik: 2 MW solar park with 2.5 MWh battery storage" },
+    text: {
+      bg: "Най-големият ни проект до момента е в изпълнение: наземна ФЕЦ с панели HY Solar и контейнерни батерийни системи с LFP модули и модулен PCS. Батерията ще изрязва пиковете и ще търгува енергия по цените на борсата.",
+      en: "Our largest project to date is under way: a ground-mounted plant with HY Solar modules and containerised battery systems with LFP modules and a modular PCS. The battery will shave peaks and trade energy at exchange prices.",
+    },
+    img: REAL.pernikContainer,
+    to: "projects",
+  },
+  {
+    slug: "strela-model",
+    date: "2026-09-24",
+    title: { bg: "Публикувахме модела на тракера „Стрела“", en: "The Strela tracker model is now online" },
+    text: {
+      bg: "Анимиран модел и спецификация на единствения български соларен тракер: двуосов, на един стълб, собствен дизайн на Novacom, 3,5 kWp стринг, до 45% по-висок добив.",
+      en: "An animated model and specification of the only Bulgarian-made solar tracker: two-axis, single mast, Novacom's own design, 3.5 kWp string, up to 45% higher yield.",
+    },
+    img: REAL.trackerField,
+    to: "know-how/strela",
+  },
+  {
+    slug: "mihaylovo-261kwh",
+    date: "2026-09-01",
+    title: { bg: "Батерия Suntech 261 kWh към ФЕЦ 98,56 kWp", en: "Suntech 261 kWh battery for a 98.56 kWp plant" },
+    text: {
+      bg: "Проектът за съоръжение за съхранение (ССЕЕ) към съществуваща наземна централа в обл. Стара Загора е внесен за съгласуване: Suntech SunStorage Pro STE-261L-125P, 261 kWh / 100 kW.",
+      en: "The storage project for an existing ground-mounted plant in the Stara Zagora region has been submitted for approval: Suntech SunStorage Pro STE-261L-125P, 261 kWh / 100 kW.",
+    },
+    img: REAL.mihaylovoSun,
+    to: "products/storage",
+  },
+  {
+    slug: "v2g-hybrid-charge",
+    date: "2026-07-01",
+    title: { bg: "V2G-Hybrid-Charge: хибридни батерии към зарядните станции", en: "V2G-Hybrid-Charge: hybrid batteries behind EV chargers" },
+    text: {
+      bg: "Концепция и регистриран полезен модел BG 5058 U1: батериен буфер от нови и рециклирани клетки към зарядната станция, двупосочно зареждане и AI енергиен мениджър. Бързо зареждане без скъпо увеличение на партидата.",
+      en: "A concept and registered utility model BG 5058 U1: a battery buffer of new and second-life cells behind the charger, bidirectional charging and an AI energy manager. Fast charging without a costly grid upgrade.",
+    },
+    img: REAL.evDcAc,
+    to: "products/ev-charging",
+  },
+  {
+    slug: "suntech-representative",
+    date: "2026-05-01",
+    title: { bg: "Novacom е търговски представител на Suntech за Балканите и Европа", en: "Novacom is Suntech's sales representative for the Balkans and Europe" },
+    text: {
+      bg: "Първите доставки на батерийни системи Suntech SunStorage Pro 261 kWh за индустриални клиенти вече са факт. Доставяме панели и батерии Suntech директно от производителя.",
+      en: "The first deliveries of Suntech SunStorage Pro 261 kWh battery systems to industrial clients are complete. We supply Suntech modules and batteries direct from the manufacturer.",
+    },
+    img: REAL.bessOpen,
+    to: "about/partners",
+  },
+  {
+    slug: "oek-energy-cluster",
+    date: "2020-06-01",
+    title: { bg: "„Обединен енергиен клъстер“: нашият модел за енергийни общности", en: "United Energy Cluster: our model for energy communities" },
+    text: {
+      bg: "Още през 2020 г. разработихме концепцията ОЕК АД: модел за частна инвестиция в децентрализирана енергийна структура, при който потребителите придобиват дял в своя доставчик и стават просуматори. Днес тя е основата на нашите решения за енергийни общности.",
+      en: "Back in 2020 we developed the OEK concept: a model for private investment in decentralised energy where consumers take a share in their supplier and become prosumers. Today it underpins our energy-community solutions.",
+    },
+    img: REAL.roofDense,
+    to: "solutions/communities",
   },
 ];

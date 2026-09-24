@@ -7,7 +7,7 @@ export default function Footer({ lang }: { lang: Lang }) {
   const cols = [
     { title: { bg: "Решения", en: "Solutions" }, links: solutions.map((s) => ({ label: s.title, path: `solutions/${s.slug}` })) },
     { title: { bg: "Услуги", en: "Services" }, links: services.map((s) => ({ label: s.title, path: `services/${s.slug}` })) },
-    { title: { bg: "За нас", en: "About" }, links: [...about, { path: "know-how", label: { bg: "Ноу-хау", en: "Know-how" } }, { path: "projects", label: { bg: "Проекти", en: "Projects" } }] },
+    { title: { bg: "За нас", en: "About" }, links: [...about, { path: "know-how", label: { bg: "Ноу-хау", en: "Know-how" } }, { path: "news", label: { bg: "Новини", en: "News" } }, { path: "projects", label: { bg: "Проекти", en: "Projects" } }] },
   ];
   return (
     <footer className="bg-ink text-white">

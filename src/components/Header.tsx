@@ -55,12 +55,12 @@ export default function Header({ lang }: { lang: Lang }) {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1" aria-label="Main">
+        <nav className="hidden items-center gap-0.5 lg:flex 2xl:gap-1" aria-label="Main">
           {nav.map((item, i) => (
             <div key={item.path} className="group relative">
               <Link
                 href={href(lang, item.path)}
-                className="flex items-center gap-1 whitespace-nowrap rounded-lg px-2 py-2 text-sm font-semibold text-ink hover:text-brand xl:px-3 xl:text-[15px]"
+                className="flex items-center gap-1 whitespace-nowrap rounded-lg px-2 py-2 text-sm font-semibold text-ink hover:text-brand 2xl:px-3 2xl:text-[15px]"
               >
                 {item.label[lang]}
                 {item.children && (
@@ -89,10 +89,10 @@ export default function Header({ lang }: { lang: Lang }) {
 
         <div className="flex items-center gap-2 lg:gap-3">
           <LangSwitch lang={lang} className="hidden sm:flex" />
-          {/* Seven menu items + BG/EN do not leave room for this button between 1024 and 1279px, so it shows on tablets (burger menu) and from xl up; the hero and every section carry the same CTA. */}
+          {/* Eight menu items + BG/EN leave no room for this button between 1024 and 1279px, so it shows on tablets (burger menu) and from xl up; the hero and every section carry the same CTA. */}
           <Link
             href={href(lang, "contact") + "#quote"}
-            className="hidden whitespace-nowrap rounded-xl border-2 border-ink px-5 py-2.5 text-[15px] font-bold text-ink transition hover:bg-ink hover:text-white md:inline-block lg:hidden xl:inline-block"
+            className="hidden whitespace-nowrap rounded-xl border-2 border-ink px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-ink hover:text-white md:inline-block lg:hidden xl:inline-block 2xl:px-5 2xl:text-[15px]"
           >
             {ui.quote[lang]}
           </Link>

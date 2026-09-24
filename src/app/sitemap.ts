@@ -14,6 +14,7 @@ const paths = [
   "projects",
   "know-how",
   "know-how/strela",
+  "news",
   ...about.map((a) => a.path),
   "contact",
 ];
