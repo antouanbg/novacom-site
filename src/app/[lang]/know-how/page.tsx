@@ -94,8 +94,8 @@ export default async function KnowHowPage({ params }: P) {
             <H2>{bg ? "GrideX Energy OS: собствена EMS с отворен код" : "GrideX Energy OS: our own open-source EMS"}</H2>
             <p className="mt-5 text-lg text-white/80">
               {bg
-                ? "Разработихме собствена система за управление на енергията, защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи със съществуващото оборудване. Публикувахме я под MIT лиценз: без лицензни такси и без обвързване с доставчик."
-                : "We built our own energy management system because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment. We published it under the MIT licence: no licence fees and no vendor lock-in."}
+                ? "Разработихме собствена система за управление на енергията, защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи със съществуващото оборудване. Системата е проектирана и разработена от д-р инж. Антуан Ангелов и е публикувана като отворен код под MIT лиценз в github.com/antouanbg: без лицензни такси и без обвързване с доставчик."
+                : "We built our own energy management system because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment. The system is designed and developed by Dr. Eng. Antouan Anguelov and published as open source under the MIT licence at github.com/antouanbg: no licence fees and no vendor lock-in."}
             </p>
             <div className="mt-6 rounded-2xl border border-[#b5d86a]/40 bg-white/5 p-5">
               <p className="font-extrabold text-[#b5d86a]">{bg ? "Купувате батерия Suntech 261 kWh? EMS се внедрява 100% безплатно." : "Buying a Suntech 261 kWh battery? The EMS is deployed 100% free."}</p>
