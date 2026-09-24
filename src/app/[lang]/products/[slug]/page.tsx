@@ -39,6 +39,23 @@ export default async function ProductPage({ params }: P) {
                 <Check key={f.en}>{f[lang]}</Check>
               ))}
             </ul>
+            {p.items.length > 0 && (
+              <div className="mt-10">
+                <h3 className="text-xl font-extrabold">{bg ? "Модели, които доставяме" : "Models we supply"}</h3>
+                <div className="mt-4 grid gap-3">
+                  {p.items.map((it) => (
+                    <div key={it.model} className={`rounded-2xl border p-5 ${it.featured ? "border-brand bg-sky" : "border-line"}`}>
+                      <p className="text-sm font-bold uppercase tracking-widest text-muted">
+                        {it.brand}
+                        {it.featured && <span className="ml-2 rounded-full bg-brand px-2 py-0.5 text-[11px] text-white">{bg ? "Препоръчан" : "Recommended"}</span>}
+                      </p>
+                      <p className="mt-1 text-lg font-extrabold">{it.model}</p>
+                      <p className="mt-1 text-muted">{it.specs[lang]}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </Reveal>
           <Reveal delay={0.1}>
             {p.slug === "pv-modules" || p.slug === "storage" ? (

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { seo } from "@/lib/seo";
-import { PH } from "@/content/site";
+import { partners, PH } from "@/content/site";
 import type { Lang } from "@/lib/i18n";
 import { Check, CTA, Eyebrow, H2, PageHero, Reveal, Section } from "@/components/ui";
 
@@ -55,6 +55,21 @@ export default async function PartnersPage({ params }: P) {
             </ul>
           </div>
         </Reveal>
+      </Section>
+      <Section className="pt-0 sm:pt-0 lg:pt-0">
+        <Reveal>
+          <H2>{bg ? "Производители, с които работим" : "Manufacturers we work with"}</H2>
+        </Reveal>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {partners.map((pt, i) => (
+            <Reveal key={pt.name} delay={i * 0.06}>
+              <div className={`h-full rounded-2xl border p-6 ${i === 0 ? "border-brand bg-sky" : "border-line"}`}>
+                <p className="text-2xl font-extrabold">{pt.name}</p>
+                <p className="mt-2 text-muted">{pt.what[lang]}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
       <Section className="bg-mist">
         <Reveal>

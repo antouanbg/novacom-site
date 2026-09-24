@@ -38,8 +38,8 @@ export const ui = {
   rights: { bg: "Всички права запазени.", en: "All rights reserved." },
   ctaTitle: { bg: "Готови ли сте за собствена енергия?", en: "Ready to generate your own energy?" },
   ctaText: {
-    bg: "Безплатна първоначална консултация, енергиен и финансов анализ на вашия обект.",
-    en: "Free initial consultation plus an energy and financial analysis of your site.",
+    bg: "Супер ниски цени за проектиране на ФЕЦ и батерийни системи. Безплатна консултация, енергиен и финансов анализ.",
+    en: "Very low prices for designing PV plants and battery systems. Free consultation plus an energy and financial analysis.",
   },
 } satisfies Record<string, L>;
 
@@ -147,6 +147,8 @@ export const solutions: Solution[] = [
   },
 ];
 
+export type ProductItem = { brand: string; model: string; specs: L; featured?: boolean };
+
 export type Product = {
   slug: string;
   title: L;
@@ -154,97 +156,164 @@ export type Product = {
   intro: L;
   img: string;
   features: L[];
+  items: ProductItem[];
 };
 
+// Brands and models from Novacom's offers (approved for publication 2026-09-24).
 export const products: Product[] = [
   {
     slug: "pv-modules",
     title: { bg: "Фотоволтаични панели", en: "PV modules" },
     short: {
-      bg: "Високоефективни модули с дългосрочна гаранция.",
-      en: "High-efficiency modules with long-term warranties.",
+      bg: "N-type двулицеви панели Suntech 455 Wp.",
+      en: "Suntech n-type bifacial 455 Wp modules.",
     },
     intro: {
-      bg: "Доставяме монокристални модули от утвърдени производители за покривни и наземни централи.",
-      en: "We supply monocrystalline modules from established manufacturers for rooftop and ground-mounted plants.",
+      bg: "Основно използваме панели Suntech: монокристални n-type двулицеви модули с висока ефективност и дългосрочна гаранция, за покривни и наземни централи.",
+      en: "Our main modules are Suntech: high-efficiency monocrystalline n-type bifacial modules with long-term warranties, for rooftop and ground-mounted plants.",
     },
     img: PH.panelsClose,
     features: [
-      { bg: "Монокристални и бифациални модули", en: "Monocrystalline and bifacial modules" },
-      { bg: "Продуктова и производствена гаранция", en: "Product and performance warranties" },
+      { bg: "Ефективност на модула ≥ 22,5%", en: "Module efficiency ≥ 22.5%" },
+      { bg: "Продуктова гаранция 15 години", en: "15-year product warranty" },
+      { bg: "Линейна гаранция за мощност 30 години", en: "30-year linear power warranty" },
+      { bg: "Деградация първа година ≤ 1%", en: "First-year degradation ≤ 1%" },
+    ],
+    items: [
+      { brand: "Suntech", model: "STP455S-I54-Nsh+ 455 Wp", specs: { bg: "n-type, двулицев, черна рамка, 1952×1134×30 mm", en: "n-type, bifacial, black frame, 1952×1134×30 mm" }, featured: true },
+      { brand: "HY Solar", model: "455 W Full Frame", specs: { bg: "TOPCon, 16BB half-cut, двулицев, стъкло/стъкло", en: "TOPCon, 16BB half-cut, bifacial, dual-glass" } },
     ],
   },
   {
     slug: "inverters",
     title: { bg: "Инвертори", en: "Inverters" },
     short: {
-      bg: "Мрежови, хибридни и автономни (off-grid) инвертори.",
-      en: "Grid-tied, hybrid and off-grid inverters.",
+      bg: "Хибридни трифазни инвертори LV и HV с Zero Export.",
+      en: "Three-phase LV and HV hybrid inverters with zero export.",
     },
     intro: {
-      bg: "Подбираме инвертора спрямо мощността, мрежата и нуждата от съхранение: от жилищни до стрингови инвертори за C&I.",
-      en: "We select the inverter by power, grid and storage needs, from residential to C&I string inverters.",
+      bg: "Хибридните инвертори управляват едновременно панелите, батерията и мрежата. Смарт метърът ограничава връщането на енергия в мрежата (Zero Export), когато това е необходимо.",
+      en: "Hybrid inverters manage the panels, battery and grid together. A smart meter limits export to the grid (zero export) where required.",
     },
     img: PH.engineerLab,
     features: [
-      { bg: "Мрежови (on-grid)", en: "Grid-tied (on-grid)" },
-      { bg: "Хибридни, с батерия", en: "Hybrid, battery-ready" },
-      { bg: "Автономни (off-grid)", en: "Off-grid" },
+      { bg: "Европейска претеглена ефективност ≥ 97%", en: "European weighted efficiency ≥ 97%" },
+      { bg: "Хармоници THD ≤ 3%", en: "Harmonics THD ≤ 3%" },
+      { bg: "Продуктова гаранция 10 години", en: "10-year product warranty" },
+      { bg: "Смарт метър за Zero Export", en: "Smart meter for zero export" },
+    ],
+    items: [
+      { brand: "Deye", model: "SUN-15K-SG05LP3-EU", specs: { bg: "15 kW хибриден, трифазен, LV, Wi-Fi", en: "15 kW hybrid, three-phase, LV, Wi-Fi" } },
+      { brand: "HV", model: "20 kW", specs: { bg: "Промишлен хибриден инвертор, трифазен, високоволтов", en: "Industrial hybrid inverter, three-phase, high-voltage" } },
     ],
   },
   {
     slug: "storage",
     title: { bg: "Системи за съхранение (BESS)", en: "Battery storage (BESS)" },
     short: {
-      bg: "От домашни батерии до индустриални шкафове и контейнери.",
-      en: "From home batteries to industrial cabinets and containers.",
+      bg: "Suntech SunStorage Pro 261 kWh за бизнеса, до MWh мащаб, и батерии за дома.",
+      en: "Suntech SunStorage Pro 261 kWh for business, up to MWh scale, plus home batteries.",
     },
     intro: {
-      bg: "Доставяме и монтираме системи за съхранение за домакинства, търговски и индустриални обекти, включително шкафови системи от 261 kWh и по-големи конфигурации.",
-      en: "We supply and install storage for homes, commercial and industrial sites, including 261 kWh cabinet systems and larger configurations.",
+      bg: "За бизнеса доставяме Suntech SunStorage Pro: интегрирана система „всичко в едно“ с 261 kWh капацитет и 125 kW мощност, течно охлаждане и вградени PCS, BMS и EMS. Шкафовете се свързват паралелно до MWh мащаб. За домовете предлагаме LV и HV батерийни модули с 6000 цикъла.",
+      en: "For business we supply Suntech SunStorage Pro, an all-in-one system with 261 kWh capacity and 125 kW power, liquid cooling and built-in PCS, BMS and EMS. Cabinets connect in parallel up to MWh scale. For homes we offer LV and HV battery modules rated for 6,000 cycles.",
     },
     img: PH.grid,
     features: [
-      { bg: "Домашни батерии", en: "Home batteries" },
-      { bg: "Търговски и индустриални шкафове (C&I), напр. 261 kWh", en: "Commercial & industrial (C&I) cabinets, e.g. 261 kWh" },
-      { bg: "Мащабируеми и контейнерни решения", en: "Scalable and containerised solutions" },
+      { bg: "261 kWh / 125 kW в един шкаф, IP65", en: "261 kWh / 125 kW in one cabinet, IP65" },
+      { bg: "Течно охлаждане, вградени PCS, BMS, EMS и защити", en: "Liquid cooling, built-in PCS, BMS, EMS and safety systems" },
+      { bg: "Мащабиране: напр. 8 шкафа = 1 MW / 2,09 MWh", en: "Scalable: e.g. 8 cabinets = 1 MW / 2.09 MWh" },
+      { bg: "Зареждане при ниски цени и изрязване на пикове", en: "Charging at low prices and peak shaving" },
+    ],
+    items: [
+      { brand: "Suntech", model: "SunStorage Pro STE-261L-125P", specs: { bg: "C&I, 261 kWh / 125 kW, течно охлаждане, 400 V AC, IP65", en: "C&I, 261 kWh / 125 kW, liquid-cooled, 400 V AC, IP65" }, featured: true },
+      { brand: "Deye", model: "SE-F16-C", specs: { bg: "16 kWh, LV, 10 години гаранция", en: "16 kWh, LV, 10-year warranty" } },
+      { brand: "V-TAC", model: "VT-10240", specs: { bg: "10,24 kWh, LV, 6000 цикъла", en: "10.24 kWh, LV, 6,000 cycles" } },
+      { brand: "HV", model: "25 kWh", specs: { bg: "Високоволтов промишлен модул, 6000 цикъла", en: "High-voltage industrial module, 6,000 cycles" } },
     ],
   },
   {
     slug: "mounting",
     title: { bg: "Монтажни конструкции", en: "Mounting systems" },
     short: {
-      bg: "Конструкции за всички видове покриви и терени.",
-      en: "Structures for every roof type and terrain.",
+      bg: "Алуминиеви и метални конструкции за покриви и терени.",
+      en: "Aluminium and steel structures for roofs and ground.",
     },
     intro: {
-      bg: "Използваме системи за скатни и плоски покриви, наземни конструкции, карпорти и тракери.",
-      en: "Systems for pitched and flat roofs, ground mounts, carports and trackers.",
+      bg: "Използваме нискокорозионни материали и крепежи, които не ускоряват корозията на основната конструкция.",
+      en: "We use low-corrosion materials and fasteners that do not accelerate corrosion of the supporting structure.",
     },
     img: PH.fieldSky,
     features: [
       { bg: "Скатни и плоски покриви", en: "Pitched and flat roofs" },
-      { bg: "Наземни конструкции и тракери", en: "Ground mounts and trackers" },
-      { bg: "Соларни карпорти", en: "Solar carports" },
+      { bg: "Наземни конструкции и навеси", en: "Ground mounts and canopies" },
+      { bg: "Продуктова гаранция 10 години", en: "10-year product warranty" },
     ],
+    items: [],
   },
   {
     slug: "monitoring",
     title: { bg: "Мониторинг и EMS", en: "Monitoring & EMS" },
     short: {
-      bg: "Наблюдение и интелигентно управление на енергията.",
-      en: "Monitoring and intelligent energy management.",
+      bg: "Безплатен мониторинг 24/365, управление на енергията и SMS известия.",
+      en: "Free 24/365 monitoring, energy management and SMS alerts.",
     },
     intro: {
-      bg: "С 30 години опит в ИТ и комуникациите интегрираме централата с дистанционно наблюдение, аларми и системи за управление на енергията (EMS).",
-      en: "With 30 years in IT and communications, we integrate your plant with remote monitoring, alerts and energy management systems (EMS).",
+      bg: "Софтуерът управлява зареждането на батерията, външни консуматори (зарядна станция, бойлер) и графици, показва прогнози и спестената енергия. Локалният EMS се интегрира и със съществуващи централи, например с инвертори Huawei и SmartLogger.",
+      en: "Our software manages battery charging, external loads (EV charger, water heater) and schedules, and shows forecasts and energy saved. The local EMS also integrates with existing plants, e.g. Huawei inverters with SmartLogger.",
     },
     img: PH.engineerCode,
     features: [
-      { bg: "Дистанционен мониторинг 24/7", en: "24/7 remote monitoring" },
-      { bg: "Управление на товари и батерии (EMS)", en: "Load and battery management (EMS)" },
-      { bg: "Интеграция с ERP/SCADA", en: "ERP/SCADA integration" },
+      { bg: "Зареждане при ниски цени на електроенергията", en: "Charging when power prices are low" },
+      { bg: "Управление на зарядни станции и консуматори", en: "Control of EV chargers and other loads" },
+      { bg: "Локален EMS за C&I и интеграция със съществуваща ФЕЦ", en: "Local EMS for C&I and integration with existing PV" },
     ],
+    items: [],
+  },
+];
+
+export const partners = [
+  { name: "Suntech", what: { bg: "Панели и C&I батерийни системи", en: "PV modules and C&I battery systems" } },
+  { name: "HY Solar", what: { bg: "Фотоволтаични панели", en: "PV modules" } },
+  { name: "Deye", what: { bg: "Хибридни инвертори и батерии", en: "Hybrid inverters and batteries" } },
+  { name: "V-TAC", what: { bg: "Батерийни модули", en: "Battery modules" } },
+];
+
+export type Project = { title: L; region: L; pv: string; bess: string; segment: "ci" | "home"; equipment: string };
+
+// Approved 2026-09-24: no client names, region only. Real photos to be added later.
+export const projects: Project[] = [
+  {
+    title: { bg: "Батерийна система Suntech към съществуваща ФЕЦ", en: "Suntech battery added to an existing PV plant" },
+    region: { bg: "обл. Стара Загора", en: "Stara Zagora region" },
+    pv: "98,56 kWp",
+    bess: "261 kWh / 100 kW",
+    segment: "ci",
+    equipment: "Suntech SunStorage Pro STE-261L-125P",
+  },
+  {
+    title: { bg: "ФЕЦ с батерия за сграда", en: "PV with battery for a building" },
+    region: { bg: "София", en: "Sofia" },
+    pv: "23 kWp",
+    bess: "50 kWh",
+    segment: "home",
+    equipment: "Suntech 455 Wp · 20 kW HV",
+  },
+  {
+    title: { bg: "Покривна ФЕЦ с батерия", en: "Rooftop PV with battery" },
+    region: { bg: "обл. София", en: "Sofia region" },
+    pv: "9,1 kWp",
+    bess: "20,48 kWh",
+    segment: "home",
+    equipment: "HY Solar 455 W · Deye 15 kW · V-TAC",
+  },
+  {
+    title: { bg: "Хибридна ФЕЦ за жилищна сграда", en: "Hybrid PV for a residential building" },
+    region: { bg: "обл. София", en: "Sofia region" },
+    pv: "5,5 kWp",
+    bess: "16 kWh",
+    segment: "home",
+    equipment: "Suntech 455 Wp · Deye 15 kW · Deye SE-F16-C",
   },
 ];
 
@@ -273,12 +342,12 @@ export const services: Service[] = [
     slug: "engineering",
     title: { bg: "Проектиране и присъединяване", en: "Engineering & grid connection" },
     short: {
-      bg: "Проект, разрешителни и присъединяване към мрежата.",
-      en: "Design, permits and grid connection.",
+      bg: "Проект, разрешителни и присъединяване на супер ниски цени.",
+      en: "Design, permits and grid connection at very low prices.",
     },
     intro: {
-      bg: "Поемаме целия административен път: проект, съгласувания и документи за присъединяване.",
-      en: "We handle the full administrative path: design, approvals and grid-connection paperwork.",
+      bg: "Проектираме ФЕЦ, батерийни системи (ССЕЕ) и присъединяване на супер ниски цени, и поемаме целия административен път: проект, съгласувания и документи за присъединяване.",
+      en: "We design PV plants, battery storage systems and grid connections at very low prices, and handle the full administrative path: design, approvals and grid-connection paperwork.",
     },
     img: PH.engineerDraw,
     steps: [

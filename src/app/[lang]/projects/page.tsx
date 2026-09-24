@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PH, projectTypes, services } from "@/content/site";
+import { PH, projects, projectTypes, services } from "@/content/site";
+import ProjectCard from "@/components/ProjectCard";
 import { href, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { CTA, Eyebrow, H2, MonitoringPromo, PageHero, Photo, Reveal, Section } from "@/components/ui";
@@ -37,6 +38,22 @@ export default async function ProjectsPage({ params }: P) {
         img={PH.fieldClouds}
       />
       <Section>
+        <Reveal>
+          <Eyebrow>{bg ? "Наши проекти" : "Our projects"}</Eyebrow>
+          <H2>{bg ? "Реализирани и текущи проекти" : "Completed and ongoing projects"}</H2>
+        </Reveal>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {projects.map((p, i) => (
+            <Reveal key={p.pv + p.bess} delay={i * 0.06}>
+              <ProjectCard p={p} lang={lang} />
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+      <Section className="pt-0 sm:pt-0 lg:pt-0">
+        <Reveal>
+          <H2 className="mb-10">{bg ? "Какво изграждаме" : "What we build"}</H2>
+        </Reveal>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projectTypes.map((t, i) => (
             <Reveal key={t.path} delay={(i % 3) * 0.06}>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PH, products, projectTypes, services, solutions, ui } from "@/content/site";
+import { PH, products, projects, services, solutions, ui } from "@/content/site";
+import ProjectCard from "@/components/ProjectCard";
 import { href, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { Button, CTA, Eyebrow, H2, MonitoringPromo, Photo, Reveal, Section } from "@/components/ui";
@@ -24,10 +25,10 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
   const pillars = [
     {
-      t: bg ? "Вашите нужди на първо място" : "Your needs come first",
+      t: bg ? "Супер ниски цени за проектиране" : "Very low design prices",
       d: bg
-        ? "Анализираме консумацията и обекта и предлагаме решение с безплатен първоначален енергиен и финансов анализ."
-        : "We analyse your consumption and site and propose a solution, with a free initial energy and financial analysis.",
+        ? "Проектиране на ФЕЦ, батерийни системи и присъединяване на едни от най-ниските цени на пазара, с безплатен първоначален енергиен и финансов анализ."
+        : "Design of PV plants, battery systems and grid connection at some of the lowest prices on the market, with a free initial energy and financial analysis.",
     },
     {
       t: bg ? "Цялостно решение „до ключ“" : "Complete turnkey solution",
@@ -88,8 +89,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               <Photo id={PH.heroRoof} alt={bg ? "Фотоволтаична централа на индустриален покрив" : "Solar plant on an industrial roof"} priority />
             </div>
             <div className="absolute -bottom-5 left-4 right-4 rounded-2xl bg-white p-4 shadow-xl sm:left-auto sm:right-6 sm:w-72">
-              <p className="text-sm font-bold">{bg ? "Безплатен оглед и анализ" : "Free survey and analysis"}</p>
-              <p className="mt-1 text-sm text-muted">{bg ? "Оферта, изготвена по вашия профил на потребление" : "A quote built on your actual load profile"}</p>
+              <p className="text-sm font-bold">{bg ? "Супер ниски цени за проектиране" : "Very low design prices"}</p>
+              <p className="mt-1 text-sm text-muted">{bg ? "Проекти за ФЕЦ и батерийни системи, плюс безплатен оглед" : "Designs for PV plants and battery systems, plus a free site survey"}</p>
             </div>
           </Reveal>
         </div>
@@ -211,22 +212,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Reveal>
           <Eyebrow>{bg ? "Проекти" : "Projects"}</Eyebrow>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <H2>{bg ? "Какво изграждаме" : "What we build"}</H2>
+            <H2>{bg ? "Нашите проекти" : "Our projects"}</H2>
             <Button to={href(lang, "projects")} variant="outline">{ui.allProjects[lang]}</Button>
           </div>
         </Reveal>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {projectTypes.slice(0, 3).map((t, i) => (
-            <Reveal key={t.path} delay={i * 0.06}>
-              <Link href={href(lang, t.path)} className="group block h-full overflow-hidden rounded-2xl border border-line transition hover:shadow-xl">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <Photo id={t.img} alt={t.title[lang]} className="transition duration-700 group-hover:scale-105" />
-                </div>
-                <div className="p-5">
-                  <h3 className="text-lg font-extrabold">{t.title[lang]}</h3>
-                  <p className="mt-2 text-muted">{t.text[lang]}</p>
-                </div>
-              </Link>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {projects.map((p, i) => (
+            <Reveal key={p.pv + p.bess} delay={i * 0.06}>
+              <ProjectCard p={p} lang={lang} />
             </Reveal>
           ))}
         </div>
