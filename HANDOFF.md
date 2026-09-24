@@ -7,7 +7,7 @@ _Последна актуализация: 2026-09-24 (v1 на Next.js)_
 - **Сайт v1 (Next.js)**: 24 страници × 2 езика, структура по Sonnis, C&I фокус, продукти. Тестван на 375 / 768 / 1280px без хоризонтален скрол (2026-09-24).
 - Деплой: GitHub Actions (`.github/workflows/deploy.yml`) при push в `main` → GitHub Pages.
 - Локален преглед: `npm run build`, след това сървър за папката `out/`.
-- DNS **не е сменен**: `novacom.bg` сочи към 193.107.37.51, а `www` към Google Sites. NS: redirns1/2.bgdns.net.
+- DNS: домейнът е на услугата „Пренасочване“ на SuperHosting/bgdns (NS redirns1/2.bgdns.net). `novacom.bg` (193.107.37.51, сървърът за пренасочване) води към `https://www.novacom.bg`. **Основният адрес на сайта е `www.novacom.bg`**: CNAME `www` → `antouanbg.github.io.` (сменя се от клиента). Голият домейн няма HTTPS; решение е пълна DNS зона с A записите на GitHub.
 - HTTPS: предстои. Включва се след смяна на DNS (GitHub издава Let's Encrypt сертификат).
 - `gh` CLI: `~/bin/gh` (Intel Mac, macOS 26), логнат като `antouanbg`.
 

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   const bg = lang === "bg";
   return {
-    metadataBase: new URL("https://novacom.bg"),
+    metadataBase: new URL("https://www.novacom.bg"),
     title: {
       default: bg ? "Novacom | Фотоволтаични централи и батерии за бизнеса" : "Novacom | Solar PV & battery storage for business",
       template: "%s | Novacom",
