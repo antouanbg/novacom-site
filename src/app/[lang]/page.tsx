@@ -53,7 +53,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:py-20">
           <Reveal>
             <Eyebrow>{bg ? "ФЕЦ · BESS · C&I" : "Solar · BESS · C&I"}</Eyebrow>
-            <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="break-words text-[2rem] font-extrabold leading-[1.1] [overflow-wrap:anywhere] sm:text-5xl lg:text-6xl">
               {bg ? (
                 <>Соларна енергия и <span className="text-brand">съхранение</span> за вашия бизнес</>
               ) : (
@@ -274,7 +274,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[
-            { img: REAL.trackerField, t: bg ? "Тракер „Стрела“ (3P)" : "Strela (3P) tracker", d: bg ? "Собствен дизайн и разработка, единствен в България." : "Own design and development, unique in Bulgaria.", a: "know-how#strela" },
+            { img: REAL.trackerField, t: bg ? "Тракер „Стрела“ (3P)" : "Strela (3P) tracker", d: bg ? "Собствен дизайн и разработка, единствен в България." : "Own design and development, unique in Bulgaria.", a: "know-how/strela" },
             { img: REAL.smaMeter, t: bg ? "Собствен EMS" : "In-house EMS", d: bg ? "Управление на енергията за големи индустриални системи." : "Energy management for large industrial systems.", a: "know-how#ems" },
             { img: REAL.bessOpen, t: bg ? "Наука и полезни модели" : "Science and utility models", d: bg ? "Научни трудове и над 4 регистрирани полезни модела." : "Publications and more than 4 registered utility models.", a: "know-how#science" },
           ].map((k, i) => (

@@ -26,6 +26,11 @@
 - Съдържанието (продукти, проекти, текстове BG/EN) е в `src/content/`
 - Нова библиотека или услуга → първо се пита клиентът.
 
+## Мобилно (решения 2026-09-24)
+- Под 1024px: долна фиксирана лента с бързи връзки + бутон „Меню“ (пълното меню с подменюта). `body` има `pb-16 lg:pb-0`.
+- Под 1024px `Reveal` не анимира (иначе секциите изглеждат празни при скрол).
+- Заглавия: `break-words [overflow-wrap:anywhere]`, без `tracking-tight`; h1 ≤ 2rem на телефон.
+
 ## SEO (задължително)
 - Всяка страница има `generateMetadata` с `seo()` от `src/lib/seo.ts`: title, description, canonical, hreflang bg/en/x-default и Open Graph.
 - `src/app/sitemap.ts` и `robots.ts`. Нова страница се добавя и в масива `paths` в sitemap.

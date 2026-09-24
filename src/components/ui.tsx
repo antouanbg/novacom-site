@@ -2,11 +2,26 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { photo, ui } from "@/content/site";
 import { href, type Lang } from "@/lib/i18n";
 
+function useCoarsePointer() {
+  // Phones and tablets: skip the scroll-reveal so nothing looks blank while scrolling.
+  const [coarse, setCoarse] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const on = () => setCoarse(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  return coarse;
+}
+
 export function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
+  const coarse = useCoarsePointer();
+  if (coarse) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}
@@ -32,14 +47,14 @@ export function Photo({ id, alt, className = "", priority = false }: { id: strin
       alt={alt}
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : undefined}
-      className={`h-full w-full object-cover ${className}`}
+      className={`h-full w-full ${className.includes("object-contain") ? "" : "object-cover"} ${className}`}
     />
   );
 }
 
 export function Section({ children, className = "", id }: { children: ReactNode; className?: string; id?: string }) {
   return (
-    <section id={id} className={`py-16 sm:py-20 lg:py-24 ${className}`}>
+    <section id={id} className={`py-10 sm:py-16 lg:py-24 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">{children}</div>
     </section>
   );
@@ -50,7 +65,7 @@ export function Eyebrow({ children }: { children: ReactNode }) {
 }
 
 export function H2({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <h2 className={`text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-[44px] ${className}`}>{children}</h2>;
+  return <h2 className={`break-words text-[1.75rem] font-extrabold leading-tight [overflow-wrap:anywhere] sm:text-4xl lg:text-[44px] ${className}`}>{children}</h2>;
 }
 
 export function Button({ to, children, variant = "dark" }: { to: string; children: ReactNode; variant?: "dark" | "outline" | "light" }) {
@@ -77,7 +92,7 @@ export function PageHero({ lang, eyebrow, title, text, img }: { lang: Lang; eyeb
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
         <Reveal>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{eyebrow}</p>
-          <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">{title}</h1>
+          <h1 className="max-w-3xl break-words text-[2rem] font-extrabold leading-[1.12] [overflow-wrap:anywhere] sm:text-5xl lg:text-6xl">{title}</h1>
           {text && <p className="mt-6 max-w-2xl text-lg text-white/80">{text}</p>}
           <div className="mt-8">
             <Button to={href(lang, "contact") + "#quote"} variant="light">

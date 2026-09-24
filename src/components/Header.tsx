@@ -109,6 +109,33 @@ export default function Header({ lang }: { lang: Lang }) {
         </div>
       </div>
 
+      {/* Bottom tab bar on phones/tablets, like gridex.tech: quick jumps + the full menu with submenus */}
+      <nav
+        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-line bg-white/95 backdrop-blur lg:hidden"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+        aria-label={lang === "bg" ? "Бързо меню" : "Quick menu"}
+      >
+        {[
+          { to: href(lang), l: lang === "bg" ? "Начало" : "Home", d: "M3 11 12 3l9 8v10h-6v-6H9v6H3z" },
+          { to: href(lang, "solutions/industry"), l: lang === "bg" ? "Решения" : "Solutions", d: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" },
+          { to: href(lang, "products"), l: lang === "bg" ? "Продукти" : "Products", d: "M3 7l9-4 9 4-9 4zM3 7v10l9 4V11M21 7v10l-9 4" },
+          { to: href(lang, "projects"), l: lang === "bg" ? "Проекти" : "Projects", d: "M4 20h16M6 20V10l6-4 6 4v10M10 20v-5h4v5" },
+        ].map((t) => (
+          <Link key={t.to} href={t.to} className="flex flex-col items-center gap-1 py-2 text-[11px] font-bold text-muted hover:text-ink">
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" aria-hidden>
+              <path d={t.d} />
+            </svg>
+            {t.l}
+          </Link>
+        ))}
+        <button onClick={() => setOpen(true)} className="flex flex-col items-center gap-1 bg-ink py-2 text-[11px] font-bold text-white" aria-label={ui.menu[lang]}>
+          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          {ui.menu[lang]}
+        </button>
+      </nav>
+
       <AnimatePresence>
         {open && (
           <motion.div

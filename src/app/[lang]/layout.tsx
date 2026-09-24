@@ -37,7 +37,7 @@ export default async function LangLayout({ children, params }: { children: React
   if (!isLang(lang)) notFound();
   return (
     <html lang={lang} className={manrope.variable}>
-      <body className="font-sans">
+      <body className="pb-16 font-sans lg:pb-0">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

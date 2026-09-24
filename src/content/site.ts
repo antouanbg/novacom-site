@@ -45,6 +45,7 @@ export const REAL = {
   pernikPcs: "/images/storage/pernik-pcs-rack.webp",
   pernikDelivery: "/images/projects/pernik-hysolar-delivery.webp",
   pernikContainer: "/images/storage/pernik-bess-container.webp",
+  carportBuild: "/images/projects/carport-bifacial-build.webp",
 };
 
 export const PH = {
@@ -323,8 +324,8 @@ export const products: Product[] = [
       en: "AC and DC EV chargers for homes, offices and businesses, managed together with PV and storage.",
     },
     intro: {
-      bg: "Доставяме и монтираме зарядни станции за електромобили: от домашни AC зарядни (wallbox) до DC станции за фирмени паркинги и обществени обекти. Свързваме зареждането с фотоволтаичната централа и батерията, така че колата да се зарежда със собствена слънчева енергия или при ниски цени на тока.",
-      en: "We supply and install EV charging stations, from home AC wallboxes to DC stations for company car parks and public sites. Charging is linked to your PV plant and battery, so cars charge on your own solar energy or when power prices are low.",
+      bg: "Доставяме и монтираме зарядни станции за електромобили: от домашни AC зарядни (wallbox) до DC станции за фирмени паркинги и обществени обекти. Свързваме зареждането с фотоволтаичната централа и батерията, така че колата да се зарежда със собствена слънчева енергия или при ниски цени на тока. Собствената ни концепция V2G-Hybrid-Charge добавя батериен буфер към зарядната станция: бързо зареждане без скъпо увеличение на партидата и връщане на енергия към мрежата при пик.",
+      en: "We supply and install EV charging stations, from home AC wallboxes to DC stations for company car parks and public sites. Charging is linked to your PV plant and battery, so cars charge on your own solar energy or when power prices are low. Our own V2G-Hybrid-Charge concept adds a battery buffer to the charger: fast charging without a costly grid upgrade, and energy fed back to the grid at peak times.",
     },
     img: REAL.evDcAc,
     features: [
@@ -332,6 +333,8 @@ export const products: Product[] = [
       { bg: "DC бързи зарядни за фирмени и обществени паркинги", en: "DC fast chargers for company and public car parks" },
       { bg: "Динамично управление на товара: без надвишаване на партидата", en: "Dynamic load management: never exceeds your grid connection" },
       { bg: "Зареждане от ФЕЦ и батерия, приоритет на слънчевата енергия", en: "Charging from PV and battery, solar first" },
+      { bg: "Хибридни батерийни системи към зарядните: бързо зареждане и при слаба партида", en: "Hybrid battery systems behind the chargers: fast charging even on a weak grid connection" },
+      { bg: "Двупосочно зареждане (V2G) по собствен полезен модел BG 5058 U1", en: "Bidirectional charging (V2G) under our own utility model BG 5058 U1" },
       { bg: "Достъп с RFID/приложение и отчитане на консумацията по потребител", en: "RFID/app access and per-user consumption reporting" },
       { bg: "Включен безплатен мониторинг 24/365", en: "Free 24/365 monitoring included" },
     ],
@@ -673,6 +676,7 @@ export const gallery: { src: string; alt: L; tall?: boolean }[] = [
   { src: REAL.ground1, alt: { bg: "Наземна ФЕЦ на стоманена конструкция", en: "Ground-mounted PV on a steel structure" }, tall: true },
   { src: REAL.pergola, alt: { bg: "Соларна пергола с двулицеви панели", en: "Solar pergola with bifacial modules" }, tall: true },
   { src: REAL.carport, alt: { bg: "Соларен навес за автомобили", en: "Solar carport" } },
+  { src: REAL.carportBuild, alt: { bg: "Монтаж на соларен навес с двулицеви модули", en: "Building a solar carport with bifacial modules" } },
   { src: REAL.evDcAc, alt: { bg: "DC и AC зарядни станции за електромобили", en: "DC and AC EV charging stations" } },
   { src: REAL.switchboard, alt: { bg: "Табло с енергиен мениджмънт и мониторинг", en: "Switchboard with energy management and monitoring" }, tall: true },
   { src: REAL.roofVitosha, alt: { bg: "Покривна ФЕЦ на сграда в София", en: "Rooftop PV on a building in Sofia" } },

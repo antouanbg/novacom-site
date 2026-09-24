@@ -63,8 +63,9 @@ export default async function KnowHowPage({ params }: P) {
               <Check>{bg ? "Мобилно изпълнение на ремарке с инверторно табло на борда" : "Mobile trailer version with an on-board inverter cabinet"}</Check>
               <Check>{bg ? "Подходящ за земеделие, отдалечени обекти и временни площадки" : "Suited to agriculture, remote sites and temporary locations"}</Check>
             </ul>
-            <div className="mt-8">
-              <Button to={href(lang, "contact") + "#quote"}>{bg ? "Запитване за „Стрела“" : "Ask about Strela"}</Button>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button to={href(lang, "know-how/strela")}>{bg ? "Виж модела и чертежите" : "See the model and drawings"}</Button>
+              <Button to={href(lang, "contact") + "#quote"} variant="outline">{bg ? "Запитване за „Стрела“" : "Ask about Strela"}</Button>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -97,8 +98,8 @@ export default async function KnowHowPage({ params }: P) {
             </p>
             <ul className="mt-7 space-y-3 text-lg">
               {(bg
-                ? ["Управление на батерии, товари и зарядни станции по цена и график", "Изрязване на пикове и защита на партидата", "Интеграция със съществуващи инвертори и SCADA", "Мониторинг 24/365 и SMS известия през gridex.tech"]
-                : ["Battery, load and EV-charger control by price and schedule", "Peak shaving and grid-connection protection", "Integration with existing inverters and SCADA", "24/365 monitoring and SMS alerts via gridex.tech"]
+                ? ["Управление на батерии, товари и зарядни станции по цена и график", "Изрязване на пикове и защита на партидата", "Хибридни батерийни буфери към зарядни станции (V2G-Hybrid-Charge)", "Интеграция със съществуващи инвертори и SCADA", "Мониторинг 24/365 и SMS известия през gridex.tech"]
+                : ["Battery, load and EV-charger control by price and schedule", "Peak shaving and grid-connection protection", "Hybrid battery buffers behind EV chargers (V2G-Hybrid-Charge)", "Integration with existing inverters and SCADA", "24/365 monitoring and SMS alerts via gridex.tech"]
               ).map((t) => (
                 <li key={t} className="flex gap-3">
                   <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/15 text-sm font-extrabold text-[#b5d86a]" aria-hidden>✓</span>
@@ -177,8 +178,9 @@ export default async function KnowHowPage({ params }: P) {
           <Eyebrow>{bg ? "Иновационни проекти" : "Innovation projects"}</Eyebrow>
           <H2>{bg ? "Концепции и финансирани разработки" : "Concepts and funded developments"}</H2>
         </Reveal>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {[
+            { t: "V2G-Hybrid-Charge", y: bg ? "Полезен модел BG 5058 U1" : "Utility model BG 5058 U1", d: bg ? "Хибридна батерийна система към зарядните станции: двупосочно зареждане (V2G), буфер от нови и рециклирани клетки, AI енергиен мениджър, ISO 15118 / OCPP, работа в микромрежа." : "A hybrid battery system behind EV chargers: bidirectional charging (V2G), a buffer of new and second-life cells, an AI energy manager, ISO 15118 / OCPP, microgrid operation.", to: "products/ev-charging" },
             { t: bg ? "Обединен енергиен клъстер (ОЕК)" : "United Energy Cluster (OEK)", y: "2020", d: bg ? "Модел за частна инвестиция в децентрализирана енергия: енергийни клъстери и общности с дялово участие на потребителите." : "A model for private investment in decentralised energy: energy clusters and communities with member shares.", to: "solutions/communities" },
             { t: "GridMobility", y: "", d: bg ? "Енергийна платформа за обмен на данни между участниците на енергийния пазар, с национално финансиране." : "An energy platform for data exchange between energy-market participants, nationally funded.", to: "" },
             { t: "GrideX", y: "", d: bg ? "Производствена линия за рециклиране и повторно използване на батерийни системи. Платформата за мониторинг gridex.tech." : "A production line for recycling and reusing battery systems, plus the gridex.tech monitoring platform.", to: "" },
@@ -191,7 +193,7 @@ export default async function KnowHowPage({ params }: P) {
                 <p className="mt-2 flex-1 text-muted">{k.d}</p>
                 {k.to && (
                   <Button to={href(lang, k.to)} variant="outline">
-                    {bg ? "Енергийни общности" : "Energy communities"}
+                    {k.to.includes("ev") ? (bg ? "Зарядни станции" : "EV charging") : bg ? "Енергийни общности" : "Energy communities"}
                   </Button>
                 )}
               </div>
