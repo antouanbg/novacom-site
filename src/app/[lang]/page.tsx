@@ -111,8 +111,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <H2>{bg ? "Не само доставяме. Изобретяваме." : "We don't just supply. We invent."}</H2>
             <p className="mt-5 text-lg text-white/80">
               {bg
-                ? "Тракерът „Стрела“ е собствена разработка на Novacom: двуосов, на един стълб, следи слънцето през деня и сменя наклона по сезон. Зад него стоят собствен EMS за индустриални системи, четири регистрирани полезни модела и научни публикации."
-                : "The Strela tracker is Novacom's own development: two-axis, single mast, tracking the sun through the day and changing tilt by season. Behind it stand an in-house industrial EMS, four registered utility models and scientific publications."}
+                ? "Тракерът „Стрела“ е собствена разработка на Novacom: двуосов, на един стълб, следи слънцето през деня и сменя наклона по сезон. Зад него стоят собствената ни EMS GrideX с отворен код (безплатна с батерия Suntech 261 kWh), четири регистрирани полезни модела и научни публикации."
+                : "The Strela tracker is Novacom's own development: two-axis, single mast, tracking the sun through the day and changing tilt by season. Behind it stand our own open-source GrideX EMS (free with a Suntech 261 kWh battery), four registered utility models and scientific publications."}
             </p>
             <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-white/15 pt-6">
               {[

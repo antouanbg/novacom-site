@@ -302,20 +302,23 @@ export const products: Product[] = [
   },
   {
     slug: "monitoring",
-    title: { bg: "Мониторинг и EMS", en: "Monitoring & EMS" },
+    title: { bg: "EMS GrideX (open source) и мониторинг", en: "GrideX EMS (open source) & monitoring" },
     short: {
-      bg: "Безплатен мониторинг 24/365, управление на енергията и SMS известия.",
-      en: "Free 24/365 monitoring, energy management and SMS alerts.",
+      bg: "Собствена, отворена EMS за ФЕЦ, батерии и пазари. Безплатно внедряване с батерия Suntech 261 kWh.",
+      en: "Our own open-source EMS for PV, batteries and markets. Free deployment with a Suntech 261 kWh battery.",
     },
     intro: {
-      bg: "Софтуерът управлява зареждането на батерията, външни консуматори (зарядна станция, бойлер) и графици, показва прогнози и спестената енергия. Локалният EMS се интегрира и със съществуващи централи, например с инвертори Huawei и SmartLogger.",
-      en: "Our software manages battery charging, external loads (EV charger, water heater) and schedules, and shows forecasts and energy saved. The local EMS also integrates with existing plants, e.g. Huawei inverters with SmartLogger.",
+      bg: "GrideX Energy OS е нашата индустриална система за управление на енергията, разработена от д-р инж. Антуан Ангелов и публикувана като отворен код под MIT лиценз. Тя следи и управлява ФЕЦ, батерии, мрежата, товарите и зарядните станции, планира по цените на БНЕБ за ден напред, прогнозира производството по времето и пази батерията в безопасния ѝ режим чрез локален Edge gateway. Всеки клиент, който купи батерия Suntech 261 kWh, получава EMS внедрена 100% безплатно, с интеграция към неограничен брой външни инвертори, батерии и устройства.",
+      en: "GrideX Energy OS is our industrial energy management system, developed by Dr. Eng. Antouan Anguelov and published as open source under the MIT licence. It monitors and controls PV, batteries, the grid, loads and EV chargers, schedules against IBEX day-ahead prices, forecasts production from the weather and keeps the battery inside its safety envelope through a local edge gateway. Every client who buys a Suntech 261 kWh battery gets the EMS deployed 100% free, with integration to an unlimited number of third-party inverters, batteries and devices.",
     },
     img: REAL.smaMeter,
     features: [
-      { bg: "Зареждане при ниски цени на електроенергията", en: "Charging when power prices are low" },
-      { bg: "Управление на зарядни станции и консуматори", en: "Control of EV chargers and other loads" },
-      { bg: "Локален EMS за C&I и интеграция със съществуваща ФЕЦ", en: "Local EMS for C&I and integration with existing PV" },
+      { bg: "Отворен код (MIT): без лицензни такси, без обвързване с доставчик", en: "Open source (MIT): no licence fees, no vendor lock-in" },
+      { bg: "Режими: арбитраж по цените на БНЕБ, собствено потребление, Zero Export, изрязване на пикове", en: "Modes: IBEX price arbitrage, self-consumption, zero export, peak shaving" },
+      { bg: "72-часова прогноза за производство, товар и цени (ML модел, собствени алгоритми)", en: "72-hour PV, load and price forecast (ML model, our own algorithms)" },
+      { bg: "Драйвери за Suntech, Deye, Sungrow, Huawei, Growatt и др.; Modbus, RS485, CAN, MQTT", en: "Drivers for Suntech, Deye, Sungrow, Huawei, Growatt and more; Modbus, RS485, CAN, MQTT" },
+      { bg: "Edge gateway с безопасен режим: BMS лимити, софтуерен предпазител, heartbeat", en: "Edge gateway with a safety envelope: BMS limits, software fuse, heartbeat" },
+      { bg: "Мониторинг 24/365 и SMS известия през gridex.tech, безплатно", en: "24/365 monitoring and SMS alerts via gridex.tech, free" },
     ],
     items: [],
   },
@@ -755,6 +758,17 @@ export type NewsItem = { slug: string; date: string; title: L; text: L; img: str
 // Newest first. Dates are ISO; the page formats them per language.
 export const news: NewsItem[] = [
   {
+    slug: "gridex-ems-open-source",
+    date: "2026-09-24",
+    title: { bg: "GrideX Energy OS: нашата EMS е с отворен код и безплатна с батерия Suntech 261 kWh", en: "GrideX Energy OS: our EMS is open source and free with a Suntech 261 kWh battery" },
+    text: {
+      bg: "Публикувахме индустриалната си система за управление на енергията под MIT лиценз в GitHub: портал, Edge gateway и backend. Всеки клиент с батерия Suntech 261 kWh получава EMS внедрена 100% безплатно, с интеграция към неограничен брой инвертори, батерии и устройства.",
+      en: "We published our industrial energy management system under the MIT licence on GitHub: portal, edge gateway and backend. Every client with a Suntech 261 kWh battery gets the EMS deployed 100% free, with integration to unlimited inverters, batteries and devices.",
+    },
+    img: REAL.smaMeter,
+    to: "products/monitoring",
+  },
+  {
     slug: "pernik-2mw-2-5mwh",
     date: "2026-09-24",
     title: { bg: "Перник: фотоволтаичен парк 2 MW с батерия 2,5 MWh", en: "Pernik: 2 MW solar park with 2.5 MWh battery storage" },
@@ -820,4 +834,10 @@ export const news: NewsItem[] = [
     img: REAL.roofDense,
     to: "solutions/communities",
   },
+];
+
+export const GRIDEX_REPOS = [
+  { name: "gridex-energy-os", url: "https://github.com/antouanbg/gridex-energy-os", what: { bg: "Портал и EMS логика (Next.js), демо на gridex.tech", en: "Portal and EMS logic (Next.js), demo at gridex.tech" } },
+  { name: "gridex-edge-gateway", url: "https://github.com/antouanbg/gridex-edge-gateway", what: { bg: "Edge gateway (C++/ESP32, ROCK Pi): Modbus, RS485, CAN, безопасен режим", en: "Edge gateway (C++/ESP32, ROCK Pi): Modbus, RS485, CAN, safety envelope" } },
+  { name: "gridex-openremote-backend", url: "https://github.com/antouanbg/gridex-openremote-backend", what: { bg: "Backend с OpenRemote, Keycloak и GrideX API (Docker)", en: "Backend with OpenRemote, Keycloak and the GrideX API (Docker)" } },
 ];

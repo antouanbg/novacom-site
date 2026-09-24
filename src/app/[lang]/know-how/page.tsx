@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { REAL, utilityModels } from "@/content/site";
+import { GRIDEX_REPOS, REAL, utilityModels } from "@/content/site";
 import { href, type Lang } from "@/lib/i18n";
 import ResearchResults, { IBEX_DATASET_URL } from "@/components/ResearchResults";
 import { seo } from "@/lib/seo";
@@ -91,12 +91,16 @@ export default async function KnowHowPage({ params }: P) {
           </Reveal>
           <Reveal className="order-1 lg:order-2">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Софтуер" : "Software"}</p>
-            <H2>{bg ? "Собствен EMS за големи индустриални системи" : "An in-house EMS for large industrial systems"}</H2>
+            <H2>{bg ? "GrideX Energy OS: собствена EMS с отворен код" : "GrideX Energy OS: our own open-source EMS"}</H2>
             <p className="mt-5 text-lg text-white/80">
               {bg
-                ? "Разработихме собствена система за управление на енергията (EMS), защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи заедно със съществуващото оборудване."
-                : "We built our own energy management system (EMS) because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment."}
+                ? "Разработихме собствена система за управление на енергията, защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи със съществуващото оборудване. Публикувахме я под MIT лиценз: без лицензни такси и без обвързване с доставчик."
+                : "We built our own energy management system because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment. We published it under the MIT licence: no licence fees and no vendor lock-in."}
             </p>
+            <div className="mt-6 rounded-2xl border border-[#b5d86a]/40 bg-white/5 p-5">
+              <p className="font-extrabold text-[#b5d86a]">{bg ? "Купувате батерия Suntech 261 kWh? EMS се внедрява 100% безплатно." : "Buying a Suntech 261 kWh battery? The EMS is deployed 100% free."}</p>
+              <p className="mt-1 text-sm text-white/75">{bg ? "С интеграция към неограничен брой външни инвертори, батерии и устройства." : "With integration to an unlimited number of third-party inverters, batteries and devices."}</p>
+            </div>
             <ul className="mt-7 space-y-3 text-lg">
               {(bg
                 ? ["Управление на батерии, товари и зарядни станции по цена и график", "Изрязване на пикове и защита на партидата", "Хибридни батерийни буфери към зарядни станции (V2G-Hybrid-Charge)", "Интеграция със съществуващи инвертори и SCADA", "Мониторинг 24/365 и SMS известия през gridex.tech"]
@@ -108,9 +112,16 @@ export default async function KnowHowPage({ params }: P) {
                 </li>
               ))}
             </ul>
-            <a href="https://gridex.tech/" target="_blank" rel="noopener" className="mt-8 inline-flex rounded-xl bg-white px-6 py-3.5 font-bold text-ink transition hover:bg-sky">
-              gridex.tech ↗
-            </a>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="https://gridex.tech/" target="_blank" rel="noopener" className="inline-flex rounded-xl bg-white px-6 py-3.5 font-bold text-ink transition hover:bg-sky">
+                {bg ? "Демо: gridex.tech ↗" : "Demo: gridex.tech ↗"}
+              </a>
+              {GRIDEX_REPOS.map((r) => (
+                <a key={r.name} href={r.url} target="_blank" rel="noopener" className="inline-flex rounded-xl border-2 border-white/40 px-4 py-3 text-sm font-bold text-white transition hover:bg-white/10">
+                  GitHub: {r.name} ↗
+                </a>
+              ))}
+            </div>
           </Reveal>
         </div>
         <div className="mt-14">

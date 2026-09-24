@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
-import { products } from "@/content/site";
+import { GRIDEX_REPOS, products } from "@/content/site";
 import { locales, type Lang } from "@/lib/i18n";
 import { Check, CTA, Eyebrow, H2, MonitoringPromo, PageHero, Reveal, Section } from "@/components/ui";
 import ResearchResults from "@/components/ResearchResults";
@@ -66,8 +66,8 @@ export default async function ProductPage({ params }: P) {
                 <p className="mt-3 text-white/80">
                   {p.slug === "storage"
                     ? bg
-                      ? "Шкафови батерийни системи Suntech от 261 kWh за бизнеса, мащабируеми до MWh."
-                      : "Suntech 261 kWh cabinet battery systems for business, scalable to MWh."
+                      ? "Шкафови батерийни системи Suntech от 261 kWh за бизнеса, мащабируеми до MWh. С всяка батерия 261 kWh нашата open-source EMS GrideX се внедрява 100% безплатно."
+                      : "Suntech 261 kWh cabinet battery systems for business, scalable to MWh. With every 261 kWh battery our open-source GrideX EMS is deployed 100% free."
                     : bg
                       ? "Фотоволтаични панели Suntech, директно от производителя."
                       : "Suntech PV modules, direct from the manufacturer."}
@@ -112,15 +112,30 @@ export default async function ProductPage({ params }: P) {
                 </div>
               </div>
             ) : p.slug === "monitoring" ? (
-              <div className="rounded-3xl bg-ink p-7 text-white">
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Платформа" : "Platform"}</p>
-                <h3 className="mt-2 text-3xl font-extrabold">gridex.tech</h3>
-                <p className="mt-3 text-white/80">
-                  {bg ? "Безплатен мониторинг 24/365 и безплатни SMS известия за всеки клиент." : "Free 24/365 monitoring and free SMS alerts for every client."}
-                </p>
-                <a href="https://gridex.tech/" target="_blank" rel="noopener" className="mt-6 inline-flex rounded-xl bg-white px-5 py-3 font-bold text-ink hover:bg-sky">
-                  gridex.tech ↗
-                </a>
+              <div className="grid gap-4">
+                <div className="rounded-3xl bg-ink p-7 text-white">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Оферта" : "Offer"}</p>
+                  <h3 className="mt-2 text-2xl font-extrabold">{bg ? "100% безплатна EMS с батерия Suntech 261 kWh" : "100% free EMS with a Suntech 261 kWh battery"}</h3>
+                  <p className="mt-3 text-white/80">
+                    {bg
+                      ? "Внедряване, конфигурация и интеграция към неограничен брой външни инвертори, батерии и устройства, без лицензни такси."
+                      : "Deployment, configuration and integration to an unlimited number of third-party inverters, batteries and devices, with no licence fees."}
+                  </p>
+                  <a href="https://gridex.tech/" target="_blank" rel="noopener" className="mt-5 inline-flex rounded-xl bg-white px-5 py-3 font-bold text-ink hover:bg-sky">
+                    {bg ? "Демо: gridex.tech ↗" : "Demo: gridex.tech ↗"}
+                  </a>
+                </div>
+                <div className="rounded-3xl border border-line bg-white p-7">
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted">{bg ? "Отворен код · MIT" : "Open source · MIT"}</p>
+                  <ul className="mt-3 space-y-3">
+                    {GRIDEX_REPOS.map((r) => (
+                      <li key={r.name}>
+                        <a href={r.url} target="_blank" rel="noopener" className="font-bold text-brand hover:underline">github.com/antouanbg/{r.name} ↗</a>
+                        <p className="text-sm text-muted">{r.what[lang]}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ) : (
               <div className="rounded-3xl bg-mist p-7">
