@@ -120,14 +120,18 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {entry.map((s, i) => (
             <Reveal key={s.slug} delay={i * 0.08}>
-              <Link href={href(lang, `solutions/${s.slug}`)} className="group relative block aspect-[4/5] overflow-hidden rounded-3xl sm:aspect-[4/3] md:aspect-[4/5]">
-                <Photo id={s.img} alt={s.title[lang]} className="transition duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                  <h3 className="text-2xl font-extrabold">{s.title[lang]}</h3>
-                  <p className="mt-2 text-white/80">{s.short[lang]}</p>
-                  <span className="mt-4 inline-block font-bold underline-offset-4 group-hover:underline">{ui.learnMore[lang]} →</span>
+              {/* Text sits in normal flow with a tall top padding, so the card grows with long titles instead of the text climbing over the bright part of the photo. */}
+              <Link
+                href={href(lang, `solutions/${s.slug}`)}
+                className="group relative isolate flex min-h-[420px] flex-col justify-end overflow-hidden rounded-3xl p-6 pt-44 text-white md:min-h-[460px]"
+              >
+                <div className="absolute inset-0 -z-20">
+                  <Photo id={s.img} alt={s.title[lang]} className="transition duration-700 group-hover:scale-105" />
                 </div>
+                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/95 via-ink/60 to-ink/10" />
+                <h3 className="text-2xl font-extrabold">{s.title[lang]}</h3>
+                <p className="mt-2 text-white/80">{s.short[lang]}</p>
+                <span className="mt-4 inline-block font-bold underline-offset-4 group-hover:underline">{ui.learnMore[lang]} →</span>
               </Link>
             </Reveal>
           ))}

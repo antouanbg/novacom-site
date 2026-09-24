@@ -55,12 +55,12 @@ export default function Header({ lang }: { lang: Lang }) {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1" aria-label="Main">
           {nav.map((item) => (
             <div key={item.path} className="group relative">
               <Link
                 href={href(lang, item.path)}
-                className="flex items-center gap-1 rounded-lg px-3 py-2 text-[15px] font-semibold text-ink hover:text-brand"
+                className="flex items-center gap-1 rounded-lg px-2.5 py-2 text-sm font-semibold text-ink hover:text-brand xl:px-3 xl:text-[15px]"
               >
                 {item.label[lang]}
                 {item.children && (
@@ -86,11 +86,11 @@ export default function Header({ lang }: { lang: Lang }) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 lg:gap-3">
           <LangSwitch lang={lang} className="hidden sm:flex" />
           <Link
             href={href(lang, "contact") + "#quote"}
-            className="hidden rounded-xl border-2 border-ink px-5 py-2.5 text-[15px] font-bold text-ink transition hover:bg-ink hover:text-white md:inline-block"
+            className="hidden rounded-xl border-2 border-ink px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-ink hover:text-white md:inline-block xl:px-5 xl:text-[15px]"
           >
             {ui.quote[lang]}
           </Link>
