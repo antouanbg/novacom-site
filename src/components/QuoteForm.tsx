@@ -41,8 +41,8 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
         <input name={bg ? "Телефон" : "Phone"} type="tel" required className={field} autoComplete="tel" />
       </label>
       <label className={label}>
-        {bg ? "Имейл" : "Email"}
-        <input name="Email" type="email" className={field} autoComplete="email" />
+        {bg ? "Имейл" : "Email"} *
+        <input name="Email" type="email" required className={field} autoComplete="email" />
       </label>
       <label className={label}>
         {bg ? "Тип обект" : "Site type"}
