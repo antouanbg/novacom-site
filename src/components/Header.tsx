@@ -56,7 +56,7 @@ export default function Header({ lang }: { lang: Lang }) {
         </Link>
 
         <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1" aria-label="Main">
-          {nav.map((item) => (
+          {nav.map((item, i) => (
             <div key={item.path} className="group relative">
               <Link
                 href={href(lang, item.path)}
@@ -69,8 +69,9 @@ export default function Header({ lang }: { lang: Lang }) {
                   </svg>
                 )}
               </Link>
+              {/* Dropdowns are display-based (not visibility) so a hidden menu adds no page width; the last items open leftwards so nothing pokes past the viewport. */}
               {item.children && (
-                <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                <div className={`absolute top-full hidden pt-2 group-focus-within:block group-hover:block ${i >= nav.length - 2 ? "right-0" : "left-0"}`}>
                   <ul className="min-w-64 rounded-2xl border border-line bg-white p-2 shadow-xl">
                     {item.children.map((c) => (
                       <li key={c.path}>
@@ -88,9 +89,10 @@ export default function Header({ lang }: { lang: Lang }) {
 
         <div className="flex items-center gap-2 lg:gap-3">
           <LangSwitch lang={lang} className="hidden sm:flex" />
+          {/* Seven menu items + BG/EN do not leave room for this button between 1024 and 1279px, so it shows on tablets (burger menu) and from xl up; the hero and every section carry the same CTA. */}
           <Link
             href={href(lang, "contact") + "#quote"}
-            className="hidden rounded-xl border-2 border-ink px-4 py-2.5 text-sm font-bold text-ink transition hover:bg-ink hover:text-white md:inline-block xl:px-5 xl:text-[15px]"
+            className="hidden whitespace-nowrap rounded-xl border-2 border-ink px-5 py-2.5 text-[15px] font-bold text-ink transition hover:bg-ink hover:text-white md:inline-block lg:hidden xl:inline-block"
           >
             {ui.quote[lang]}
           </Link>

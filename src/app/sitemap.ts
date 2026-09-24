@@ -12,6 +12,7 @@ const paths = [
   ...products.map((p) => `products/${p.slug}`),
   ...services.map((s) => `services/${s.slug}`),
   "projects",
+  "know-how",
   ...about.map((a) => a.path),
   "contact",
 ];

@@ -28,6 +28,23 @@ export const REAL = {
   bessOpen: "/images/storage/bess-cabinet-open.webp",
   bessRender: "/images/storage/bess-cabinet-render.webp",
   bessFactory: "/images/storage/bess-cabinet-factory.webp",
+  mihaylovoSun: "/images/projects/mihaylovo-rows-sun.webp",
+  mihaylovoFrost: "/images/projects/mihaylovo-rows-frost.webp",
+  groundSnow: "/images/projects/ground-rows-snow.webp",
+  inverterRoom: "/images/install/inverter-room.webp",
+  inverterRoomWide: "/images/install/inverter-room-wide.webp",
+  ballastDetail: "/images/mounting/ballast-detail.webp",
+  ballastRows: "/images/mounting/ballast-rows.webp",
+  pernikSky: "/images/projects/pernik-rows-sky.webp",
+  pernikUnder: "/images/projects/pernik-structure-under.webp",
+  pernikWide: "/images/projects/pernik-rows-wide.webp",
+  pernikRidge: "/images/projects/pernik-ridge.webp",
+  pernikRidgeWide: "/images/projects/pernik-ridge-wide.webp",
+  pernikPylon: "/images/projects/pernik-rows-pylon.webp",
+  pernikBessOpen: "/images/storage/pernik-bess-open.webp",
+  pernikPcs: "/images/storage/pernik-pcs-rack.webp",
+  pernikDelivery: "/images/projects/pernik-hysolar-delivery.webp",
+  pernikContainer: "/images/storage/pernik-bess-container.webp",
 };
 
 export const PH = {
@@ -93,7 +110,7 @@ export const solutions: Solution[] = [
       bg: "Производствата плащат най-скъпата енергия в пиковите часове. С покривна или наземна ФЕЦ и система за съхранение намалявате разходите, изглаждате пиковете и защитавате критичните процеси.",
       en: "Manufacturers pay the most for energy during peak hours. A rooftop or ground-mounted PV plant with battery storage lowers costs, shaves peaks and protects critical processes.",
     },
-    img: PH.heroRoof,
+    img: REAL.pernikRidgeWide,
     points: [
       { bg: "Изрязване на пикове и управление на товара", en: "Peak shaving and load management" },
       { bg: "Резервно захранване за критични консуматори", en: "Backup power for critical loads" },
@@ -222,7 +239,7 @@ export const products: Product[] = [
       bg: "Хибридните инвертори управляват едновременно панелите, батерията и мрежата. Смарт метърът ограничава връщането на енергия в мрежата (Zero Export), когато това е необходимо.",
       en: "Hybrid inverters manage the panels, battery and grid together. A smart meter limits export to the grid (zero export) where required.",
     },
-    img: PH.engineerLab,
+    img: REAL.inverterRoom,
     features: [
       { bg: "Европейска претеглена ефективност ≥ 97%", en: "European weighted efficiency ≥ 97%" },
       { bg: "Хармоници THD ≤ 3%", en: "Harmonics THD ≤ 3%" },
@@ -245,7 +262,7 @@ export const products: Product[] = [
       bg: "За бизнеса доставяме Suntech SunStorage Pro: интегрирана система „всичко в едно“ с 261 kWh капацитет и 125 kW мощност, течно охлаждане и вградени PCS, BMS и EMS. Шкафовете се свързват паралелно до MWh мащаб. За домовете предлагаме LV и HV батерийни модули с 6000 цикъла.",
       en: "For business we supply Suntech SunStorage Pro, an all-in-one system with 261 kWh capacity and 125 kW power, liquid cooling and built-in PCS, BMS and EMS. Cabinets connect in parallel up to MWh scale. For homes we offer LV and HV battery modules rated for 6,000 cycles.",
     },
-    img: REAL.bessOpen,
+    img: REAL.pernikContainer,
     features: [
       { bg: "261 kWh / 125 kW в един шкаф, IP65", en: "261 kWh / 125 kW in one cabinet, IP65" },
       { bg: "Течно охлаждане, вградени PCS, BMS, EMS и защити", en: "Liquid cooling, built-in PCS, BMS, EMS and safety systems" },
@@ -353,15 +370,16 @@ export const projectStatus: Record<ProjectStatus, L> = {
 // No client names; region only. Photos are illustrative until the client's own arrive.
 export const projects: Project[] = [
   {
-    title: { bg: "ФЕЦ 1 MW с батериен парк 2 MW", en: "1 MW PV plant with a 2 MW battery park" },
+    title: { bg: "Фотоволтаичен парк 2 MW с батерия 2,5 MW", en: "2 MW solar park with 2.5 MW battery storage" },
     region: { bg: "Перник", en: "Pernik" },
-    pv: "1 MW",
-    bess: "2 MW",
+    pv: "2 MW",
+    bess: "2,5 MW",
     segment: "ci",
-    equipment: { bg: "Фотоволтаични панели и батерийни системи за индустриален обект", en: "PV modules and battery systems for an industrial site" },
+    equipment: { bg: "Наземна ФЕЦ с панели HY Solar и контейнерни батерийни системи с LFP модули и модулен PCS", en: "Ground-mounted PV with HY Solar modules and containerised battery systems with LFP modules and modular PCS" },
     year: "2026",
     status: "progress",
-    img: PH.fieldSky,
+    img: REAL.pernikSky,
+    photoReal: true,
     featured: true,
   },
   {
@@ -376,7 +394,7 @@ export const projects: Project[] = [
     },
     year: "2023 · 2026",
     status: "progress",
-    img: REAL.ground1,
+    img: REAL.mihaylovoSun,
     photoReal: true,
   },
   {
@@ -549,6 +567,7 @@ export const nav: NavItem[] = [
     children: services.map((s) => ({ label: s.title, path: `services/${s.slug}` })),
   },
   { label: { bg: "Проекти", en: "Projects" }, path: "projects" },
+  { label: { bg: "Ноу-хау", en: "Know-how" }, path: "know-how" },
   { label: { bg: "За нас", en: "About" }, path: "about", children: about },
   { label: { bg: "Контакт", en: "Contact" }, path: "contact" },
 ];
@@ -612,7 +631,7 @@ export const projectTypes = [
       bg: "ФЕЦ на терен с батерия за съхранение и управление на енергията.",
       en: "Ground-mounted PV with battery storage and energy management.",
     },
-    img: PH.fieldClouds,
+    img: REAL.pernikPylon,
     path: "products/mounting",
   },
   {
@@ -637,6 +656,16 @@ export const projectTypes = [
 
 // Real installation photos for the projects gallery (© Novacom).
 export const gallery: { src: string; alt: L; tall?: boolean }[] = [
+  { src: REAL.pernikContainer, alt: { bg: "Контейнерна батерийна система, Перник", en: "Containerised battery system, Pernik" } },
+  { src: REAL.pernikBessOpen, alt: { bg: "LFP батерийни модули в контейнер, Перник", en: "LFP battery modules inside the container, Pernik" } },
+  { src: REAL.pernikRidge, alt: { bg: "Фотоволтаичен парк 2 MW, Перник", en: "2 MW solar park, Pernik" }, tall: true },
+  { src: REAL.pernikUnder, alt: { bg: "Стоманена конструкция с двулицеви модули, Перник", en: "Steel structure with bifacial modules, Pernik" } },
+  { src: REAL.pernikPcs, alt: { bg: "Модулен PCS в батерийния контейнер", en: "Modular PCS inside the battery container" }, tall: true },
+  { src: REAL.pernikWide, alt: { bg: "Редове на ФЕЦ Перник", en: "PV rows, Pernik" } },
+  { src: REAL.mihaylovoFrost, alt: { bg: "Наземна ФЕЦ 98,56 kWp, обл. Стара Загора", en: "98.56 kWp ground-mounted plant, Stara Zagora region" } },
+  { src: REAL.ballastDetail, alt: { bg: "Баластна конструкция на плосък покрив", en: "Ballast mounting on a flat roof" } },
+  { src: REAL.inverterRoomWide, alt: { bg: "Инверторно помещение: хибриден инвертор, батерии и табла", en: "Inverter room: hybrid inverter, batteries and switchboards" }, tall: true },
+  { src: REAL.groundSnow, alt: { bg: "Наземна ФЕЦ през зимата", en: "Ground-mounted plant in winter" } },
   { src: REAL.heroSofia, alt: { bg: "Покривна ФЕЦ в София с изглед към Витоша", en: "Rooftop PV in Sofia with a view of Vitosha" } },
   { src: REAL.roofCommercial, alt: { bg: "Покривна ФЕЦ на търговски обект с баластна конструкция", en: "Rooftop PV on a commercial building with ballast mounting" } },
   { src: REAL.roofDense, alt: { bg: "Покривна ФЕЦ на жилищна сграда", en: "Rooftop PV on an apartment building" } },
@@ -654,4 +683,30 @@ export const gallery: { src: string; alt: L; tall?: boolean }[] = [
   { src: REAL.trackerTrailers, alt: { bg: "Мобилни соларни системи с инвертори на място", en: "Mobile solar units with on-board inverters" } },
   { src: REAL.bessFactory, alt: { bg: "Батериен шкаф с вграден PCS", en: "Battery cabinet with integrated PCS" }, tall: true },
   { src: REAL.trackerUnder, alt: { bg: "Двулицеви панели на тракер", en: "Bifacial modules on a tracker" } },
+];
+
+// Utility models and inventions of Dr. Eng. Antouan Anguelov (from the client's Drive folder "Polezen_model", 2026-09-24).
+export const utilityModels: { title: L; year: string; ref?: string; note: L }[] = [
+  {
+    title: { bg: "Модулна система за хибридно двупосочно зареждане, съхранение и отдаване на енергия", en: "Modular system for hybrid bidirectional charging, storage and discharge of energy" },
+    year: "2025",
+    note: { bg: "V2G зарядна станция с батериен стек от нови и рециклирани клетки, EMS с енергиен баланс и мониторинг", en: "V2G charger with a battery stack of new and recycled cells, EMS with energy balancing and monitoring" },
+  },
+  {
+    title: { bg: "Тестер за фотоволтаични модули", en: "Tester for photovoltaic modules" },
+    year: "2024",
+    ref: "BG 4975 U1",
+    note: { bg: "Регистриран полезен модел, съавтор, съвместно с ВТУ „Тодор Каблешков“", en: "Registered utility model, co-inventor, with the Todor Kableshkov University of Transport" },
+  },
+  {
+    title: { bg: "Система за производство и разпределение на електроенергия", en: "System for generation and distribution of electricity" },
+    year: "2024",
+    note: { bg: "Агентна архитектура: източници, батерии и консуматори, координирани от концентратор и контролен модул", en: "Agent architecture: sources, batteries and loads coordinated by a concentrator and a control module" },
+  },
+  {
+    title: { bg: "Система за пренос на данни между два или повече сървъра", en: "System for data transfer between two or more servers" },
+    year: "2017",
+    ref: "BG 2789 U1",
+    note: { bg: "Регистриран полезен модел: централен координиращ сървър с криптирани комуникационни модули", en: "Registered utility model: a central coordinating server with encrypted communication modules" },
+  },
 ];

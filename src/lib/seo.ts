@@ -22,7 +22,7 @@ export function seo(lang: Lang, path: string, title: string, description: string
       url,
       title,
       description,
-      images: [{ url: `${SITE}${REAL.heroSofia}`, width: 1600, height: 1080 }],
+      images: [{ url: `${SITE}${REAL.pernikSky}`, width: 1920, height: 1440 }],
     },
     twitter: { card: "summary_large_image", title, description },
   };

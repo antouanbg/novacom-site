@@ -86,7 +86,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </Reveal>
           <Reveal delay={0.1} className="relative">
             <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl lg:aspect-[5/6]">
-              <Photo id={REAL.heroSofia} alt={bg ? "Покривна ФЕЦ в София, обект на Novacom" : "Rooftop PV in Sofia, a Novacom site"} priority />
+              <Photo id={REAL.pernikSky} alt={bg ? "Фотоволтаичен парк 2 MW в Перник, обект на Novacom" : "2 MW solar park in Pernik, a Novacom site"} priority />
             </div>
             <div className="absolute -bottom-5 left-4 right-4 rounded-2xl bg-white p-4 shadow-xl sm:left-auto sm:right-6 sm:w-72">
               <p className="text-sm font-bold">{bg ? "Супер ниски цени за проектиране" : "Very low design prices"}</p>
@@ -258,6 +258,36 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           {projects.slice(0, 4).map((p, i) => (
             <Reveal key={p.title.en} delay={i * 0.06}>
               <ProjectCard p={p} lang={lang} />
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* Know-how */}
+      <Section className="bg-mist">
+        <Reveal>
+          <Eyebrow>{bg ? "Ноу-хау" : "Know-how"}</Eyebrow>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <H2 className="max-w-2xl">{bg ? "Собствени разработки: тракер „Стрела“, EMS и полезни модели" : "Our own developments: the Strela tracker, EMS and utility models"}</H2>
+            <Button to={href(lang, "know-how")} variant="outline">{bg ? "Разгледай" : "Explore"}</Button>
+          </div>
+        </Reveal>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {[
+            { img: REAL.trackerField, t: bg ? "Тракер „Стрела“ (3P)" : "Strela (3P) tracker", d: bg ? "Собствен дизайн и разработка, единствен в България." : "Own design and development, unique in Bulgaria.", a: "know-how#strela" },
+            { img: REAL.smaMeter, t: bg ? "Собствен EMS" : "In-house EMS", d: bg ? "Управление на енергията за големи индустриални системи." : "Energy management for large industrial systems.", a: "know-how#ems" },
+            { img: REAL.bessOpen, t: bg ? "Наука и полезни модели" : "Science and utility models", d: bg ? "Научни трудове и над 4 регистрирани полезни модела." : "Publications and more than 4 registered utility models.", a: "know-how#science" },
+          ].map((k, i) => (
+            <Reveal key={k.t} delay={i * 0.06}>
+              <Link href={href(lang, k.a)} className="group block h-full overflow-hidden rounded-2xl border border-line bg-white transition hover:shadow-xl">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <Photo id={k.img} alt={k.t} className="transition duration-700 group-hover:scale-105" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-extrabold">{k.t}</h3>
+                  <p className="mt-2 text-muted">{k.d}</p>
+                </div>
+              </Link>
             </Reveal>
           ))}
         </div>

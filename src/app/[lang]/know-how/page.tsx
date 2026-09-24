@@ -1,0 +1,175 @@
+import type { Metadata } from "next";
+import { REAL, utilityModels } from "@/content/site";
+import { href, type Lang } from "@/lib/i18n";
+import { seo } from "@/lib/seo";
+import { Button, Check, CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
+
+type P = { params: Promise<{ lang: string }> };
+
+export async function generateMetadata({ params }: P): Promise<Metadata> {
+  const lang = (await params).lang as Lang;
+  const bg = lang === "bg";
+  return seo(
+    lang,
+    "know-how",
+    bg ? "Ноу-хау" : "Know-how",
+    bg
+      ? "Собствени разработки на Novacom: тракер „Стрела“ (3P), единствен в България, собствен EMS за големи индустриални системи, научни трудове и регистрирани полезни модели."
+      : "Novacom's own developments: the Strela (3P) tracker, unique in Bulgaria, an in-house EMS for large industrial systems, scientific publications and registered utility models.",
+  );
+}
+
+export default async function KnowHowPage({ params }: P) {
+  const lang = (await params).lang as Lang;
+  const bg = lang === "bg";
+
+  const strela = [
+    { id: REAL.trackerField, alt: bg ? "Тракер „Стрела“ на терен" : "Strela tracker in the field", cls: "sm:col-span-2 sm:row-span-2" },
+    { id: REAL.trackerDetail, alt: bg ? "Детайл от механизма на „Стрела“" : "Detail of the Strela mechanism", cls: "" },
+    { id: REAL.trackerUnder, alt: bg ? "Двулицеви модули на „Стрела“" : "Bifacial modules on Strela", cls: "" },
+    { id: REAL.trackerTrailers, alt: bg ? "Мобилни тракери „Стрела“ с инверторно табло" : "Mobile Strela trackers with on-board inverter cabinet", cls: "sm:col-span-2" },
+  ];
+
+  return (
+    <>
+      <PageHero
+        lang={lang}
+        eyebrow={bg ? "Ноу-хау" : "Know-how"}
+        title={bg ? "Собствени разработки, не само доставка" : "Our own developments, not just supply"}
+        text={
+          bg
+            ? "Проектираме и произвеждаме собствени решения: тракер „Стрела“, EMS за големи индустриални системи и регистрирани полезни модели."
+            : "We design and build our own solutions: the Strela tracker, an EMS for large industrial systems and registered utility models."
+        }
+        img={REAL.trackerField}
+      />
+
+      {/* Strela tracker */}
+      <Section id="strela">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <Eyebrow>{bg ? "Изобретение" : "Invention"}</Eyebrow>
+            <H2>{bg ? "Тракер „Стрела“ (3P): единствен в България" : "The Strela (3P) tracker: unique in Bulgaria"}</H2>
+            <p className="mt-5 text-lg text-muted">
+              {bg
+                ? "„Стрела“ е соларен тракер със собствен дизайн и собствена разработка на Novacom. Следи слънцето през деня, за да извлече повече енергия от същите панели, и се предлага и като мобилна платформа на ремарке, готова за работа където е нужна."
+                : "Strela is a solar tracker designed and developed in-house by Novacom. It follows the sun through the day to harvest more energy from the same modules, and is also available as a mobile trailer platform, ready to work wherever it is needed."}
+            </p>
+            <ul className="mt-7 space-y-3 text-lg">
+              <Check>{bg ? "Собствен дизайн и разработка в България" : "Designed and developed in Bulgaria"}</Check>
+              <Check>{bg ? "Двулицеви модули за допълнителен добив от отразената светлина" : "Bifacial modules for extra yield from reflected light"}</Check>
+              <Check>{bg ? "Мобилно изпълнение на ремарке с инверторно табло на борда" : "Mobile trailer version with an on-board inverter cabinet"}</Check>
+              <Check>{bg ? "Подходящ за земеделие, отдалечени обекти и временни площадки" : "Suited to agriculture, remote sites and temporary locations"}</Check>
+            </ul>
+            <div className="mt-8">
+              <Button to={href(lang, "contact") + "#quote"}>{bg ? "Запитване за „Стрела“" : "Ask about Strela"}</Button>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="grid auto-rows-[150px] grid-cols-2 gap-3 sm:auto-rows-[170px] sm:grid-cols-3">
+              {strela.map((g) => (
+                <div key={g.id} className={`overflow-hidden rounded-2xl ${g.cls}`}>
+                  <Photo id={g.id} alt={g.alt} />
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* EMS */}
+      <Section className="bg-ink text-white" id="ems">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <Reveal className="order-2 lg:order-1">
+            <div className="aspect-[4/3] overflow-hidden rounded-3xl">
+              <Photo id={REAL.pernikBessOpen} alt={bg ? "Индустриална батерийна система, управлявана от EMS" : "Industrial battery system managed by the EMS"} />
+            </div>
+          </Reveal>
+          <Reveal className="order-1 lg:order-2">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Софтуер" : "Software"}</p>
+            <H2>{bg ? "Собствен EMS за големи индустриални системи" : "An in-house EMS for large industrial systems"}</H2>
+            <p className="mt-5 text-lg text-white/80">
+              {bg
+                ? "Разработихме собствена система за управление на енергията (EMS), защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи заедно със съществуващото оборудване."
+                : "We built our own energy management system (EMS) because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment."}
+            </p>
+            <ul className="mt-7 space-y-3 text-lg">
+              {(bg
+                ? ["Управление на батерии, товари и зарядни станции по цена и график", "Изрязване на пикове и защита на партидата", "Интеграция със съществуващи инвертори и SCADA", "Мониторинг 24/365 и SMS известия през gridex.tech"]
+                : ["Battery, load and EV-charger control by price and schedule", "Peak shaving and grid-connection protection", "Integration with existing inverters and SCADA", "24/365 monitoring and SMS alerts via gridex.tech"]
+              ).map((t) => (
+                <li key={t} className="flex gap-3">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/15 text-sm font-extrabold text-[#b5d86a]" aria-hidden>✓</span>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="https://gridex.tech/" target="_blank" rel="noopener" className="mt-8 inline-flex rounded-xl bg-white px-6 py-3.5 font-bold text-ink transition hover:bg-sky">
+              gridex.tech ↗
+            </a>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Science & utility models */}
+      <Section id="science">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+          <Reveal>
+            <Eyebrow>{bg ? "Наука и иновации" : "Science and innovation"}</Eyebrow>
+            <H2>{bg ? "Научни трудове и регистрирани полезни модели" : "Scientific publications and registered utility models"}</H2>
+            <p className="mt-5 text-lg text-muted">
+              {bg
+                ? "Зад разработките на Novacom стои д-р инж. Антуан Ангелов, собственик на компанията, научен кадър и преподавател в Технически университет – София, където води собствена специалност по възобновяеми енергийни източници. Автор е на научни трудове и на над четири регистрирани полезни модела в областта на енергетиката."
+                : "Behind Novacom's developments is Dr. Eng. Antouan Anguelov, the company's owner, a scientist and lecturer at the Technical University of Sofia, where he runs his own renewable energy programme. He is the author of scientific publications and more than four registered utility models in the energy field."}
+            </p>
+            <p className="mt-4 text-lg text-muted">
+              {bg
+                ? "Тази комбинация от академична работа и практика на обекта е причината решенията ни да са инженерно обосновани, а не просто каталожни."
+                : "This mix of academic work and site practice is why our solutions are engineered, not just picked from a catalogue."}
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="grid gap-4">
+              {[
+                { n: "4+", t: bg ? "полезни модела и изобретения" : "utility models and inventions" },
+                { n: bg ? "ТУ-София" : "TU Sofia", t: bg ? "собствена специалност по ВЕИ" : "own renewable energy programme" },
+                { n: "30+", t: bg ? "години в технологиите и енергетиката" : "years in technology and energy" },
+              ].map((k) => (
+                <div key={k.t} className="rounded-2xl border border-line p-6">
+                  <p className="text-3xl font-extrabold text-brand">{k.n}</p>
+                  <p className="mt-1 text-muted">{k.t}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section className="bg-mist" id="models">
+        <Reveal>
+          <Eyebrow>{bg ? "Полезни модели" : "Utility models"}</Eyebrow>
+          <H2>{bg ? "Разработки на д-р инж. Антуан Ангелов" : "Developments by Dr. Eng. Antouan Anguelov"}</H2>
+        </Reveal>
+        <ol className="mt-10 grid gap-4 md:grid-cols-2">
+          {utilityModels.map((m, i) => (
+            <Reveal key={m.title.en} delay={i * 0.06}>
+              <li className="flex h-full gap-5 rounded-2xl bg-white p-6">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand font-extrabold text-white">{utilityModels.length - i}</span>
+                <div>
+                  <p className="text-sm font-bold text-brand">
+                    {m.year}
+                    {m.ref && <span className="ml-2 rounded bg-sky px-2 py-0.5 text-ink">{m.ref}</span>}
+                  </p>
+                  <h3 className="mt-1 text-lg font-extrabold">{m.title[lang]}</h3>
+                  <p className="mt-2 text-muted">{m.note[lang]}</p>
+                </div>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
+      </Section>
+
+      <CTA lang={lang} />
+    </>
+  );
+}

@@ -47,6 +47,7 @@ export default async function AboutPage({ params }: P) {
               <Check>{bg ? "Над 50 завършени интеграционни проекта" : "50+ completed integration projects"}</Check>
               <Check>{bg ? "Безплатна консултация и оглед" : "Free consultation and site survey"}</Check>
               <Check>{bg ? "Безплатен мониторинг и поддръжка 24/365" : "Free 24/365 monitoring and support"}</Check>
+              <Check>{bg ? "Собствени разработки: тракер „Стрела“ и EMS за индустрията" : "Own developments: the Strela tracker and an industrial EMS"}</Check>
             </ul>
             <div className="mt-8 rounded-2xl border-l-4 border-brand bg-sky p-5">
               <p className="font-extrabold">{bg ? "д-р инж. Антуан Ангелов, основател" : "Dr. Eng. Antouan Anguelov, founder"}</p>

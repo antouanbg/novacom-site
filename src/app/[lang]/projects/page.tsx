@@ -35,7 +35,7 @@ export default async function ProjectsPage({ params }: P) {
             ? "От домашни хибридни системи до индустриални централи и батерийни системи Suntech за бизнеса."
             : "From hybrid home systems to industrial plants and Suntech battery storage for business."
         }
-        img={REAL.roofCommercial}
+        img={REAL.pernikRidgeWide}
       />
       <Section>
         <Reveal>
