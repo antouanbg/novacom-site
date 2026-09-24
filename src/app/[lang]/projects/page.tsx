@@ -1,60 +1,76 @@
 import type { Metadata } from "next";
-import { PH } from "@/content/site";
-import type { Lang } from "@/lib/i18n";
-import { CTA, Eyebrow, Fill, H2, PageHero, Reveal, Section } from "@/components/ui";
+import Link from "next/link";
+import { PH, projectTypes, services } from "@/content/site";
+import { href, type Lang } from "@/lib/i18n";
+import { seo } from "@/lib/seo";
+import { CTA, Eyebrow, H2, MonitoringPromo, PageHero, Photo, Reveal, Section } from "@/components/ui";
 
 type P = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
-  const { lang } = await params;
-  return { title: lang === "bg" ? "Проекти" : "Projects" };
+  const lang = (await params).lang as Lang;
+  return seo(
+    lang,
+    "projects",
+    lang === "bg" ? "Проекти" : "Projects",
+    lang === "bg"
+      ? "Батерийни системи Suntech за бизнеса, покривни и наземни ФЕЦ, земеделски обекти и хибридни системи за дома."
+      : "Suntech battery storage for business, rooftop and ground-mounted PV, agricultural sites and hybrid home systems.",
+  );
 }
 
 export default async function ProjectsPage({ params }: P) {
   const lang = (await params).lang as Lang;
   const bg = lang === "bg";
-  const filters = bg ? ["Всички", "Бизнес (C&I)", "Земеделие", "Общности", "Домакинства"] : ["All", "Business (C&I)", "Agriculture", "Communities", "Homes"];
 
   return (
     <>
       <PageHero
         lang={lang}
         eyebrow={bg ? "Проекти" : "Projects"}
-        title={bg ? "Убедете се сами в качеството на нашата работа" : "See the quality of our work for yourself"}
+        title={bg ? "Какво изграждаме" : "What we build"}
+        text={
+          bg
+            ? "От домашни хибридни системи до индустриални централи и батерийни системи Suntech за бизнеса."
+            : "From hybrid home systems to industrial plants and Suntech battery storage for business."
+        }
         img={PH.fieldClouds}
       />
       <Section>
-        <Reveal>
-          <Eyebrow>{bg ? "Реализирани обекти" : "Completed sites"}</Eyebrow>
-          <H2>{bg ? "Нашите проекти" : "Our projects"}</H2>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {filters.map((f, i) => (
-              <span key={f} className={`rounded-full px-4 py-2 text-sm font-bold ${i === 0 ? "bg-ink text-white" : "bg-mist text-muted"}`}>
-                {f}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3, 4, 5, 6].map((n) => (
-            <Reveal key={n} delay={(n % 3) * 0.06}>
-              <article className="overflow-hidden rounded-2xl border border-line">
-                <div className="grid aspect-[4/3] place-items-center bg-mist p-4 text-center">
-                  <Fill lang={lang}>{bg ? "реална снимка на обекта" : "real site photo"}</Fill>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projectTypes.map((t, i) => (
+            <Reveal key={t.path} delay={(i % 3) * 0.06}>
+              <Link href={href(lang, t.path)} className="group block h-full overflow-hidden rounded-2xl border border-line transition hover:shadow-xl">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <Photo id={t.img} alt={t.title[lang]} className="transition duration-700 group-hover:scale-105" />
                 </div>
-                <div className="p-5">
-                  <h3 className="font-extrabold">
-                    {bg ? "Система за бизнес клиент с мощност" : "Business client system,"} <Fill lang={lang}>kWp</Fill>
-                  </h3>
-                  <p className="mt-2 text-sm text-muted">
-                    <Fill lang={lang}>{bg ? "батерия kWh, град, година" : "battery kWh, city, year"}</Fill>
-                  </p>
+                <div className="p-6">
+                  <h2 className="text-xl font-extrabold">{t.title[lang]}</h2>
+                  <p className="mt-2 text-muted">{t.text[lang]}</p>
                 </div>
-              </article>
+              </Link>
             </Reveal>
           ))}
         </div>
       </Section>
+      <Section className="bg-mist">
+        <Reveal>
+          <Eyebrow>{bg ? "Как работим" : "How we work"}</Eyebrow>
+          <H2>{bg ? "Всеки проект минава през четири етапа" : "Every project goes through four stages"}</H2>
+        </Reveal>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((s, i) => (
+            <Reveal key={s.slug} delay={i * 0.06}>
+              <Link href={href(lang, `services/${s.slug}`)} className="block h-full rounded-2xl bg-white p-6 transition hover:shadow-lg">
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-brand font-extrabold text-white">{i + 1}</span>
+                <h3 className="mt-4 text-lg font-extrabold">{s.title[lang]}</h3>
+                <p className="mt-2 text-muted">{s.short[lang]}</p>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+      <MonitoringPromo lang={lang} />
       <CTA lang={lang} />
     </>
   );

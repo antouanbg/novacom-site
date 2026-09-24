@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { services } from "@/content/site";
 import { locales, type Lang } from "@/lib/i18n";
-import { CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
+import { CTA, Eyebrow, H2, MonitoringPromo, PageHero, Photo, Reveal, Section } from "@/components/ui";
 
 type P = { params: Promise<{ lang: string; slug: string }> };
 
@@ -14,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const { lang, slug } = await params;
   const s = services.find((x) => x.slug === slug);
-  return s ? { title: s.title[lang as Lang], description: s.short[lang as Lang] } : {};
+  return s ? seo(lang as Lang, `services/${slug}`, s.title[lang as Lang], s.intro[lang as Lang]) : {};
 }
 
 export default async function ServicePage({ params }: P) {
@@ -49,6 +50,7 @@ export default async function ServicePage({ params }: P) {
           </Reveal>
         </div>
       </Section>
+      {s.slug === "maintenance" && <MonitoringPromo lang={lang} />}
       <CTA lang={lang} />
     </>
   );

@@ -108,14 +108,6 @@ export function CTA({ lang }: { lang: Lang }) {
   );
 }
 
-export function Fill({ lang, children }: { lang: Lang; children: ReactNode }) {
-  return (
-    <span className="placeholder">
-      [{ui.fill[lang]}: {children}]
-    </span>
-  );
-}
-
 export function Check({ children }: { children: ReactNode }) {
   return (
     <li className="flex gap-3">
@@ -124,5 +116,41 @@ export function Check({ children }: { children: ReactNode }) {
       </span>
       <span>{children}</span>
     </li>
+  );
+}
+
+export function MonitoringPromo({ lang }: { lang: Lang }) {
+  const bg = lang === "bg";
+  return (
+    <Section className="bg-leaf-light">
+      <Reveal>
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div>
+            <Eyebrow>{bg ? "Включено за всеки клиент" : "Included for every client"}</Eyebrow>
+            <H2>{bg ? "Безплатен мониторинг и поддръжка 24/365" : "Free 24/365 monitoring and support"}</H2>
+            <p className="mt-5 text-lg text-muted">
+              {bg
+                ? "Всяка наша система се наблюдава денонощно, 365 дни в годината, без допълнително заплащане. Всеки клиент получава безплатни SMS известия чрез платформата gridex.tech."
+                : "Every system we build is monitored around the clock, 365 days a year, at no extra cost. Every client gets free SMS alerts through the gridex.tech platform."}
+            </p>
+          </div>
+          <div className="rounded-3xl bg-white p-7 shadow-sm">
+            <ul className="space-y-3 text-lg">
+              <Check>{bg ? "Мониторинг 24/365" : "24/365 monitoring"}</Check>
+              <Check>{bg ? "Безплатна поддръжка" : "Free support"}</Check>
+              <Check>{bg ? "Безплатни SMS известия" : "Free SMS alerts"}</Check>
+            </ul>
+            <a
+              href="https://gridex.tech/"
+              target="_blank"
+              rel="noopener"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-6 py-3.5 font-bold text-white transition hover:bg-ink-2"
+            >
+              gridex.tech ↗
+            </a>
+          </div>
+        </div>
+      </Reveal>
+    </Section>
   );
 }

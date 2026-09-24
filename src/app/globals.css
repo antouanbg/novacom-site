@@ -24,15 +24,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.placeholder {
-  background: #fff7d6;
-  color: #7a5b00;
-  border: 1px dashed #d9b340;
-  border-radius: 6px;
-  padding: 0 6px;
-  font-size: 0.9em;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

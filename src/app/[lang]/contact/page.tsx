@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { contact } from "@/content/site";
 import type { Lang } from "@/lib/i18n";
 import QuoteForm from "@/components/QuoteForm";
-import { Eyebrow, Fill, H2, Reveal, Section } from "@/components/ui";
+import { Eyebrow, H2, Reveal, Section } from "@/components/ui";
 
 type P = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
-  const { lang } = await params;
-  return { title: lang === "bg" ? "Контакт" : "Contact" };
+  const lang = (await params).lang as Lang;
+  const bg = lang === "bg";
+  return seo(lang, "contact", bg ? "Контакт" : "Contact", bg ? "Поискайте оферта за ФЕЦ или батерийна система. Безплатна консултация и оглед." : "Request a quote for a PV plant or battery system. Free consultation and site survey.");
 }
 
 export default async function ContactPage({ params }: P) {
@@ -32,9 +34,11 @@ export default async function ContactPage({ params }: P) {
               <a href={`mailto:${contact.email}`} className="mt-1 block text-lg font-semibold text-brand">{contact.email}</a>
             </div>
             <div className="rounded-2xl border border-line p-5">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-muted">{bg ? "Офис" : "Office"}</h3>
-              <p className="mt-2">
-                <Fill lang={lang}>{bg ? "адрес на офиса и работно време" : "office address and opening hours"}</Fill>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-muted">{bg ? "Мониторинг и поддръжка" : "Monitoring & support"}</h3>
+              <p className="mt-2 text-lg font-extrabold">24/365</p>
+              <p className="mt-1 text-muted">
+                {bg ? "Безплатно за всички наши системи, с SMS известия в " : "Free for all our systems, with SMS alerts via "}
+                <a href="https://gridex.tech/" target="_blank" rel="noopener" className="font-bold text-brand hover:underline">gridex.tech ↗</a>
               </p>
             </div>
           </div>

@@ -5,6 +5,8 @@ import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { isLang, locales } from "@/lib/i18n";
+import { SITE } from "@/lib/seo";
+import { contact } from "@/content/site";
 
 const manrope = Manrope({ subsets: ["latin", "cyrillic"], variable: "--font-manrope", display: "swap" });
 
@@ -26,7 +28,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     description: bg
       ? "Оферти, доставка и монтаж на фотоволтаични централи и системи за съхранение (BESS) за индустрия, търговия, земеделие и домакинства."
       : "Quotes, supply and installation of solar PV plants and battery storage (BESS) for industry, commerce, agriculture and homes.",
-    alternates: { languages: { bg: "/bg/", en: "/en/" } },
     icons: { icon: "/logo.jpg" },
   };
 }
@@ -37,6 +38,27 @@ export default async function LangLayout({ children, params }: { children: React
   return (
     <html lang={lang} className={manrope.variable}>
       <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Novacom",
+              url: SITE,
+              logo: `${SITE}/logo.jpg`,
+              email: contact.email,
+              telephone: contact.phone,
+              areaServed: ["BG", "Europe"],
+              knowsAbout: ["Solar PV", "Battery energy storage (BESS)", "C&I energy storage", "Suntech"],
+              founder: {
+                "@type": "Person",
+                name: lang === "bg" ? "д-р инж. Антуан Ангелов" : "Dr. Eng. Antouan Anguelov",
+                affiliation: { "@type": "CollegeOrUniversity", name: lang === "bg" ? "Технически университет – София" : "Technical University of Sofia" },
+              },
+            }),
+          }}
+        />
         <Header lang={lang} />
         <main>{children}</main>
         <Footer lang={lang} />

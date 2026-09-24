@@ -1,4 +1,4 @@
-export const metadata = { title: "Novacom" };
+export const metadata = { title: "Novacom", robots: { index: false, follow: true } };
 
 export default function RootRedirectLayout({ children }: { children: React.ReactNode }) {
   return (

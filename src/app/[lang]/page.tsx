@@ -1,7 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { PH, products, services, solutions, ui } from "@/content/site";
+import { PH, products, projectTypes, services, solutions, ui } from "@/content/site";
 import { href, type Lang } from "@/lib/i18n";
-import { Button, CTA, Eyebrow, Fill, H2, Photo, Reveal, Section } from "@/components/ui";
+import { seo } from "@/lib/seo";
+import { Button, CTA, Eyebrow, H2, MonitoringPromo, Photo, Reveal, Section } from "@/components/ui";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const lang = (await params).lang as Lang;
+  const m = seo(
+    lang,
+    "",
+    lang === "bg" ? "Фотоволтаични централи и батерии Suntech за бизнеса" : "Solar PV and Suntech battery storage for business",
+    lang === "bg"
+      ? "Оферта, доставка и монтаж на ФЕЦ и батерийни системи Suntech от 261 kWh за индустрия, търговия и земеделие. Безплатен мониторинг и поддръжка 24/365."
+      : "Quotes, supply and installation of PV plants and Suntech 261 kWh battery systems for industry, commerce and agriculture. Free 24/365 monitoring and support.",
+  );
+  return { ...m, title: { absolute: `Novacom | ${m.title}` } };
+}
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const lang = (await params).lang as Lang;
@@ -148,13 +163,30 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </div>
       </Section>
 
+      <MonitoringPromo lang={lang} />
+
       {/* Products */}
       <Section className="bg-ink text-white">
         <Reveal>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Продукти" : "Products"}</p>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <H2 className="max-w-2xl">{bg ? "Оборудване от утвърдени производители" : "Equipment from established manufacturers"}</H2>
+            <H2 className="max-w-2xl">{bg ? "Панели и батерии Suntech директно от производителя" : "Suntech panels and batteries, direct from the manufacturer"}</H2>
             <Button to={href(lang, "products")} variant="light">{ui.allProducts[lang]}</Button>
+          </div>
+          <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-white/85">
+              {bg
+                ? "Novacom е търговски представител на Suntech за Балканите и Европа: фотоволтаични панели и батерийни системи за бизнеса."
+                : "Novacom is Suntech's sales representative for the Balkans and Europe: PV modules and battery systems for business."}
+            </p>
+            <a
+              href="https://www.suntech-power.com/"
+              target="_blank"
+              rel="noopener"
+              className="shrink-0 rounded-xl bg-white px-5 py-3 text-center font-bold text-ink transition hover:bg-sky"
+            >
+              suntech-power.com ↗
+            </a>
           </div>
         </Reveal>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
@@ -179,23 +211,22 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Reveal>
           <Eyebrow>{bg ? "Проекти" : "Projects"}</Eyebrow>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <H2>{bg ? "Убедете се сами в качеството" : "See the quality for yourself"}</H2>
+            <H2>{bg ? "Какво изграждаме" : "What we build"}</H2>
             <Button to={href(lang, "projects")} variant="outline">{ui.allProjects[lang]}</Button>
           </div>
         </Reveal>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[1, 2, 3].map((n) => (
-            <Reveal key={n} delay={n * 0.06}>
-              <div className="overflow-hidden rounded-2xl border border-line">
-                <div className="grid aspect-[4/3] place-items-center bg-mist p-4 text-center">
-                  <Fill lang={lang}>{bg ? `снимка на реален обект ${n}` : `photo of real project ${n}`}</Fill>
+          {projectTypes.slice(0, 3).map((t, i) => (
+            <Reveal key={t.path} delay={i * 0.06}>
+              <Link href={href(lang, t.path)} className="group block h-full overflow-hidden rounded-2xl border border-line transition hover:shadow-xl">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <Photo id={t.img} alt={t.title[lang]} className="transition duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-extrabold">
-                    {bg ? "Система за бизнес клиент" : "System for a business client"} <Fill lang={lang}>kWp / kWh</Fill>
-                  </h3>
+                  <h3 className="text-lg font-extrabold">{t.title[lang]}</h3>
+                  <p className="mt-2 text-muted">{t.text[lang]}</p>
                 </div>
-              </div>
+              </Link>
             </Reveal>
           ))}
         </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { benefits, PH, solutions } from "@/content/site";
 import { locales, type Lang } from "@/lib/i18n";
@@ -14,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const { lang, slug } = await params;
   const s = solutions.find((x) => x.slug === slug);
-  return s ? { title: s.title[lang as Lang], description: s.short[lang as Lang] } : {};
+  return s ? seo(lang as Lang, `solutions/${slug}`, s.title[lang as Lang], s.intro[lang as Lang]) : {};
 }
 
 export default async function SolutionPage({ params }: P) {

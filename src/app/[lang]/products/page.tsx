@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import Link from "next/link";
 import { PH, products, ui } from "@/content/site";
 import { href, type Lang } from "@/lib/i18n";
@@ -7,8 +8,9 @@ import { CTA, PageHero, Photo, Reveal, Section } from "@/components/ui";
 type P = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
-  const { lang } = await params;
-  return { title: lang === "bg" ? "Продукти" : "Products" };
+  const lang = (await params).lang as Lang;
+  const bg = lang === "bg";
+  return seo(lang, "products", bg ? "Продукти" : "Products", bg ? "Фотоволтаични панели и батерийни системи Suntech, хибридни инвертори, конструкции и мониторинг за бизнеса и дома." : "Suntech PV modules and battery storage, hybrid inverters, mounting and monitoring for business and home.");
 }
 
 export default async function ProductsPage({ params }: P) {

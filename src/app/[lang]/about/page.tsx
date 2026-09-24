@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { PH } from "@/content/site";
 import type { Lang } from "@/lib/i18n";
-import { Check, CTA, Eyebrow, Fill, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
+import { Check, CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
 
 type P = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
-  const { lang } = await params;
-  return { title: lang === "bg" ? "Кои сме ние" : "Who we are" };
+  const lang = (await params).lang as Lang;
+  const bg = lang === "bg";
+  return seo(lang, "about", bg ? "Кои сме ние" : "Who we are", bg ? "Novacom: ФЕЦ и батерийни системи, търговски представител на Suntech за Балканите и Европа. Основател д-р инж. Антуан Ангелов, преподавател в ТУ-София." : "Novacom: solar PV and battery storage, Suntech sales representative for the Balkans and Europe. Founded by Dr. Eng. Antouan Anguelov, lecturer at TU Sofia.");
 }
 
 export default async function AboutPage({ params }: P) {
@@ -44,8 +46,16 @@ export default async function AboutPage({ params }: P) {
             <ul className="mt-7 space-y-3 text-lg">
               <Check>{bg ? "Над 50 завършени интеграционни проекта" : "50+ completed integration projects"}</Check>
               <Check>{bg ? "Безплатна консултация и оглед" : "Free consultation and site survey"}</Check>
-              <Check>{bg ? "Решения „до ключ“ с мониторинг" : "Turnkey solutions with monitoring"}</Check>
+              <Check>{bg ? "Безплатен мониторинг и поддръжка 24/365" : "Free 24/365 monitoring and support"}</Check>
             </ul>
+            <div className="mt-8 rounded-2xl border-l-4 border-brand bg-sky p-5">
+              <p className="font-extrabold">{bg ? "д-р инж. Антуан Ангелов, основател" : "Dr. Eng. Antouan Anguelov, founder"}</p>
+              <p className="mt-2 text-muted">
+                {bg
+                  ? "Научен кадър, доктор и преподавател в ТУ-София със собствена специалност по ВЕИ. Търговски представител на Suntech за Балканите и Европа."
+                  : "Scientist, PhD and lecturer at the Technical University of Sofia with his own renewable energy programme. Suntech sales representative for the Balkans and Europe."}
+              </p>
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="grid auto-rows-[140px] grid-cols-2 gap-3 sm:auto-rows-[160px] sm:grid-cols-3">
@@ -65,9 +75,26 @@ export default async function AboutPage({ params }: P) {
             <div className="h-full rounded-3xl bg-white p-8">
               <Eyebrow>{bg ? "Партньорства и членства" : "Partnerships & memberships"}</Eyebrow>
               <h3 className="text-2xl font-extrabold">{bg ? "С кого работим" : "Who we work with"}</h3>
-              <p className="mt-4 text-muted">
-                <Fill lang={lang}>{bg ? "производители, дистрибутори, браншови организации" : "manufacturers, distributors, industry bodies"}</Fill>
-              </p>
+              <ul className="mt-5 space-y-4">
+                <li>
+                  <a href="https://www.suntech-power.com/" target="_blank" rel="noopener" className="text-lg font-extrabold text-brand hover:underline">
+                    Suntech ↗
+                  </a>
+                  <p className="text-muted">
+                    {bg
+                      ? "Официален търговски представител за Балканите и Европа: фотоволтаични панели и батерийни системи за бизнеса."
+                      : "Official sales representative for the Balkans and Europe: PV modules and battery systems for business."}
+                  </p>
+                </li>
+                <li>
+                  <span className="text-lg font-extrabold">{bg ? "Технически университет – София" : "Technical University of Sofia"}</span>
+                  <p className="text-muted">
+                    {bg
+                      ? "Академична връзка чрез нашия основател, преподавател със собствена специалност по ВЕИ."
+                      : "An academic link through our founder, who teaches his own renewable energy programme."}
+                  </p>
+                </li>
+              </ul>
             </div>
           </Reveal>
           <Reveal delay={0.08}>

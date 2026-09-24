@@ -41,7 +41,6 @@ export const ui = {
     bg: "Безплатна първоначална консултация, енергиен и финансов анализ на вашия обект.",
     en: "Free initial consultation plus an energy and financial analysis of your site.",
   },
-  fill: { bg: "ПОПЪЛНИ", en: "TO FILL" },
 } satisfies Record<string, L>;
 
 export type NavItem = { label: L; path: string; children?: { label: L; path: string }[] };
@@ -374,5 +373,63 @@ export const benefits = [
       bg: "Чиста енергия, по-нисък въглероден отпечатък и по-добър ESG профил.",
       en: "Clean energy, a lower carbon footprint and a stronger ESG profile.",
     },
+  },
+];
+
+// Types of installations we build (not specific client projects; stock photos illustrate the type).
+export const projectTypes = [
+  {
+    title: { bg: "Батерийни системи за бизнеса", en: "Battery storage for business" },
+    text: {
+      bg: "Шкафови системи Suntech от 261 kWh, самостоятелно или към съществуваща ФЕЦ.",
+      en: "Suntech 261 kWh cabinet systems, standalone or added to an existing PV plant.",
+    },
+    img: PH.grid,
+    path: "products/storage",
+  },
+  {
+    title: { bg: "Покривни ФЕЦ за индустрията", en: "Rooftop PV for industry" },
+    text: {
+      bg: "Централи за собствено потребление на производства и складове.",
+      en: "Self-consumption plants for factories and warehouses.",
+    },
+    img: PH.heroRoof,
+    path: "solutions/industry",
+  },
+  {
+    title: { bg: "Търговски сгради", en: "Commercial buildings" },
+    text: {
+      bg: "Магазини, офиси и хотели с дневна консумация и бърза възвръщаемост.",
+      en: "Retail, offices and hotels with daytime demand and fast payback.",
+    },
+    img: PH.cityRoof,
+    path: "solutions/commercial",
+  },
+  {
+    title: { bg: "Наземни централи", en: "Ground-mounted plants" },
+    text: {
+      bg: "ФЕЦ на терен с батерия за съхранение и управление на енергията.",
+      en: "Ground-mounted PV with battery storage and energy management.",
+    },
+    img: PH.fieldClouds,
+    path: "products/mounting",
+  },
+  {
+    title: { bg: "Земеделски обекти", en: "Agricultural sites" },
+    text: {
+      bg: "Хибридни и автономни системи за ферми, напояване и хладилни бази.",
+      en: "Hybrid and off-grid systems for farms, irrigation and cold storage.",
+    },
+    img: PH.fieldAerial,
+    path: "solutions/agriculture",
+  },
+  {
+    title: { bg: "Хибридни системи за дома", en: "Hybrid systems for homes" },
+    text: {
+      bg: "Панели Suntech, хибриден инвертор и батерия за къщи и вили.",
+      en: "Suntech panels, a hybrid inverter and a battery for houses and villas.",
+    },
+    img: PH.roofInstall,
+    path: "solutions/homes",
   },
 ];

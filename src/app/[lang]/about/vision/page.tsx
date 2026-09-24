@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { seo } from "@/lib/seo";
 import { PH } from "@/content/site";
 import type { Lang } from "@/lib/i18n";
-import { CTA, Eyebrow, Fill, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
+import { CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
 
 type P = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
-  const { lang } = await params;
-  return { title: lang === "bg" ? "Нашата визия" : "Our vision" };
+  const lang = (await params).lang as Lang;
+  const bg = lang === "bg";
+  return seo(lang, "about/vision", bg ? "Нашата визия" : "Our vision", bg ? "Устойчива и достъпна енергия: защо фотоволтаичната система с батерия си заслужава." : "Sustainable, affordable energy: why a PV system with battery storage pays off.");
 }
 
 export default async function VisionPage({ params }: P) {
@@ -42,9 +44,15 @@ export default async function VisionPage({ params }: P) {
         <Reveal>
           <Eyebrow>{bg ? "Ръководство" : "Leadership"}</Eyebrow>
           <H2>{bg ? "Основатели и ръководство" : "Founders & leadership"}</H2>
-          <p className="mt-5 text-lg text-muted">
-            <Fill lang={lang}>{bg ? "имена, роли и реални снимки на ръководството" : "names, roles and real photos of the leadership"}</Fill>
-          </p>
+          <div className="mt-8 max-w-3xl rounded-3xl bg-white p-7 sm:p-9">
+            <h3 className="text-2xl font-extrabold">{bg ? "д-р инж. Антуан Ангелов" : "Dr. Eng. Antouan Anguelov"}</h3>
+            <p className="mt-1 font-bold text-brand">{bg ? "Основател и собственик" : "Founder & owner"}</p>
+            <p className="mt-4 text-lg text-muted">
+              {bg
+                ? "Научен кадър, доктор и преподавател в Технически университет – София, където води собствена специалност по възобновяеми енергийни източници. Търговски представител на Suntech за Балканите и Европа."
+                : "A scientist, PhD and lecturer at the Technical University of Sofia, where he runs his own renewable energy programme. Suntech sales representative for the Balkans and Europe."}
+            </p>
+          </div>
         </Reveal>
       </Section>
       <CTA lang={lang} />
