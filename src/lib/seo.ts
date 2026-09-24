@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { photo, PH } from "@/content/site";
 import { href, type Lang } from "./i18n";
 
-export const SITE = "https://www.novacom.bg";
+export const SITE = "https://novacom.bg";
 
 // Canonical URL, hreflang alternates and Open Graph for one page.
 export function seo(lang: Lang, path: string, title: string, description: string): Metadata {
