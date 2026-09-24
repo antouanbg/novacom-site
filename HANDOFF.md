@@ -7,7 +7,7 @@ _Последна актуализация: 2026-09-24 (v1 на Next.js)_
 - **Сайт v1 (Next.js)**: 24 страници × 2 езика, структура по Sonnis, C&I фокус, продукти. Тестван на 375 / 768 / 1280px без хоризонтален скрол (2026-09-24).
 - Деплой: GitHub Actions (`.github/workflows/deploy.yml`) при push в `main` → GitHub Pages.
 - Локален преглед: `npm run build`, след това сървър за папката `out/`.
-- DNS (панел SuperHosting/bgdns, NS redirns1/2, както при gridex.tech): `@` A → 185.199.108.153 (препоръчително да се добавят и .109/.110/.111), `www` CNAME → antouanbg.github.io, MX Google (5 записа) и TXT google-site-verification запазени. **Основен адрес: `novacom.bg`**, `www` препраща към него (GitHub Pages cname = novacom.bg).
+- DNS (панел SuperHosting/bgdns, NS redirns1/2, както при gridex.tech): `@` A → 185.199.108.153 / .109 / .110 / .111 (и четирите са добавени), `www` CNAME → antouanbg.github.io, MX Google (5 записа) и TXT google-site-verification запазени. **Основен адрес: `novacom.bg`**, `www` препраща към него (GitHub Pages cname = novacom.bg).
 - **Сайтът е на живо: https://novacom.bg** (2026-09-24). Let's Encrypt сертификат за `novacom.bg`, HTTPS задължителен (http → https). `http://www` препраща към `https://novacom.bg`. **Отворено:** `https://www.novacom.bg` дава грешка в сертификата, защото GitHub още кешира стария Google адрес за `www` (health check: `is_proxied=true`); сертификатът ще покрие и `www` след като кешът изтече и домейнът се презапише (PUT pages cname=novacom.bg). Проверка: `gh api repos/antouanbg/novacom-site/pages/health`.
 - Google Search Console: клиентът да подаде `https://novacom.bg/sitemap.xml` (домейнът е потвърден с TXT записа).
 - `gh` CLI: `~/bin/gh` (Intel Mac, macOS 26), логнат като `antouanbg`.
