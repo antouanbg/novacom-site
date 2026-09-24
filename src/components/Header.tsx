@@ -109,26 +109,37 @@ export default function Header({ lang }: { lang: Lang }) {
         </div>
       </div>
 
-      {/* Bottom tab bar on phones/tablets, like gridex.tech: quick jumps + the full menu with submenus */}
+      {/* Bottom bar on phones/tablets, like gridex.tech: a horizontally scrollable strip with every section, plus a pinned Menu button that opens the full menu with submenus */}
       <nav
-        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-line bg-white/95 backdrop-blur lg:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 flex border-t border-line bg-white/95 backdrop-blur lg:hidden"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         aria-label={lang === "bg" ? "Бързо меню" : "Quick menu"}
       >
-        {[
-          { to: href(lang), l: lang === "bg" ? "Начало" : "Home", d: "M3 11 12 3l9 8v10h-6v-6H9v6H3z" },
-          { to: href(lang, "solutions/industry"), l: lang === "bg" ? "Решения" : "Solutions", d: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" },
-          { to: href(lang, "products"), l: lang === "bg" ? "Продукти" : "Products", d: "M3 7l9-4 9 4-9 4zM3 7v10l9 4V11M21 7v10l-9 4" },
-          { to: href(lang, "projects"), l: lang === "bg" ? "Проекти" : "Projects", d: "M4 20h16M6 20V10l6-4 6 4v10M10 20v-5h4v5" },
-        ].map((t) => (
-          <Link key={t.to} href={t.to} className="flex flex-col items-center gap-1 py-2 text-[11px] font-bold text-muted hover:text-ink">
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" aria-hidden>
-              <path d={t.d} />
-            </svg>
-            {t.l}
-          </Link>
-        ))}
-        <button onClick={() => setOpen(true)} className="flex flex-col items-center gap-1 bg-ink py-2 text-[11px] font-bold text-white" aria-label={ui.menu[lang]}>
+        <div className="relative min-w-0 flex-1">
+          <div className="no-scrollbar flex overflow-x-auto scroll-smooth">
+            {[
+              { to: href(lang), l: lang === "bg" ? "Начало" : "Home", d: "M3 11 12 3l9 8v10h-6v-6H9v6H3z" },
+              { to: href(lang, "solutions/industry"), l: lang === "bg" ? "Решения" : "Solutions", d: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" },
+              { to: href(lang, "products"), l: lang === "bg" ? "Продукти" : "Products", d: "M3 7l9-4 9 4-9 4zM3 7v10l9 4V11M21 7v10l-9 4" },
+              { to: href(lang, "services/consulting"), l: lang === "bg" ? "Услуги" : "Services", d: "M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" },
+              { to: href(lang, "projects"), l: lang === "bg" ? "Проекти" : "Projects", d: "M4 20h16M6 20V10l6-4 6 4v10M10 20v-5h4v5" },
+              { to: href(lang, "know-how"), l: lang === "bg" ? "Ноу-хау" : "Know-how", d: "M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.6 1 1.4 1 2.5h6c0-1.1.3-1.9 1-2.5A6 6 0 0 0 12 3z" },
+              { to: href(lang, "news"), l: lang === "bg" ? "Новини" : "News", d: "M4 5h12v14H6a2 2 0 0 1-2-2zM16 9h4v8a2 2 0 0 1-2 2M7 9h6M7 13h6M7 16h4" },
+              { to: href(lang, "about"), l: lang === "bg" ? "За нас" : "About", d: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0" },
+              { to: href(lang, "contact"), l: lang === "bg" ? "Контакт" : "Contact", d: "M4 6h16v12H4zM4 7l8 6 8-6" },
+            ].map((t) => (
+              <Link key={t.to} href={t.to} className="flex min-w-[76px] shrink-0 flex-col items-center gap-1 px-2 py-2 text-[11px] font-bold leading-none text-muted hover:text-ink">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" aria-hidden>
+                  <path d={t.d} />
+                </svg>
+                <span className="whitespace-nowrap">{t.l}</span>
+              </Link>
+            ))}
+          </div>
+          {/* fade hint that the strip scrolls */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white to-transparent" />
+        </div>
+        <button onClick={() => setOpen(true)} className="flex w-[72px] shrink-0 flex-col items-center gap-1 bg-ink py-2 text-[11px] font-bold leading-none text-white" aria-label={ui.menu[lang]}>
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
             <path d="M4 7h16M4 12h16M4 17h16" />
           </svg>

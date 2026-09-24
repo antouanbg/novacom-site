@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { news, products, projects, REAL, services, solutions, ui } from "@/content/site";
 import ProjectCard from "@/components/ProjectCard";
+import StrelaModel from "@/components/StrelaModel";
 import { href, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { Button, CTA, Eyebrow, H2, MonitoringPromo, Photo, Reveal, Section } from "@/components/ui";
@@ -95,6 +96,32 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </Reveal>
         </div>
       </section>
+
+      {/* Know-how teaser with the live Strela model: visitors should see on the first screen that we build our own technology */}
+      <Section className="bg-ink text-white">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
+          <Reveal>
+            <div className="rounded-3xl bg-white p-3 shadow-2xl sm:p-4">
+              <StrelaModel lang={lang} compact frameless />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Собствено ноу-хау" : "Our own know-how"}</p>
+            <H2>{bg ? "Не само доставяме. Изобретяваме." : "We don't just supply. We invent."}</H2>
+            <p className="mt-5 text-lg text-white/80">
+              {bg
+                ? "Тракерът „Стрела“ е собствена разработка на Novacom: двуосов, на един стълб, следи слънцето през деня и сменя наклона по сезон. Зад него стоят собствен EMS за индустриални системи, четири регистрирани полезни модела и научни публикации."
+                : "The Strela tracker is Novacom's own development: two-axis, single mast, tracking the sun through the day and changing tilt by season. Behind it stand an in-house industrial EMS, four registered utility models and scientific publications."}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button to={href(lang, "know-how/strela")} variant="light">{bg ? "Моделът „Стрела“" : "The Strela model"}</Button>
+              <Link href={href(lang, "know-how")} className="inline-flex items-center gap-2 rounded-xl border-2 border-white/40 px-6 py-3.5 font-bold text-white transition hover:bg-white/10">
+                {bg ? "Цялото ноу-хау" : "All know-how"} <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
 
       {/* Pillars */}
       <Section>

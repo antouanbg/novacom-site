@@ -27,7 +27,7 @@ function rotZ([x, y, z]: V, a: number): V {
   return [x * Math.cos(a) - y * Math.sin(a), x * Math.sin(a) + y * Math.cos(a), z];
 }
 
-export default function StrelaModel({ lang }: { lang: Lang }) {
+export default function StrelaModel({ lang, compact = false, frameless = false }: { lang: Lang; compact?: boolean; frameless?: boolean }) {
   const bg = lang === "bg";
   const [hour, setHour] = useState(9.5); // 6 … 18
   const [season, setSeason] = useState<"summer" | "winter">("summer");
@@ -106,7 +106,7 @@ export default function StrelaModel({ lang }: { lang: Lang }) {
   const timeLabel = `${hh}:${mm < 10 ? "0" : ""}${mm}`;
 
   return (
-    <div className="rounded-3xl border border-line bg-white p-4 sm:p-6">
+    <div className={frameless ? "" : "rounded-3xl border border-line bg-white p-4 sm:p-6"}>
       <svg viewBox="0 0 880 520" className="h-auto w-full" role="img" aria-label={bg ? "Анимиран модел на тракера „Стрела“" : "Animated model of the Strela tracker"}>
         <defs>
           <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1">
@@ -148,9 +148,9 @@ export default function StrelaModel({ lang }: { lang: Lang }) {
         {/* head bearing */}
         <circle cx={top[0]} cy={top[1]} r="11" fill="#e2e7ee" stroke="#0b2239" strokeWidth="3" />
 
-        <rect x="16" y="408" width="340" height="92" rx="12" fill="#ffffff" opacity=".85" />
+        {!compact && <rect x="16" y="408" width="340" height="92" rx="12" fill="#ffffff" opacity=".85" />}
         {/* legend (fixed position so the moving frame never covers it) */}
-        <g fontSize="12" fontWeight="600" fill="#0b2239">
+        <g fontSize="12" fontWeight="600" fill="#0b2239" display={compact ? "none" : undefined}>
           <circle cx="34" cy="426" r="6" fill="#e2e7ee" stroke="#0b2239" strokeWidth="2" />
           <text x="48" y="430">{bg ? "въртяща глава: следене изток → запад през деня" : "rotating head: east → west tracking through the day"}</text>
           <line x1="28" y1="452" x2="40" y2="452" stroke="#1d6fe0" strokeWidth="6" strokeLinecap="round" />
@@ -162,45 +162,59 @@ export default function StrelaModel({ lang }: { lang: Lang }) {
           <text x="24" y="34">{bg ? "Двуосов тракер „Стрела“" : "Strela two-axis tracker"}</text>
           <text x="24" y="54" fontSize="12" fontWeight="500" fill="#5b6b7d">{bg ? "6 × двулицеви модула · 2 × 3" : "6 × bifacial modules · 2 × 3"}</text>
         </g>
-        <rect x="700" y="20" width="160" height="58" rx="12" fill="#fff" stroke="#e2e7ee" />
-        <text x="780" y="43" fontSize="12" fontWeight="700" fill="#5b6b7d" textAnchor="middle">{season === "summer" ? (bg ? "ЛЯТО" : "SUMMER") : bg ? "ЗИМА" : "WINTER"}</text>
-        <text x="780" y="66" fontSize="18" fontWeight="800" fill="#0b2239" textAnchor="middle">{timeLabel}</text>
+        <rect x="700" y="20" width="160" height="58" rx="12" fill="#fff" stroke="#e2e7ee" display={compact ? "none" : undefined} />
+        <text x="780" y="43" fontSize="12" fontWeight="700" fill="#5b6b7d" textAnchor="middle" display={compact ? "none" : undefined}>{season === "summer" ? (bg ? "ЛЯТО" : "SUMMER") : bg ? "ЗИМА" : "WINTER"}</text>
+        <text x="780" y="66" fontSize="18" fontWeight="800" fill="#0b2239" textAnchor="middle" display={compact ? "none" : undefined}>{timeLabel}</text>
       </svg>
 
-      <div className="mt-4 grid gap-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
-        <div className="flex gap-2">
-          <button onClick={() => setSeason("summer")} className={`rounded-full px-4 py-2 text-sm font-bold ${season === "summer" ? "bg-ink text-white" : "bg-mist text-muted"}`}>
+      {compact ? (
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <button onClick={() => setSeason("summer")} className={`rounded-full px-3 py-1.5 text-xs font-bold ${season === "summer" ? "bg-ink text-white" : "bg-mist text-muted"}`}>
             {bg ? "Лято" : "Summer"}
           </button>
-          <button onClick={() => setSeason("winter")} className={`rounded-full px-4 py-2 text-sm font-bold ${season === "winter" ? "bg-ink text-white" : "bg-mist text-muted"}`}>
+          <button onClick={() => setSeason("winter")} className={`rounded-full px-3 py-1.5 text-xs font-bold ${season === "winter" ? "bg-ink text-white" : "bg-mist text-muted"}`}>
             {bg ? "Зима" : "Winter"}
           </button>
+          <span className="ml-auto text-xs font-bold text-muted">{timeLabel}</span>
         </div>
-        <label className="grid gap-1 text-sm font-bold">
-          {bg ? "Час от деня" : "Time of day"}
-          <input
-            type="range"
-            min={6}
-            max={18}
-            step={0.05}
-            value={hour}
-            onChange={(e) => {
-              setPlaying(false);
-              setHour(Number(e.target.value));
-            }}
-            className="w-full accent-brand"
-            aria-label={bg ? "Час от деня" : "Time of day"}
-          />
-        </label>
-        <button onClick={() => setPlaying((p) => !p)} className="rounded-xl border-2 border-ink px-4 py-2 text-sm font-bold text-ink hover:bg-ink hover:text-white">
-          {playing ? (bg ? "Пауза" : "Pause") : bg ? "Пусни деня" : "Play the day"}
-        </button>
-      </div>
-      <p className="mt-3 text-sm text-muted">
-        {bg
-          ? "Главата се върти през деня и следва слънцето от изток на запад. Рамото сменя наклона по сезон: стръмно през зимата, полегато през лятото. Двулицевите модули добавят добив и от отразената светлина под тях."
-          : "The head turns through the day, following the sun from east to west. The arm changes the tilt by season: steep in winter, flat in summer. The bifacial modules add yield from light reflected underneath."}
-      </p>
+      ) : (
+        <>
+          <div className="mt-4 grid gap-4 sm:grid-cols-[auto_1fr_auto] sm:items-center">
+            <div className="flex gap-2">
+              <button onClick={() => setSeason("summer")} className={`rounded-full px-4 py-2 text-sm font-bold ${season === "summer" ? "bg-ink text-white" : "bg-mist text-muted"}`}>
+                {bg ? "Лято" : "Summer"}
+              </button>
+              <button onClick={() => setSeason("winter")} className={`rounded-full px-4 py-2 text-sm font-bold ${season === "winter" ? "bg-ink text-white" : "bg-mist text-muted"}`}>
+                {bg ? "Зима" : "Winter"}
+              </button>
+            </div>
+            <label className="grid gap-1 text-sm font-bold">
+              {bg ? "Час от деня" : "Time of day"}
+              <input
+                type="range"
+                min={6}
+                max={18}
+                step={0.05}
+                value={hour}
+                onChange={(e) => {
+                  setPlaying(false);
+                  setHour(Number(e.target.value));
+                }}
+                className="w-full accent-brand"
+                aria-label={bg ? "Час от деня" : "Time of day"}
+              />
+            </label>
+            <button onClick={() => setPlaying((p) => !p)} className="rounded-xl border-2 border-ink px-4 py-2 text-sm font-bold text-ink hover:bg-ink hover:text-white">
+              {playing ? (bg ? "Пауза" : "Pause") : bg ? "Пусни деня" : "Play the day"}
+            </button>
+          </div>
+          <p className="mt-3 text-sm text-muted">
+            {bg
+              ? "Главата се върти през деня и следва слънцето от изток на запад. Рамото сменя наклона по сезон: стръмно през зимата, полегато през лятото. Двулицевите модули добавят добив и от отразената светлина под тях."
+              : "The head turns through the day, following the sun from east to west. The arm changes the tilt by season: steep in winter, flat in summer. The bifacial modules add yield from light reflected underneath."}
+          </p>
+        </>
+      )}
     </div>
   );
 }

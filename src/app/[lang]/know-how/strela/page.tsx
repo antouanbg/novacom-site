@@ -3,7 +3,7 @@ import { REAL } from "@/content/site";
 import { href, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import StrelaModel from "@/components/StrelaModel";
-import { Button, Check, CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
+import { Button, Check, CTA, Eyebrow, H2, Photo, Reveal, Section } from "@/components/ui";
 
 type P = { params: Promise<{ lang: string }> };
 
@@ -37,13 +37,33 @@ export default async function StrelaPage({ params }: P) {
 
   return (
     <>
-      <PageHero
-        lang={lang}
-        eyebrow={bg ? "Ноу-хау · Изобретение" : "Know-how · Invention"}
-        title={bg ? "Тракер „Стрела“: двуосов, на един стълб" : "Strela tracker: two-axis, single mast"}
-        text={bg ? "Собствен дизайн и разработка на Novacom. Единственият български соларен тракер, произвеждан у нас." : "Designed and developed by Novacom. The only Bulgarian-made solar tracker."}
-        img={REAL.trackerField}
-      />
+      {/* Hero with the live model */}
+      <section className="bg-ink text-white">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1.25fr] lg:gap-12 lg:py-16">
+          <Reveal>
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Ноу-хау · Изобретение" : "Know-how · Invention"}</p>
+            <h1 className="break-words text-[2rem] font-extrabold leading-[1.12] [overflow-wrap:anywhere] sm:text-5xl">{bg ? "Тракер „Стрела“: двуосов, на един стълб" : "Strela tracker: two-axis, single mast"}</h1>
+            <p className="mt-5 text-lg text-white/80">
+              {bg
+                ? "Собствен дизайн и разработка на Novacom. Единственият български соларен тракер: следи слънцето през целия ден, а сезонно рамо сменя наклона за зима и лято."
+                : "Designed and developed by Novacom. The only Bulgarian-made solar tracker: it follows the sun all day, and a seasonal arm changes the tilt for winter and summer."}
+            </p>
+            <ul className="mt-6 grid gap-2 text-white/90 sm:grid-cols-2">
+              {(bg ? ["До 45% по-висок добив", "6 двулицеви модула, ≈ 3,5 kWp", "Един носещ стълб или ремарке", "Произвежда се в България"] : ["Up to 45% higher yield", "6 bifacial modules, ≈ 3.5 kWp", "Single mast or trailer", "Manufactured in Bulgaria"]).map((t) => (
+                <li key={t} className="flex gap-2"><span className="text-[#b5d86a]" aria-hidden>✓</span>{t}</li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button to={href(lang, "contact") + "#quote"} variant="light">{bg ? "Запитване за „Стрела“" : "Ask about Strela"}</Button>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="rounded-3xl bg-white p-3 shadow-2xl sm:p-4">
+              <StrelaModel lang={lang} frameless />
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       <Section id="model">
         <Reveal>
@@ -56,7 +76,10 @@ export default async function StrelaPage({ params }: P) {
           </p>
         </Reveal>
         <Reveal delay={0.1} className="mt-8">
-          <StrelaModel lang={lang} />
+          <div className="grid auto-rows-[180px] grid-cols-2 gap-3 sm:auto-rows-[240px] md:grid-cols-3">
+            <div className="col-span-2 overflow-hidden rounded-2xl md:col-span-2"><Photo id={REAL.trackerField} alt={bg ? "„Стрела“ на терен" : "Strela in the field"} /></div>
+            <div className="overflow-hidden rounded-2xl"><Photo id={REAL.trackerCabinet} alt={bg ? "Инверторно табло на мобилния тракер" : "Inverter cabinet on the mobile tracker"} /></div>
+          </div>
         </Reveal>
       </Section>
 
