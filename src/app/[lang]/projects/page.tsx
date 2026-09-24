@@ -42,10 +42,15 @@ export default async function ProjectsPage({ params }: P) {
           <Eyebrow>{bg ? "Наши проекти" : "Our projects"}</Eyebrow>
           <H2>{bg ? "Реализирани и текущи проекти" : "Completed and ongoing projects"}</H2>
         </Reveal>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <p className="mt-4 max-w-3xl text-lg text-muted">
+          {bg
+            ? "От домашни хибридни системи до батерийни паркове в MWh мащаб с оборудване Suntech. Имената на клиентите не се публикуват; посочваме региона, мощността и оборудването."
+            : "From hybrid home systems to MWh-scale battery parks with Suntech equipment. Client names are not published; we list the region, capacity and equipment."}
+        </p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
-            <Reveal key={p.pv + p.bess} delay={i * 0.06}>
-              <ProjectCard p={p} lang={lang} />
+            <Reveal key={p.title.en} delay={(i % 3) * 0.06} className={p.featured ? "sm:col-span-2" : ""}>
+              <ProjectCard p={p} lang={lang} featured={!!p.featured} />
             </Reveal>
           ))}
         </div>

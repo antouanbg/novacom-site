@@ -302,33 +302,86 @@ export const partners = [
   { name: "V-TAC", what: { bg: "Батерийни модули", en: "Battery modules" } },
 ];
 
-export type Project = { title: L; region: L; pv: string; bess: string; segment: "ci" | "home"; equipment: string };
+export type ProjectStatus = "done" | "progress" | "design";
+export type Project = {
+  title: L;
+  region: L;
+  pv?: string;
+  bess?: string;
+  segment: "ci" | "home";
+  equipment: L;
+  year: string;
+  status: ProjectStatus;
+  img: string; // Unsplash id (illustrative) or "/images/..." path (real photo)
+  photoReal?: boolean;
+  featured?: boolean;
+};
 
-// Approved 2026-09-24: no client names, region only. Real photos to be added later.
+export const projectStatus: Record<ProjectStatus, L> = {
+  done: { bg: "Изпълнен", en: "Completed" },
+  progress: { bg: "В изпълнение", en: "In progress" },
+  design: { bg: "Проектиран", en: "Designed" },
+};
+
+// From Novacom's signed offers, contracts and design documents (approved 2026-09-24).
+// No client names; region only. Photos are illustrative until the client's own arrive.
 export const projects: Project[] = [
   {
-    title: { bg: "Батерийна система Suntech към съществуваща ФЕЦ", en: "Suntech battery added to an existing PV plant" },
+    title: { bg: "Наземна ФЕЦ с батерийна система Suntech", en: "Ground-mounted PV plant with Suntech battery storage" },
     region: { bg: "обл. Стара Загора", en: "Stara Zagora region" },
     pv: "98,56 kWp",
     bess: "261 kWh / 100 kW",
     segment: "ci",
-    equipment: "Suntech SunStorage Pro STE-261L-125P",
+    equipment: {
+      bg: "176 панела × 560 Wp, инвертор 100 kW, присъединена 2023. През 2026: Suntech SunStorage Pro STE-261L-125P за съхранение и пикове.",
+      en: "176 × 560 Wp modules, 100 kW inverter, grid-connected 2023. In 2026: Suntech SunStorage Pro STE-261L-125P for storage and peak shaving.",
+    },
+    year: "2023 · 2026",
+    status: "progress",
+    img: PH.fieldClouds,
+    featured: true,
   },
   {
-    title: { bg: "ФЕЦ с батерия за сграда", en: "PV with battery for a building" },
+    title: { bg: "Доставка на две батерийни системи Suntech за индустриален обект", en: "Two Suntech battery systems supplied to an industrial site" },
+    region: { bg: "обл. Стара Загора", en: "Stara Zagora region" },
+    bess: "2 × 261 kWh / 2 × 125 kW",
+    segment: "ci",
+    equipment: { bg: "Suntech SunStorage Pro STE-261L-125P × 2, течно охлаждане, вградени PCS/BMS/EMS", en: "Suntech SunStorage Pro STE-261L-125P × 2, liquid-cooled, built-in PCS/BMS/EMS" },
+    year: "2026",
+    status: "done",
+    img: PH.heroRoof,
+  },
+  {
+    title: { bg: "Батериен парк 2 MWh към съществуваща ФЕЦ", en: "2 MWh battery park for an existing PV plant" },
+    region: { bg: "Европа", en: "Europe" },
+    bess: "8 × 261 kWh = 2,09 MWh / 1 MW",
+    segment: "ci",
+    equipment: { bg: "Suntech STE-261L-125P × 8, локален EMS, интеграция с Huawei SmartLogger", en: "Suntech STE-261L-125P × 8, local EMS, Huawei SmartLogger integration" },
+    year: "2026",
+    status: "progress",
+    img: PH.fieldSky,
+  },
+  {
+    title: { bg: "Покривна ФЕЦ с батерия за месопреработвателен обект", en: "Rooftop PV with battery for a meat-processing site" },
+    region: { bg: "обл. Перник", en: "Pernik region" },
+    pv: "15,3 kWp",
+    bess: "14,33 kWh",
+    segment: "ci",
+    equipment: { bg: "HY Solar 450 W × 34, Deye 12 kW, V-TAC 14,33 kWh", en: "HY Solar 450 W × 34, Deye 12 kW, V-TAC 14.33 kWh" },
+    year: "2025",
+    status: "design",
+    img: PH.cityRoof,
+  },
+  {
+    title: { bg: "ФЕЦ с батерия за сграда с трифазна партида", en: "PV with battery for a three-phase building" },
     region: { bg: "София", en: "Sofia" },
     pv: "23 kWp",
     bess: "50 kWh",
     segment: "home",
-    equipment: "Suntech 455 Wp · 20 kW HV",
-  },
-  {
-    title: { bg: "Покривна ФЕЦ с батерия", en: "Rooftop PV with battery" },
-    region: { bg: "обл. София", en: "Sofia region" },
-    pv: "9,1 kWp",
-    bess: "20,48 kWh",
-    segment: "home",
-    equipment: "HY Solar 455 W · Deye 15 kW · V-TAC",
+    equipment: { bg: "Suntech 455 Wp × 50, хибриден инвертор 20 kW HV, 2 × 25 kWh HV", en: "Suntech 455 Wp × 50, 20 kW HV hybrid inverter, 2 × 25 kWh HV" },
+    year: "2026",
+    status: "progress",
+    img: PH.roofInstall,
   },
   {
     title: { bg: "Хибридна ФЕЦ за жилищна сграда", en: "Hybrid PV for a residential building" },
@@ -336,7 +389,21 @@ export const projects: Project[] = [
     pv: "5,5 kWp",
     bess: "16 kWh",
     segment: "home",
-    equipment: "Suntech 455 Wp · Deye 15 kW · Deye SE-F16-C",
+    equipment: { bg: "Suntech 455 Wp × 12, Deye 15 kW, Deye SE-F16-C", en: "Suntech 455 Wp × 12, Deye 15 kW, Deye SE-F16-C" },
+    year: "2026",
+    status: "progress",
+    img: PH.panelsForest,
+  },
+  {
+    title: { bg: "Покривна ФЕЦ с батерия за жилищна сграда", en: "Rooftop PV with battery for a house" },
+    region: { bg: "обл. София", en: "Sofia region" },
+    pv: "9,1 kWp",
+    bess: "20,48 kWh",
+    segment: "home",
+    equipment: { bg: "HY Solar 455 W × 20, Deye 15 kW, V-TAC VT-10240 × 2", en: "HY Solar 455 W × 20, Deye 15 kW, V-TAC VT-10240 × 2" },
+    year: "2026",
+    status: "design",
+    img: PH.panelsClose,
   },
 ];
 

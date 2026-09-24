@@ -21,11 +21,13 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
 }
 
 export function Photo({ id, alt, className = "", priority = false }: { id: string; alt: string; className?: string; priority?: boolean }) {
+  // `id` is either an Unsplash photo id or a local path under /public (real client photos).
+  const local = id.startsWith("/");
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={photo(id, 1200)}
-      srcSet={`${photo(id, 640)} 640w, ${photo(id, 1200)} 1200w, ${photo(id, 1920)} 1920w`}
+      src={local ? id : photo(id, 1200)}
+      srcSet={local ? undefined : `${photo(id, 640)} 640w, ${photo(id, 1200)} 1200w, ${photo(id, 1920)} 1920w`}
       sizes="(max-width: 768px) 100vw, 50vw"
       alt={alt}
       loading={priority ? "eager" : "lazy"}

@@ -255,8 +255,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </Reveal>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {projects.map((p, i) => (
-            <Reveal key={p.pv + p.bess} delay={i * 0.06}>
+          {projects.slice(0, 4).map((p, i) => (
+            <Reveal key={p.title.en} delay={i * 0.06}>
               <ProjectCard p={p} lang={lang} />
             </Reveal>
           ))}

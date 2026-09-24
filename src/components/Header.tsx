@@ -60,7 +60,7 @@ export default function Header({ lang }: { lang: Lang }) {
             <div key={item.path} className="group relative">
               <Link
                 href={href(lang, item.path)}
-                className="flex items-center gap-1 rounded-lg px-2.5 py-2 text-sm font-semibold text-ink hover:text-brand xl:px-3 xl:text-[15px]"
+                className="flex items-center gap-1 whitespace-nowrap rounded-lg px-2 py-2 text-sm font-semibold text-ink hover:text-brand xl:px-3 xl:text-[15px]"
               >
                 {item.label[lang]}
                 {item.children && (
