@@ -46,6 +46,7 @@ export const REAL = {
   pernikDelivery: "/images/projects/pernik-hysolar-delivery.webp",
   pernikContainer: "/images/storage/pernik-bess-container.webp",
   carportBuild: "/images/projects/carport-bifacial-build.webp",
+  carportGarden: "/images/carports/carport-pergola-garden.webp",
   carportRender: "/images/carports/render-carport-cars.webp",
   carportRenderSteps: "/images/carports/render-structure-steps.webp",
   carportRenderSingle: "/images/carports/render-single-column.webp",
@@ -388,7 +389,7 @@ export const products: Product[] = [
       bg: "Соларният навес превръща паркинга или двора в електроцентрала, без да заема покрив или земя. Стоманена конструкция със собствен дизайн, прахово боядисана, с двулицеви стъкло-стъкло модули, които пропускат светлина и произвеждат и от отразената отдолу. Подходящ за домове, офиси, хотели, магазини и фирмени паркинги; естествено се комбинира със зарядна станция за електромобил и батерия.",
       en: "A solar carport turns a car park or yard into a power plant without using roof or land. Steel structure of our own design, powder-coated, with bifacial glass-glass modules that let light through and also generate from reflection underneath. Suited to homes, offices, hotels, shops and company car parks; naturally combined with an EV charger and a battery.",
     },
-    img: REAL.carport,
+    img: REAL.carportGarden,
     features: [
       { bg: "Двулицеви стъкло-стъкло модули: светлина отдолу и до 10–15% повече добив", en: "Bifacial glass-glass modules: light underneath and up to 10–15% more yield" },
       { bg: "Стоманена конструкция, прахово боядисана, оразмерена за сняг и вятър", en: "Powder-coated steel structure sized for snow and wind" },
@@ -687,7 +688,7 @@ export const projectTypes = [
       bg: "Паркинг или двор, който произвежда енергия, със зарядна станция за електромобил.",
       en: "A car park or yard that generates energy, with an EV charger.",
     },
-    img: REAL.carport,
+    img: REAL.carportGarden,
     path: "products/carports",
   },
   {
@@ -747,6 +748,7 @@ export const gallery: { src: string; alt: L; tall?: boolean }[] = [
   { src: REAL.pergola, alt: { bg: "Соларна пергола с двулицеви панели", en: "Solar pergola with bifacial modules" }, tall: true },
   { src: REAL.carport, alt: { bg: "Соларен навес за автомобили", en: "Solar carport" } },
   { src: REAL.carportBuild, alt: { bg: "Монтаж на соларен навес с двулицеви модули", en: "Building a solar carport with bifacial modules" } },
+  { src: REAL.carportGarden, alt: { bg: "Соларна пергола в двор с двулицеви модули", en: "Solar pergola in a garden with bifacial modules" }, tall: true },
 
   { src: REAL.evDcAc, alt: { bg: "DC и AC зарядни станции за електромобили", en: "DC and AC EV charging stations" } },
   { src: REAL.switchboard, alt: { bg: "Табло с енергиен мениджмънт и мониторинг", en: "Switchboard with energy management and monitoring" }, tall: true },
