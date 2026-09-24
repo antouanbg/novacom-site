@@ -539,18 +539,19 @@ export const services: Service[] = [
     slug: "consulting",
     title: { bg: "Консултация и анализ", en: "Consulting & analysis" },
     short: {
-      bg: "Безплатна консултация, енергиен и финансов анализ.",
-      en: "Free consultation plus energy and financial analysis.",
+      bg: "Безплатна консултация и оглед на обекта, енергиен и финансов анализ, помощ за европейско финансиране.",
+      en: "Free consultation and site survey, energy and financial analysis, help with EU funding.",
     },
     intro: {
-      bg: "Анализираме консумацията и обекта и предлагаме най-подходящата система с ясна сметка за възвръщаемостта.",
-      en: "We analyse your consumption and site and propose the best-fit system with a clear payback calculation.",
+      bg: "Преди всяка оферта правим посещение и оглед на обекта: покрив, табло, консумация, място за батерия. Анализираме потреблението и предлагаме най-подходящата система с ясна сметка за възвръщаемостта. Помагаме на все повече предприятия да използват европейските програми за финансиране на проекти за възобновяема енергия и енергийна ефективност, за да намалят зависимостта си от нарастващите цени на електроенергията на свободния пазар.",
+      en: "Before every offer we visit and survey the site: roof, switchboard, consumption, space for a battery. We analyse your load and propose the best-fit system with a clear payback calculation. We help more and more businesses use the European funding programmes for renewable energy and energy efficiency projects, reducing their exposure to rising electricity prices on the free market.",
     },
     img: PH.teamLaptops,
     steps: [
       { bg: "Анализ на сметки и профил на потребление", en: "Bill and load profile analysis" },
-      { bg: "Оглед на обекта", en: "Site survey" },
+      { bg: "Посещение и оглед на всеки обект", en: "Visit and survey of every site" },
       { bg: "Финансов модел и възвръщаемост", en: "Financial model and payback" },
+      { bg: "Подготовка на проекта за европейски програми за ВЕИ и енергийна ефективност", en: "Preparing the project for EU renewable-energy and energy-efficiency programmes" },
     ],
   },
   {
