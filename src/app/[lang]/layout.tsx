@@ -49,15 +49,9 @@ export default async function LangLayout({ children, params }: { children: React
               logo: `${SITE}/logo.jpg`,
               email: contact.email,
               telephone: contact.phone,
-              sameAs: [contact.linkedin, "https://github.com/antouanbg", "https://gridex.tech/"],
+              sameAs: [contact.linkedin, "https://gridex.tech/"],
               areaServed: ["BG", "Europe"],
               knowsAbout: ["Solar PV", "Battery energy storage (BESS)", "C&I energy storage", "Suntech"],
-              founder: {
-                "@type": "Person",
-                name: lang === "bg" ? "гл. ас. д-р инж. Антуан Ангелов" : "Chief Assist. Prof. Dr. Eng. Antouan Anguelov",
-                jobTitle: lang === "bg" ? "Главен асистент, доктор инженер" : "Chief Assistant Professor, PhD Eng.",
-                affiliation: { "@type": "CollegeOrUniversity", name: lang === "bg" ? "Технически университет – София" : "Technical University of Sofia" },
-              },
             }),
           }}
         />

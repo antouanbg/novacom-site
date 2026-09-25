@@ -3,7 +3,7 @@ import { Reveal } from "./ui";
 
 export const IBEX_DATASET_URL = "https://github.com/antouanbg/Compiled-IBEX-Day-Ahead-Price-Dataset";
 
-// Headline numbers from the 2026 study by Dr. Eng. A. Angelov et al. (TU Sofia): MILP dispatch of an
+// Headline numbers from the 2026 TU Sofia study (MDPI Electronics): MILP dispatch of an
 // industrial PV–battery prosumer community on the Bulgarian day-ahead market, using Suntech SunStorage PRO
 // hardware envelopes and twelve months of IBEX prices. Data and code are open on GitHub.
 export const researchStats = (bg: boolean) => [
@@ -30,8 +30,8 @@ export default function ResearchResults({ lang, dark = false }: { lang: Lang; da
       <Reveal className="mt-5">
         <p className={`text-sm ${dark ? "text-white/60" : "text-muted"}`}>
           {bg
-            ? "Резултати от научно изследване на д-р инж. А. Ангелов и екип от ТУ-София (2026): MILP модел на общност от три индустриални просуматора с оборудване Suntech SunStorage PRO и 12 месеца реални цени от БНЕБ. Данните и кодът са публикувани в "
-            : "Results of a 2026 study by Dr. Eng. A. Angelov and a TU Sofia team: a MILP model of a community of three industrial prosumers with Suntech SunStorage PRO equipment and twelve months of real IBEX prices. Data and code are published on "}
+            ? "Резултати от научно изследване на екип от ТУ-София с участието на Novacom (2026): MILP модел на общност от три индустриални просуматора с оборудване Suntech SunStorage PRO и 12 месеца реални цени от БНЕБ. Данните и кодът са публикувани в "
+            : "Results of a 2026 study by a TU Sofia team with Novacom's participation: a MILP model of a community of three industrial prosumers with Suntech SunStorage PRO equipment and twelve months of real IBEX prices. Data and code are published on "}
           <a href={IBEX_DATASET_URL} target="_blank" rel="noopener" className={`font-bold underline-offset-2 hover:underline ${dark ? "text-white" : "text-brand"}`}>GitHub ↗</a>.
           {bg ? " Стойностите са симулационни, за конкретните обекти в изследването." : " Values are simulated, for the specific sites in the study."}
         </p>

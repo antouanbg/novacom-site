@@ -45,12 +45,12 @@ export default async function VisionPage({ params }: P) {
           <Eyebrow>{bg ? "Ръководство" : "Leadership"}</Eyebrow>
           <H2>{bg ? "Основатели и ръководство" : "Founders & leadership"}</H2>
           <div className="mt-8 max-w-3xl rounded-3xl bg-white p-7 sm:p-9">
-            <h3 className="text-2xl font-extrabold">{bg ? "гл. ас. д-р инж. Антуан Ангелов" : "Chief Assist. Prof. Dr. Eng. Antouan Anguelov"}</h3>
-            <p className="mt-1 font-bold text-brand">{bg ? "Основател и собственик" : "Founder & owner"}</p>
+            <h3 className="text-2xl font-extrabold">{bg ? "Кой стои зад Novacom" : "Who is behind Novacom"}</h3>
+            <p className="mt-1 font-bold text-brand">{bg ? "Инженери, преподаватели, практици" : "Engineers, lecturers, practitioners"}</p>
             <p className="mt-4 text-lg text-muted">
               {bg
-                ? "Предприемач и иноватор с над 20 години в ИТ, телекомуникациите и възобновяемата енергия. Доктор и преподавател в Технически университет – София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“. Автор на публикации в IEEE Xplore и на четири регистрирани полезни модела, сред които тракера „Стрела“ и V2G система за съхранение. През 2020 г. създава концепцията „Обединен енергиен клъстер“ за енергийни общности. Търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
-                : "An entrepreneur and innovator with 20+ years in IT, telecommunications and renewable energy. PhD and lecturer at the Technical University of Sofia, where he teaches Smart Grids and Systems for Renewables. Author of IEEE Xplore publications and four registered utility models, including the Strela tracker and a V2G storage system. In 2020 he created the United Energy Cluster concept for energy communities. Sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
+                ? "Екипът на Novacom има над 20 години опит в ИТ, телекомуникациите и възобновяемата енергия и преподавателска дейност в Технически университет – София по интелигентни мрежи и системи за ВЕИ. Зад компанията стоят публикации в IEEE Xplore и четири регистрирани полезни модела, сред които тракерът „Стрела“ и V2G система за съхранение. През 2020 г. създадохме концепцията „Обединен енергиен клъстер“ за енергийни общности."
+                : "The Novacom team brings 20+ years in IT, telecommunications and renewable energy, and teaches smart grids and renewable energy systems at the Technical University of Sofia. Behind the company stand IEEE Xplore publications and four registered utility models, including the Strela tracker and a V2G storage system. In 2020 we created the United Energy Cluster concept for energy communities."}
             </p>
           </div>
         </Reveal>

@@ -141,8 +141,8 @@ export default async function KnowHowPage({ params }: P) {
             <H2>{bg ? "Научни трудове и регистрирани полезни модели" : "Scientific publications and registered utility models"}</H2>
             <p className="mt-5 text-lg text-muted">
               {bg
-                ? "Зад разработките на Novacom стои гл. ас. д-р инж. Антуан Ангелов, собственик на компанията, главен асистент, доктор инженер, в Технически университет – София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“. Автор е на научни публикации в IEEE Xplore в областта на роевата интелигентност, автономните системи и комуникациите, и на четири регистрирани полезни модела."
-                : "Behind Novacom's developments is Chief Assist. Prof. Dr. Eng. Antouan Anguelov, the company's owner, a Chief Assistant Professor (PhD, Eng.) at the Technical University of Sofia (Faculty of Computer Systems and Technologies), where he teaches his own course, Smart Grids and Systems for Renewables. He has authored IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and four registered utility models."}
+                ? "Зад разработките на Novacom стои екип с академичен опит: преподавателска дейност в Технически университет – София по интелигентни мрежи и системи за ВЕИ, научни публикации в IEEE Xplore в областта на роевата интелигентност, автономните системи и комуникациите, и четири регистрирани полезни модела."
+                : "Behind Novacom's developments is a team with academic experience: teaching smart grids and renewable energy systems at the Technical University of Sofia, IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and four registered utility models."}
             </p>
             <p className="mt-4 text-lg text-muted">
               {bg
@@ -178,7 +178,7 @@ export default async function KnowHowPage({ params }: P) {
       <Section className="bg-mist" id="models">
         <Reveal>
           <Eyebrow>{bg ? "Полезни модели" : "Utility models"}</Eyebrow>
-          <H2>{bg ? "Разработки на гл. ас. д-р инж. Антуан Ангелов" : "Developments by Chief Assist. Prof. Dr. Eng. Antouan Anguelov"}</H2>
+          <H2>{bg ? "Регистрирани полезни модели на Novacom" : "Novacom's registered utility models"}</H2>
         </Reveal>
         <ol className="mt-10 grid gap-4 md:grid-cols-2">
           {utilityModels.map((m, i) => (

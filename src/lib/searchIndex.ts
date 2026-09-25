@@ -68,7 +68,7 @@ export function buildIndex(lang: Lang): SearchDoc[] {
         ["know-how", "Ноу-хау", "Тракер Стрела, EMS GrideX с отворен код (MIT), полезни модели, IEEE публикации, Обединен енергиен клъстер, V2G-Hybrid-Charge, GridMobility, eHUB, проучване +122% приход, −45% пик."],
         ["know-how/strela", "Тракер „Стрела“", "Двуосов соларен тракер на един носещ стълб със сезонно рамо, 6 двулицеви модула, 3,5 kWp, до 45% по-висок добив, анимиран модел, мобилна версия на ремарке, 2P тракери."],
         ["projects", "Проекти", "Реализирани обекти: Перник 2 MW ФЕЦ с батерия 2,5 MWh, Михайлово 261 kWh, покривни и наземни централи, навеси, зарядни станции, галерия със снимки."],
-        ["news", "Новини", "Intersolar Europe 2026 Мюнхен, безплатен оглед и европейско финансиране, GrideX отворен код, Перник, Стрела, Михайлово, V2G, HY Solar Group Suntech, ОЕК."],
+        ["news", "Новини", "Intersolar Europe 2026 Мюнхен, безплатен оглед и европейско финансиране, GrideX отворен код, Перник, Стрела, Михайлово, V2G, Suntech, ОЕК."],
         ["contact", "Контакт и оферта", "Поискай оферта: форма за запитване, телефон 088 760 2323, support@novacom.bg, безплатен оглед на обекта."],
         ["products", "Всички продукти", "Панели Suntech, инвертори, батерии SunStorage Pro 261 kWh, конструкции, EMS и мониторинг, зарядни станции, ветрогенератори до 3 kW, соларни навеси."],
       ]
@@ -77,7 +77,7 @@ export function buildIndex(lang: Lang): SearchDoc[] {
         ["know-how", "Know-how", "Strela tracker, open-source GrideX EMS (MIT), utility models, IEEE publications, United Energy Cluster, V2G-Hybrid-Charge, GridMobility, eHUB, study +122% revenue, −45% peak."],
         ["know-how/strela", "Strela tracker", "Two-axis solar tracker on a single mast with a seasonal arm, 6 bifacial modules, 3.5 kWp, up to 45% higher yield, animated model, mobile trailer version, 2P trackers."],
         ["projects", "Projects", "Completed sites: Pernik 2 MW PV with 2.5 MWh battery, Mihaylovo 261 kWh, rooftop and ground-mounted plants, carports, EV chargers, photo gallery."],
-        ["news", "News", "Intersolar Europe 2026 Munich, free site survey and EU funding, GrideX open source, Pernik, Strela, Mihaylovo, V2G, HY Solar Group Suntech, energy cluster."],
+        ["news", "News", "Intersolar Europe 2026 Munich, free site survey and EU funding, GrideX open source, Pernik, Strela, Mihaylovo, V2G, Suntech, energy cluster."],
         ["contact", "Contact and quote", "Request a quote: enquiry form, phone +359 88 760 2323, support@novacom.bg, free site survey."],
         ["products", "All products", "Suntech modules, inverters, SunStorage Pro 261 kWh batteries, mounting, EMS and monitoring, EV chargers, wind turbines up to 3 kW, solar carports."],
       ];
