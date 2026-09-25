@@ -409,6 +409,7 @@ export const products: Product[] = [
       { brand: "iSTA-BREEZE", model: { bg: "Мачта 4 m (до 10 m)", en: "4 m mast (up to 10 m)" }, specs: { bg: "Поцинкована, 4 секции с фланци, шарнирна основна плоча, 3 обтяжки с обтегачи", en: "Galvanised, 4 flanged sections, hinged base plate, 3 guy wires with turnbuckles" } },
     ],
   },
+  {
     slug: "carports",
     title: { bg: "Соларни навеси (carports)", en: "Solar carports" },
     short: {
