@@ -805,10 +805,10 @@ export const news: NewsItem[] = [
   {
     slug: "intersolar-2026-munich",
     date: "2026-09-25",
-    title: { bg: "Novacom на Intersolar Europe 2026 в Мюнхен, на щанда на Suntech", en: "Novacom at Intersolar Europe 2026 in Munich, on the Suntech stand" },
+    title: { bg: "Д-р Антуан Ангелов на Intersolar Europe 2026 в Мюнхен от името на Suntech", en: "Dr. Antouan Anguelov at Intersolar Europe 2026 in Munich on behalf of Suntech" },
     text: {
-      bg: "Участвахме в най-голямото соларно изложение в Европа, Intersolar Europe 2026 в Мюнхен, като търговски представител на Suntech за Балканите и Европа. Suntech отбеляза 25 години от основаването си и показа новите двулицеви модули, домашните системи с батерия и индустриалните решения за съхранение SunStorage, които доставяме и монтираме в България.",
-      en: "We took part in Europe's largest solar exhibition, Intersolar Europe 2026 in Munich, as Suntech's sales representative for the Balkans and Europe. Suntech celebrated 25 years since its founding and presented its new bifacial modules, residential battery systems and the SunStorage industrial storage solutions that we supply and install in Bulgaria.",
+      bg: "Д-р инж. Антуан Ангелов, собственик на Novacom и търговски представител на китайската корпорация HY Solar Group, участва от името на Suntech в най-голямото соларно изложение в Европа, Intersolar Europe 2026 в Мюнхен. Suntech отбеляза 25 години от основаването си и показа новите двулицеви модули, домашните системи с батерия и индустриалните решения за съхранение SunStorage, които доставяме и монтираме в България.",
+      en: "Dr. Eng. Antouan Anguelov, owner of Novacom and sales representative of the Chinese corporation HY Solar Group, took part on behalf of Suntech in Europe's largest solar exhibition, Intersolar Europe 2026 in Munich. Suntech celebrated 25 years since its founding and presented its new bifacial modules, residential battery systems and the SunStorage industrial storage solutions that we supply and install in Bulgaria.",
     },
     img: REAL.intersolarSuntech,
     to: "products/storage",
@@ -886,10 +886,10 @@ export const news: NewsItem[] = [
   {
     slug: "suntech-representative",
     date: "2026-05-01",
-    title: { bg: "Novacom е търговски представител на Suntech за Балканите и Европа", en: "Novacom is Suntech's sales representative for the Balkans and Europe" },
+    title: { bg: "Д-р инж. Антуан Ангелов е търговски представител на HY Solar Group (Suntech)", en: "Dr. Eng. Antouan Anguelov is a sales representative of HY Solar Group (Suntech)" },
     text: {
-      bg: "Първите доставки на батерийни системи Suntech SunStorage Pro 261 kWh за индустриални клиенти вече са факт. Доставяме панели и батерии Suntech директно от производителя.",
-      en: "The first deliveries of Suntech SunStorage Pro 261 kWh battery systems to industrial clients are complete. We supply Suntech modules and batteries direct from the manufacturer.",
+      bg: "Собственикът на Novacom пое ролята на търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech. Първите доставки на батерийни системи Suntech SunStorage Pro 261 kWh за индустриални клиенти вече са факт.",
+      en: "Novacom's owner took on the role of sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand. The first deliveries of Suntech SunStorage Pro 261 kWh battery systems to industrial clients are complete.",
     },
     img: REAL.bessOpen,
     to: "about/partners",

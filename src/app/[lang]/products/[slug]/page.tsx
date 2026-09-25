@@ -70,11 +70,11 @@ export default async function ProductPage({ params }: P) {
                       ? "Шкафови батерийни системи Suntech от 261 kWh за бизнеса, мащабируеми до MWh. С всяка батерия 261 kWh нашата open-source EMS GrideX се внедрява 100% безплатно."
                       : "Suntech 261 kWh cabinet battery systems for business, scalable to MWh. With every 261 kWh battery our open-source GrideX EMS is deployed 100% free."
                     : bg
-                      ? "Фотоволтаични панели Suntech, директно от производителя."
-                      : "Suntech PV modules, direct from the manufacturer."}
+                      ? "Фотоволтаични панели Suntech за покривни и наземни централи."
+                      : "Suntech PV modules for rooftop and ground-mounted plants."}
                 </p>
                 <p className="mt-3 text-white/80">
-                  {bg ? "Novacom е търговски представител на Suntech за Балканите и Европа." : "Novacom is Suntech's sales representative for the Balkans and Europe."}
+                  {bg ? "Д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech." : "Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
                 </p>
                 <a href="https://www.suntech-power.com/" target="_blank" rel="noopener" className="mt-6 inline-flex rounded-xl bg-white px-5 py-3 font-bold text-ink hover:bg-sky">
                   suntech-power.com ↗

@@ -9,7 +9,7 @@ type P = { params: Promise<{ lang: string }> };
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const lang = (await params).lang as Lang;
   const bg = lang === "bg";
-  return seo(lang, "about/partners", bg ? "Партньори и производители" : "Partners & manufacturers", bg ? "Novacom е търговски представител на Suntech за Балканите и Европа: панели и батерийни системи за бизнеса." : "Novacom is the Suntech sales representative for the Balkans and Europe: PV modules and battery systems for business.");
+  return seo(lang, "about/partners", bg ? "Партньори и производители" : "Partners & manufacturers", bg ? "Производители, с които работи Novacom: Suntech (HY Solar Group), инвертори, конструкции и зарядни станции." : "Manufacturers Novacom works with: Suntech (HY Solar Group), inverters, mounting and EV chargers.");
 }
 
 export default async function PartnersPage({ params }: P) {
@@ -23,8 +23,8 @@ export default async function PartnersPage({ params }: P) {
         title={bg ? "Партньори и производители" : "Partners & manufacturers"}
         text={
           bg
-            ? "Novacom е търговски представител на Suntech за Балканите и Европа."
-            : "Novacom is the Suntech sales representative for the Balkans and Europe."
+            ? "Доставяме и монтираме панели и батерийни системи Suntech. Д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
+            : "We supply and install Suntech PV modules and battery systems. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."
         }
         img={PH.panelsClose}
       />
@@ -36,8 +36,8 @@ export default async function PartnersPage({ params }: P) {
               <h2 className="text-4xl font-extrabold sm:text-5xl">Suntech</h2>
               <p className="mt-5 text-lg text-white/80">
                 {bg
-                  ? "Един от най-големите световни производители на фотоволтаични модули. Като търговски представител за Балканите и Европа доставяме директно панели и батерийни системи Suntech за бизнес и индустриални проекти."
-                  : "One of the world's largest PV module manufacturers. As sales representative for the Balkans and Europe, we supply Suntech panels and battery systems directly for commercial and industrial projects."}
+                  ? "Един от най-големите световни производители на фотоволтаични модули, част от китайската корпорация HY Solar Group. Д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech. Това ни дава пряк достъп до панели и батерийни системи Suntech за бизнес и индустриални проекти."
+                  : "One of the world's largest PV module manufacturers, part of the Chinese corporation HY Solar Group. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand. This gives us direct access to Suntech modules and battery systems for commercial and industrial projects."}
               </p>
               <a
                 href="https://www.suntech-power.com/"

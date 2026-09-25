@@ -229,14 +229,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <Reveal>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Продукти" : "Products"}</p>
           <div className="flex flex-wrap items-end justify-between gap-6">
-            <H2 className="max-w-2xl">{bg ? "Панели и батерии Suntech директно от производителя" : "Suntech panels and batteries, direct from the manufacturer"}</H2>
+            <H2 className="max-w-2xl">{bg ? "Панели и батерии Suntech за бизнеса" : "Suntech panels and batteries for business"}</H2>
             <Button to={href(lang, "products")} variant="light">{ui.allProducts[lang]}</Button>
           </div>
           <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-white/85">
               {bg
-                ? "Novacom е търговски представител на Suntech за Балканите и Европа: фотоволтаични панели и батерийни системи за бизнеса."
-                : "Novacom is Suntech's sales representative for the Balkans and Europe: PV modules and battery systems for business."}
+                ? "Доставяме и монтираме панели и батерийни системи Suntech. Д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
+                : "We supply and install Suntech PV modules and battery systems. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
             </p>
             <a
               href="https://www.suntech-power.com/"

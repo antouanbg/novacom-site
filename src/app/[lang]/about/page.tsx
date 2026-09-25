@@ -9,7 +9,7 @@ type P = { params: Promise<{ lang: string }> };
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const lang = (await params).lang as Lang;
   const bg = lang === "bg";
-  return seo(lang, "about", bg ? "Кои сме ние" : "Who we are", bg ? "Novacom: ФЕЦ и батерийни системи, търговски представител на Suntech за Балканите и Европа. Основател д-р инж. Антуан Ангелов, преподавател в ТУ-София." : "Novacom: solar PV and battery storage, Suntech sales representative for the Balkans and Europe. Founded by Dr. Eng. Antouan Anguelov, lecturer at TU Sofia.");
+  return seo(lang, "about", bg ? "Кои сме ние" : "Who we are", bg ? "Novacom: ФЕЦ и батерийни системи за бизнеса. Основател д-р инж. Антуан Ангелов, преподавател в ТУ-София и търговски представител на HY Solar Group (Suntech)." : "Novacom: solar PV and battery storage for business. Founded by Dr. Eng. Antouan Anguelov, lecturer at TU Sofia and sales representative of HY Solar Group (Suntech).");
 }
 
 export default async function AboutPage({ params }: P) {
@@ -53,8 +53,8 @@ export default async function AboutPage({ params }: P) {
               <p className="font-extrabold">{bg ? "д-р инж. Антуан Ангелов, основател" : "Dr. Eng. Antouan Anguelov, founder"}</p>
               <p className="mt-2 text-muted">
                 {bg
-                  ? "Научен кадър, доктор и преподавател в ТУ-София със собствена специалност по ВЕИ. Търговски представител на Suntech за Балканите и Европа."
-                  : "Scientist, PhD and lecturer at the Technical University of Sofia with his own renewable energy programme. Suntech sales representative for the Balkans and Europe."}
+                  ? "Научен кадър, доктор и преподавател в ТУ-София със собствена специалност по ВЕИ. Търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
+                  : "Scientist, PhD and lecturer at the Technical University of Sofia with his own renewable energy programme. Sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
               </p>
             </div>
           </Reveal>
@@ -83,8 +83,8 @@ export default async function AboutPage({ params }: P) {
                   </a>
                   <p className="text-muted">
                     {bg
-                      ? "Официален търговски представител за Балканите и Европа: фотоволтаични панели и батерийни системи за бизнеса."
-                      : "Official sales representative for the Balkans and Europe: PV modules and battery systems for business."}
+                      ? "Панели и батерийни системи за бизнеса. Собственикът на Novacom е търговски представител на HY Solar Group, притежател на марката."
+                      : "PV modules and battery systems for business. Novacom's owner is a sales representative of HY Solar Group, owner of the brand."}
                   </p>
                 </li>
                 <li>
