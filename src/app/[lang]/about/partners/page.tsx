@@ -9,7 +9,7 @@ type P = { params: Promise<{ lang: string }> };
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const lang = (await params).lang as Lang;
   const bg = lang === "bg";
-  return seo(lang, "about/partners", bg ? "Партньори и производители" : "Partners & manufacturers", bg ? "Производители, с които работи Novacom: Suntech (HY Solar Group), инвертори, конструкции и зарядни станции." : "Manufacturers Novacom works with: Suntech (HY Solar Group), inverters, mounting and EV chargers.");
+  return seo(lang, "about/partners", bg ? "Партньори и производители" : "Partners & manufacturers", bg ? "Производители, с които работи Novacom: Suntech, инвертори, конструкции и зарядни станции." : "Manufacturers Novacom works with: Suntech, inverters, mounting and EV chargers.");
 }
 
 export default async function PartnersPage({ params }: P) {

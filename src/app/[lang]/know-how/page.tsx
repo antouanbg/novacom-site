@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GRIDEX_REPOS, REAL, utilityModels } from "@/content/site";
+import { REAL, utilityModels } from "@/content/site";
 import { href, type Lang } from "@/lib/i18n";
 import ResearchResults, { IBEX_DATASET_URL } from "@/components/ResearchResults";
 import { seo } from "@/lib/seo";
@@ -94,8 +94,8 @@ export default async function KnowHowPage({ params }: P) {
             <H2>{bg ? "GrideX Energy OS: собствена EMS с отворен код" : "GrideX Energy OS: our own open-source EMS"}</H2>
             <p className="mt-5 text-lg text-white/80">
               {bg
-                ? "Разработихме собствена система за управление на енергията, защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи със съществуващото оборудване. Системата е проектирана и разработена от гл. ас. д-р инж. Антуан Ангелов и е публикувана като отворен код под MIT лиценз в github.com/antouanbg: без лицензни такси и без обвързване с доставчик."
-                : "We built our own energy management system because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment. The system is designed and developed by Chief Assist. Prof. Dr. Eng. Antouan Anguelov and published as open source under the MIT licence at github.com/antouanbg: no licence fees and no vendor lock-in."}
+                ? "Разработихме собствена система за управление на енергията, защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи със съществуващото оборудване. Системата е разработена от екипа на Novacom и е публикувана като отворен код под MIT лиценз: без лицензни такси и без обвързване с доставчик."
+                : "We built our own energy management system because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment. The system is developed by the Novacom team and published as open source under the MIT licence: no licence fees and no vendor lock-in."}
             </p>
             <div className="mt-6 rounded-2xl border border-[#b5d86a]/40 bg-white/5 p-5">
               <p className="font-extrabold text-[#b5d86a]">{bg ? "Купувате батерия Suntech 261 kWh? EMS се внедрява 100% безплатно." : "Buying a Suntech 261 kWh battery? The EMS is deployed 100% free."}</p>
@@ -116,11 +116,9 @@ export default async function KnowHowPage({ params }: P) {
               <a href="https://gridex.tech/" target="_blank" rel="noopener" className="inline-flex rounded-xl bg-white px-6 py-3.5 font-bold text-ink transition hover:bg-sky">
                 {bg ? "Демо: gridex.tech ↗" : "Demo: gridex.tech ↗"}
               </a>
-              {GRIDEX_REPOS.map((r) => (
-                <a key={r.name} href={r.url} target="_blank" rel="noopener" className="inline-flex rounded-xl border-2 border-white/40 px-4 py-3 text-sm font-bold text-white transition hover:bg-white/10">
-                  GitHub: {r.name} ↗
-                </a>
-              ))}
+              <span className="inline-flex items-center rounded-xl border-2 border-white/40 px-4 py-3 text-sm font-bold text-white/90">
+                {bg ? "Отворен код · MIT: портал, edge gateway, backend" : "Open source · MIT: portal, edge gateway, backend"}
+              </span>
             </div>
           </Reveal>
         </div>

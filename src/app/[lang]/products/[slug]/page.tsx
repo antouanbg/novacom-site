@@ -163,7 +163,7 @@ export default async function ProductPage({ params }: P) {
                   <ul className="mt-3 space-y-3">
                     {GRIDEX_REPOS.map((r) => (
                       <li key={r.name}>
-                        <a href={r.url} target="_blank" rel="noopener" className="font-bold text-brand hover:underline">github.com/antouanbg/{r.name} ↗</a>
+                        <p className="font-bold text-ink">{r.name}</p>
                         <p className="text-sm text-muted">{r.what[lang]}</p>
                       </li>
                     ))}
