@@ -51,18 +51,20 @@ export default function Header({ lang }: { lang: Lang }) {
   return (
     <header className={`sticky top-0 z-50 bg-white transition-shadow ${scrolled ? "shadow-[0_1px_0_#e2e7ee,0_8px_24px_-12px_rgba(11,34,57,.18)]" : ""}`}>
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-3 px-4 sm:gap-4 sm:px-6 lg:h-20">
-        <Link href={href(lang)} aria-label="Novacom" className="min-w-0 shrink lg:shrink-0">
+        <Link href={href(lang)} aria-label="Novacom" className="relative z-10 min-w-0 shrink bg-white pr-2 lg:shrink-0">
           <Logo />
         </Link>
 
-        <nav className="hidden min-w-0 items-center gap-0 lg:flex xl:gap-0.5 min-[1700px]:gap-1" aria-label="Main">
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 lg:flex xl:gap-0.5 min-[1700px]:gap-1" aria-label="Main">
           {nav.map((item, i) => (
-            <div key={item.path} className="group relative">
+            <div key={item.path} className="group relative min-w-0 shrink">
+              {/* min-w-0 + truncate: when the row is too narrow (browser zoom, large system fonts) labels shorten with an ellipsis instead of sliding under the logo */}
               <Link
                 href={href(lang, item.path)}
-                className="flex items-center gap-1 whitespace-nowrap rounded-lg px-1.5 py-2 text-[13px] font-semibold text-ink hover:text-brand xl:px-2 xl:text-sm min-[1700px]:px-3 min-[1700px]:text-[15px]"
+                title={item.label[lang]}
+                className="flex min-w-0 items-center gap-1 whitespace-nowrap rounded-lg px-1.5 py-2 text-[13px] font-semibold text-ink hover:text-brand xl:px-2 xl:text-sm min-[1700px]:px-3 min-[1700px]:text-[15px]"
               >
-                {item.label[lang]}
+                <span className="truncate">{item.label[lang]}</span>
                 {item.children && (
                   <svg className="hidden h-3.5 w-3.5 transition group-hover:rotate-180 xl:block" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
                     <path d="M5.3 7.3a1 1 0 0 1 1.4 0L10 10.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 0-1.4z" />
