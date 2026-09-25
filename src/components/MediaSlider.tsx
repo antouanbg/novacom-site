@@ -39,10 +39,13 @@ export default function MediaSlider({ slides, interval = 5000, className = "", l
 
   // Pause everything while the tab is hidden.
   useEffect(() => {
-    const on = () => setPaused(document.hidden);
+    const on = () => {
+      setPaused(document.hidden);
+      if (!document.hidden) videoRefs.current[i]?.play().catch(() => {});
+    };
     document.addEventListener("visibilitychange", on);
     return () => document.removeEventListener("visibilitychange", on);
-  }, []);
+  }, [i]);
 
   return (
     <div
@@ -59,12 +62,22 @@ export default function MediaSlider({ slides, interval = 5000, className = "", l
             <video
               ref={(el) => {
                 videoRefs.current[k] = el;
+                // React does not render the `muted` attribute; browsers only allow autoplay when it is set.
+                if (el) {
+                  el.muted = muted;
+                  if (muted) el.setAttribute("muted", "");
+                  else el.removeAttribute("muted");
+                }
               }}
               src={s.src}
               poster={s.poster}
+              autoPlay={k === 0}
               muted={muted}
               playsInline
-              preload="metadata"
+              preload="auto"
+              onLoadedData={(e) => {
+                if (k === i) (e.currentTarget as HTMLVideoElement).play().catch(() => {});
+              }}
               onEnded={() => go(k + 1)}
               className="h-full w-full object-cover"
               aria-label={s.alt}
