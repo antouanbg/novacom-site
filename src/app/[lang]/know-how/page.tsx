@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { REAL, utilityModels } from "@/content/site";
+import MediaSlider from "@/components/MediaSlider";
 import { href, type Lang } from "@/lib/i18n";
 import ResearchResults from "@/components/ResearchResults";
 import { seo } from "@/lib/seo";
@@ -119,6 +120,20 @@ export default async function KnowHowPage({ params }: P) {
               <span className="inline-flex items-center rounded-xl border-2 border-white/40 px-4 py-3 text-sm font-bold text-white/90">
                 {bg ? "Отворен код · MIT: портал, edge gateway, backend" : "Open source · MIT: portal, edge gateway, backend"}
               </span>
+            </div>
+            <div className="mt-8">
+              <MediaSlider
+                className="aspect-[16/10]"
+                label="GrideX Energy OS"
+                interval={4500}
+                slides={[
+                  { type: "image", src: REAL.emsOverview, alt: bg ? "GrideX: енергиен поток в реално време" : "GrideX: real-time energy flow" },
+                  { type: "image", src: REAL.emsMarket, alt: bg ? "GrideX: пазар ден напред" : "GrideX: day-ahead market" },
+                  { type: "image", src: REAL.emsBattery, alt: bg ? "GrideX: батерия и стратегия" : "GrideX: battery and strategy" },
+                  { type: "image", src: REAL.emsAutomation, alt: bg ? "GrideX: логика и режими" : "GrideX: logic and modes" },
+                  { type: "image", src: REAL.emsReports, alt: bg ? "GrideX: отчети и икономика" : "GrideX: reports and economics" },
+                ]}
+              />
             </div>
           </Reveal>
         </div>

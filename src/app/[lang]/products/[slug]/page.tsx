@@ -158,6 +158,21 @@ export default async function ProductPage({ params }: P) {
               </div>
             ) : p.slug === "monitoring" ? (
               <div className="grid gap-4">
+                <MediaSlider
+                  className="aspect-[16/10]"
+                  label="GrideX Energy OS"
+                  interval={4500}
+                  slides={[
+                    { type: "image", src: REAL.emsOverview, alt: bg ? "GrideX: енергиен поток в реално време и дневен резултат" : "GrideX: real-time energy flow and today's result" },
+                    { type: "image", src: REAL.emsBattery, alt: bg ? "GrideX: батерия – SOC, стратегия и граници" : "GrideX: battery – SOC, strategy and limits" },
+                    { type: "image", src: REAL.emsMarket, alt: bg ? "GrideX: пазар ден напред и цени по часове" : "GrideX: day-ahead market and hourly prices" },
+                    { type: "image", src: REAL.emsAutomation, alt: bg ? "GrideX: логика и режими, препоръки на оптимизатора" : "GrideX: logic and modes, optimiser recommendations" },
+                    { type: "image", src: REAL.emsDevices, alt: bg ? "GrideX: устройства и комуникация (Modbus TCP)" : "GrideX: devices and communication (Modbus TCP)" },
+                    { type: "image", src: REAL.emsReports, alt: bg ? "GrideX: отчети и икономика по актив" : "GrideX: reports and economics per asset" },
+                    { type: "image", src: REAL.emsSites, alt: bg ? "GrideX: обекти и портфолио" : "GrideX: sites and portfolio" },
+                  ]}
+                />
+                <p className="-mt-1 text-xs text-muted">{bg ? "Екрани от демото на gridex.tech (английска версия)." : "Screens from the gridex.tech demo (English)."}</p>
                 <div className="rounded-3xl bg-ink p-7 text-white">
                   <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Оферта" : "Offer"}</p>
                   <h3 className="mt-2 text-2xl font-extrabold">{bg ? "100% безплатна EMS с батерия Suntech 261 kWh" : "100% free EMS with a Suntech 261 kWh battery"}</h3>
