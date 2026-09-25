@@ -131,6 +131,17 @@ export default async function StrelaPage({ params }: P) {
             </Reveal>
           ))}
         </div>
+        <Reveal className="mt-10">
+          <p className="max-w-3xl text-lg text-muted">
+            {bg
+              ? "За големи наземни паркове доставяме и монтираме и стандартни едноосови тракери с двуредово (2P) разположение на модулите: една носеща греда, централно задвижване и редове с дължина над 100 m."
+              : "For large ground-mounted parks we also supply and install standard single-axis trackers with two-in-portrait (2P) module layout: one torque tube, central drive and rows over 100 m long."}
+          </p>
+          <div className="mt-5 grid auto-rows-[200px] grid-cols-1 gap-3 sm:auto-rows-[260px] sm:grid-cols-[1fr_1.6fr]">
+            <div className="overflow-hidden rounded-2xl"><Photo id={REAL.tracker2pExpo} alt={bg ? "Двуредов (2P) тракер: задвижване и носеща греда" : "2P tracker: drive and torque tube"} /></div>
+            <div className="overflow-hidden rounded-2xl"><Photo id={REAL.trackerRowsDesert} alt={bg ? "Редове едноосови тракери в голям наземен парк" : "Rows of single-axis trackers in a large park"} /></div>
+          </div>
+        </Reveal>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button to={href(lang, "contact") + "#quote"}>{bg ? "Запитване за „Стрела“" : "Ask about Strela"}</Button>
           <Button to={href(lang, "know-how")} variant="outline">{bg ? "Обратно към Ноу-хау" : "Back to Know-how"}</Button>

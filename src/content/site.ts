@@ -24,6 +24,8 @@ export const REAL = {
   trackerDetail: "/images/mounting/tracker-detail.webp",
   trackerUnder: "/images/projects/tracker-underside.webp",
   trackerTrailers: "/images/projects/tracker-trailers.webp",
+  tracker2pExpo: "/images/mounting/tracker-2p-expo.webp",
+  trackerRowsDesert: "/images/mounting/tracker-rows-desert.webp",
   trackerCabinet: "/images/projects/tracker-trailer-cabinet.webp",
   bessOpen: "/images/storage/bess-cabinet-open.webp",
   bessRender: "/images/storage/bess-cabinet-render.webp",
@@ -53,25 +55,26 @@ export const REAL = {
   carportRenderRow: "/images/carports/render-column-row.webp",
 };
 
+// Former stock-photo slots: since 2026-09-25 every image on the site is the client's own photo.
 export const PH = {
-  heroRoof: "1613665813446-82a78c468a1d",
-  cityRoof: "1611365892117-00ac5ef43c90",
-  fieldAerial: "1497440001374-f26997328c1b",
-  fieldSky: "1508514177221-188b1cf16e9d",
-  fieldClouds: "1509391366360-2e959784a276",
-  panelsClose: "1545209463-e2825498edbf",
-  panelsForest: "1592833159155-c62df1b65634",
-  roofInstall: "1624397640148-949b1732bb0a",
-  handsInstall: "1559302504-64aae6ca6b6d",
-  grid: "1473341304170-971dccb5ac1e",
-  wind: "1548337138-e87d889cc369",
-  teamLaptops: "1522071820081-009f0129c71c",
-  engineerLab: "1581091226825-a6a2a5aee158",
-  engineerDraw: "1581092160562-40aa08e78837",
-  engineerCode: "1581094794329-c8112a89af12",
-  evCharging: "1593941707882-a5bba14938c7",
-  windHills: "1532601224476-15c79f2f7a51",
-  windAerial: "1548613053-22087dd8edb8",
+  heroRoof: "/images/projects/roof-sofia-vitosha.webp",
+  cityRoof: "/images/projects/roof-building-dense.webp",
+  fieldAerial: "/images/projects/pernik-rows-sky.webp",
+  fieldSky: "/images/projects/pernik-ridge-wide.webp",
+  fieldClouds: "/images/projects/pernik-rows-wide.webp",
+  panelsClose: "/images/projects/pernik-structure-under.webp",
+  panelsForest: "/images/projects/pernik-ridge.webp",
+  roofInstall: "/images/mounting/ballast-rows.webp",
+  handsInstall: "/images/install/switchboard-breakers.webp",
+  grid: "/images/projects/pernik-rows-pylon.webp",
+  wind: "/images/projects/mihaylovo-rows-sun.webp",
+  teamLaptops: "/images/projects/pernik-hysolar-delivery.webp",
+  engineerLab: "/images/install/switchboard-breakers.webp",
+  engineerDraw: "/images/install/switchboard-full.webp",
+  engineerCode: "/images/install/inverter-room.webp",
+  evCharging: "/images/ev/evpoint-open.webp",
+  windHills: "/images/projects/mihaylovo-rows-sun.webp",
+  windAerial: "/images/projects/mihaylovo-rows-frost.webp",
 };
 
 export const contact = {
@@ -762,6 +765,8 @@ export const gallery: { src: string; alt: L; tall?: boolean }[] = [
   { src: REAL.trackerTrailers, alt: { bg: "Мобилни соларни системи с инвертори на място", en: "Mobile solar units with on-board inverters" } },
   { src: REAL.bessFactory, alt: { bg: "Батериен шкаф с вграден PCS", en: "Battery cabinet with integrated PCS" }, tall: true },
   { src: REAL.trackerUnder, alt: { bg: "Двулицеви панели на тракер", en: "Bifacial modules on a tracker" } },
+  { src: REAL.trackerRowsDesert, alt: { bg: "Редове едноосови тракери в голям наземен парк", en: "Rows of single-axis trackers in a large ground-mounted park" } },
+  { src: REAL.tracker2pExpo, alt: { bg: "Двуредов (2P) тракер: задвижване и носеща греда", en: "Two-in-portrait (2P) tracker: drive and torque tube" }, tall: true },
 ];
 
 // Utility models and inventions of Dr. Eng. Antouan Anguelov (from the client's Drive folder "Polezen_model", 2026-09-24).
