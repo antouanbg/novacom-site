@@ -27,6 +27,14 @@ export const REAL = {
   tracker2pExpo: "/images/mounting/tracker-2p-expo.webp",
   trackerRowsDesert: "/images/mounting/tracker-rows-desert.webp",
   intersolarSuntech: "/images/news/intersolar-2026-suntech.webp",
+  hybridRoom: "/images/install/hybrid-room-vtac-sma.webp",
+  roofFrost: "/images/projects/roof-frost-residential.webp",
+  groundElevatedSun: "/images/projects/ground-elevated-sun.webp",
+  deyeHybridWhite: "/images/install/deye-hybrid-battery-white.webp",
+  deyeBatteryStack: "/images/storage/deye-battery-stack.webp",
+  groundRailsFog: "/images/mounting/ground-rails-fog.webp",
+  evpointGarage: "/images/ev/evpoint-garage.webp",
+  groundElevatedFence: "/images/projects/ground-elevated-fence.webp",
   trackerCabinet: "/images/projects/tracker-trailer-cabinet.webp",
   bessOpen: "/images/storage/bess-cabinet-open.webp",
   bessRender: "/images/storage/bess-cabinet-render.webp",
@@ -158,7 +166,7 @@ export const solutions: Solution[] = [
       bg: "Напояването, охлаждането и обработката на продукция изискват сигурна и евтина енергия, често на отдалечени места. Хибридните и автономните системи дават независимост от мрежата.",
       en: "Irrigation, cooling and processing need reliable, affordable energy, often at remote sites. Hybrid and off-grid systems provide independence from the grid.",
     },
-    img: REAL.trackerTrailers,
+    img: REAL.groundElevatedSun,
     points: [
       { bg: "Автономни (off-grid) и хибридни системи", en: "Off-grid and hybrid systems" },
       { bg: "Соларни помпи за напояване", en: "Solar-powered irrigation pumps" },
@@ -195,7 +203,7 @@ export const solutions: Solution[] = [
       bg: "Соларна система с батерия намалява сметката за ток и осигурява резерв при прекъсване на захранването.",
       en: "A solar system with a battery lowers your bill and keeps the lights on during outages.",
     },
-    img: REAL.pergola,
+    img: REAL.roofFrost,
     points: [
       { bg: "Мрежови и хибридни системи", en: "Grid-tied and hybrid systems" },
       { bg: "Домашни батерии", en: "Home batteries" },
@@ -253,7 +261,7 @@ export const products: Product[] = [
       bg: "Хибридните инвертори управляват едновременно панелите, батерията и мрежата. Смарт метърът ограничава връщането на енергия в мрежата (Zero Export), когато това е необходимо.",
       en: "Hybrid inverters manage the panels, battery and grid together. A smart meter limits export to the grid (zero export) where required.",
     },
-    img: REAL.inverterRoom,
+    img: REAL.deyeHybridWhite,
     features: [
       { bg: "Европейска претеглена ефективност ≥ 97%", en: "European weighted efficiency ≥ 97%" },
       { bg: "Хармоници THD ≤ 3%", en: "Harmonics THD ≤ 3%" },
@@ -301,7 +309,7 @@ export const products: Product[] = [
       bg: "Използваме нискокорозионни материали и крепежи, които не ускоряват корозията на основната конструкция.",
       en: "We use low-corrosion materials and fasteners that do not accelerate corrosion of the supporting structure.",
     },
-    img: REAL.trackerDetail,
+    img: REAL.groundRailsFog,
     features: [
       { bg: "Скатни и плоски покриви", en: "Pitched and flat roofs" },
       { bg: "Наземни конструкции, навеси и мобилни тракери", en: "Ground mounts, canopies and mobile trackers" },
@@ -342,7 +350,7 @@ export const products: Product[] = [
       bg: "Доставяме и монтираме зарядни станции за електромобили: от домашни AC зарядни (wallbox) до DC станции за фирмени паркинги и обществени обекти. Свързваме зареждането с фотоволтаичната централа и батерията, така че колата да се зарежда със собствена слънчева енергия или при ниски цени на тока. Собствената ни концепция V2G-Hybrid-Charge добавя батериен буфер към зарядната станция: бързо зареждане без скъпо увеличение на партидата и връщане на енергия към мрежата при пик.",
       en: "We supply and install EV charging stations, from home AC wallboxes to DC stations for company car parks and public sites. Charging is linked to your PV plant and battery, so cars charge on your own solar energy or when power prices are low. Our own V2G-Hybrid-Charge concept adds a battery buffer to the charger: fast charging without a costly grid upgrade, and energy fed back to the grid at peak times.",
     },
-    img: REAL.evDcAc,
+    img: REAL.evpointGarage,
     features: [
       { bg: "AC зарядни 7,4 / 11 / 22 kW за дома и офиса", en: "7.4 / 11 / 22 kW AC chargers for home and office" },
       { bg: "DC бързи зарядни за фирмени и обществени паркинги", en: "DC fast chargers for company and public car parks" },
@@ -736,6 +744,12 @@ export const projectTypes = [
 
 // Real installation photos for the projects gallery (© Novacom).
 export const gallery: { src: string; alt: L; tall?: boolean }[] = [
+  { src: REAL.groundElevatedFence, alt: { bg: "Наземна ФЕЦ на повдигната конструкция до производствена сграда", en: "Ground-mounted PV on an elevated structure next to a production building" } },
+  { src: REAL.deyeBatteryStack, alt: { bg: "Батерийни модули Deye и хибриден инвертор в дома", en: "Deye battery modules and hybrid inverter in a home" }, tall: true },
+  { src: REAL.roofFrost, alt: { bg: "Черни модули на плосък покрив на къща", en: "All-black modules on a flat house roof" } },
+  { src: REAL.hybridRoom, alt: { bg: "Техническо помещение: хибриден инвертор с батерии и SMA Sunny Tripower", en: "Plant room: hybrid inverter with batteries and an SMA Sunny Tripower" }, tall: true },
+  { src: REAL.evpointGarage, alt: { bg: "Зарядна станция за електромобил в гараж", en: "EV charger in a garage" } },
+  { src: REAL.groundElevatedSun, alt: { bg: "Повдигната наземна конструкция, слънчев зимен ден", en: "Elevated ground structure on a sunny winter day" } },
   { src: REAL.pernikContainer, alt: { bg: "Контейнерна батерийна система, Перник", en: "Containerised battery system, Pernik" } },
   { src: REAL.pernikBessOpen, alt: { bg: "LFP батерийни модули в контейнер, Перник", en: "LFP battery modules inside the container, Pernik" } },
   { src: REAL.pernikRidge, alt: { bg: "Фотоволтаичен парк 2 MW, Перник", en: "2 MW solar park, Pernik" }, tall: true },

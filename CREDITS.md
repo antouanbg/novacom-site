@@ -41,3 +41,4 @@
 | tracker2pExpo | `mounting/tracker-2p-expo.webp` | Снимка на клиента: 2P тракер на изложение (2026-09-25) |
 | trackerRowsDesert | `mounting/tracker-rows-desert.webp` | Снимка на клиента: редове едноосови тракери, наземен парк; изрязан воден знак на телефона (2026-09-25) |
 | intersolarSuntech | `news/intersolar-2026-suntech.webp` | Снимка на клиента: щанд Suntech, Intersolar Europe 2026, Мюнхен (2026-09-25) |
+| hybridRoom, roofFrost, groundElevatedSun, deyeHybridWhite, deyeBatteryStack, groundRailsFog, evpointGarage, groundElevatedFence | `install/`, `projects/`, `storage/`, `mounting/`, `ev/` | Снимки на клиента, партида 2026-09-25 (8 бр.); изрязани: баня (deyeHybridWhite), кофи с боя (deyeBatteryStack), човек в кадъра (evpointGarage) |
