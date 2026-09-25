@@ -43,6 +43,9 @@ export const REAL = {
   inverterPv12: "/images/install/inverter-pv1-pv2.webp",
   dcFastCharger: "/images/ev/dc-fast-charger.webp",
   roofPrep: "/images/install/roof-prep-rails.webp",
+  homesRoofShingles: "/images/homes/roof-shingles-black-modules.webp",
+  homesRoofDrone: "/images/homes/roof-drone-view.webp",
+  homesFlatRoofInstall: "/images/homes/flat-roof-mountain-install.webp",
   trackerCabinet: "/images/projects/tracker-trailer-cabinet.webp",
   bessOpen: "/images/storage/bess-cabinet-open.webp",
   bessRender: "/images/storage/bess-cabinet-render.webp",
@@ -754,6 +757,9 @@ export const projectTypes = [
 
 // Real installation photos for the projects gallery (© Novacom).
 export const gallery: { src: string; alt: L; tall?: boolean }[] = [
+  { src: REAL.homesRoofDrone, alt: { bg: "Домашна ФЕЦ на скатен покрив, изглед от дрон", en: "Home PV on a pitched roof, drone view" } },
+  { src: REAL.homesFlatRoofInstall, alt: { bg: "Монтаж на плосък покрив на къща в планината", en: "Installation on a flat roof of a mountain house" } },
+  { src: REAL.homesRoofShingles, alt: { bg: "Черни модули на покрив с битумни керемиди", en: "All-black modules on a shingle roof" } },
   { src: REAL.facadeBlack, alt: { bg: "Вертикален монтаж на фасада: черни модули, без покривна конструкция", en: "Vertical facade mounting: all-black modules, no roof structure needed" } },
   { src: REAL.roofEastWest, alt: { bg: "Изток–запад на плосък покрив с баластна конструкция", en: "East–west layout on a flat roof with a ballasted structure" } },
   { src: REAL.roofPrep, alt: { bg: "Разчертаване и релси преди модулите: всеки покрив се подготвя на място", en: "Marking out and rails before the modules: every roof is prepared on site" } },

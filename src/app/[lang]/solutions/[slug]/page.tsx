@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
-import { benefits, PH, solutions } from "@/content/site";
+import { benefits, PH, REAL, solutions } from "@/content/site";
 import { locales, type Lang } from "@/lib/i18n";
 import { Check, CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
+import MediaSlider from "@/components/MediaSlider";
 
 type P = { params: Promise<{ lang: string; slug: string }> };
 
@@ -42,9 +43,24 @@ export default async function SolutionPage({ params }: P) {
             </ul>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="aspect-[4/3] overflow-hidden rounded-3xl">
-              <Photo id={PH.engineerDraw} alt={bg ? "Инженер проектира соларна система" : "Engineer designing a solar system"} />
-            </div>
+            {s.slug === "homes" ? (
+              // Home projects: an auto-advancing mix of a short site video and real photos.
+              <MediaSlider
+                className="aspect-[4/3]"
+                label={bg ? "Домашни проекти" : "Home projects"}
+                slides={[
+                  { type: "video", src: "/video/homes-install.mp4", poster: "/video/homes-install-poster.webp", alt: bg ? "Видео от монтаж на домашна ФЕЦ" : "Video from a home PV installation" },
+                  { type: "image", src: REAL.homesRoofDrone, alt: bg ? "Домашна ФЕЦ на скатен покрив, изглед от дрон" : "Home PV on a pitched roof, drone view" },
+                  { type: "image", src: REAL.homesFlatRoofInstall, alt: bg ? "Монтаж на плосък покрив на къща в планината" : "Installation on a flat roof of a mountain house" },
+                  { type: "image", src: REAL.homesRoofShingles, alt: bg ? "Черни модули на покрив с битумни керемиди" : "All-black modules on a shingle roof" },
+                  { type: "image", src: REAL.facadeBlack, alt: bg ? "Вертикален монтаж на фасада" : "Vertical facade mounting" },
+                ]}
+              />
+            ) : (
+              <div className="aspect-[4/3] overflow-hidden rounded-3xl">
+                <Photo id={PH.engineerDraw} alt={bg ? "Инженер проектира соларна система" : "Engineer designing a solar system"} />
+              </div>
+            )}
           </Reveal>
         </div>
       </Section>
