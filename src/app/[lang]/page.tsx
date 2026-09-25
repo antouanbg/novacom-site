@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     "",
     lang === "bg" ? "Фотоволтаични централи и батерии Suntech за бизнеса и дома" : "Solar PV and Suntech battery storage for business and home",
     lang === "bg"
-      ? "Оферта, доставка и монтаж на ФЕЦ и батерийни системи Suntech от 261 kWh за индустрия, търговия и земеделие. Безплатен мониторинг и поддръжка 24/365."
-      : "Quotes, supply and installation of PV plants and Suntech 261 kWh battery systems for industry, commerce and agriculture. Free 24/365 monitoring and support.",
+      ? "Оферта, доставка и монтаж на ФЕЦ и батерийни системи Suntech от 261 kWh за индустрия, търговия, земеделие и дома. Безплатен мониторинг и поддръжка 24/365."
+      : "Quotes, supply and installation of PV plants and Suntech 261 kWh battery systems for industry, commerce, agriculture and homes. Free 24/365 monitoring and support.",
   );
   return { ...m, title: { absolute: `Novacom | ${m.title}` } };
 }
@@ -65,8 +65,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted">
               {bg
-                ? "Оферта, доставка и монтаж на фотоволтаични централи, батерийни системи и зарядни станции за електромобили за индустрия, търговия и земеделие, включително шкафови системи от 261 kWh и по-големи."
-                : "Quotes, supply and installation of PV plants, battery systems and EV charging stations for industry, commerce and agriculture, including 261 kWh cabinets and larger."}
+                ? "Оферта, доставка и монтаж на фотоволтаични централи, батерийни системи и зарядни станции за електромобили за индустрия, търговия, земеделие и дома, включително шкафови системи от 261 kWh и по-големи."
+                : "Quotes, supply and installation of PV plants, battery systems and EV charging stations for industry, commerce, agriculture and homes, including 261 kWh cabinets and larger."}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button to={href(lang, "contact") + "#quote"}>{ui.quote[lang]}</Button>
