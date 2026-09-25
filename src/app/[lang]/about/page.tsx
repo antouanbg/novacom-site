@@ -53,8 +53,8 @@ export default async function AboutPage({ params }: P) {
               <p className="font-extrabold">{bg ? "д-р инж. Антуан Ангелов, основател" : "Dr. Eng. Antouan Anguelov, founder"}</p>
               <p className="mt-2 text-muted">
                 {bg
-                  ? "Научен кадър, доктор и преподавател в ТУ-София със собствена специалност по ВЕИ. Търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
-                  : "Scientist, PhD and lecturer at the Technical University of Sofia with his own renewable energy programme. Sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
+                  ? "Доктор инженер, преподавател в Технически университет – София и автор на специалност по възобновяеми енергийни източници. Търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
+                  : "Doctor of Engineering, lecturer at the Technical University of Sofia and author of a renewable energy degree programme. Sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
               </p>
             </div>
           </Reveal>
