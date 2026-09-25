@@ -928,8 +928,9 @@ export const news: NewsItem[] = [
   },
 ];
 
+// GrideX open-source components (names only; repository links are not published, see AGENTS.md).
 export const GRIDEX_REPOS = [
-  { name: "gridex-energy-os", url: "https://github.com/antouanbg/gridex-energy-os", what: { bg: "Портал и EMS логика (Next.js), демо на gridex.tech", en: "Portal and EMS logic (Next.js), demo at gridex.tech" } },
-  { name: "gridex-edge-gateway", url: "https://github.com/antouanbg/gridex-edge-gateway", what: { bg: "Edge gateway (C++/ESP32, ROCK Pi): Modbus, RS485, CAN, безопасен режим", en: "Edge gateway (C++/ESP32, ROCK Pi): Modbus, RS485, CAN, safety envelope" } },
-  { name: "gridex-openremote-backend", url: "https://github.com/antouanbg/gridex-openremote-backend", what: { bg: "Backend с OpenRemote, Keycloak и GrideX API (Docker)", en: "Backend with OpenRemote, Keycloak and the GrideX API (Docker)" } },
+  { name: "gridex-energy-os", what: { bg: "Портал и EMS логика (Next.js), демо на gridex.tech", en: "Portal and EMS logic (Next.js), demo at gridex.tech" } },
+  { name: "gridex-edge-gateway", what: { bg: "Edge gateway (C++/ESP32, ROCK Pi): Modbus, RS485, CAN, безопасен режим", en: "Edge gateway (C++/ESP32, ROCK Pi): Modbus, RS485, CAN, safety envelope" } },
+  { name: "gridex-openremote-backend", what: { bg: "Backend с OpenRemote, Keycloak и GrideX API (Docker)", en: "Backend with OpenRemote, Keycloak and the GrideX API (Docker)" } },
 ];
