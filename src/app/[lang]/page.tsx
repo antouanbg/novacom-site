@@ -78,7 +78,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               {[
                 ["30+", bg ? "години опит" : "years of experience"],
                 ["50+", bg ? "завършени проекта" : "completed projects"],
-                ["261 kWh", bg ? "шкафови системи BESS" : "BESS cabinet systems"],
+                ["100+ MWh", bg ? "инсталирани батерийни системи" : "battery storage installed"],
               ].map(([n, l]) => (
                 <div key={l}>
                   <dt className="text-[clamp(1.15rem,5.6vw,1.875rem)] font-extrabold">{n}</dt>
