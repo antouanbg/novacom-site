@@ -57,9 +57,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <Eyebrow>{bg ? "ФЕЦ · BESS · C&I" : "Solar · BESS · C&I"}</Eyebrow>
             <h1 className="break-words text-[2rem] font-extrabold leading-[1.1] [overflow-wrap:anywhere] sm:text-5xl lg:text-6xl">
               {bg ? (
-                <>Соларна енергия и <span className="text-brand">съхранение</span> за вашия бизнес</>
+                <>Соларна енергия и <span className="text-brand">съхранение</span> за вашия бизнес и дом</>
               ) : (
-                <>Solar power and <span className="text-brand">energy storage</span> for your business</>
+                <>Solar power and <span className="text-brand">energy storage</span> for your business and home</>
               )}
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted">
