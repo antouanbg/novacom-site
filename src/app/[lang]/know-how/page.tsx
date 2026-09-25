@@ -158,13 +158,7 @@ export default async function KnowHowPage({ params }: P) {
               ].map((k) => (
                 <div key={k.t} className="rounded-2xl border border-line p-6">
                   <p className="text-3xl font-extrabold text-brand">{k.n}</p>
-                  <p className="mt-1 text-muted">
-                    {"href" in k && k.href ? (
-                      <a href={k.href} target="_blank" rel="noopener" className="font-bold text-brand hover:underline">{k.t} ↗</a>
-                    ) : (
-                      k.t
-                    )}
-                  </p>
+                  <p className="mt-1 text-muted">{k.t}</p>
                 </div>
               ))}
             </div>
