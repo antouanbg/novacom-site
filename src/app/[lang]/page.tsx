@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const m = seo(
     lang,
     "",
-    lang === "bg" ? "Фотоволтаични централи и батерии Suntech за бизнеса" : "Solar PV and Suntech battery storage for business",
+    lang === "bg" ? "Фотоволтаични централи и батерии Suntech за бизнеса и дома" : "Solar PV and Suntech battery storage for business and home",
     lang === "bg"
       ? "Оферта, доставка и монтаж на ФЕЦ и батерийни системи Suntech от 261 kWh за индустрия, търговия и земеделие. Безплатен мониторинг и поддръжка 24/365."
       : "Quotes, supply and installation of PV plants and Suntech 261 kWh battery systems for industry, commerce and agriculture. Free 24/365 monitoring and support.",
