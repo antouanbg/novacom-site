@@ -294,6 +294,8 @@ export const products: Product[] = [
       { bg: "Смарт метър за Zero Export", en: "Smart meter for zero export" },
     ],
     items: [
+      { brand: "Fronius", model: "Verto Plus", specs: { bg: "Индустриални трифазни стрингови инвертори за търговски и производствени покриви; австрийско производство, мониторинг Fronius Solar.web", en: "Industrial three-phase string inverters for commercial and factory roofs; made in Austria, Fronius Solar.web monitoring" }, featured: true },
+      { brand: "Sinexcel", model: { bg: "PWS серия (PCS / хибриден)", en: "PWS series (PCS / hybrid)" }, specs: { bg: "Двупосочни индустриални батерийни инвертори (PCS) за C&I системи за съхранение, паралелна работа, on/off-grid", en: "Bidirectional industrial battery inverters (PCS) for C&I storage, parallel operation, on/off-grid" } },
       { brand: "Deye", model: "SUN-15K-SG05LP3-EU", specs: { bg: "15 kW хибриден, трифазен, LV, Wi-Fi", en: "15 kW hybrid, three-phase, LV, Wi-Fi" } },
       { brand: "HV", model: "20 kW", specs: { bg: "Промишлен хибриден инвертор, трифазен, високоволтов", en: "Industrial hybrid inverter, three-phase, high-voltage" } },
     ],
@@ -318,6 +320,7 @@ export const products: Product[] = [
     ],
     items: [
       { brand: "Suntech", model: "SunStorage Pro STE-261L-125P", specs: { bg: "C&I, 261 kWh / 125 kW, течно охлаждане, 400 V AC, IP65", en: "C&I, 261 kWh / 125 kW, liquid-cooled, 400 V AC, IP65" }, featured: true },
+      { brand: "BYD", model: "Battery-Box Premium HVS+ / HVM+ / HVB", specs: { bg: "Високоволтови LFP кули: HVS 5,1–12,8 kWh, HVM 8,1–21,7 kWh, до 3 еднакви кули в паралел (до 38,4 / 65,1 kWh); HVB – ново поколение с по-висока мощност; сертификат VDE 2510-50", en: "High-voltage LFP towers: HVS 5.1–12.8 kWh, HVM 8.1–21.7 kWh, up to 3 identical towers in parallel (up to 38.4 / 65.1 kWh); HVB – new generation with higher power; VDE 2510-50 certified" } },
       { brand: "Deye", model: "SE-F16-C", specs: { bg: "16 kWh, LV, 10 години гаранция", en: "16 kWh, LV, 10-year warranty" } },
       { brand: "V-TAC", model: "VT-10240", specs: { bg: "10,24 kWh, LV, 6000 цикъла", en: "10.24 kWh, LV, 6,000 cycles" } },
       { brand: "HV", model: "25 kWh", specs: { bg: "Високоволтов промишлен модул, 6000 цикъла", en: "High-voltage industrial module, 6,000 cycles" } },
@@ -444,6 +447,9 @@ export const products: Product[] = [
 export const partners = [
   { name: "Suntech", what: { bg: "Панели и C&I батерийни системи", en: "PV modules and C&I battery systems" } },
   { name: "HY Solar", what: { bg: "Фотоволтаични панели", en: "PV modules" } },
+  { name: "Fronius", what: { bg: "Индустриални трифазни инвертори Verto Plus", en: "Verto Plus industrial three-phase inverters" } },
+  { name: "Sinexcel", what: { bg: "Индустриални PCS и хибридни инвертори за BESS", en: "Industrial PCS and hybrid inverters for BESS" } },
+  { name: "BYD", what: { bg: "Battery-Box HVS+/HVM+/HVB, паралелно свързване", en: "Battery-Box HVS+/HVM+/HVB, parallel connection" } },
   { name: "Deye", what: { bg: "Хибридни инвертори и батерии", en: "Hybrid inverters and batteries" } },
   { name: "V-TAC", what: { bg: "Батерийни модули", en: "Battery modules" } },
   { name: "iSTA-BREEZE", what: { bg: "Малки ветрогенератори и мачти", en: "Small wind turbines and masts" } },
