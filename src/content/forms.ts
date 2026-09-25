@@ -4,16 +4,16 @@
 // To switch on Google Forms: create the form, open its "Get pre-filled link", fill every field,
 // copy the link and paste the entry IDs below; `action` is the form URL with /viewform → /formResponse.
 export const GOOGLE_FORM: { action: string | null; fields: Record<string, string> } = {
-  action: null, // e.g. "https://docs.google.com/forms/d/e/1FAIpQLSd.../formResponse"
+  action: "https://docs.google.com/forms/d/e/1FAIpQLSdszKTLM-QAOf1gXC-eQrmwwX5hNFsALwkEMnuBZ4UWuyx1Ng/formResponse", // e.g. "https://docs.google.com/forms/d/e/1FAIpQLSd.../formResponse"
   fields: {
-    name: "entry.0000000001",
-    company: "entry.0000000002",
-    phone: "entry.0000000003",
-    email: "entry.0000000004",
-    siteType: "entry.0000000005",
-    battery: "entry.0000000006",
-    kwp: "entry.0000000007",
-    location: "entry.0000000008",
-    message: "entry.0000000009",
+    name: "entry.1266489874",
+    company: "entry.796226685",
+    phone: "entry.966214887",
+    email: "entry.1850918927",
+    siteType: "entry.1884821333",
+    battery: "entry.771352675",
+    kwp: "entry.409420934",
+    location: "entry.1486167398",
+    message: "entry.1346621007",
   },
 };
