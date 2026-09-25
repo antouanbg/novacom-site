@@ -90,6 +90,19 @@ export default async function ProductPage({ params }: P) {
                     : "We combine the charger with PV and storage and include it in free 24/365 monitoring. For businesses: reporting per employee and customer."}
                 </p>
                 <p className="mt-3 text-white/80">{bg ? "Марки и модели: според обекта и мощността, в офертата." : "Brands and models: chosen per site and power, in the quote."}</p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  {[
+                    [REAL.evpointGarage, bg ? "AC зарядна 22 kW в гараж" : "22 kW AC charger in a garage"],
+                    [REAL.evOpen, bg ? "Монтаж и свързване на зарядна станция" : "Installing and wiring a charger"],
+                    [REAL.evDcAc, bg ? "DC и AC зарядни на един обект" : "DC and AC chargers on one site"],
+                    [REAL.dcFastCharger, bg ? "DC бърза станция с два изхода" : "DC fast charger with two outlets"],
+                  ].map(([src, cap]) => (
+                    <figure key={src} className="overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
+                      <div className="aspect-[4/3]"><Photo id={src} alt={cap} /></div>
+                      <figcaption className="px-3 py-2 text-xs text-white/70">{cap}</figcaption>
+                    </figure>
+                  ))}
+                </div>
               </div>
             ) : p.slug === "carports" ? (
               <div className="grid gap-3">
