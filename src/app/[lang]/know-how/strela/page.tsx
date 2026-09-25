@@ -42,7 +42,7 @@ export default async function StrelaPage({ params }: P) {
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_1.25fr] lg:gap-12 lg:py-16">
           <Reveal>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Ноу-хау · Изобретение" : "Know-how · Invention"}</p>
-            <h1 className="break-words text-[2rem] font-extrabold leading-[1.12] [overflow-wrap:anywhere] sm:text-5xl">{bg ? "Тракер „Стрела“: двуосов, на един стълб" : "Strela tracker: two-axis, single mast"}</h1>
+            <h1 className="hyphens-auto [overflow-wrap:normal] text-[clamp(1.6rem,7vw,3rem)] font-extrabold leading-[1.12]">{bg ? "Тракер „Стрела“: двуосов, на един стълб" : "Strela tracker: two-axis, single mast"}</h1>
             <p className="mt-5 text-lg text-white/80">
               {bg
                 ? "Собствен дизайн и разработка на Novacom. Единственият български соларен тракер: следи слънцето през целия ден, а сезонно рамо сменя наклона за зима и лято."
@@ -91,7 +91,7 @@ export default async function StrelaPage({ params }: P) {
             <dl className="mt-6 divide-y divide-line rounded-2xl border border-line bg-white">
               {specs.map(([k, v]) => (
                 <div key={k} className="grid gap-1 px-5 py-4 sm:grid-cols-[170px_1fr]">
-                  <dt className="break-words text-sm font-bold uppercase tracking-wide text-muted [overflow-wrap:anywhere]">{k}</dt>
+                  <dt className="hyphens-auto [overflow-wrap:normal] text-[clamp(11px,3.2vw,14px)] font-bold uppercase tracking-wide text-muted">{k}</dt>
                   <dd className="font-semibold">{v}</dd>
                 </div>
               ))}

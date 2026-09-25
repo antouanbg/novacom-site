@@ -56,7 +56,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:py-20">
           <Reveal>
             <Eyebrow>{bg ? "ФЕЦ · BESS · C&I" : "Solar · BESS · C&I"}</Eyebrow>
-            <h1 className="break-words text-[2rem] font-extrabold leading-[1.1] [overflow-wrap:anywhere] sm:text-5xl lg:text-6xl">
+            <h1 className="hyphens-auto [overflow-wrap:normal] text-[clamp(1.6rem,7vw,3.75rem)] font-extrabold leading-[1.1]">
               {bg ? (
                 <>Соларна енергия и <span className="text-brand">съхранение</span> за вашия бизнес и дом</>
               ) : (
@@ -74,15 +74,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 {bg ? "Решения за бизнеса" : "Business solutions"}
               </Button>
             </div>
-            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-line pt-6">
+            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-3 border-t border-line pt-6 sm:gap-4">
               {[
                 ["30+", bg ? "години опит" : "years of experience"],
                 ["50+", bg ? "завършени проекта" : "completed projects"],
                 ["261 kWh", bg ? "шкафови системи BESS" : "BESS cabinet systems"],
               ].map(([n, l]) => (
                 <div key={l}>
-                  <dt className="text-2xl font-extrabold sm:text-3xl">{n}</dt>
-                  <dd className="mt-1 break-words text-sm text-muted [overflow-wrap:anywhere]">{l}</dd>
+                  <dt className="text-[clamp(1.15rem,5.6vw,1.875rem)] font-extrabold">{n}</dt>
+                  <dd className="hyphens-auto [overflow-wrap:normal] mt-1 text-[clamp(11px,3.2vw,14px)] leading-snug text-muted">{l}</dd>
                 </div>
               ))}
             </dl>
@@ -115,15 +115,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 ? "Тракерът „Стрела“ е собствена разработка на Novacom: двуосов, на един стълб, следи слънцето през деня и сменя наклона по сезон. Зад него стоят собствената ни EMS GrideX с отворен код (безплатна с батерия Suntech 261 kWh), четири регистрирани полезни модела и научни публикации."
                 : "The Strela tracker is Novacom's own development: two-axis, single mast, tracking the sun through the day and changing tilt by season. Behind it stand our own open-source GrideX EMS (free with a Suntech 261 kWh battery), four registered utility models and scientific publications."}
             </p>
-            <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-white/15 pt-6">
+            <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-white/15 pt-6 sm:gap-4">
               {[
                 ["+45%", bg ? "повече добив от „Стрела“ спрямо фиксирана конструкция" : "more yield from Strela than a fixed structure"],
                 ["+122%", bg ? "приход на ФЕЦ с батерия Suntech 261 kWh и нашия EMS" : "plant revenue with a Suntech 261 kWh battery and our EMS"],
                 ["−45%", bg ? "пиково потребление с оптимизацията в EMS" : "grid peak with the EMS optimisation"],
               ].map(([n, l]) => (
                 <div key={n}>
-                  <dt className="text-2xl font-extrabold text-[#b5d86a] sm:text-3xl">{n}</dt>
-                  <dd className="mt-1 break-words text-xs text-white/70 [overflow-wrap:anywhere] sm:text-sm">{l}</dd>
+                  <dt className="text-[clamp(1.15rem,5.6vw,1.875rem)] font-extrabold text-[#b5d86a]">{n}</dt>
+                  <dd className="hyphens-auto [overflow-wrap:normal] mt-1 text-[clamp(11px,3.1vw,14px)] leading-snug text-white/70">{l}</dd>
                 </div>
               ))}
             </dl>

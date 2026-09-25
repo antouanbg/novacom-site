@@ -25,7 +25,7 @@ export default async function SearchPage({ params }: P) {
     <Section>
       <div className="mx-auto max-w-3xl">
         <Eyebrow>{bg ? "Търсене" : "Search"}</Eyebrow>
-        <h1 className="mt-2 break-words text-[2rem] font-extrabold leading-[1.12] [overflow-wrap:anywhere] sm:text-4xl">{bg ? "Какво търсите?" : "What are you looking for?"}</h1>
+        <h1 className="hyphens-auto [overflow-wrap:normal] mt-2 text-[clamp(1.6rem,6.5vw,2.25rem)] font-extrabold leading-[1.12]">{bg ? "Какво търсите?" : "What are you looking for?"}</h1>
         <p className="mt-3 text-muted">
           {bg
             ? "Търси в продукти, решения, услуги, проекти, новини и ноу-хау. Резултатите се показват веднага, докато пишете."

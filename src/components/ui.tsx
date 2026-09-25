@@ -65,7 +65,7 @@ export function Eyebrow({ children }: { children: ReactNode }) {
 }
 
 export function H2({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <h2 className={`break-words text-[1.75rem] font-extrabold leading-tight [overflow-wrap:anywhere] sm:text-4xl lg:text-[44px] ${className}`}>{children}</h2>;
+  return <h2 className={`hyphens-auto [overflow-wrap:normal] text-[clamp(1.4rem,5.8vw,44px)] font-extrabold leading-tight ${className}`}>{children}</h2>;
 }
 
 export function Button({ to, children, variant = "dark" }: { to: string; children: ReactNode; variant?: "dark" | "outline" | "light" }) {
@@ -92,7 +92,7 @@ export function PageHero({ lang, eyebrow, title, text, img }: { lang: Lang; eyeb
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
         <Reveal>
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{eyebrow}</p>
-          <h1 className="max-w-3xl break-words text-[2rem] font-extrabold leading-[1.12] [overflow-wrap:anywhere] sm:text-5xl lg:text-6xl">{title}</h1>
+          <h1 className="hyphens-auto [overflow-wrap:normal] max-w-3xl text-[clamp(1.6rem,7vw,3.75rem)] font-extrabold leading-[1.12]">{title}</h1>
           {text && <p className="mt-6 max-w-2xl text-lg text-white/80">{text}</p>}
           <div className="mt-8">
             <Button to={href(lang, "contact") + "#quote"} variant="light">
