@@ -153,7 +153,6 @@ export default async function KnowHowPage({ params }: P) {
               {[
                 { n: "4", t: bg ? "регистрирани полезни модела" : "registered utility models" },
                 { n: "IEEE", t: bg ? "научни публикации в IEEE Xplore" : "publications in IEEE Xplore" },
-                { n: "GitHub", t: bg ? "отворени данни и код от изследванията" : "open data and code from the research", href: IBEX_DATASET_URL },
                 { n: bg ? "ТУ-София" : "TU Sofia", t: bg ? "дисциплина „Интелигентни мрежи и системи за ВЕИ“" : "course: Smart Grids and Systems for Renewables" },
                 { n: "30+", t: bg ? "години в технологиите и енергетиката" : "years in technology and energy" },
               ].map((k) => (
