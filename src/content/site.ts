@@ -26,6 +26,7 @@ export const REAL = {
   trackerTrailers: "/images/projects/tracker-trailers.webp",
   tracker2pExpo: "/images/mounting/tracker-2p-expo.webp",
   trackerRowsDesert: "/images/mounting/tracker-rows-desert.webp",
+  intersolarSuntech: "/images/news/intersolar-2026-suntech.webp",
   trackerCabinet: "/images/projects/tracker-trailer-cabinet.webp",
   bessOpen: "/images/storage/bess-cabinet-open.webp",
   bessRender: "/images/storage/bess-cabinet-render.webp",
@@ -801,6 +802,17 @@ export type NewsItem = { slug: string; date: string; title: L; text: L; more?: L
 
 // Newest first. Dates are ISO; the page formats them per language.
 export const news: NewsItem[] = [
+  {
+    slug: "intersolar-2026-munich",
+    date: "2026-09-25",
+    title: { bg: "Novacom на Intersolar Europe 2026 в Мюнхен, на щанда на Suntech", en: "Novacom at Intersolar Europe 2026 in Munich, on the Suntech stand" },
+    text: {
+      bg: "Участвахме в най-голямото соларно изложение в Европа, Intersolar Europe 2026 в Мюнхен, като търговски представител на Suntech за Балканите и Европа. Suntech отбеляза 25 години от основаването си и показа новите двулицеви модули, домашните системи с батерия и индустриалните решения за съхранение SunStorage, които доставяме и монтираме в България.",
+      en: "We took part in Europe's largest solar exhibition, Intersolar Europe 2026 in Munich, as Suntech's sales representative for the Balkans and Europe. Suntech celebrated 25 years since its founding and presented its new bifacial modules, residential battery systems and the SunStorage industrial storage solutions that we supply and install in Bulgaria.",
+    },
+    img: REAL.intersolarSuntech,
+    to: "products/storage",
+  },
   {
     slug: "site-visit-eu-funding",
     date: "2026-09-24",

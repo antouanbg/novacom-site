@@ -40,3 +40,4 @@
 
 | tracker2pExpo | `mounting/tracker-2p-expo.webp` | Снимка на клиента: 2P тракер на изложение (2026-09-25) |
 | trackerRowsDesert | `mounting/tracker-rows-desert.webp` | Снимка на клиента: редове едноосови тракери, наземен парк; изрязан воден знак на телефона (2026-09-25) |
+| intersolarSuntech | `news/intersolar-2026-suntech.webp` | Снимка на клиента: щанд Suntech, Intersolar Europe 2026, Мюнхен (2026-09-25) |
