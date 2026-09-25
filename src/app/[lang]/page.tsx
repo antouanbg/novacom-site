@@ -56,7 +56,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:py-20">
           <Reveal>
             <Eyebrow>{bg ? "ФЕЦ · BESS · C&I" : "Solar · BESS · C&I"}</Eyebrow>
-            <h1 className="hyphens-auto [overflow-wrap:normal] text-[clamp(1.6rem,7vw,3.75rem)] font-extrabold leading-[1.1]">
+            <h1 className="[overflow-wrap:normal] [hyphens:manual] text-[clamp(1.25rem,7vw,3.75rem)] font-extrabold leading-[1.1]">
               {bg ? (
                 <>Соларна енергия и <span className="text-brand">съхранение</span> за вашия бизнес и дом</>
               ) : (
@@ -82,7 +82,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               ].map(([n, l]) => (
                 <div key={l}>
                   <dt className="text-[clamp(1.15rem,5.6vw,1.875rem)] font-extrabold">{n}</dt>
-                  <dd className="hyphens-auto [overflow-wrap:normal] mt-1 text-[clamp(11px,3.2vw,14px)] leading-snug text-muted">{l}</dd>
+                  <dd className="[overflow-wrap:normal] [hyphens:manual] mt-1 text-[clamp(11px,3.2vw,14px)] leading-snug text-muted">{l}</dd>
                 </div>
               ))}
             </dl>
@@ -123,7 +123,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               ].map(([n, l]) => (
                 <div key={n}>
                   <dt className="text-[clamp(1.15rem,5.6vw,1.875rem)] font-extrabold text-[#b5d86a]">{n}</dt>
-                  <dd className="hyphens-auto [overflow-wrap:normal] mt-1 text-[clamp(11px,3.1vw,14px)] leading-snug text-white/70">{l}</dd>
+                  <dd className="[overflow-wrap:normal] [hyphens:manual] mt-1 text-[clamp(11px,3.1vw,14px)] leading-snug text-white/70">{l}</dd>
                 </div>
               ))}
             </dl>

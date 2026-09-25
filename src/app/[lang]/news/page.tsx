@@ -32,7 +32,7 @@ export default async function NewsPage({ params }: P) {
             </div>
             <div className="flex flex-col justify-center p-6 sm:p-10">
               <time className="text-sm font-bold text-brand" dateTime={first.date}>{fmtDate(first.date, lang)}</time>
-              <h2 className="hyphens-auto [overflow-wrap:normal] mt-2 text-[clamp(1.25rem,5.4vw,1.875rem)] font-extrabold leading-tight">{first.title[lang]}</h2>
+              <h2 className="[overflow-wrap:normal] [hyphens:manual] mt-2 text-[clamp(1.1rem,5.4vw,1.875rem)] font-extrabold leading-tight">{first.title[lang]}</h2>
               <p className="mt-4 text-lg text-muted">{first.text[lang]}</p>
               {first.more && (
                 <p className="mt-3 text-lg text-muted">
