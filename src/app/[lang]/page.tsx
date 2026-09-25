@@ -46,7 +46,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     },
   ];
 
-  const entry = [solutions[0], solutions[1], solutions[3]];
+  // All five audiences; households last, spanning two columns on desktop so the grid stays even.
+  const entry = [solutions[0], solutions[1], solutions[2], solutions[3], solutions[4]];
 
   return (
     <>
@@ -171,9 +172,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <Eyebrow>{bg ? "Решения" : "Solutions"}</Eyebrow>
           <H2>{bg ? "За кого работим" : "Who we work for"}</H2>
         </Reveal>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {entry.map((s, i) => (
-            <Reveal key={s.slug} delay={i * 0.08}>
+            <Reveal key={s.slug} delay={i * 0.08} className={i === entry.length - 1 ? "sm:col-span-2 lg:col-span-2" : ""}>
               {/* Text sits in normal flow with a tall top padding, so the card grows with long titles instead of the text climbing over the bright part of the photo. */}
               <Link
                 href={href(lang, `solutions/${s.slug}`)}

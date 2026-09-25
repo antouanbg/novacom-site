@@ -50,8 +50,8 @@ export default function Header({ lang }: { lang: Lang }) {
 
   return (
     <header className={`sticky top-0 z-50 bg-white transition-shadow ${scrolled ? "shadow-[0_1px_0_#e2e7ee,0_8px_24px_-12px_rgba(11,34,57,.18)]" : ""}`}>
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20">
-        <Link href={href(lang)} aria-label="Novacom" className="shrink-0">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-3 px-4 sm:gap-4 sm:px-6 lg:h-20">
+        <Link href={href(lang)} aria-label="Novacom" className="min-w-0 shrink">
           <Logo />
         </Link>
 
@@ -87,8 +87,8 @@ export default function Header({ lang }: { lang: Lang }) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 lg:gap-3">
-          <Link href={href(lang, "search")} aria-label={ui.search[lang]} title={ui.search[lang]} className="hidden h-11 w-11 place-items-center rounded-xl border border-line text-ink hover:border-brand hover:text-brand sm:grid">
+        <div className="flex shrink-0 items-center gap-2 lg:gap-3">
+          <Link href={href(lang, "search")} aria-label={ui.search[lang]} title={ui.search[lang]} className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line text-ink hover:border-brand hover:text-brand">
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
               <circle cx="11" cy="11" r="7" />
               <path d="m20 20-3.5-3.5" />
@@ -103,7 +103,7 @@ export default function Header({ lang }: { lang: Lang }) {
             {ui.quote[lang]}
           </Link>
           <button
-            className="grid h-11 w-11 place-items-center rounded-xl border border-line lg:hidden"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-line lg:hidden"
             onClick={() => setOpen(true)}
             aria-label={ui.menu[lang]}
             aria-expanded={open}
@@ -125,6 +125,7 @@ export default function Header({ lang }: { lang: Lang }) {
           <div className="no-scrollbar flex overflow-x-auto scroll-smooth">
             {[
               { to: href(lang), l: lang === "bg" ? "Начало" : "Home", d: "M3 11 12 3l9 8v10h-6v-6H9v6H3z" },
+              { to: href(lang, "search"), l: lang === "bg" ? "Търси" : "Search", d: "M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-3.5-3.5" },
               { to: href(lang, "solutions/industry"), l: lang === "bg" ? "Решения" : "Solutions", d: "M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" },
               { to: href(lang, "products"), l: lang === "bg" ? "Продукти" : "Products", d: "M3 7l9-4 9 4-9 4zM3 7v10l9 4V11M21 7v10l-9 4" },
               { to: href(lang, "services/consulting"), l: lang === "bg" ? "Услуги" : "Services", d: "M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z" },
@@ -133,7 +134,6 @@ export default function Header({ lang }: { lang: Lang }) {
               { to: href(lang, "news"), l: lang === "bg" ? "Новини" : "News", d: "M4 5h12v14H6a2 2 0 0 1-2-2zM16 9h4v8a2 2 0 0 1-2 2M7 9h6M7 13h6M7 16h4" },
               { to: href(lang, "about"), l: lang === "bg" ? "За нас" : "About", d: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0" },
               { to: href(lang, "contact"), l: lang === "bg" ? "Контакт" : "Contact", d: "M4 6h16v12H4zM4 7l8 6 8-6" },
-              { to: href(lang, "search"), l: lang === "bg" ? "Търси" : "Search", d: "M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-3.5-3.5" },
             ].map((t) => (
               <Link key={t.to} href={t.to} className="flex min-w-[76px] shrink-0 flex-col items-center gap-1 px-2 py-2 text-[11px] font-bold leading-none text-muted hover:text-ink">
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" aria-hidden>
