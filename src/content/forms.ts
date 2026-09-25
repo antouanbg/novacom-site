@@ -1,10 +1,16 @@
-// Quote form delivery. Static hosting has no backend, so the form can post to a Google Form
-// (which emails the owner on every response) and falls back to a prepared mailto: message.
+// Quote form delivery. Static hosting has no backend, so the form talks to a small Apps Script
+// web app in the company Google account (antouan@novacom.bg): it emails the client a confirmation
+// (BCC to the company), archives the request in a Google Form and answers {ok:true|false}, which the
+// site turns into a success / failure message. If the endpoint cannot be reached at all, the form
+// falls back to posting straight into the Google Form (opaque response) and, last, to mailto:.
 //
-// To switch on Google Forms: create the form, open its "Get pre-filled link", fill every field,
-// copy the link and paste the entry IDs below; `action` is the form URL with /viewform → /formResponse.
+// Apps Script project: "novacom.bg – формуляр за оферта (потвърждение до клиента)" (script.google.com,
+// account antouan@novacom.bg). Redeploy there → new /exec URL → paste it into `endpoint`.
+export const QUOTE_ENDPOINT = "https://script.google.com/macros/s/AKfycbx_lVXb4dtiIxZ6WHTq0s5lQElprCsq4IS8nF_AoJgvucRW18NUUOVsDicswBdsq4BU/exec";
+
+// Google Form "Запитване за оферта – novacom.bg" (same account): used as the archive and as the fallback.
 export const GOOGLE_FORM: { action: string | null; fields: Record<string, string> } = {
-  action: "https://docs.google.com/forms/d/e/1FAIpQLScCHszsjkMAQs-vkBvDdfyyhx5U854bTsSxAMUrMIhqITdJWA/formResponse", // e.g. "https://docs.google.com/forms/d/e/1FAIpQLSd.../formResponse"
+  action: "https://docs.google.com/forms/d/e/1FAIpQLScCHszsjkMAQs-vkBvDdfyyhx5U854bTsSxAMUrMIhqITdJWA/formResponse",
   fields: {
     name: "entry.1298751419",
     company: "entry.1463422895",
