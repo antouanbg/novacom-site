@@ -42,3 +42,4 @@
 | trackerRowsDesert | `mounting/tracker-rows-desert.webp` | Снимка на клиента: редове едноосови тракери, наземен парк; изрязан воден знак на телефона (2026-09-25) |
 | intersolarSuntech | `news/intersolar-2026-suntech.webp` | Снимка на клиента: щанд Suntech, Intersolar Europe 2026, Мюнхен (2026-09-25) |
 | hybridRoom, roofFrost, groundElevatedSun, deyeHybridWhite, deyeBatteryStack, groundRailsFog, evpointGarage, groundElevatedFence | `install/`, `projects/`, `storage/`, `mounting/`, `ev/` | Снимки на клиента, партида 2026-09-25 (8 бр.); изрязани: баня (deyeHybridWhite), кофи с боя (deyeBatteryStack), човек в кадъра (evpointGarage) |
+| facadeBlack, roofEastWest, roofPrep, inverterConnectors, inverterCommBoard, deyeDisplay, inverterPv12, dcFastCharger | `projects/`, `mounting/`, `install/`, `monitoring/`, `ev/` | Снимки на клиента от Drive/novacom-site-photos (2026-09-25); лицето на монтажника е пикселизирано, човекът до зарядната е изрязан |

@@ -35,6 +35,14 @@ export const REAL = {
   groundRailsFog: "/images/mounting/ground-rails-fog.webp",
   evpointGarage: "/images/ev/evpoint-garage.webp",
   groundElevatedFence: "/images/projects/ground-elevated-fence.webp",
+  facadeBlack: "/images/projects/facade-black-modules.webp",
+  roofEastWest: "/images/mounting/roof-east-west-ballast.webp",
+  inverterConnectors: "/images/install/inverter-pv-bat-connectors.webp",
+  inverterCommBoard: "/images/monitoring/inverter-comm-board.webp",
+  deyeDisplay: "/images/monitoring/deye-display-flows.webp",
+  inverterPv12: "/images/install/inverter-pv1-pv2.webp",
+  dcFastCharger: "/images/ev/dc-fast-charger.webp",
+  roofPrep: "/images/install/roof-prep-rails.webp",
   trackerCabinet: "/images/projects/tracker-trailer-cabinet.webp",
   bessOpen: "/images/storage/bess-cabinet-open.webp",
   bessRender: "/images/storage/bess-cabinet-render.webp",
@@ -203,7 +211,7 @@ export const solutions: Solution[] = [
       bg: "Соларна система с батерия намалява сметката за ток и осигурява резерв при прекъсване на захранването.",
       en: "A solar system with a battery lowers your bill and keeps the lights on during outages.",
     },
-    img: REAL.roofFrost,
+    img: REAL.facadeBlack,
     points: [
       { bg: "Мрежови и хибридни системи", en: "Grid-tied and hybrid systems" },
       { bg: "Домашни батерии", en: "Home batteries" },
@@ -309,7 +317,7 @@ export const products: Product[] = [
       bg: "Използваме нискокорозионни материали и крепежи, които не ускоряват корозията на основната конструкция.",
       en: "We use low-corrosion materials and fasteners that do not accelerate corrosion of the supporting structure.",
     },
-    img: REAL.groundRailsFog,
+    img: REAL.roofEastWest,
     features: [
       { bg: "Скатни и плоски покриви", en: "Pitched and flat roofs" },
       { bg: "Наземни конструкции, навеси и мобилни тракери", en: "Ground mounts, canopies and mobile trackers" },
@@ -328,7 +336,7 @@ export const products: Product[] = [
       bg: "GrideX Energy OS е нашата индустриална система за управление на енергията, проектирана и разработена от д-р инж. Антуан Ангелов и публикувана като отворен код под MIT лиценз (github.com/antouanbg). Тя следи и управлява ФЕЦ, батерии, мрежата, товарите и зарядните станции, планира по цените на БНЕБ за ден напред, прогнозира производството по времето и пази батерията в безопасния ѝ режим чрез локален Edge gateway. Всеки клиент, който купи батерия Suntech 261 kWh, получава EMS внедрена 100% безплатно, с интеграция към неограничен брой външни инвертори, батерии и устройства.",
       en: "GrideX Energy OS is our industrial energy management system, designed and developed by Dr. Eng. Antouan Anguelov and published as open source under the MIT licence (github.com/antouanbg). It monitors and controls PV, batteries, the grid, loads and EV chargers, schedules against IBEX day-ahead prices, forecasts production from the weather and keeps the battery inside its safety envelope through a local edge gateway. Every client who buys a Suntech 261 kWh battery gets the EMS deployed 100% free, with integration to an unlimited number of third-party inverters, batteries and devices.",
     },
-    img: REAL.smaMeter,
+    img: REAL.deyeDisplay,
     features: [
       { bg: "Отворен код (MIT): без лицензни такси, без обвързване с доставчик", en: "Open source (MIT): no licence fees, no vendor lock-in" },
       { bg: "Режими: арбитраж по цените на БНЕБ, собствено потребление, Zero Export, изрязване на пикове", en: "Modes: IBEX price arbitrage, self-consumption, zero export, peak shaving" },
@@ -350,7 +358,7 @@ export const products: Product[] = [
       bg: "Доставяме и монтираме зарядни станции за електромобили: от домашни AC зарядни (wallbox) до DC станции за фирмени паркинги и обществени обекти. Свързваме зареждането с фотоволтаичната централа и батерията, така че колата да се зарежда със собствена слънчева енергия или при ниски цени на тока. Собствената ни концепция V2G-Hybrid-Charge добавя батериен буфер към зарядната станция: бързо зареждане без скъпо увеличение на партидата и връщане на енергия към мрежата при пик.",
       en: "We supply and install EV charging stations, from home AC wallboxes to DC stations for company car parks and public sites. Charging is linked to your PV plant and battery, so cars charge on your own solar energy or when power prices are low. Our own V2G-Hybrid-Charge concept adds a battery buffer to the charger: fast charging without a costly grid upgrade, and energy fed back to the grid at peak times.",
     },
-    img: REAL.evpointGarage,
+    img: REAL.dcFastCharger,
     features: [
       { bg: "AC зарядни 7,4 / 11 / 22 kW за дома и офиса", en: "7.4 / 11 / 22 kW AC chargers for home and office" },
       { bg: "DC бързи зарядни за фирмени и обществени паркинги", en: "DC fast chargers for company and public car parks" },
@@ -595,7 +603,7 @@ export const services: Service[] = [
       bg: "Доставяме оборудването и монтираме централата. Предаваме пълна документация и обучаваме екипа ви.",
       en: "We deliver the equipment and install the plant, then hand over full documentation and train your team.",
     },
-    img: REAL.switchboard,
+    img: REAL.roofPrep,
     steps: [
       { bg: "Доставка на оборудването", en: "Equipment delivery" },
       { bg: "Професионален монтаж", en: "Professional installation" },
@@ -744,6 +752,14 @@ export const projectTypes = [
 
 // Real installation photos for the projects gallery (© Novacom).
 export const gallery: { src: string; alt: L; tall?: boolean }[] = [
+  { src: REAL.facadeBlack, alt: { bg: "Вертикален монтаж на фасада: черни модули, без покривна конструкция", en: "Vertical facade mounting: all-black modules, no roof structure needed" } },
+  { src: REAL.roofEastWest, alt: { bg: "Изток–запад на плосък покрив с баластна конструкция", en: "East–west layout on a flat roof with a ballasted structure" } },
+  { src: REAL.roofPrep, alt: { bg: "Разчертаване и релси преди модулите: всеки покрив се подготвя на място", en: "Marking out and rails before the modules: every roof is prepared on site" } },
+  { src: REAL.dcFastCharger, alt: { bg: "DC бърза зарядна станция с два изхода", en: "DC fast charger with two outlets" }, tall: true },
+  { src: REAL.deyeDisplay, alt: { bg: "ФЕЦ, батерия, мрежа и дом в реално време на дисплея на хибридния инвертор", en: "PV, battery, grid and home in real time on the hybrid inverter display" } },
+  { src: REAL.inverterCommBoard, alt: { bg: "Modbus/BMS комуникация: оттук GrideX чете инвертора и батерията", en: "Modbus/BMS communication: this is where GrideX reads the inverter and battery" } },
+  { src: REAL.inverterConnectors, alt: { bg: "Стрингови входове и батерийна връзка на хибриден инвертор", en: "String inputs and battery connection on a hybrid inverter" } },
+  { src: REAL.inverterPv12, alt: { bg: "PV1/PV2 входове на стрингов инвертор", en: "PV1/PV2 inputs on a string inverter" } },
   { src: REAL.groundElevatedFence, alt: { bg: "Наземна ФЕЦ на повдигната конструкция до производствена сграда", en: "Ground-mounted PV on an elevated structure next to a production building" } },
   { src: REAL.deyeBatteryStack, alt: { bg: "Батерийни модули Deye и хибриден инвертор в дома", en: "Deye battery modules and hybrid inverter in a home" }, tall: true },
   { src: REAL.roofFrost, alt: { bg: "Черни модули на плосък покрив на къща", en: "All-black modules on a flat house roof" } },
