@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { REAL, utilityModels } from "@/content/site";
 import { href, type Lang } from "@/lib/i18n";
-import ResearchResults, { IBEX_DATASET_URL } from "@/components/ResearchResults";
+import ResearchResults from "@/components/ResearchResults";
 import { seo } from "@/lib/seo";
 import { Button, Check, CTA, Eyebrow, H2, PageHero, Photo, Reveal, Section } from "@/components/ui";
 

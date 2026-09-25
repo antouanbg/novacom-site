@@ -29,9 +29,9 @@ export default function ResearchResults({ lang, dark = false }: { lang: Lang; da
       <Reveal className="mt-5">
         <p className={`text-sm ${dark ? "text-white/60" : "text-muted"}`}>
           {bg
-            ? "Резултати от научно изследване на екип от ТУ-София с участието на Novacom (2026): MILP модел на общност от три индустриални просуматора с оборудване Suntech SunStorage PRO и 12 месеца реални цени от БНЕБ. Данните и кодът са публикувани в "
-            : "Results of a 2026 study by a TU Sofia team with Novacom's participation: a MILP model of a community of three industrial prosumers with Suntech SunStorage PRO equipment and twelve months of real IBEX prices. Data and code are published on "}
-          <span className="font-bold">IBEX (БНЕБ)</span>.
+            ? "Резултати от научно изследване на екип от ТУ-София с участието на Novacom (2026): MILP модел на общност от три индустриални просуматора с оборудване Suntech SunStorage PRO и 12 месеца реални цени от борсата "
+            : "Results of a 2026 study by a TU Sofia team with Novacom's participation: a MILP model of a community of three industrial prosumers with Suntech SunStorage PRO equipment and twelve months of real day-ahead prices from "}
+          <span className="font-bold">{bg ? "БНЕБ (IBEX)" : "IBEX (the Bulgarian power exchange)"}</span>.
           {bg ? " Стойностите са симулационни, за конкретните обекти в изследването." : " Values are simulated, for the specific sites in the study."}
         </p>
       </Reveal>
