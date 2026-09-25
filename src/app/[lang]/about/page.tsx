@@ -91,8 +91,8 @@ export default async function AboutPage({ params }: P) {
                   <span className="text-lg font-extrabold">{bg ? "Технически университет – София" : "Technical University of Sofia"}</span>
                   <p className="text-muted">
                     {bg
-                      ? "Академична връзка чрез нашия основател, преподавател където води дисциплината „Интелигентни мрежи и системи за ВЕИ“."
-                      : "An academic link through our founder, who teaches his own renewable energy programme."}
+                      ? "Академична връзка чрез нашия основател, преподавател по дисциплината „Интелигентни мрежи и системи за ВЕИ“."
+                      : "An academic link through our founder, who teaches Smart Grids and Systems for Renewables."}
                   </p>
                 </li>
               </ul>
