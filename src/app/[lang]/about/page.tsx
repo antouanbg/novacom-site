@@ -53,8 +53,8 @@ export default async function AboutPage({ params }: P) {
               <p className="font-extrabold">{bg ? "д-р инж. Антуан Ангелов, основател" : "Dr. Eng. Antouan Anguelov, founder"}</p>
               <p className="mt-2 text-muted">
                 {bg
-                  ? "Доктор инженер, преподавател в Технически университет – София и автор на специалност по възобновяеми енергийни източници. Търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
-                  : "Doctor of Engineering, lecturer at the Technical University of Sofia and author of a renewable energy degree programme. Sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
+                  ? "Доктор инженер и преподавател в Технически университет – София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“. Търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
+                  : "Doctor of Engineering and lecturer at the Technical University of Sofia, where he teaches Smart Grids and Systems for Renewables. Sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
               </p>
             </div>
           </Reveal>
@@ -91,7 +91,7 @@ export default async function AboutPage({ params }: P) {
                   <span className="text-lg font-extrabold">{bg ? "Технически университет – София" : "Technical University of Sofia"}</span>
                   <p className="text-muted">
                     {bg
-                      ? "Академична връзка чрез нашия основател, преподавател със собствена специалност по ВЕИ."
+                      ? "Академична връзка чрез нашия основател, преподавател където води дисциплината „Интелигентни мрежи и системи за ВЕИ“."
                       : "An academic link through our founder, who teaches his own renewable energy programme."}
                   </p>
                 </li>
