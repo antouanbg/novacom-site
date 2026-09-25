@@ -108,7 +108,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Собствено ноу-хау" : "Our own know-how"}</p>
-            <H2>{bg ? "Не само доставяме. Изобретяваме." : "We don't just supply. We invent."}</H2>
+            <H2>{bg ? "Не само доставяме, монтираме и пускаме в експлоатация, но и изобретяваме и иновираме." : "We don't just supply, install and commission. We invent and innovate."}</H2>
             <p className="mt-5 text-lg text-white/80">
               {bg
                 ? "Тракерът „Стрела“ е собствена разработка на Novacom: двуосов, на един стълб, следи слънцето през деня и сменя наклона по сезон. Зад него стоят собствената ни EMS GrideX с отворен код (безплатна с батерия Suntech 261 kWh), четири регистрирани полезни модела и научни публикации."
