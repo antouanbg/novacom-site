@@ -142,7 +142,7 @@ export default async function KnowHowPage({ params }: P) {
             <p className="mt-5 text-lg text-muted">
               {bg
                 ? "Зад разработките на Novacom стои д-р инж. Антуан Ангелов, собственик на компанията, доктор инженер и преподавател в Технически университет – София, автор на специалност по възобновяеми енергийни източници. Автор е на научни публикации в IEEE Xplore в областта на роевата интелигентност, автономните системи и комуникациите, и на четири регистрирани полезни модела."
-                : "Behind Novacom's developments is Dr. Eng. Antouan Anguelov, the company's owner, a scientist and lecturer at the Technical University of Sofia (Faculty of Computer Systems and Technologies), where he teaches his own course, Smart Grids and Systems for Renewables. He has authored IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and four registered utility models."}
+                : "Behind Novacom's developments is Dr. Eng. Antouan Anguelov, the company's owner, a doctor of engineering and lecturer at the Technical University of Sofia (Faculty of Computer Systems and Technologies), where he teaches his own course, Smart Grids and Systems for Renewables. He has authored IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and four registered utility models."}
             </p>
             <p className="mt-4 text-lg text-muted">
               {bg
