@@ -7,6 +7,9 @@ import type { SearchDoc } from "@/lib/searchIndex";
 import type { Lang } from "@/lib/i18n";
 
 const norm = (s: string) => s.toLowerCase().replace(/[„“"'’«»()[\],;:!?]/g, " ").replace(/\s+/g, " ").trim();
+// Light stemming so "батерия" also finds "батерии"/"батерийна": drop the last one or two letters of longer words.
+const stem = (t: string) => (t.length >= 6 ? t.slice(0, -2) : t.length >= 5 ? t.slice(0, -1) : t);
+const esc = (t: string) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 function snippet(text: string, tokens: string[]) {
   const n = norm(text);
@@ -23,11 +26,11 @@ function snippet(text: string, tokens: string[]) {
 
 function Highlight({ text, tokens }: { text: string; tokens: string[] }) {
   if (!tokens.length) return <>{text}</>;
-  const re = new RegExp(`(${tokens.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "gi");
+  const re = new RegExp(`(${tokens.map((t) => esc(t) + "[\\p{L}\\p{N}]*").join("|")})`, "giu");
   return (
     <>
       {text.split(re).map((part, i) =>
-        tokens.includes(norm(part)) ? (
+        part && tokens.some((t) => norm(part).startsWith(t)) ? (
           <mark key={i} className="rounded bg-[#e8f3c9] px-0.5 text-ink">{part}</mark>
         ) : (
           <span key={i}>{part}</span>
@@ -49,7 +52,7 @@ export default function SearchClient({ lang, docs }: { lang: Lang; docs: SearchD
     window.history.replaceState(null, "", url.toString());
   }, [q]);
 
-  const tokens = useMemo(() => norm(q).split(" ").filter((t) => t.length >= 2), [q]);
+  const tokens = useMemo(() => norm(q).split(" ").filter((t) => t.length >= 2).map(stem), [q]);
   const results = useMemo(() => {
     if (!tokens.length) return [];
     return docs
