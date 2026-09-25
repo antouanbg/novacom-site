@@ -51,11 +51,11 @@ export default function Header({ lang }: { lang: Lang }) {
   return (
     <header className={`sticky top-0 z-50 bg-white transition-shadow ${scrolled ? "shadow-[0_1px_0_#e2e7ee,0_8px_24px_-12px_rgba(11,34,57,.18)]" : ""}`}>
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-3 px-4 sm:gap-4 sm:px-6 lg:h-20">
-        <Link href={href(lang)} aria-label="Novacom" className="min-w-0 shrink">
+        <Link href={href(lang)} aria-label="Novacom" className="min-w-0 shrink lg:shrink-0">
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex 2xl:gap-1" aria-label="Main">
+        <nav className="hidden min-w-0 items-center gap-0.5 lg:flex 2xl:gap-1" aria-label="Main">
           {nav.map((item, i) => (
             <div key={item.path} className="group relative">
               <Link
