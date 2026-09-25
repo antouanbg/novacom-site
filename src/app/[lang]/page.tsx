@@ -235,8 +235,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <div className="mt-8 flex flex-col gap-4 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-white/85">
               {bg
-                ? "Доставяме и монтираме панели и батерийни системи Suntech. Гл. ас. д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
-                : "We supply and install Suntech PV modules and battery systems. Chief Assist. Prof. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
+                ? "Доставяме и монтираме панели и батерийни системи Suntech."
+                : "We supply and install Suntech PV modules and battery systems."}
             </p>
             <a
               href="https://www.suntech-power.com/"

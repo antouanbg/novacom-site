@@ -74,7 +74,7 @@ export default async function ProductPage({ params }: P) {
                       : "Suntech PV modules for rooftop and ground-mounted plants."}
                 </p>
                 <p className="mt-3 text-white/80">
-                  {bg ? "Гл. ас. д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech." : "Chief Assist. Prof. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
+                  {bg ? "Панели и батерийни системи Suntech за бизнеса, с гаранция от производителя и монтаж от нашия екип." : "Suntech modules and battery systems for business, with manufacturer warranty and installation by our team."}
                 </p>
                 <a href="https://www.suntech-power.com/" target="_blank" rel="noopener" className="mt-6 inline-flex rounded-xl bg-white px-5 py-3 font-bold text-ink hover:bg-sky">
                   suntech-power.com ↗
