@@ -88,6 +88,12 @@ export default function Header({ lang }: { lang: Lang }) {
         </nav>
 
         <div className="flex items-center gap-2 lg:gap-3">
+          <Link href={href(lang, "search")} aria-label={ui.search[lang]} title={ui.search[lang]} className="hidden h-11 w-11 place-items-center rounded-xl border border-line text-ink hover:border-brand hover:text-brand sm:grid">
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
+          </Link>
           <LangSwitch lang={lang} className="hidden sm:flex" />
           {/* Eight menu items + BG/EN leave no room for this button between 1024 and 1279px, so it shows on tablets (burger menu) and from xl up; the hero and every section carry the same CTA. */}
           <Link
@@ -127,6 +133,7 @@ export default function Header({ lang }: { lang: Lang }) {
               { to: href(lang, "news"), l: lang === "bg" ? "Новини" : "News", d: "M4 5h12v14H6a2 2 0 0 1-2-2zM16 9h4v8a2 2 0 0 1-2 2M7 9h6M7 13h6M7 16h4" },
               { to: href(lang, "about"), l: lang === "bg" ? "За нас" : "About", d: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0" },
               { to: href(lang, "contact"), l: lang === "bg" ? "Контакт" : "Contact", d: "M4 6h16v12H4zM4 7l8 6 8-6" },
+              { to: href(lang, "search"), l: lang === "bg" ? "Търси" : "Search", d: "M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-3.5-3.5" },
             ].map((t) => (
               <Link key={t.to} href={t.to} className="flex min-w-[76px] shrink-0 flex-col items-center gap-1 px-2 py-2 text-[11px] font-bold leading-none text-muted hover:text-ink">
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" aria-hidden>
@@ -171,6 +178,13 @@ export default function Header({ lang }: { lang: Lang }) {
               </button>
             </div>
             <nav className="flex-1 overflow-y-auto px-4 py-2 sm:px-6" aria-label="Mobile">
+              <Link href={href(lang, "search")} className="mt-2 flex items-center gap-3 rounded-2xl border-2 border-line px-4 py-3 text-lg font-bold text-ink">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+                {ui.search[lang]}
+              </Link>
               {nav.map((item, i) => (
                 <div key={item.path} className="border-b border-line">
                   {item.children ? (

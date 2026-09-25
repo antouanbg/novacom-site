@@ -98,6 +98,7 @@ export const contact = {
   phone: "+359 88 760 2323",
   phoneHref: "tel:+359887602323",
   email: "support@novacom.bg",
+  linkedin: "https://www.linkedin.com/company/novacomgroup/",
 };
 
 export const ui = {
@@ -106,6 +107,7 @@ export const ui = {
   allProjects: { bg: "Всички проекти", en: "All projects" },
   allProducts: { bg: "Всички продукти", en: "All products" },
   menu: { bg: "Меню", en: "Menu" },
+  search: { bg: "Търсене", en: "Search" },
   close: { bg: "Затвори", en: "Close" },
   rights: { bg: "Всички права запазени.", en: "All rights reserved." },
   ctaTitle: { bg: "Готови ли сте за собствена енергия?", en: "Ready to generate your own energy?" },
@@ -333,8 +335,8 @@ export const products: Product[] = [
       en: "Our own open-source EMS for PV, batteries and markets. Free deployment with a Suntech 261 kWh battery.",
     },
     intro: {
-      bg: "GrideX Energy OS е нашата индустриална система за управление на енергията, проектирана и разработена от д-р инж. Антуан Ангелов и публикувана като отворен код под MIT лиценз (github.com/antouanbg). Тя следи и управлява ФЕЦ, батерии, мрежата, товарите и зарядните станции, планира по цените на БНЕБ за ден напред, прогнозира производството по времето и пази батерията в безопасния ѝ режим чрез локален Edge gateway. Всеки клиент, който купи батерия Suntech 261 kWh, получава EMS внедрена 100% безплатно, с интеграция към неограничен брой външни инвертори, батерии и устройства.",
-      en: "GrideX Energy OS is our industrial energy management system, designed and developed by Dr. Eng. Antouan Anguelov and published as open source under the MIT licence (github.com/antouanbg). It monitors and controls PV, batteries, the grid, loads and EV chargers, schedules against IBEX day-ahead prices, forecasts production from the weather and keeps the battery inside its safety envelope through a local edge gateway. Every client who buys a Suntech 261 kWh battery gets the EMS deployed 100% free, with integration to an unlimited number of third-party inverters, batteries and devices.",
+      bg: "GrideX Energy OS е нашата индустриална система за управление на енергията, проектирана и разработена от гл. ас. д-р инж. Антуан Ангелов и публикувана като отворен код под MIT лиценз (github.com/antouanbg). Тя следи и управлява ФЕЦ, батерии, мрежата, товарите и зарядните станции, планира по цените на БНЕБ за ден напред, прогнозира производството по времето и пази батерията в безопасния ѝ режим чрез локален Edge gateway. Всеки клиент, който купи батерия Suntech 261 kWh, получава EMS внедрена 100% безплатно, с интеграция към неограничен брой външни инвертори, батерии и устройства.",
+      en: "GrideX Energy OS is our industrial energy management system, designed and developed by Chief Assist. Prof. Dr. Eng. Antouan Anguelov and published as open source under the MIT licence (github.com/antouanbg). It monitors and controls PV, batteries, the grid, loads and EV chargers, schedules against IBEX day-ahead prices, forecasts production from the weather and keeps the battery inside its safety envelope through a local edge gateway. Every client who buys a Suntech 261 kWh battery gets the EMS deployed 100% free, with integration to an unlimited number of third-party inverters, batteries and devices.",
     },
     img: REAL.deyeDisplay,
     features: [
@@ -800,7 +802,7 @@ export const gallery: { src: string; alt: L; tall?: boolean }[] = [
   { src: REAL.tracker2pExpo, alt: { bg: "Двуредов (2P) тракер: задвижване и носеща греда", en: "Two-in-portrait (2P) tracker: drive and torque tube" }, tall: true },
 ];
 
-// Utility models and inventions of Dr. Eng. Antouan Anguelov (from the client's Drive folder "Polezen_model", 2026-09-24).
+// Utility models and inventions of Chief Assist. Prof. Dr. Eng. Antouan Anguelov (from the client's Drive folder "Polezen_model", 2026-09-24).
 export const utilityModels: { title: L; year: string; ref?: string; note: L }[] = [
   {
     title: { bg: "Модулна система за хибридно двупосочно зареждане, съхранение и отдаване на енергия", en: "Modular system for hybrid bidirectional charging, storage and discharge of energy" },
@@ -837,8 +839,8 @@ export const news: NewsItem[] = [
     date: "2026-09-25",
     title: { bg: "Д-р Антуан Ангелов на Intersolar Europe 2026 в Мюнхен от името на Suntech", en: "Dr. Antouan Anguelov at Intersolar Europe 2026 in Munich on behalf of Suntech" },
     text: {
-      bg: "Д-р инж. Антуан Ангелов, собственик на Novacom и търговски представител на китайската корпорация HY Solar Group, участва от името на Suntech в най-голямото соларно изложение в Европа, Intersolar Europe 2026 в Мюнхен. Suntech отбеляза 25 години от основаването си и показа новите двулицеви модули, домашните системи с батерия и индустриалните решения за съхранение SunStorage, които доставяме и монтираме в България.",
-      en: "Dr. Eng. Antouan Anguelov, owner of Novacom and sales representative of the Chinese corporation HY Solar Group, took part on behalf of Suntech in Europe's largest solar exhibition, Intersolar Europe 2026 in Munich. Suntech celebrated 25 years since its founding and presented its new bifacial modules, residential battery systems and the SunStorage industrial storage solutions that we supply and install in Bulgaria.",
+      bg: "Гл. ас. д-р инж. Антуан Ангелов, собственик на Novacom и търговски представител на китайската корпорация HY Solar Group, участва от името на Suntech в най-голямото соларно изложение в Европа, Intersolar Europe 2026 в Мюнхен. Suntech отбеляза 25 години от основаването си и показа новите двулицеви модули, домашните системи с батерия и индустриалните решения за съхранение SunStorage, които доставяме и монтираме в България.",
+      en: "Chief Assist. Prof. Dr. Eng. Antouan Anguelov, owner of Novacom and sales representative of the Chinese corporation HY Solar Group, took part on behalf of Suntech in Europe's largest solar exhibition, Intersolar Europe 2026 in Munich. Suntech celebrated 25 years since its founding and presented its new bifacial modules, residential battery systems and the SunStorage industrial storage solutions that we supply and install in Bulgaria.",
     },
     img: REAL.intersolarSuntech,
     to: "products/storage",
@@ -916,7 +918,7 @@ export const news: NewsItem[] = [
   {
     slug: "suntech-representative",
     date: "2026-05-01",
-    title: { bg: "Д-р инж. Антуан Ангелов е търговски представител на HY Solar Group (Suntech)", en: "Dr. Eng. Antouan Anguelov is a sales representative of HY Solar Group (Suntech)" },
+    title: { bg: "Гл. ас. д-р инж. Антуан Ангелов е търговски представител на HY Solar Group (Suntech)", en: "Chief Assist. Prof. Dr. Eng. Antouan Anguelov is a sales representative of HY Solar Group (Suntech)" },
     text: {
       bg: "Собственикът на Novacom пое ролята на търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech. Първите доставки на батерийни системи Suntech SunStorage Pro 261 kWh за индустриални клиенти вече са факт.",
       en: "Novacom's owner took on the role of sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand. The first deliveries of Suntech SunStorage Pro 261 kWh battery systems to industrial clients are complete.",

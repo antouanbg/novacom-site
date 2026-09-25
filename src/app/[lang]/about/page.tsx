@@ -9,7 +9,7 @@ type P = { params: Promise<{ lang: string }> };
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const lang = (await params).lang as Lang;
   const bg = lang === "bg";
-  return seo(lang, "about", bg ? "Кои сме ние" : "Who we are", bg ? "Novacom: ФЕЦ и батерийни системи за бизнеса. Основател д-р инж. Антуан Ангелов, преподавател в ТУ-София и търговски представител на HY Solar Group (Suntech)." : "Novacom: solar PV and battery storage for business. Founded by Dr. Eng. Antouan Anguelov, lecturer at TU Sofia and sales representative of HY Solar Group (Suntech).");
+  return seo(lang, "about", bg ? "Кои сме ние" : "Who we are", bg ? "Novacom: ФЕЦ и батерийни системи за бизнеса. Основател гл. ас. д-р инж. Антуан Ангелов, преподавател в ТУ-София и търговски представител на HY Solar Group (Suntech)." : "Novacom: solar PV and battery storage for business. Founded by Chief Assist. Prof. Dr. Eng. Antouan Anguelov, lecturer at TU Sofia and sales representative of HY Solar Group (Suntech).");
 }
 
 export default async function AboutPage({ params }: P) {
@@ -50,11 +50,11 @@ export default async function AboutPage({ params }: P) {
               <Check>{bg ? "Собствени разработки: тракер „Стрела“ и EMS за индустрията" : "Own developments: the Strela tracker and an industrial EMS"}</Check>
             </ul>
             <div className="mt-8 rounded-2xl border-l-4 border-brand bg-sky p-5">
-              <p className="font-extrabold">{bg ? "д-р инж. Антуан Ангелов, основател" : "Dr. Eng. Antouan Anguelov, founder"}</p>
+              <p className="font-extrabold">{bg ? "гл. ас. д-р инж. Антуан Ангелов, основател" : "Chief Assist. Prof. Dr. Eng. Antouan Anguelov, founder"}</p>
               <p className="mt-2 text-muted">
                 {bg
-                  ? "Доктор инженер и преподавател в Технически университет – София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“. Търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
-                  : "Doctor of Engineering and lecturer at the Technical University of Sofia, where he teaches Smart Grids and Systems for Renewables. Sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
+                  ? "Главен асистент, доктор инженер, в Технически университет – София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“. Търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
+                  : "Chief Assistant Professor (PhD, Eng.) at the Technical University of Sofia, where he teaches Smart Grids and Systems for Renewables. Sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."}
               </p>
             </div>
           </Reveal>

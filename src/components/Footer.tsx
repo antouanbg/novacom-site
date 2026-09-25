@@ -22,6 +22,12 @@ export default function Footer({ lang }: { lang: Lang }) {
           <div className="mt-6 space-y-2 font-semibold">
             <a href={contact.phoneHref} className="block hover:text-brand">{contact.phone}</a>
             <a href={`mailto:${contact.email}`} className="block hover:text-brand">{contact.email}</a>
+            <a href={contact.linkedin} target="_blank" rel="noopener" className="inline-flex items-center gap-2 hover:text-brand">
+              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z" />
+              </svg>
+              LinkedIn
+            </a>
           </div>
         </div>
         {cols.map((c) => (
@@ -40,7 +46,7 @@ export default function Footer({ lang }: { lang: Lang }) {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-3 px-4 py-6 text-sm text-white/50 sm:px-6">
           <span>© {new Date().getFullYear()} Novacom Corp. {ui.rights[lang]}</span>
-          <span>novacom.bg</span>
+          <Link href={href(lang, "search")} className="hover:text-white">{ui.search[lang]}</Link>
         </div>
       </div>
     </footer>

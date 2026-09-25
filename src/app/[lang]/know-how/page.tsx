@@ -94,8 +94,8 @@ export default async function KnowHowPage({ params }: P) {
             <H2>{bg ? "GrideX Energy OS: собствена EMS с отворен код" : "GrideX Energy OS: our own open-source EMS"}</H2>
             <p className="mt-5 text-lg text-white/80">
               {bg
-                ? "Разработихме собствена система за управление на енергията, защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи със съществуващото оборудване. Системата е проектирана и разработена от д-р инж. Антуан Ангелов и е публикувана като отворен код под MIT лиценз в github.com/antouanbg: без лицензни такси и без обвързване с доставчик."
-                : "We built our own energy management system because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment. The system is designed and developed by Dr. Eng. Antouan Anguelov and published as open source under the MIT licence at github.com/antouanbg: no licence fees and no vendor lock-in."}
+                ? "Разработихме собствена система за управление на енергията, защото индустриалните обекти имат нужда от повече от мониторинг: решения в реално време кога да се зарежда батерията, кога да се реже пикът и как централата да работи със съществуващото оборудване. Системата е проектирана и разработена от гл. ас. д-р инж. Антуан Ангелов и е публикувана като отворен код под MIT лиценз в github.com/antouanbg: без лицензни такси и без обвързване с доставчик."
+                : "We built our own energy management system because industrial sites need more than monitoring: real-time decisions on when to charge the battery, when to shave the peak and how the plant should work with existing equipment. The system is designed and developed by Chief Assist. Prof. Dr. Eng. Antouan Anguelov and published as open source under the MIT licence at github.com/antouanbg: no licence fees and no vendor lock-in."}
             </p>
             <div className="mt-6 rounded-2xl border border-[#b5d86a]/40 bg-white/5 p-5">
               <p className="font-extrabold text-[#b5d86a]">{bg ? "Купувате батерия Suntech 261 kWh? EMS се внедрява 100% безплатно." : "Buying a Suntech 261 kWh battery? The EMS is deployed 100% free."}</p>
@@ -141,8 +141,8 @@ export default async function KnowHowPage({ params }: P) {
             <H2>{bg ? "Научни трудове и регистрирани полезни модели" : "Scientific publications and registered utility models"}</H2>
             <p className="mt-5 text-lg text-muted">
               {bg
-                ? "Зад разработките на Novacom стои д-р инж. Антуан Ангелов, собственик на компанията, доктор инженер и преподавател в Технически университет – София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“. Автор е на научни публикации в IEEE Xplore в областта на роевата интелигентност, автономните системи и комуникациите, и на четири регистрирани полезни модела."
-                : "Behind Novacom's developments is Dr. Eng. Antouan Anguelov, the company's owner, a doctor of engineering and lecturer at the Technical University of Sofia (Faculty of Computer Systems and Technologies), where he teaches his own course, Smart Grids and Systems for Renewables. He has authored IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and four registered utility models."}
+                ? "Зад разработките на Novacom стои гл. ас. д-р инж. Антуан Ангелов, собственик на компанията, главен асистент, доктор инженер, в Технически университет – София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“. Автор е на научни публикации в IEEE Xplore в областта на роевата интелигентност, автономните системи и комуникациите, и на четири регистрирани полезни модела."
+                : "Behind Novacom's developments is Chief Assist. Prof. Dr. Eng. Antouan Anguelov, the company's owner, a Chief Assistant Professor (PhD, Eng.) at the Technical University of Sofia (Faculty of Computer Systems and Technologies), where he teaches his own course, Smart Grids and Systems for Renewables. He has authored IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and four registered utility models."}
             </p>
             <p className="mt-4 text-lg text-muted">
               {bg
@@ -178,7 +178,7 @@ export default async function KnowHowPage({ params }: P) {
       <Section className="bg-mist" id="models">
         <Reveal>
           <Eyebrow>{bg ? "Полезни модели" : "Utility models"}</Eyebrow>
-          <H2>{bg ? "Разработки на д-р инж. Антуан Ангелов" : "Developments by Dr. Eng. Antouan Anguelov"}</H2>
+          <H2>{bg ? "Разработки на гл. ас. д-р инж. Антуан Ангелов" : "Developments by Chief Assist. Prof. Dr. Eng. Antouan Anguelov"}</H2>
         </Reveal>
         <ol className="mt-10 grid gap-4 md:grid-cols-2">
           {utilityModels.map((m, i) => (

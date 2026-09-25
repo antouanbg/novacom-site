@@ -17,6 +17,7 @@ const paths = [
   "news",
   ...about.map((a) => a.path),
   "contact",
+  "search",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

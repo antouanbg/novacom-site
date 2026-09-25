@@ -45,7 +45,7 @@ export default async function VisionPage({ params }: P) {
           <Eyebrow>{bg ? "Ръководство" : "Leadership"}</Eyebrow>
           <H2>{bg ? "Основатели и ръководство" : "Founders & leadership"}</H2>
           <div className="mt-8 max-w-3xl rounded-3xl bg-white p-7 sm:p-9">
-            <h3 className="text-2xl font-extrabold">{bg ? "д-р инж. Антуан Ангелов" : "Dr. Eng. Antouan Anguelov"}</h3>
+            <h3 className="text-2xl font-extrabold">{bg ? "гл. ас. д-р инж. Антуан Ангелов" : "Chief Assist. Prof. Dr. Eng. Antouan Anguelov"}</h3>
             <p className="mt-1 font-bold text-brand">{bg ? "Основател и собственик" : "Founder & owner"}</p>
             <p className="mt-4 text-lg text-muted">
               {bg

@@ -23,8 +23,8 @@ export default async function PartnersPage({ params }: P) {
         title={bg ? "Партньори и производители" : "Partners & manufacturers"}
         text={
           bg
-            ? "Доставяме и монтираме панели и батерийни системи Suntech. Д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
-            : "We supply and install Suntech PV modules and battery systems. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."
+            ? "Доставяме и монтираме панели и батерийни системи Suntech. Гл. ас. д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech."
+            : "We supply and install Suntech PV modules and battery systems. Chief Assist. Prof. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand."
         }
         img={PH.panelsClose}
       />
@@ -36,8 +36,8 @@ export default async function PartnersPage({ params }: P) {
               <h2 className="text-4xl font-extrabold sm:text-5xl">Suntech</h2>
               <p className="mt-5 text-lg text-white/80">
                 {bg
-                  ? "Един от най-големите световни производители на фотоволтаични модули, част от китайската корпорация HY Solar Group. Д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech. Това ни дава пряк достъп до панели и батерийни системи Suntech за бизнес и индустриални проекти."
-                  : "One of the world's largest PV module manufacturers, part of the Chinese corporation HY Solar Group. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand. This gives us direct access to Suntech modules and battery systems for commercial and industrial projects."}
+                  ? "Един от най-големите световни производители на фотоволтаични модули, част от китайската корпорация HY Solar Group. Гл. ас. д-р инж. Антуан Ангелов, собственик на Novacom, е търговски представител на китайската корпорация HY Solar Group, притежател на марката Suntech. Това ни дава пряк достъп до панели и батерийни системи Suntech за бизнес и индустриални проекти."
+                  : "One of the world's largest PV module manufacturers, part of the Chinese corporation HY Solar Group. Chief Assist. Prof. Dr. Eng. Antouan Anguelov, owner of Novacom, is a sales representative of the Chinese corporation HY Solar Group, owner of the Suntech brand. This gives us direct access to Suntech modules and battery systems for commercial and industrial projects."}
               </p>
               <a
                 href="https://www.suntech-power.com/"
@@ -77,8 +77,8 @@ export default async function PartnersPage({ params }: P) {
           <H2>{bg ? "Технически университет – София" : "Technical University of Sofia"}</H2>
           <p className="mt-5 max-w-3xl text-lg text-muted">
             {bg
-              ? "Нашият основател е доктор инженер и преподавател в ТУ-София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“."
-              : "Our founder is a doctor of engineering and lecturer at the Technical University of Sofia, where he teaches Smart Grids and Systems for Renewables."}
+              ? "Нашият основател е главен асистент, доктор инженер, в ТУ-София, където води дисциплината „Интелигентни мрежи и системи за ВЕИ“."
+              : "Our founder is a Chief Assistant Professor (PhD, Eng.) at the Technical University of Sofia, where he teaches Smart Grids and Systems for Renewables."}
           </p>
         </Reveal>
       </Section>
