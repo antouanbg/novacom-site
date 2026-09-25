@@ -6,6 +6,7 @@ import { Photo } from "@/components/ui";
 import { locales, type Lang } from "@/lib/i18n";
 import { Check, CTA, Eyebrow, H2, MonitoringPromo, PageHero, Reveal, Section } from "@/components/ui";
 import ResearchResults from "@/components/ResearchResults";
+import MediaSlider from "@/components/MediaSlider";
 
 type P = { params: Promise<{ lang: string; slug: string }> };
 
@@ -125,6 +126,17 @@ export default async function ProductPage({ params }: P) {
               </div>
             ) : p.slug === "wind" ? (
               <div className="grid gap-4">
+                <MediaSlider
+                  className="aspect-[4/3]"
+                  label={bg ? "iSTA-BREEZE WindSafe" : "iSTA-BREEZE WindSafe"}
+                  interval={4500}
+                  slides={[
+                    { type: "image", src: REAL.windHomeSystem, alt: bg ? "Домашна вятърна система: турбина, контролер и батерия" : "Home wind system: turbine, controller and battery" },
+                    { type: "image", src: REAL.windTurbineInverter, alt: bg ? "WindSafe 2000 W с on-grid инвертор 230 V" : "WindSafe 2000 W with a 230 V on-grid inverter" },
+                    { type: "image", src: REAL.windGenerator, alt: bg ? "Генератор с постоянни магнити, без редуктор" : "Permanent-magnet gearless generator" },
+                    { type: "image", src: REAL.windMastKit, alt: bg ? "Комплект мачта 4 m: секции, шарнирна плоча, обтяжки" : "4 m mast kit: sections, hinged plate, guy wires" },
+                  ]}
+                />
                 <div className="rounded-3xl bg-ink p-7 text-white">
                   <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Система 1" : "System 1"}</p>
                   <h3 className="mt-2 text-2xl font-extrabold">{bg ? "За продажба към мрежата" : "For selling to the grid"}</h3>
