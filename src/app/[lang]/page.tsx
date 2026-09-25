@@ -119,7 +119,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               {[
                 ["+45%", bg ? "повече добив от „Стрела“ спрямо фиксирана конструкция" : "more yield from Strela than a fixed structure"],
                 ["+122%", bg ? "приход на ФЕЦ с батерия Suntech 261 kWh и нашия EMS" : "plant revenue with a Suntech 261 kWh battery and our EMS"],
-                ["−45%", bg ? "пиково потребление с оптимизацията в EMS" : "grid peak with the EMS optimisation"],
+                ["−45%", bg ? "пикова мощност от мрежата с нашия EMS" : "grid peak with our EMS"],
               ].map(([n, l]) => (
                 <div key={n}>
                   <dt className="text-[clamp(1.15rem,5.6vw,1.875rem)] font-extrabold text-[#b5d86a]">{n}</dt>
