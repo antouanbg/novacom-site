@@ -272,7 +272,7 @@ export const products: Product[] = [
     ],
     items: [
       { brand: "Suntech", model: "Black Pro Bifacial STP-NT11/48QGDF 465–485 W", specs: { bg: "n-type TOPCon 3.0, двулицев стъкло-стъкло, до 24,3 % КПД, до 539 W с BNPI", en: "n-type TOPCon 3.0, bifacial glass-glass, up to 24.3 % efficiency, up to 539 W BNPI" }, featured: true, href: "products/suntech/black-pro-bifacial" },
-      { brand: "Suntech", model: "Black Pro Monofacial STP-NT11/48QGSF 465–485 W", specs: { bg: "n-type TOPCon 3.0, изцяло черен стъкло-стъкло, 21 kg, 30 г. линейна гаранция", en: "n-type TOPCon 3.0, all-black glass-glass, 21 kg, 30-year linear warranty" }, href: "products/suntech/black-pro-monofacial" }, featured: true },
+      { brand: "Suntech", model: "Black Pro Monofacial STP-NT11/48QGSF 465–485 W", specs: { bg: "n-type TOPCon 3.0, изцяло черен стъкло-стъкло, 21 kg, 30 г. линейна гаранция", en: "n-type TOPCon 3.0, all-black glass-glass, 21 kg, 30-year linear warranty" }, href: "products/suntech/black-pro-monofacial" },
       { brand: "HY Solar", model: "455 W Full Frame", specs: { bg: "TOPCon, 16BB half-cut, двулицев, стъкло/стъкло", en: "TOPCon, 16BB half-cut, bifacial, dual-glass" } },
     ],
   },
