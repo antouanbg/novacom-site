@@ -319,7 +319,7 @@ export const products: Product[] = [
       { bg: "Зареждане при ниски цени и изрязване на пикове", en: "Charging at low prices and peak shaving" },
     ],
     items: [
-      { brand: "Suntech", model: "SunStorage Pro STE-261L-125P", specs: { bg: "C&I, 261 kWh / 125 kW, течно охлаждане, 400 V AC, IP65", en: "C&I, 261 kWh / 125 kW, liquid-cooled, 400 V AC, IP65" }, featured: true },
+      { brand: "Suntech", model: "SunStorage PRO STE-261L-125P", specs: { bg: "C&I шкаф „всичко в едно“: 261 kWh / 125 kW, течно охлаждане, 1,4 m², ≥ 8 000 цикъла", en: "C&I all-in-one cabinet: 261 kWh / 125 kW, liquid-cooled, 1.4 m², ≥ 8,000 cycles" }, featured: true, href: "products/suntech/ste-261l-125p" },
       { brand: "Suntech", model: "SunStorage PRO STE-2ML-1MP", specs: { bg: "20-футов контейнер „всичко в едно“: 2,17 MWh LFP + 1,125 MW PCS, 8 000 цикъла", en: "20-ft all-in-one container: 2.17 MWh LFP + 1.125 MW PCS, 8,000 cycles" }, href: "products/suntech/ste-2ml-1mp" },
       { brand: "Suntech", model: "SunStorage MAX STE-5ML-DC", specs: { bg: "20-футов течно охлаждан DC контейнер 5,015 MWh, 1331 V, IP55", en: "20-ft liquid-cooled DC container, 5.015 MWh, 1331 V, IP55" }, href: "products/suntech/ste-5ml-dc" },
       { brand: "BYD", model: "Battery-Box Premium HVS+ / HVM+ / HVB", specs: { bg: "Високоволтови LFP кули: HVS 5,1–12,8 kWh, HVM 8,1–21,7 kWh, до 3 еднакви кули в паралел (до 38,4 / 65,1 kWh); HVB – ново поколение с по-висока мощност; сертификат VDE 2510-50", en: "High-voltage LFP towers: HVS 5.1–12.8 kWh, HVM 8.1–21.7 kWh, up to 3 identical towers in parallel (up to 38.4 / 65.1 kWh); HVB – new generation with higher power; VDE 2510-50 certified" } },
