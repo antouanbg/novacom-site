@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { suntechProducts } from "@/content/suntech";
+import { REAL } from "@/content/site";
 import type { L } from "@/lib/i18n";
 import { href, locales, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
@@ -160,6 +161,42 @@ export default async function SuntechProductPage({ params }: P) {
           {bg ? ". Стойностите подлежат на промяна от производителя." : ". Values are subject to change by the manufacturer."}
         </p>
       </Section>
+
+      {/* Open-source EMS: every Suntech battery system comes with GrideX for free */}
+      {p.parent.slug === "storage" && (
+        <Section className="bg-ink text-white">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+            <Reveal>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#b5d86a]">{bg ? "Включено безплатно" : "Included for free"}</p>
+              <H2 className="text-white">{bg ? "EMS GrideX: отворената ни система за управление, безплатна с всяка батерия Suntech" : "GrideX EMS: our open-source energy management system, free with every Suntech battery"}</H2>
+              <p className="mt-5 text-lg text-white/80">
+                {bg
+                  ? "Всеки клиент, който закупи батерийна система Suntech от нас, получава допълнително и напълно безплатно EMS GrideX Energy OS – собствената ни система за управление на енергията с отворен код (MIT лиценз, без лицензни такси). Тя управлява батерията по цените ден напред на БНЕБ, реже пиковете, прогнозира производството по времето и пази батерията в безопасния ѝ режим."
+                  : "Every client who buys a Suntech battery system from us receives, in addition and completely free, the GrideX Energy OS EMS – our own open-source energy management system (MIT licence, no licence fees). It schedules the battery against IBEX day-ahead prices, shaves peaks, forecasts production from the weather and keeps the battery inside its safety envelope."}
+              </p>
+              <ul className="mt-5 space-y-2 text-white/90">
+                {(bg
+                  ? ["Управлява неограничен брой външни устройства: инвертори, батерии, зарядни станции, товари (Modbus TCP/RTU, RS485, CAN, MQTT)", "Работи с Suntech, Deye, Sungrow, Huawei, Growatt, Fronius и други", "Мониторинг 24/365 и SMS известия през gridex.tech – безплатно", "Локален edge gateway: решенията се вземат на обекта, дори без интернет"]
+                  : ["Controls an unlimited number of external devices: inverters, batteries, EV chargers, loads (Modbus TCP/RTU, RS485, CAN, MQTT)", "Works with Suntech, Deye, Sungrow, Huawei, Growatt, Fronius and more", "24/365 monitoring and SMS alerts via gridex.tech – free", "Local edge gateway: decisions are made on site, even without internet"]
+                ).map((t) => (
+                  <li key={t} className="flex gap-2"><span className="text-[#b5d86a]" aria-hidden>✓</span><span>{t}</span></li>
+                ))}
+              </ul>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a href="https://gridex.tech/" target="_blank" rel="noopener" className="inline-flex rounded-xl bg-white px-5 py-3 font-bold text-ink hover:bg-sky">{bg ? "Демо: gridex.tech ↗" : "Demo: gridex.tech ↗"}</a>
+                <Link href={href(lang, "products/monitoring")} className="inline-flex rounded-xl border-2 border-white/40 px-5 py-3 font-bold text-white hover:bg-white/10">{bg ? "Повече за EMS GrideX" : "More about GrideX EMS"}</Link>
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="overflow-hidden rounded-3xl ring-1 ring-white/15">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={REAL.emsOverview} alt={bg ? "GrideX Energy OS: енергиен поток в реално време" : "GrideX Energy OS: real-time energy flow"} className="w-full" loading="lazy" />
+              </div>
+              <p className="mt-2 text-xs text-white/60">{bg ? "Екран от демото gridex.tech" : "Screen from the gridex.tech demo"}</p>
+            </Reveal>
+          </div>
+        </Section>
+      )}
 
       {/* Other Suntech products */}
       <Section className={p.table ? "bg-mist" : ""}>
