@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { suntechProducts } from "@/content/suntech";
-import type { L } from "@/content/site";
+import type { L } from "@/lib/i18n";
 import { href, locales, type Lang } from "@/lib/i18n";
 import { seo } from "@/lib/seo";
 import { Button, CTA, Eyebrow, H2, Reveal, Section } from "@/components/ui";

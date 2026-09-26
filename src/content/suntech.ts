@@ -1,6 +1,6 @@
 // Suntech product detail pages. Every figure comes from the official datasheets the client supplied
 // (files in public/downloads/): STP-NT11/48QGSF & 48QGDF (D0319), STE-5ML-DC (V.2605), STE-2ML-1MP (V.2603).
-import type { L } from "./site";
+import type { L } from "@/lib/i18n";
 
 export type SpecRow = [L | string, L | string];
 export type SuntechProduct = {
