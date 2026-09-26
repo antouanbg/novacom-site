@@ -238,7 +238,7 @@ export const solutions: Solution[] = [
   },
 ];
 
-export type ProductItem = { brand: string; model: string | L; specs: L; featured?: boolean };
+export type ProductItem = { brand: string; model: string | L; specs: L; featured?: boolean; href?: string };
 
 export type Product = {
   slug: string;
@@ -271,7 +271,8 @@ export const products: Product[] = [
       { bg: "Деградация първа година ≤ 1%", en: "First-year degradation ≤ 1%" },
     ],
     items: [
-      { brand: "Suntech", model: "STP455S-I54-Nsh+ 455 Wp", specs: { bg: "n-type, двулицев, черна рамка, 1952×1134×30 mm", en: "n-type, bifacial, black frame, 1952×1134×30 mm" }, featured: true },
+      { brand: "Suntech", model: "Black Pro Bifacial STP-NT11/48QGDF 465–485 W", specs: { bg: "n-type TOPCon 3.0, двулицев стъкло-стъкло, до 24,3 % КПД, до 539 W с BNPI", en: "n-type TOPCon 3.0, bifacial glass-glass, up to 24.3 % efficiency, up to 539 W BNPI" }, featured: true, href: "products/suntech/black-pro-bifacial" },
+      { brand: "Suntech", model: "Black Pro Monofacial STP-NT11/48QGSF 465–485 W", specs: { bg: "n-type TOPCon 3.0, изцяло черен стъкло-стъкло, 21 kg, 30 г. линейна гаранция", en: "n-type TOPCon 3.0, all-black glass-glass, 21 kg, 30-year linear warranty" }, href: "products/suntech/black-pro-monofacial" }, featured: true },
       { brand: "HY Solar", model: "455 W Full Frame", specs: { bg: "TOPCon, 16BB half-cut, двулицев, стъкло/стъкло", en: "TOPCon, 16BB half-cut, bifacial, dual-glass" } },
     ],
   },
@@ -320,6 +321,8 @@ export const products: Product[] = [
     ],
     items: [
       { brand: "Suntech", model: "SunStorage Pro STE-261L-125P", specs: { bg: "C&I, 261 kWh / 125 kW, течно охлаждане, 400 V AC, IP65", en: "C&I, 261 kWh / 125 kW, liquid-cooled, 400 V AC, IP65" }, featured: true },
+      { brand: "Suntech", model: "SunStorage PRO STE-2ML-1MP", specs: { bg: "20-футов контейнер „всичко в едно“: 2,17 MWh LFP + 1,125 MW PCS, 8 000 цикъла", en: "20-ft all-in-one container: 2.17 MWh LFP + 1.125 MW PCS, 8,000 cycles" }, href: "products/suntech/ste-2ml-1mp" },
+      { brand: "Suntech", model: "SunStorage MAX STE-5ML-DC", specs: { bg: "20-футов течно охлаждан DC контейнер 5,015 MWh, 1331 V, IP55", en: "20-ft liquid-cooled DC container, 5.015 MWh, 1331 V, IP55" }, href: "products/suntech/ste-5ml-dc" },
       { brand: "BYD", model: "Battery-Box Premium HVS+ / HVM+ / HVB", specs: { bg: "Високоволтови LFP кули: HVS 5,1–12,8 kWh, HVM 8,1–21,7 kWh, до 3 еднакви кули в паралел (до 38,4 / 65,1 kWh); HVB – ново поколение с по-висока мощност; сертификат VDE 2510-50", en: "High-voltage LFP towers: HVS 5.1–12.8 kWh, HVM 8.1–21.7 kWh, up to 3 identical towers in parallel (up to 38.4 / 65.1 kWh); HVB – new generation with higher power; VDE 2510-50 certified" } },
       { brand: "Deye", model: "SE-F16-C", specs: { bg: "16 kWh, LV, 10 години гаранция", en: "16 kWh, LV, 10-year warranty" } },
       { brand: "V-TAC", model: "VT-10240", specs: { bg: "10,24 kWh, LV, 6000 цикъла", en: "10.24 kWh, LV, 6,000 cycles" } },

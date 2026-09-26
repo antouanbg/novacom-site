@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { about, products, services, solutions } from "@/content/site";
+import { suntechProducts } from "@/content/suntech";
 import { href } from "@/lib/i18n";
 import { SITE } from "@/lib/seo";
 
@@ -10,6 +11,7 @@ const paths = [
   ...solutions.map((s) => `solutions/${s.slug}`),
   "products",
   ...products.map((p) => `products/${p.slug}`),
+  ...suntechProducts.map((p) => `products/suntech/${p.slug}`),
   ...services.map((s) => `services/${s.slug}`),
   "projects",
   "know-how",

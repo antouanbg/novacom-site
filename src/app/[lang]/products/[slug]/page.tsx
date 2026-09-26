@@ -1,9 +1,10 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { seo } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { GRIDEX_REPOS, products, REAL } from "@/content/site";
 import { Photo } from "@/components/ui";
-import { locales, type Lang } from "@/lib/i18n";
+import { href, locales, type Lang } from "@/lib/i18n";
 import { Check, CTA, Eyebrow, H2, MonitoringPromo, PageHero, Reveal, Section } from "@/components/ui";
 import ResearchResults from "@/components/ResearchResults";
 import MediaSlider from "@/components/MediaSlider";
@@ -52,7 +53,13 @@ export default async function ProductPage({ params }: P) {
                         {it.brand}
                         {it.featured && <span className="ml-2 rounded-full bg-brand px-2 py-0.5 text-[11px] text-white">{bg ? "Препоръчан" : "Recommended"}</span>}
                       </p>
-                      <p className="mt-1 text-lg font-extrabold">{typeof it.model === "string" ? it.model : it.model[lang]}</p>
+                      <p className="mt-1 text-lg font-extrabold">
+                        {it.href ? (
+                          <Link href={href(lang, it.href)} className="text-brand underline-offset-4 hover:underline">{typeof it.model === "string" ? it.model : it.model[lang]} →</Link>
+                        ) : (
+                          typeof it.model === "string" ? it.model : it.model[lang]
+                        )}
+                      </p>
                       <p className="mt-1 text-muted">{it.specs[lang]}</p>
                     </div>
                   ))}

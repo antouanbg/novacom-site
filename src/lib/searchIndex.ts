@@ -2,6 +2,7 @@
 // Every document is one page or one entry with a title, the text to search in and where it lives.
 import { about, gallery, news, products, projects, services, solutions, utilityModels, GRIDEX_REPOS } from "@/content/site";
 import { href, type Lang } from "./i18n";
+import { suntechProducts } from "@/content/suntech";
 
 export type SearchDoc = { title: string; text: string; href: string; section: string };
 
@@ -54,6 +55,7 @@ export function buildIndex(lang: Lang): SearchDoc[] {
   solutions.forEach((s) => add(L(s.title, lang), s, href(lang, `solutions/${s.slug}`), sec.solutions));
   products.forEach((p) => add(L(p.title, lang), p, href(lang, `products/${p.slug}`), sec.products));
   services.forEach((s) => add(L(s.title, lang), s, href(lang, `services/${s.slug}`), sec.services));
+  suntechProducts.forEach((p) => add(p.title[lang], { family: p.family, model: p.model, tagline: p.tagline, summary: p.summary, highlights: p.highlights, groups: p.groups }, href(lang, `products/suntech/${p.slug}`), sec.products));
   projects.forEach((p) => add(L((p as { title: Anything }).title, lang), p, href(lang, "projects"), sec.projects));
   news.forEach((n) => add(L(n.title, lang), n, href(lang, "news") + `#${n.slug}`, sec.news));
   utilityModels.forEach((m) => add(L((m as { title: Anything }).title, lang), m, href(lang, "know-how") + "#models", sec.knowHow));
