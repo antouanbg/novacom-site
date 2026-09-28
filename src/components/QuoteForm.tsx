@@ -2,7 +2,7 @@
 
 import { contact } from "@/content/site";
 import { GOOGLE_FORM, QUOTE_ENDPOINT } from "@/content/forms";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Lang } from "@/lib/i18n";
 
 type Status =
@@ -15,12 +15,20 @@ type Status =
 type Values = { name: string; company: string; phone: string; email: string; siteType: string; battery: string; kwp: string; location: string; message: string };
 
 // Sends the request to the Apps Script endpoint, which emails the client and answers ok/false.
-async function sendToEndpoint(values: Values, lang: Lang): Promise<{ ok: boolean; emailedClient?: boolean; error?: string }> {
+// Anti-bot: the endpoint issues a signed token when the form loads; it must come back with the
+// submission, not earlier than a few seconds later. Bots posting straight to the endpoint have none.
+async function fetchToken(): Promise<string> {
+  const res = await fetch(`${QUOTE_ENDPOINT}?action=token`, { redirect: "follow" });
+  const data = (await res.json()) as { token?: string };
+  return data.token ?? "";
+}
+
+async function sendToEndpoint(values: Values, lang: Lang, token: string, website: string): Promise<{ ok: boolean; emailedClient?: boolean; error?: string }> {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), 20000);
   try {
     // text/plain keeps the request "simple" (no CORS preflight); Apps Script answers with Access-Control-Allow-Origin: *.
-    const res = await fetch(QUOTE_ENDPOINT, { method: "POST", body: JSON.stringify({ ...values, lang }), headers: { "Content-Type": "text/plain;charset=utf-8" }, redirect: "follow", signal: ctrl.signal });
+    const res = await fetch(QUOTE_ENDPOINT, { method: "POST", body: JSON.stringify({ ...values, lang, token, website }), headers: { "Content-Type": "text/plain;charset=utf-8" }, redirect: "follow", signal: ctrl.signal });
     const data = (await res.json()) as { ok: boolean; emailedClient?: boolean; error?: string };
     return data;
   } finally {
@@ -31,6 +39,12 @@ async function sendToEndpoint(values: Values, lang: Lang): Promise<{ ok: boolean
 export default function QuoteForm({ lang }: { lang: Lang }) {
   const bg = lang === "bg";
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const tokenRef = useRef<string>("");
+  useEffect(() => {
+    let alive = true;
+    fetchToken().then((tk) => { if (alive) tokenRef.current = tk; }).catch(() => {});
+    return () => { alive = false; };
+  }, []);
   const types = bg
     ? ["Индустрия / производство", "Търговски обект / склад", "Земеделие", "Енергийна общност", "Домакинство"]
     : ["Industry / manufacturing", "Commercial / warehouse", "Agriculture", "Energy community", "Home"];
@@ -55,7 +69,7 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
   return (
     <form
       id="quote"
-      className="grid scroll-mt-28 gap-5 rounded-3xl bg-mist p-6 sm:grid-cols-2 sm:p-8"
+      className="relative grid scroll-mt-28 gap-5 rounded-3xl bg-mist p-6 sm:grid-cols-2 sm:p-8"
       onSubmit={async (e) => {
         e.preventDefault();
         if (sending) return;
@@ -71,7 +85,17 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
 
         // 1) Endpoint: the only path that can confirm the email really went out.
         try {
-          const r = await sendToEndpoint(values, lang);
+          if (!tokenRef.current) {
+            try { tokenRef.current = await fetchToken(); } catch { /* handled below */ }
+          }
+          const r = await sendToEndpoint(values, lang, tokenRef.current, get("website"));
+          if (!r.ok && r.error === "bot_too_fast") {
+            // A real person who was very quick: wait a moment and retry once.
+            await new Promise((res) => setTimeout(res, 4500));
+            const r2 = await sendToEndpoint(values, lang, tokenRef.current, get("website"));
+            if (r2.ok) { setStatus({ kind: "ok", emailedClient: r2.emailedClient !== false }); form.reset(); return; }
+            setStatus({ kind: "error", detail: r2.error }); return;
+          }
           if (r.ok) {
             setStatus({ kind: "ok", emailedClient: r.emailedClient !== false });
             form.reset();
@@ -125,7 +149,11 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
           <p>
             <span aria-hidden>❌ </span>
             {bg ? "Изпращането е неуспешно" : "Sending failed"}
-            {status.detail === "missing_required" ? (bg ? ": липсват задължителни полета (име, телефон, имейл)." : ": required fields are missing (name, phone, email).") : "."}{" "}
+            {status.detail === "missing_required"
+              ? (bg ? ": липсват задължителни полета (име, телефон, имейл)." : ": required fields are missing (name, phone, email).")
+              : status.detail?.startsWith("bot_")
+                ? (bg ? ": заявката не мина проверката за автоматично изпращане. Презаредете страницата и опитайте отново." : ": the request failed the automated-submission check. Reload the page and try again.")
+                : "."}{" "}
             {bg ? "Опитайте отново или ни пишете директно:" : "Please try again or contact us directly:"}
           </p>
           <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm">
@@ -135,6 +163,13 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
         </div>
       )}
       <h2 className="text-2xl font-extrabold sm:col-span-2">{bg ? "Вашето запитване" : "Your request"}</h2>
+      {/* Honeypot: hidden from people (and from screen readers), filled only by bots; the endpoint rejects any submission where it is set. */}
+      <div className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden" aria-hidden="true">
+        <label>
+          Website
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+        </label>
+      </div>
       <label className={label}>
         {bg ? "Име и фамилия" : "Full name"} *
         <input name="name" required className={field} autoComplete="name" />
