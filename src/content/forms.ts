@@ -6,6 +6,10 @@
 //
 // Apps Script project: "novacom.bg – формуляр за оферта (потвърждение до клиента)" (script.google.com,
 // account antouan@novacom.bg). Redeploy there → new /exec URL → paste it into `endpoint`.
+// Google reCAPTCHA v2 ("I'm not a robot") site key, created in the company Google account; the secret lives only
+// in the Apps Script properties (RECAPTCHA_SECRET). Empty string disables the widget on the site.
+export const RECAPTCHA_SITE_KEY = "6Lf9QdMtAAAAAFb-Duc9iRmg0Sl6xnr6SpdmtoHO";
+
 export const QUOTE_ENDPOINT = "https://script.google.com/macros/s/AKfycbx_lVXb4dtiIxZ6WHTq0s5lQElprCsq4IS8nF_AoJgvucRW18NUUOVsDicswBdsq4BU/exec";
 
 // Google Form "Запитване за оферта – novacom.bg" (same account): used as the archive and as the fallback.

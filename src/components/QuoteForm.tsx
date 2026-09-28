@@ -1,7 +1,7 @@
 "use client";
 
 import { contact } from "@/content/site";
-import { GOOGLE_FORM, QUOTE_ENDPOINT } from "@/content/forms";
+import { GOOGLE_FORM, QUOTE_ENDPOINT, RECAPTCHA_SITE_KEY } from "@/content/forms";
 import { useEffect, useRef, useState } from "react";
 import type { Lang } from "@/lib/i18n";
 
@@ -23,12 +23,19 @@ async function fetchToken(): Promise<string> {
   return data.token ?? "";
 }
 
-async function sendToEndpoint(values: Values, lang: Lang, token: string, website: string): Promise<{ ok: boolean; emailedClient?: boolean; error?: string }> {
+declare global {
+  interface Window {
+    grecaptcha?: { render: (el: HTMLElement, opts: Record<string, unknown>) => number; getResponse: (id?: number) => string; reset: (id?: number) => void };
+    __onRecaptchaLoad?: () => void;
+  }
+}
+
+async function sendToEndpoint(values: Values, lang: Lang, token: string, website: string, recaptcha: string): Promise<{ ok: boolean; emailedClient?: boolean; error?: string }> {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), 20000);
   try {
     // text/plain keeps the request "simple" (no CORS preflight); Apps Script answers with Access-Control-Allow-Origin: *.
-    const res = await fetch(QUOTE_ENDPOINT, { method: "POST", body: JSON.stringify({ ...values, lang, token, website }), headers: { "Content-Type": "text/plain;charset=utf-8" }, redirect: "follow", signal: ctrl.signal });
+    const res = await fetch(QUOTE_ENDPOINT, { method: "POST", body: JSON.stringify({ ...values, lang, token, website, recaptcha }), headers: { "Content-Type": "text/plain;charset=utf-8" }, redirect: "follow", signal: ctrl.signal });
     const data = (await res.json()) as { ok: boolean; emailedClient?: boolean; error?: string };
     return data;
   } finally {
@@ -40,6 +47,29 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
   const bg = lang === "bg";
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const tokenRef = useRef<string>("");
+  // reCAPTCHA v2 checkbox: loaded on demand only where the form is rendered.
+  const captchaBox = useRef<HTMLDivElement>(null);
+  const captchaId = useRef<number | null>(null);
+  const [captchaMissing, setCaptchaMissing] = useState(false);
+  useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY || !captchaBox.current) return;
+    const render = () => {
+      if (captchaId.current !== null || !window.grecaptcha || !captchaBox.current) return;
+      captchaId.current = window.grecaptcha.render(captchaBox.current, { sitekey: RECAPTCHA_SITE_KEY, hl: lang, callback: () => setCaptchaMissing(false) });
+    };
+    if (window.grecaptcha) {
+      render();
+      return;
+    }
+    window.__onRecaptchaLoad = render;
+    if (!document.querySelector('script[src*="recaptcha/api.js"]')) {
+      const sc = document.createElement("script");
+      sc.src = `https://www.google.com/recaptcha/api.js?onload=__onRecaptchaLoad&render=explicit&hl=${lang}`;
+      sc.async = true;
+      sc.defer = true;
+      document.head.appendChild(sc);
+    }
+  }, [lang]);
   useEffect(() => {
     let alive = true;
     fetchToken().then((tk) => { if (alive) tokenRef.current = tk; }).catch(() => {});
@@ -81,6 +111,12 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
           siteType: get("siteType"), battery: get("battery"), kwp: get("kwp"), location: get("location"), message: get("message"),
         };
         setLastValues(values);
+        const recaptcha = RECAPTCHA_SITE_KEY && window.grecaptcha && captchaId.current !== null ? window.grecaptcha.getResponse(captchaId.current) : "";
+        if (RECAPTCHA_SITE_KEY && !recaptcha) {
+          setCaptchaMissing(true);
+          captchaBox.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
         setStatus({ kind: "sending" });
 
         // 1) Endpoint: the only path that can confirm the email really went out.
@@ -88,17 +124,17 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
           if (!tokenRef.current) {
             try { tokenRef.current = await fetchToken(); } catch { /* handled below */ }
           }
-          const r = await sendToEndpoint(values, lang, tokenRef.current, get("website"));
+          const r = await sendToEndpoint(values, lang, tokenRef.current, get("website"), recaptcha);
           if (!r.ok && r.error === "bot_too_fast") {
             // A real person who was very quick: wait a moment and retry once.
             await new Promise((res) => setTimeout(res, 4500));
-            const r2 = await sendToEndpoint(values, lang, tokenRef.current, get("website"));
-            if (r2.ok) { setStatus({ kind: "ok", emailedClient: r2.emailedClient !== false }); form.reset(); return; }
+            const r2 = await sendToEndpoint(values, lang, tokenRef.current, get("website"), recaptcha);
+            if (r2.ok) { setStatus({ kind: "ok", emailedClient: r2.emailedClient !== false }); form.reset(); if (window.grecaptcha && captchaId.current !== null) window.grecaptcha.reset(captchaId.current); return; }
             setStatus({ kind: "error", detail: r2.error }); return;
           }
           if (r.ok) {
             setStatus({ kind: "ok", emailedClient: r.emailedClient !== false });
-            form.reset();
+            form.reset(); if (window.grecaptcha && captchaId.current !== null) window.grecaptcha.reset(captchaId.current);
             return;
           }
           setStatus({ kind: "error", detail: r.error });
@@ -151,7 +187,9 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
             {bg ? "Изпращането е неуспешно" : "Sending failed"}
             {status.detail === "missing_required"
               ? (bg ? ": липсват задължителни полета (име, телефон, имейл)." : ": required fields are missing (name, phone, email).")
-              : status.detail?.startsWith("bot_")
+              : status.detail === "bot_recaptcha"
+                ? (bg ? ": проверката „Не съм робот“ не мина. Отметнете квадратчето отново и опитайте пак." : ": the “I'm not a robot” check failed. Tick the box again and retry.")
+                : status.detail?.startsWith("bot_")
                 ? (bg ? ": заявката не мина проверката за автоматично изпращане. Презаредете страницата и опитайте отново." : ": the request failed the automated-submission check. Reload the page and try again.")
                 : "."}{" "}
             {bg ? "Опитайте отново или ни пишете директно:" : "Please try again or contact us directly:"}
@@ -219,6 +257,14 @@ export default function QuoteForm({ lang }: { lang: Lang }) {
           className={field}
         />
       </label>
+      {RECAPTCHA_SITE_KEY && (
+        <div className="sm:col-span-2">
+          <div ref={captchaBox} className="min-h-[78px]" />
+          {captchaMissing && (
+            <p className="mt-2 text-sm font-semibold text-[#b42318]" role="alert">{bg ? "Моля, потвърдете, че не сте робот." : "Please confirm you are not a robot."}</p>
+          )}
+        </div>
+      )}
       <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm text-muted">
           {bg ? "Запитването отива директно при нашия екип; ще получите потвърждение по имейл." : "Your request goes straight to our team; you will receive an email confirmation."}
