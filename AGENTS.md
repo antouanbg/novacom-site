@@ -48,6 +48,9 @@
 - Основни дейности: оферти, доставка и монтаж на ФЕЦ; системи за съхранение (BESS), **не само до 261 kWh**; продажба на продукти.
 - Референция за стил и технология: https://sonnis-energy.com (WordPress + Elementor Pro, тема Hello Elementor).
 
+## Форма за оферта / анти-бот
+- Крайна точка: Apps Script уеб приложение (акаунт antouan@novacom.bg). Защита: подписан токен + капан-поле + Google reCAPTCHA v2 (site key в `src/content/forms.ts`, secret **само** в Script Properties). Секрети никога не се записват в репото или в чата.
+
 ## Контакти за сайта
 - LinkedIn: https://www.linkedin.com/company/novacomgroup/
 - Търсене: локален индекс `src/lib/searchIndex.ts` (без външна услуга) + бутон „Търси в Google site:novacom.bg“; страница `/[lang]/search/`, noindex.
