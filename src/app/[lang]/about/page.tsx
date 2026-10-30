@@ -88,6 +88,39 @@ export default async function AboutPage({ params }: P) {
                   </p>
                 </li>
                 <li>
+                  <a href="https://www.bydbatterybox.com/" target="_blank" rel="noopener" className="text-lg font-extrabold text-brand hover:underline">
+                    BYD ↗
+                  </a>
+                  <p className="text-muted">
+                    {bg
+                      ? "Батерии Battery-Box за дома и бизнеса: Premium HVS/HVM и HVB."
+                      : "Battery-Box batteries for homes and business: Premium HVS/HVM and HVB."}
+                  </p>
+                </li>
+                <li>
+                  <a href="https://www.fronius.com/" target="_blank" rel="noopener" className="text-lg font-extrabold text-brand hover:underline">
+                    Fronius ↗
+                  </a>
+                  <p className="text-muted">
+                    {bg
+                      ? "Инвертори: Tauro за бизнеса и Symo GEN24 Plus за дома."
+                      : "Inverters: Tauro for business and Symo GEN24 Plus for homes."}
+                  </p>
+                </li>
+                <li>
+                  <span className="text-lg font-extrabold">Sinexcel</span>
+                  <p className="text-muted">
+                    <a href="https://www.sinexcel-isuna.com/en/ThreephaseHVhybridinverter2260/" target="_blank" rel="noopener" className="font-bold text-brand hover:underline">
+                      {bg ? "Инвертори ↗" : "Inverters ↗"}
+                    </a>
+                    {bg ? ": трифазни хибридни HV инвертори 22–60 kW. " : ": three-phase HV hybrid inverters, 22–60 kW. "}
+                    <a href="https://en.sinexcel.com/evcharger/80kW.php" target="_blank" rel="noopener" className="font-bold text-brand hover:underline">
+                      {bg ? "Зарядни станции ↗" : "EV chargers ↗"}
+                    </a>
+                    {bg ? ": DC зарядна станция SEC80, 80 kW, с два конектора." : ": the SEC80 DC charger, 80 kW, with two connectors."}
+                  </p>
+                </li>
+                <li>
                   <span className="text-lg font-extrabold">{bg ? "Технически университет – София" : "Technical University of Sofia"}</span>
                   <p className="text-muted">
                     {bg

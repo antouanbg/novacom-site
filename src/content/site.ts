@@ -452,7 +452,7 @@ export const partners = [
   { name: "Suntech", what: { bg: "Панели и C&I батерийни системи", en: "PV modules and C&I battery systems" } },
   { name: "HY Solar", what: { bg: "Фотоволтаични панели", en: "PV modules" } },
   { name: "Fronius", what: { bg: "Индустриални трифазни инвертори Verto Plus", en: "Verto Plus industrial three-phase inverters" } },
-  { name: "Sinexcel", what: { bg: "Индустриални PCS и хибридни инвертори за BESS", en: "Industrial PCS and hybrid inverters for BESS" } },
+  { name: "Sinexcel", what: { bg: "Хибридни инвертори, PCS за BESS и DC зарядни станции", en: "Hybrid inverters, PCS for BESS and DC EV chargers" } },
   { name: "BYD", what: { bg: "Battery-Box HVS+/HVM+/HVB, паралелно свързване", en: "Battery-Box HVS+/HVM+/HVB, parallel connection" } },
   { name: "Deye", what: { bg: "Хибридни инвертори и батерии", en: "Hybrid inverters and batteries" } },
   { name: "V-TAC", what: { bg: "Батерийни модули", en: "Battery modules" } },
