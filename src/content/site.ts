@@ -770,13 +770,13 @@ export const projectTypes = [
     path: "solutions/agriculture",
   },
   {
-    title: { bg: "Хибридни системи за дома", en: "Hybrid systems for homes" },
+    title: { bg: "Хотелски решения с ВЕИ и ФЕЦ", en: "Hotel solutions with renewables and PV" },
     text: {
-      bg: "Панели Suntech, хибриден инвертор и батерия за къщи и вили.",
-      en: "Suntech panels, a hybrid inverter and a battery for houses and villas.",
+      bg: "ФЕЦ, батерия и управление на енергията за хотели и къщи за гости: по-ниски сметки и резерв при отпадане на мрежата.",
+      en: "PV, battery storage and energy management for hotels and guesthouses: lower bills and backup during grid outages.",
     },
     img: PH.roofInstall,
-    path: "solutions/homes",
+    path: "solutions/commercial",
   },
 ];
 
