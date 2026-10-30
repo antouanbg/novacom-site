@@ -52,6 +52,11 @@ export default function ConsultingCase({ lang }: { lang: Lang }) {
       <Reveal>
         <Eyebrow>{bg ? "Пример от практиката" : "A real example"}</Eyebrow>
         <H2>{bg ? "Анализ за производствено предприятие с работа 24/7" : "Analysis for a 24/7 manufacturing plant"}</H2>
+        <p className="mt-5 max-w-3xl rounded-2xl border-l-4 border-brand bg-white p-5 text-lg font-semibold">
+          {bg
+            ? "По реалния товаров профил на вашия обект, производството на соларната ви централа и цените на електроенергията правим анализ коя батерия да ви предложим: с оптимален разход за максимална ефективност и печалба."
+            : "From your site's actual load profile, your solar plant's production and electricity prices, we analyse which battery to offer you: the optimal investment for maximum efficiency and profit."}
+        </p>
         <p className="mt-5 max-w-3xl text-lg text-muted">
           {bg
             ? "Така изглежда нашият анализ: пример от реална бюджетна оферта за система за съхранение (октомври 2026). Данните на клиента са заличени. Работим с реалните 15-минутни справки за закупената и продадената енергия за 12 месеца и с борсовата цена за всеки интервал, не с типови профили."
