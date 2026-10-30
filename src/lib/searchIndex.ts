@@ -67,7 +67,7 @@ export function buildIndex(lang: Lang): SearchDoc[] {
   const pages: [string, string, string][] = bg
     ? [
         ["", "Начало", "Novacom: фотоволтаични централи, батерии Suntech, зарядни станции и EMS GrideX за бизнеса и дома. C&I, BESS, безплатен мониторинг 24/365, супер ниски цени за проектиране, тракер Стрела +45%."],
-        ["know-how", "Ноу-хау", "Тракер Стрела, EMS GrideX с отворен код (MIT), полезни модели, IEEE публикации, Обединен енергиен клъстер, V2G-Hybrid-Charge, eHUB, проучване +122% приход, −45% пик."],
+        ["know-how", "Ноу-хау", "Тракер Стрела, EMS GrideX с отворен код (MIT), полезни модели, IEEE публикации, Обединен енергиен клъстер, V2G-Hybrid-Charge, проучване +122% приход, −45% пик."],
         ["know-how/strela", "Тракер „Стрела“", "Двуосов соларен тракер на един носещ стълб със сезонно рамо, 6 двулицеви модула, 3,5 kWp, до 45% по-висок добив, анимиран модел, мобилна версия на ремарке, 2P тракери."],
         ["projects", "Проекти", "Реализирани обекти: Перник 2 MW ФЕЦ с батерия 2,5 MWh, Михайлово 261 kWh, покривни и наземни централи, навеси, зарядни станции, галерия със снимки."],
         ["news", "Новини", "BYD и Fronius – основен вносител, Battery-Box HVB, HVS, HVM, Tauro, Symo GEN24 Plus, Intersolar Europe 2026 Мюнхен, безплатен оглед и европейско финансиране, GrideX отворен код, Перник, Стрела, Михайлово, V2G, Suntech, ОЕК."],
@@ -76,7 +76,7 @@ export function buildIndex(lang: Lang): SearchDoc[] {
       ]
     : [
         ["", "Home", "Novacom: solar PV plants, Suntech batteries, EV chargers and the GrideX EMS for business and home. C&I, BESS, free 24/365 monitoring, very low design prices, Strela tracker +45%."],
-        ["know-how", "Know-how", "Strela tracker, open-source GrideX EMS (MIT), utility models, IEEE publications, United Energy Cluster, V2G-Hybrid-Charge, eHUB, study +122% revenue, −45% peak."],
+        ["know-how", "Know-how", "Strela tracker, open-source GrideX EMS (MIT), utility models, IEEE publications, United Energy Cluster, V2G-Hybrid-Charge, study +122% revenue, −45% peak."],
         ["know-how/strela", "Strela tracker", "Two-axis solar tracker on a single mast with a seasonal arm, 6 bifacial modules, 3.5 kWp, up to 45% higher yield, animated model, mobile trailer version, 2P trackers."],
         ["projects", "Projects", "Completed sites: Pernik 2 MW PV with 2.5 MWh battery, Mihaylovo 261 kWh, rooftop and ground-mounted plants, carports, EV chargers, photo gallery."],
         ["news", "News", "BYD and Fronius main importer, Battery-Box HVB, HVS, HVM, Tauro, Symo GEN24 Plus, Intersolar Europe 2026 Munich, free site survey and EU funding, GrideX open source, Pernik, Strela, Mihaylovo, V2G, Suntech, energy cluster."],
