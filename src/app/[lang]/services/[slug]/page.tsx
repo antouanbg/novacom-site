@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { services } from "@/content/site";
 import { locales, type Lang } from "@/lib/i18n";
 import { CTA, Eyebrow, H2, MonitoringPromo, PageHero, Photo, Reveal, Section } from "@/components/ui";
+import ConsultingCase from "@/components/ConsultingCase";
 
 type P = { params: Promise<{ lang: string; slug: string }> };
 
@@ -50,6 +51,7 @@ export default async function ServicePage({ params }: P) {
           </Reveal>
         </div>
       </Section>
+      {s.slug === "consulting" && <ConsultingCase lang={lang} />}
       {s.slug === "maintenance" && <MonitoringPromo lang={lang} />}
       <CTA lang={lang} />
     </>
