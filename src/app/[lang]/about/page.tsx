@@ -53,8 +53,8 @@ export default async function AboutPage({ params }: P) {
               <p className="font-extrabold">{bg ? "Инженерен екип с академичен опит" : "An engineering team with academic experience"}</p>
               <p className="mt-2 text-muted">
                 {bg
-                  ? "Екипът ни съчетава практика на обекта с преподавателска и научна дейност в Технически университет – София: публикации в IEEE Xplore и четири регистрирани полезни модела, сред които тракерът „Стрела“."
-                  : "Our team combines site practice with teaching and research at the Technical University of Sofia: IEEE Xplore publications and four registered utility models, including the Strela tracker."}
+                  ? "Екипът ни съчетава практика на обекта с преподавателска и научна дейност в Технически университет – София: публикации в IEEE Xplore и два регистрирани полезни модела."
+                  : "Our team combines site practice with teaching and research at the Technical University of Sofia: IEEE Xplore publications and two registered utility models."}
               </p>
             </div>
           </Reveal>

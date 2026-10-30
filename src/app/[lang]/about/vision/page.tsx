@@ -49,8 +49,8 @@ export default async function VisionPage({ params }: P) {
             <p className="mt-1 font-bold text-brand">{bg ? "Инженери, преподаватели, практици" : "Engineers, lecturers, practitioners"}</p>
             <p className="mt-4 text-lg text-muted">
               {bg
-                ? "Екипът на Novacom има над 20 години опит в ИТ, телекомуникациите и възобновяемата енергия и преподавателска дейност в Технически университет – София по интелигентни мрежи и системи за ВЕИ. Зад компанията стоят публикации в IEEE Xplore и четири регистрирани полезни модела, сред които тракерът „Стрела“ и V2G система за съхранение. През 2020 г. създадохме концепцията „Обединен енергиен клъстер“ за енергийни общности."
-                : "The Novacom team brings 20+ years in IT, telecommunications and renewable energy, and teaches smart grids and renewable energy systems at the Technical University of Sofia. Behind the company stand IEEE Xplore publications and four registered utility models, including the Strela tracker and a V2G storage system. In 2020 we created the United Energy Cluster concept for energy communities."}
+                ? "Екипът на Novacom има над 20 години опит в ИТ, телекомуникациите и възобновяемата енергия и преподавателска дейност в Технически университет – София по интелигентни мрежи и системи за ВЕИ. Зад компанията стоят публикации в IEEE Xplore и два регистрирани полезни модела. През 2020 г. създадохме концепцията „Обединен енергиен клъстер“ за енергийни общности."
+                : "The Novacom team brings 20+ years in IT, telecommunications and renewable energy, and teaches smart grids and renewable energy systems at the Technical University of Sofia. Behind the company stand IEEE Xplore publications and two registered utility models. In 2020 we created the United Energy Cluster concept for energy communities."}
             </p>
           </div>
         </Reveal>

@@ -154,8 +154,8 @@ export default async function KnowHowPage({ params }: P) {
             <H2>{bg ? "Научни трудове и регистрирани полезни модели" : "Scientific publications and registered utility models"}</H2>
             <p className="mt-5 text-lg text-muted">
               {bg
-                ? "Зад разработките на Novacom стои екип с академичен опит: преподавателска дейност в Технически университет – София по интелигентни мрежи и системи за ВЕИ, научни публикации в IEEE Xplore в областта на роевата интелигентност, автономните системи и комуникациите, и четири регистрирани полезни модела."
-                : "Behind Novacom's developments is a team with academic experience: teaching smart grids and renewable energy systems at the Technical University of Sofia, IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and four registered utility models."}
+                ? "Зад разработките на Novacom стои екип с академичен опит: преподавателска дейност в Технически университет – София по интелигентни мрежи и системи за ВЕИ, научни публикации в IEEE Xplore в областта на роевата интелигентност, автономните системи и комуникациите, и два регистрирани полезни модела."
+                : "Behind Novacom's developments is a team with academic experience: teaching smart grids and renewable energy systems at the Technical University of Sofia, IEEE Xplore publications on swarm intelligence, autonomous systems and communications, and two registered utility models."}
             </p>
             <p className="mt-4 text-lg text-muted">
               {bg
@@ -166,7 +166,7 @@ export default async function KnowHowPage({ params }: P) {
           <Reveal delay={0.1}>
             <div className="grid gap-4">
               {[
-                { n: "4", t: bg ? "регистрирани полезни модела" : "registered utility models" },
+                { n: "2", t: bg ? "регистрирани полезни модела" : "registered utility models" },
                 { n: "IEEE", t: bg ? "научни публикации в IEEE Xplore" : "publications in IEEE Xplore" },
                 { n: bg ? "ТУ-София" : "TU Sofia", t: bg ? "дисциплина „Интелигентни мрежи и системи за ВЕИ“" : "course: Smart Grids and Systems for Renewables" },
                 { n: "30+", t: bg ? "години в технологиите и енергетиката" : "years in technology and energy" },
@@ -184,7 +184,7 @@ export default async function KnowHowPage({ params }: P) {
       <Section className="bg-mist" id="models">
         <Reveal>
           <Eyebrow>{bg ? "Полезни модели" : "Utility models"}</Eyebrow>
-          <H2>{bg ? "Регистрирани полезни модели на Novacom" : "Novacom's registered utility models"}</H2>
+          <H2>{bg ? "Регистрирани полезни модели" : "Registered utility models"}</H2>
         </Reveal>
         <ol className="mt-10 grid gap-4 md:grid-cols-2">
           {utilityModels.map((m, i) => (
@@ -212,9 +212,8 @@ export default async function KnowHowPage({ params }: P) {
         </Reveal>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { t: "V2G-Hybrid-Charge", y: bg ? "Полезен модел BG 5058 U1" : "Utility model BG 5058 U1", d: bg ? "Хибридна батерийна система към зарядните станции: двупосочно зареждане (V2G), буфер от нови и рециклирани клетки, AI енергиен мениджър, ISO 15118 / OCPP, работа в микромрежа." : "A hybrid battery system behind EV chargers: bidirectional charging (V2G), a buffer of new and second-life cells, an AI energy manager, ISO 15118 / OCPP, microgrid operation.", to: "products/ev-charging" },
+            { t: "V2G-Hybrid-Charge", y: bg ? "Концепция" : "Concept", d: bg ? "Хибридна батерийна система към зарядните станции: двупосочно зареждане (V2G), буфер от нови и рециклирани клетки, AI енергиен мениджър, ISO 15118 / OCPP, работа в микромрежа." : "A hybrid battery system behind EV chargers: bidirectional charging (V2G), a buffer of new and second-life cells, an AI energy manager, ISO 15118 / OCPP, microgrid operation.", to: "products/ev-charging" },
             { t: bg ? "Обединен енергиен клъстер (ОЕК)" : "United Energy Cluster (OEK)", y: "2020", d: bg ? "Модел за частна инвестиция в децентрализирана енергия: енергийни клъстери и общности с дялово участие на потребителите." : "A model for private investment in decentralised energy: energy clusters and communities with member shares.", to: "solutions/communities" },
-            { t: "GridMobility", y: "", d: bg ? "Енергийна платформа за обмен на данни между участниците на енергийния пазар, с национално финансиране." : "An energy platform for data exchange between energy-market participants, nationally funded.", to: "" },
             { t: "GrideX", y: "", d: bg ? "Производствена линия за рециклиране и повторно използване на батерийни системи. Платформата за мониторинг gridex.tech." : "A production line for recycling and reusing battery systems, plus the gridex.tech monitoring platform.", to: "" },
             { t: "eHUB", y: "", d: bg ? "Платформа за масова интеграция между различни системи, отличена с H2020 „Seal of Excellence“ и национално финансирана." : "A mass-integration platform between systems, awarded the H2020 Seal of Excellence and nationally funded.", to: "" },
           ].map((k, i) => (

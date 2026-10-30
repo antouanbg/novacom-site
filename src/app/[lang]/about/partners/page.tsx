@@ -77,8 +77,8 @@ export default async function PartnersPage({ params }: P) {
           <H2>{bg ? "Технически университет – София" : "Technical University of Sofia"}</H2>
           <p className="mt-5 max-w-3xl text-lg text-muted">
             {bg
-              ? "Екипът ни преподава в ТУ-София по интелигентни мрежи и системи за ВЕИ и стои зад публикации в IEEE Xplore и четири регистрирани полезни модела."
-              : "Our team teaches smart grids and renewable energy systems at the Technical University of Sofia and stands behind IEEE Xplore publications and four registered utility models."}
+              ? "Екипът ни преподава в ТУ-София по интелигентни мрежи и системи за ВЕИ и стои зад публикации в IEEE Xplore и два регистрирани полезни модела."
+              : "Our team teaches smart grids and renewable energy systems at the Technical University of Sofia and stands behind IEEE Xplore publications and two registered utility models."}
           </p>
         </Reveal>
       </Section>

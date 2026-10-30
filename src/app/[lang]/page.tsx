@@ -112,8 +112,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <H2>{bg ? "Не само доставяме, монтираме и пускаме в експлоатация, но и изобретяваме и иновираме." : "We don't just supply, install and commission. We invent and innovate."}</H2>
             <p className="mt-5 text-lg text-white/80">
               {bg
-                ? "Тракерът „Стрела“ е собствена разработка на Novacom: двуосов, на един стълб, следи слънцето през деня и сменя наклона по сезон. Зад него стоят собствената ни EMS GrideX с отворен код (безплатна с батерия Suntech 261 kWh), четири регистрирани полезни модела и научни публикации."
-                : "The Strela tracker is Novacom's own development: two-axis, single mast, tracking the sun through the day and changing tilt by season. Behind it stand our own open-source GrideX EMS (free with a Suntech 261 kWh battery), four registered utility models and scientific publications."}
+                ? "Тракерът „Стрела“ е собствена разработка на Novacom: двуосов, на един стълб, следи слънцето през деня и сменя наклона по сезон. Зад него стоят собствената ни EMS GrideX с отворен код (безплатна с батерия Suntech 261 kWh), два регистрирани полезни модела и научни публикации."
+                : "The Strela tracker is Novacom's own development: two-axis, single mast, tracking the sun through the day and changing tilt by season. Behind it stand our own open-source GrideX EMS (free with a Suntech 261 kWh battery), two registered utility models and scientific publications."}
             </p>
             <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-white/15 pt-6 sm:gap-4">
               {[
@@ -357,7 +357,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           {[
             { img: REAL.trackerField, t: bg ? "Тракер „Стрела“ (3P)" : "Strela (3P) tracker", d: bg ? "Собствен дизайн и разработка, единствен в България." : "Own design and development, unique in Bulgaria.", a: "know-how/strela" },
             { img: REAL.smaMeter, t: bg ? "Собствен EMS" : "In-house EMS", d: bg ? "Управление на енергията за големи индустриални системи." : "Energy management for large industrial systems.", a: "know-how#ems" },
-            { img: REAL.bessOpen, t: bg ? "Наука и полезни модели" : "Science and utility models", d: bg ? "Научни трудове и над 4 регистрирани полезни модела." : "Publications and more than 4 registered utility models.", a: "know-how#science" },
+            { img: REAL.bessOpen, t: bg ? "Наука и полезни модели" : "Science and utility models", d: bg ? "Научни трудове и два регистрирани полезни модела." : "Publications and two registered utility models.", a: "know-how#science" },
           ].map((k, i) => (
             <Reveal key={k.t} delay={i * 0.06}>
               <Link href={href(lang, k.a)} className="group block h-full overflow-hidden rounded-2xl border border-line bg-white transition hover:shadow-xl">
