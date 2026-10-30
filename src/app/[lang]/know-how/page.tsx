@@ -190,7 +190,7 @@ export default async function KnowHowPage({ params }: P) {
           {utilityModels.map((m, i) => (
             <Reveal key={m.title.en} delay={i * 0.06}>
               <li className="flex h-full gap-5 rounded-2xl bg-white p-6">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand font-extrabold text-white">{utilityModels.length - i}</span>
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand font-extrabold text-white">{i + 1}</span>
                 <div>
                   <p className="text-sm font-bold text-brand">
                     {m.year}
@@ -212,7 +212,7 @@ export default async function KnowHowPage({ params }: P) {
         </Reveal>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {[
-            { t: "V2G-Hybrid-Charge", y: bg ? "Концепция" : "Concept", d: bg ? "Хибридна батерийна система към зарядните станции: двупосочно зареждане (V2G), буфер от нови и рециклирани клетки, AI енергиен мениджър, ISO 15118 / OCPP, работа в микромрежа." : "A hybrid battery system behind EV chargers: bidirectional charging (V2G), a buffer of new and second-life cells, an AI energy manager, ISO 15118 / OCPP, microgrid operation.", to: "products/ev-charging" },
+            { t: "V2G-Hybrid-Charge", y: bg ? "Полезен модел BG 5058 U1" : "Utility model BG 5058 U1", d: bg ? "Хибридна батерийна система към зарядните станции: двупосочно зареждане (V2G), буфер от нови и рециклирани клетки, AI енергиен мениджър, ISO 15118 / OCPP, работа в микромрежа." : "A hybrid battery system behind EV chargers: bidirectional charging (V2G), a buffer of new and second-life cells, an AI energy manager, ISO 15118 / OCPP, microgrid operation.", to: "products/ev-charging" },
             { t: bg ? "Обединен енергиен клъстер (ОЕК)" : "United Energy Cluster (OEK)", y: "2020", d: bg ? "Модел за частна инвестиция в децентрализирана енергия: енергийни клъстери и общности с дялово участие на потребителите." : "A model for private investment in decentralised energy: energy clusters and communities with member shares.", to: "solutions/communities" },
             { t: "GrideX", y: "", d: bg ? "Производствена линия за рециклиране и повторно използване на батерийни системи. Платформата за мониторинг gridex.tech." : "A production line for recycling and reusing battery systems, plus the gridex.tech monitoring platform.", to: "" },
             { t: "eHUB", y: "", d: bg ? "Платформа за масова интеграция между различни системи, отличена с H2020 „Seal of Excellence“ и национално финансирана." : "A mass-integration platform between systems, awarded the H2020 Seal of Excellence and nationally funded.", to: "" },

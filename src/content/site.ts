@@ -387,7 +387,7 @@ export const products: Product[] = [
       { bg: "Динамично управление на товара: без надвишаване на партидата", en: "Dynamic load management: never exceeds your grid connection" },
       { bg: "Зареждане от ФЕЦ и батерия, приоритет на слънчевата енергия", en: "Charging from PV and battery, solar first" },
       { bg: "Хибридни батерийни системи към зарядните: бързо зареждане и при слаба партида", en: "Hybrid battery systems behind the chargers: fast charging even on a weak grid connection" },
-      { bg: "Готовност за двупосочно зареждане (V2G) с батериен буфер", en: "Ready for bidirectional charging (V2G) with a battery buffer" },
+      { bg: "Двупосочно зареждане (V2G) по собствен полезен модел BG 5058 U1", en: "Bidirectional charging (V2G) under our own utility model BG 5058 U1" },
       { bg: "Достъп с RFID/приложение и отчитане на консумацията по потребител", en: "RFID/app access and per-user consumption reporting" },
       { bg: "Включен безплатен мониторинг 24/365", en: "Free 24/365 monitoring included" },
     ],
@@ -833,16 +833,16 @@ export const gallery: { src: string; alt: L; tall?: boolean }[] = [
 // Registered utility models (from the client's Drive folder "Polezen_model", 2026-09-24). The owner asked not to be named on the site.
 export const utilityModels: { title: L; year: string; ref?: string; note: L }[] = [
   {
-    title: { bg: "Система за производство и разпределение на електроенергия", en: "System for generation and distribution of electricity" },
-    year: "2024",
-    ref: "BG 4825",
-    note: { bg: "Регистриран полезен модел: източници, батерии и консуматори като агенти, координирани от концентратор и контролен модул", en: "Registered utility model: sources, batteries and loads as agents, coordinated by a concentrator and a control module" },
+    title: { bg: "Модулна система за хибридно двупосочно зареждане, съхранение и отдаване на енергия", en: "Modular system for hybrid bidirectional charging, storage and discharge of energy" },
+    year: "2025",
+    ref: "BG 5058 U1",
+    note: { bg: "Регистриран полезен модел: V2G зарядна станция с батериен стек от нови и рециклирани клетки, EMS с енергиен баланс и мониторинг", en: "Registered utility model: V2G charger with a battery stack of new and recycled cells, EMS with energy balancing and monitoring" },
   },
   {
-    title: { bg: "Система за пренос на данни между два или повече сървъра", en: "System for data transfer between two or more servers" },
-    year: "2017",
-    ref: "BG 2789 U1",
-    note: { bg: "Регистриран полезен модел: централен координиращ сървър с криптирани комуникационни модули", en: "Registered utility model: a central coordinating server with encrypted communication modules" },
+    title: { bg: "Тестер за фотоволтаични модули", en: "Tester for photovoltaic modules" },
+    year: "2024",
+    ref: "BG 4975 U1",
+    note: { bg: "Регистриран полезен модел, съавтор, съвместно с ВТУ „Тодор Каблешков“", en: "Registered utility model, co-inventor, with the Todor Kableshkov University of Transport" },
   },
 ];
 
@@ -925,8 +925,8 @@ export const news: NewsItem[] = [
     date: "2026-07-01",
     title: { bg: "V2G-Hybrid-Charge: хибридни батерии към зарядните станции", en: "V2G-Hybrid-Charge: hybrid batteries behind EV chargers" },
     text: {
-      bg: "Концепция: батериен буфер от нови и рециклирани клетки към зарядната станция, двупосочно зареждане и AI енергиен мениджър. Бързо зареждане без скъпо увеличение на партидата.",
-      en: "A concept: a battery buffer of new and second-life cells behind the charger, bidirectional charging and an AI energy manager. Fast charging without a costly grid upgrade.",
+      bg: "Концепция и регистриран полезен модел BG 5058 U1: батериен буфер от нови и рециклирани клетки към зарядната станция, двупосочно зареждане и AI енергиен мениджър. Бързо зареждане без скъпо увеличение на партидата.",
+      en: "A concept and registered utility model BG 5058 U1: a battery buffer of new and second-life cells behind the charger, bidirectional charging and an AI energy manager. Fast charging without a costly grid upgrade.",
     },
     img: REAL.evDcAc,
     to: "products/ev-charging",
