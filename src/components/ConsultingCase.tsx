@@ -6,6 +6,8 @@ import { Check, Eyebrow, H2, Reveal, Section } from "./ui";
 // with the client's name, energy supplier, offer number and all prices removed (client's decision 2026-10-30).
 // Charts are cropped from the offer's analysis without their footnotes (they named the client).
 const IMG = "/images/consulting/case-bess-";
+// Image-only PDF (no text layer) of the same offer, with client, prices, author and letterhead blacked out.
+const DOC = "/downloads/novacom-primer-oferta-bess.pdf";
 
 export default function ConsultingCase({ lang }: { lang: Lang }) {
   const bg = lang === "bg";
@@ -146,6 +148,40 @@ export default function ConsultingCase({ lang }: { lang: Lang }) {
               : "By month: the sun's share of charging is 6–8% in winter and up to 29% in summer; sales peak in the months with high evening prices."}
           </figcaption>
         </figure>
+      </Reveal>
+
+      <Reveal className="mt-14">
+        <div className="grid items-center gap-8 rounded-3xl bg-white p-6 sm:p-8 lg:grid-cols-[1fr_1.4fr]">
+          <div>
+            <h3 className="text-xl font-extrabold">{bg ? "Вижте как изглежда цялата оферта" : "See what the full offer looks like"}</h3>
+            <p className="mt-3 text-muted">
+              {bg
+                ? "11 страници: резюме, изходни данни, схема на свързване, оразмеряване за островен режим, позиции, анализ на работата на батерията, пазарни очаквания, срокове и условия. Данните на клиента, цените и личните данни са заличени."
+                : "11 pages: summary, input data, connection scheme, sizing for island mode, line items, battery operation analysis, market outlook, timeline and terms. The client's details, prices and personal data are removed. The document is in Bulgarian."}
+            </p>
+            <a
+              href={DOC}
+              download
+              className="mt-5 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-bold text-white transition hover:bg-brand"
+            >
+              {bg ? "Изтегли примерната оферта (PDF, 1,1 MB)" : "Download the sample offer (PDF, 1.1 MB)"}
+            </a>
+          </div>
+          <a href={DOC} target="_blank" rel="noopener" className="grid grid-cols-3 gap-3" aria-label={bg ? "Отвори примерната оферта" : "Open the sample offer"}>
+            {[1, 4, 7].map((n) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={n}
+                src={`${IMG}offer-p${n}.png`}
+                alt={bg ? `Примерна оферта, страница ${n}` : `Sample offer, page ${n}`}
+                loading="lazy"
+                width={636}
+                height={900}
+                className="h-auto w-full rounded-lg shadow-md ring-1 ring-line"
+              />
+            ))}
+          </a>
+        </div>
       </Reveal>
 
       <Reveal className="mt-6">
