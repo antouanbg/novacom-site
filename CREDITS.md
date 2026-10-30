@@ -46,3 +46,8 @@
 | homesRoofShingles, homesRoofDrone, homesFlatRoofInstall + `video/homes-install.mp4` | `images/homes/`, `video/` | Снимки и видео на клиента (Drive/novacom-site-photos, 2026-09-25); лицата на монтажниците са пикселизирани; видеото е прекодирано H.264 720p, ~13 s |
 | windTurbineInverter, windMastKit, windGenerator, windHomeSystem | `images/wind/` | Продуктови изображения iSTA-BREEZE® (bg.istabreeze.store), подадени от клиента за раздела „Вятърни генератори“ (2026-09-25); текстът е преразказ на продуктовите описания, без цени |
 | emsOverview … emsSites | `images/ems/` | Екрани от демото на gridex.tech (EN), заснети headless с Chrome 1440×900 @1.5x на 2026-09-25; собствен продукт на клиента |
+
+## BYD и Fronius (2026-10-30)
+- Логото на BYD и снимките на Battery-Box HVB / HVS: bydbatterybox.com, bydenergy.com (листове с данни на производителя). BYD е търговска марка на BYD Company Ltd.
+- Логото на Fronius и снимките на Tauro и Symo GEN24 Plus: fronius.com. Fronius е търговска марка на Fronius International GmbH.
+- Използват се като партньорски материали на Novacom (вносител и партньор за България).

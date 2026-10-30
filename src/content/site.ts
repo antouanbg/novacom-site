@@ -295,6 +295,8 @@ export const products: Product[] = [
     ],
     items: [
       { brand: "Fronius", model: "Verto Plus", specs: { bg: "Индустриални трифазни стрингови инвертори за търговски и производствени покриви; австрийско производство, мониторинг Fronius Solar.web", en: "Industrial three-phase string inverters for commercial and factory roofs; made in Austria, Fronius Solar.web monitoring" }, featured: true },
+      { brand: "Fronius", model: "Tauro / Tauro ECO 50–100 kW", specs: { bg: "Трифазни стрингови инвертори за индустриални покриви и наземни централи: макс. ефективност 98,5%, IP65, двустенен корпус, пълна мощност до 50 °C", en: "Three-phase string inverters for industrial roofs and ground-mounted plants: max efficiency 98.5%, IP65, double-walled housing, full power up to 50 °C" }, href: "news/byd-fronius" },
+      { brand: "Fronius", model: "Symo GEN24 Plus 3–10 kW", specs: { bg: "Трифазен хибриден инвертор за дома: PV Point и Full Backup, работи с батериите BYD Battery-Box HVS / HVM / HVB", en: "Three-phase hybrid inverter for the home: PV Point and Full Backup, works with BYD Battery-Box HVS / HVM / HVB batteries" }, href: "news/byd-fronius" },
       { brand: "Sinexcel", model: { bg: "PWS серия (PCS / хибриден)", en: "PWS series (PCS / hybrid)" }, specs: { bg: "Двупосочни индустриални батерийни инвертори (PCS) за C&I системи за съхранение, паралелна работа, on/off-grid", en: "Bidirectional industrial battery inverters (PCS) for C&I storage, parallel operation, on/off-grid" } },
       { brand: "Deye", model: "SUN-15K-SG05LP3-EU", specs: { bg: "15 kW хибриден, трифазен, LV, Wi-Fi", en: "15 kW hybrid, three-phase, LV, Wi-Fi" } },
       { brand: "HV", model: "20 kW", specs: { bg: "Промишлен хибриден инвертор, трифазен, високоволтов", en: "Industrial hybrid inverter, three-phase, high-voltage" } },
@@ -322,7 +324,7 @@ export const products: Product[] = [
       { brand: "Suntech", model: "SunStorage PRO STE-261L-125P", specs: { bg: "C&I шкаф „всичко в едно“: 261 kWh / 125 kW, течно охлаждане, 1,4 m², ≥ 8 000 цикъла", en: "C&I all-in-one cabinet: 261 kWh / 125 kW, liquid-cooled, 1.4 m², ≥ 8,000 cycles" }, featured: true, href: "products/suntech/ste-261l-125p" },
       { brand: "Suntech", model: "SunStorage PRO STE-2ML-1MP", specs: { bg: "20-футов контейнер „всичко в едно“: 2,17 MWh LFP + 1,125 MW PCS, 8 000 цикъла", en: "20-ft all-in-one container: 2.17 MWh LFP + 1.125 MW PCS, 8,000 cycles" }, href: "products/suntech/ste-2ml-1mp" },
       { brand: "Suntech", model: "SunStorage MAX STE-5ML-DC", specs: { bg: "20-футов течно охлаждан DC контейнер 5,015 MWh, 1331 V, IP55", en: "20-ft liquid-cooled DC container, 5.015 MWh, 1331 V, IP55" }, href: "products/suntech/ste-5ml-dc" },
-      { brand: "BYD", model: "Battery-Box Premium HVS+ / HVM+ / HVB", specs: { bg: "Високоволтови LFP кули: HVS 5,1–12,8 kWh, HVM 8,1–21,7 kWh, до 3 еднакви кули в паралел (до 38,4 / 65,1 kWh); HVB – ново поколение с по-висока мощност; сертификат VDE 2510-50", en: "High-voltage LFP towers: HVS 5.1–12.8 kWh, HVM 8.1–21.7 kWh, up to 3 identical towers in parallel (up to 38.4 / 65.1 kWh); HVB – new generation with higher power; VDE 2510-50 certified" } },
+      { brand: "BYD", model: "Battery-Box Premium HVS / HVM, Battery-Box HVB", specs: { bg: "Високоволтови LFP кули: HVS 5,12–12,8 kWh, HVM 8,28–22,08 kWh, до 3 кули в паралел (до 38,4 / 66,2 kWh); HVB 5,94–29,69 kWh, до 89,07 kWh, работа до −20 °C, 15 г. гаранция; VDE 2510-50", en: "High-voltage LFP towers: HVS 5.12–12.8 kWh, HVM 8.28–22.08 kWh, up to 3 towers in parallel (up to 38.4 / 66.2 kWh); HVB 5.94–29.69 kWh, up to 89.07 kWh, operates down to −20 °C, 15-year warranty; VDE 2510-50" }, href: "news/byd-fronius" },
       { brand: "Deye", model: "SE-F16-C", specs: { bg: "16 kWh, LV, 10 години гаранция", en: "16 kWh, LV, 10-year warranty" } },
       { brand: "V-TAC", model: "VT-10240", specs: { bg: "10,24 kWh, LV, 6000 цикъла", en: "10.24 kWh, LV, 6,000 cycles" } },
       { brand: "HV", model: "25 kWh", specs: { bg: "Високоволтов промишлен модул, 6000 цикъла", en: "High-voltage industrial module, 6,000 cycles" } },
@@ -851,6 +853,17 @@ export type NewsItem = { slug: string; date: string; title: L; text: L; more?: L
 
 // Newest first. Dates are ISO; the page formats them per language.
 export const news: NewsItem[] = [
+  {
+    slug: "byd-fronius-bulgaria",
+    date: "2026-10-30",
+    title: { bg: "Novacom – основен вносител и партньор на BYD и Fronius за България", en: "Novacom – main importer and partner of BYD and Fronius for Bulgaria" },
+    text: {
+      bg: "Доставяме директно батериите BYD Battery-Box и инверторите Fronius: Battery-Box HVB (работи до −20 °C, до 89 kWh) и Fronius Tauro за бизнеса, Battery-Box Premium HVS/HVM и Fronius Symo GEN24 Plus за дома.",
+      en: "We supply BYD Battery-Box batteries and Fronius inverters directly: Battery-Box HVB (operates down to −20 °C, up to 89 kWh) and Fronius Tauro for business, Battery-Box Premium HVS/HVM and Fronius Symo GEN24 Plus for the home.",
+    },
+    img: "/images/partners/byd-fronius-banner.jpg",
+    to: "news/byd-fronius",
+  },
   {
     slug: "intersolar-2026-munich",
     date: "2026-09-25",

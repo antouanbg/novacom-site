@@ -17,6 +17,7 @@ const paths = [
   "know-how",
   "know-how/strela",
   "news",
+  "news/byd-fronius",
   ...about.map((a) => a.path),
   "contact",
   "search",
