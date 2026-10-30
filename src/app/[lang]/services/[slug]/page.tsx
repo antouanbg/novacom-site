@@ -46,7 +46,7 @@ export default async function ServicePage({ params }: P) {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="aspect-[4/5] overflow-hidden rounded-3xl sm:aspect-[4/3] lg:aspect-[4/5]">
-              <Photo id={s.img} alt={s.title[lang]} />
+              <Photo id={s.photo ?? s.img} alt={s.title[lang]} />
             </div>
           </Reveal>
         </div>

@@ -579,7 +579,7 @@ export const projects: Project[] = [
   },
 ];
 
-export type Service = { slug: string; title: L; short: L; intro: L; img: string; steps: L[] };
+export type Service = { slug: string; title: L; short: L; intro: L; img: string; photo?: string; steps: L[] };
 
 export const services: Service[] = [
   {
@@ -593,7 +593,8 @@ export const services: Service[] = [
       bg: "Преди всяка оферта правим посещение и оглед на обекта: покрив, табло, консумация, място за батерия. Анализираме потреблението и предлагаме най-подходящата система с ясна сметка за възвръщаемостта. Помагаме на все повече предприятия да използват европейските програми за финансиране на проекти за възобновяема енергия и енергийна ефективност, за да намалят зависимостта си от нарастващите цени на електроенергията на свободния пазар. Ако вече имате соларна централа или обмисляте изграждането на такава, следете нашата LinkedIn страница и новините на сайта ни за актуални новини и възможности за европейско финансиране в подкрепа на бизнеса. Свържете се с нас, за да разберете как можем да изградим решение, което да работи най-ефективно за вашия бизнес.",
       en: "Before every offer we visit and survey the site: roof, switchboard, consumption, space for a battery. We analyse your load and propose the best-fit system with a clear payback calculation. We help more and more businesses use the European funding programmes for renewable energy and energy efficiency projects, reducing their exposure to rising electricity prices on the free market. If you already have a solar plant or are considering one, follow our LinkedIn page and the news on this site for updates and European funding opportunities for businesses. Get in touch to find out how we can build the solution that works best for your business.",
     },
-    img: PH.teamLaptops,
+    img: "/images/consulting/roof-pv-industrial.jpg",
+    photo: "/images/consulting/inverters-wall.jpg",
     steps: [
       { bg: "Анализ на сметки и профил на потребление", en: "Bill and load profile analysis" },
       { bg: "Посещение и оглед на всеки обект", en: "Visit and survey of every site" },
